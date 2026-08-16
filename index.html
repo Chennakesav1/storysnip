@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StorySnip Media | Creative Content, Video Editing & Social Media</title>
+    <meta name="description"
+        content="StorySnip Media creates premium video content, social media creatives, branding and digital storytelling for businesses, creators and personal brands.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { primary: '#A130C5', deep: '#4B1A6A', black: '#0a050f', dark: '#160b1e', light: '#2d163d', white: '#FFFFFF' } },
+                    fontFamily: { playfair: ['Playfair Display', 'serif'], manrope: ['Manrope', 'sans-serif'], dm: ['DM Sans', 'sans-serif'] },
+                    animation: { 'marquee': 'marquee 30s linear infinite', 'float': 'float 6s ease-in-out infinite' },
+                    keyframes: { marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-100%)' } }, float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } } }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #A130C5;
+            --deep: #4B1A6A;
+            --black: #0a050f;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: var(--black);
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        .glass-nav {
+            background: rgba(10, 5, 15, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(161, 48, 197, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #d38eea 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: var(--black);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--black);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--deep);
+            border-radius: 10px;
+        }
+
+        .filter-hidden {
+            display: none !important;
+        }
+
+        .magnetic-btn {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+        }
+
+        /* Flowing Process Line & Moving Violet Dot */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(161, 48, 197, 0.2);
+            transform: translateX(-50%);
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 20px;
+            }
+        }
+
+        @keyframes movingDot {
+            0% {
+                top: 0;
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        .moving-violet-dot {
+            position: absolute;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 20px 8px rgba(161, 48, 197, 0.8);
+            animation: movingDot 5s ease-in-out infinite;
+            z-index: 20;
+        }
+
+        @media (max-width: 768px) {
+            .moving-violet-dot {
+                left: 20px;
+            }
+        }
+
+        /* Audio Demo Visualizer */
+        .bar {
+            width: 4px;
+            border-radius: 2px;
+            transition: height 0.2s ease, background-color 0.3s ease;
+        }
+
+        @keyframes soundWave {
+            0% {
+                height: 10px;
+            }
+
+            50% {
+                height: 40px;
+            }
+
+            100% {
+                height: 10px;
+            }
+        }
+
+        .playing .bar {
+            animation: soundWave 1.2s infinite ease-in-out alternate;
+        }
+
+        .playing .bar:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .playing .bar:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .playing .bar:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .playing .bar:nth-child(4) {
+            animation-delay: 0.5s;
+        }
+
+        .playing .bar:nth-child(5) {
+            animation-delay: 0.3s;
+        }
+
+        .playing .bar:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        /* Phone Frame */
+        .phone-frame {
+            border: 6px solid #1f1f1f;
+            border-radius: 36px;
+            box-shadow: inset 0 0 0 4px #000, 0 20px 40px rgba(0, 0, 0, 0.6);
+            position: relative;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 20px;
+            background: #000;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            z-index: 20;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <h1 class="font-playfair text-4xl text-white mb-4 animate-pulse">StorySnip Media</h1>
+        <p class="font-dm text-brand-primary text-xs tracking-widest uppercase animate-bounce">Snip the Content. Tell
+            the Story. Grow the Brand.</p>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+            <a href="index.html" class="bg-white p-1.5 rounded-md"><img src="116438.png" alt="StorySnip"
+                    class="h-8 w-auto"></a>
+            <nav class="hidden lg:flex gap-6 items-center font-manrope font-medium text-sm text-gray-300">
+                <a href="index.html" class="text-brand-primary transition-colors">Home</a>
+                <a href="about.html" target="_blank" class="hover:text-brand-primary transition-colors">About</a>
+                <a href="services.html" target="_blank" class="hover:text-brand-primary transition-colors">Services</a>
+                <a href="works.html" target="_blank" class="hover:text-brand-primary transition-colors">Works</a>
+                <a href="contact.html" target="_blank" class="hover:text-brand-primary transition-colors">Contact</a>
+            </nav>
+            <div class="hidden lg:flex items-center gap-4">
+                <div
+                    class="flex items-center text-xs font-dm text-green-400 bg-green-400/10 px-3 py-1.5 rounded-full border border-green-400/20 mr-2">
+                    <span class="w-2 h-2 rounded-full bg-green-400 mr-2 animate-pulse"></span> Accepting 2 New Retainers
+                </div>
+                <div class="magnetic-wrap"><a href="contact.html" target="_blank"
+                        class="magnetic-btn px-6 py-2.5 bg-brand-primary text-white font-dm text-sm rounded-full hover:bg-brand-deep transition-all shadow-[0_0_15px_rgba(161,48,197,0.4)]">Let's
+                        Work Together</a></div>
+            </div>
+            <button class="lg:hidden text-white p-2" id="mobile-menu-btn">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-brand-black/95 z-40 hidden flex-col items-center justify-center space-y-8 font-playfair text-3xl text-white">
+        <a href="index.html" class="mobile-link text-brand-primary">Home</a>
+        <a href="about.html" class="mobile-link">About</a>
+        <a href="services.html" class="mobile-link">Services</a>
+        <a href="works.html" class="mobile-link">Portfolio</a>
+        <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section
+            class="pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 lg:px-12 max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16 relative min-h-screen">
+            <div
+                class="absolute top-20 left-0 w-[500px] h-[500px] bg-brand-deep/20 rounded-full blur-[120px] -z-10 parallax-bg">
+            </div>
+            <div class="w-full lg:w-1/2 flex flex-col items-start z-10" data-aos="fade-right">
+                <div
+                    class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-6 px-4 py-1.5 bg-brand-primary/10 border border-brand-primary/20 rounded-full">
+                    Creative Media Studio</div>
+                <h1 class="font-playfair text-5xl lg:text-7xl leading-[1.1] text-white mb-6">We Turn Content Into
+                    Stories That <span class="text-gradient italic">Grow Brands.</span></h1>
+                <p class="font-manrope text-lg text-gray-400 mb-10 max-w-lg leading-relaxed">Premium video editing,
+                    creative content, social media management and digital storytelling for businesses, creators,
+                    educators, entrepreneurs and personal brands.</p>
+                <div class="flex flex-wrap gap-4 items-center mb-8">
+                    <div class="magnetic-wrap"><a href="contact.html" target="_blank"
+                            class="magnetic-btn px-8 py-4 bg-brand-primary text-white font-dm text-sm rounded-full hover:bg-brand-deep shadow-[0_0_20px_rgba(161,48,197,0.5)]">Start
+                            a Project</a></div>
+                    <div class="magnetic-wrap"><a href="works.html" target="_blank"
+                            class="magnetic-btn px-8 py-4 border border-brand-primary/50 text-white font-dm text-sm rounded-full hover:bg-brand-primary/10">View
+                            Our Work</a></div>
+                </div>
+                <p class="font-dm text-xs tracking-widest text-gray-500 uppercase">Creative Strategy • Content • Editing
+                    • Social Growth</p>
+            </div>
+            <div class="w-full lg:w-1/2 relative z-10" data-aos="fade-left" data-aos-delay="200">
+                <div
+                    class="relative rounded-[2rem] overflow-hidden border border-brand-light shadow-2xl group animate-float">
+                    <img src="116434.jpg" alt="StorySnip Media Banner"
+                        class="w-full h-auto lg:h-[600px] object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    <div
+                        class="absolute bottom-6 left-6 bg-brand-black/80 backdrop-blur-md px-6 py-3 rounded-full border border-brand-light">
+                        <p class="font-dm text-xs text-white uppercase tracking-wider">Founder / Creative Strategist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Marquee -->
+        <div class="w-full bg-brand-primary/10 border-y border-brand-primary/20 py-4 flex overflow-hidden">
+            <div
+                class="whitespace-nowrap animate-marquee flex items-center font-dm text-sm font-bold tracking-widest text-brand-primary uppercase">
+                <span class="mx-8">VIDEO EDITING</span> • <span class="mx-8">SOCIAL MEDIA</span> • <span
+                    class="mx-8">CONTENT CREATION</span> • <span class="mx-8">BRAND STORYTELLING</span> • <span
+                    class="mx-8">CREATIVE STRATEGY</span> • <span class="mx-8">DIGITAL GROWTH</span> •
+                <span class="mx-8">VIDEO EDITING</span> • <span class="mx-8">SOCIAL MEDIA</span> • <span
+                    class="mx-8">CONTENT CREATION</span> • <span class="mx-8">BRAND STORYTELLING</span> • <span
+                    class="mx-8">CREATIVE STRATEGY</span> • <span class="mx-8">DIGITAL GROWTH</span>
+            </div>
+        </div>
+
+        <!-- Animated Stats -->
+        <section class="py-20 px-6 lg:px-12 bg-brand-primary/5 border-b border-brand-light">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div data-aos="fade-up">
+                    <h3 class="font-playfair text-5xl text-white mb-2"><span class="count-up" data-target="5"
+                            data-suffix="M+">0</span></h3>
+                    <p class="font-dm text-xs text-brand-primary uppercase tracking-widest">Organic Views</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-playfair text-5xl text-white mb-2"><span class="count-up" data-target="150"
+                            data-suffix="+">0</span></h3>
+                    <p class="font-dm text-xs text-brand-primary uppercase tracking-widest">Projects Delivered</p>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-playfair text-5xl text-white mb-2"><span class="count-up" data-target="50"
+                            data-suffix="+">0</span></h3>
+                    <p class="font-dm text-xs text-brand-primary uppercase tracking-widest">Happy Brands</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-24 px-6 lg:px-12 bg-brand-dark border-b border-brand-light">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right"><img src="116440.jpg"
+                        class="w-full rounded-2xl border border-brand-light shadow-2xl object-cover h-[500px]"></div>
+                <div data-aos="fade-left">
+                    <span class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-4 block">Meet
+                        The Studio</span>
+                    <h2 class="font-playfair text-4xl lg:text-5xl text-white mb-6">Every Brand Has a Story. <br><span
+                            class="text-brand-primary italic">We Help You Tell It Better.</span></h2>
+                    <p class="font-manrope text-lg text-gray-300 mb-6 leading-relaxed">StorySnip Media is a creative
+                        media studio focused on turning raw ideas, footage, and concepts into meaningful digital
+                        experiences. We don't just execute instructions; we engineer stories with precision.</p>
+                    <a href="about.html" target="_blank"
+                        class="inline-block px-6 py-3 border border-brand-light text-white font-dm text-sm rounded-full hover:bg-brand-primary transition-colors">Read
+                        Our Story</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section (6 Services) -->
+        <section class="py-24 px-6 lg:px-12 bg-brand-black border-b border-brand-light">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up"><span
+                        class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-4 block">Our
+                        Expertise</span>
+                    <h2 class="font-playfair text-4xl lg:text-5xl text-white mb-4">What We Create</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Service 1 -->
+                    <div class="bg-brand-dark p-8 rounded-2xl border border-brand-light group hover:-translate-y-2 transition-transform duration-300"
+                        data-aos="fade-up">
+                        <div class="font-playfair text-4xl text-brand-primary opacity-50 mb-4">01</div>
+                        <h3 class="font-playfair text-2xl text-white mb-3">Video Editing</h3>
+                        <p class="font-manrope text-gray-400 text-sm mb-6">Reels, Shorts, YouTube videos, cinematic
+                            edits, promotional videos, and motion graphics.</p>
+                        <a href="service-video-editing.html" target="_blank"
+                            class="font-dm text-xs text-brand-primary uppercase tracking-widest group-hover:text-white transition-colors">Explore
+                            Service →</a>
+                    </div>
+                    <!-- Service 2 -->
+                    <div class="bg-brand-dark p-8 rounded-2xl border border-brand-light group hover:-translate-y-2 transition-transform duration-300"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="font-playfair text-4xl text-brand-primary opacity-50 mb-4">02</div>
+                        <h3 class="font-playfair text-2xl text-white mb-3">Social Media Mgt.</h3>
+                        <p class="font-manrope text-gray-400 text-sm mb-6">Instagram & Facebook management, content
+                            calendars, posting, captions, and hashtag strategies.</p>
+                        <a href="service-social-media.html" target="_blank"
+                            class="font-dm text-xs text-brand-primary uppercase tracking-widest group-hover:text-white transition-colors">Explore
+                            Service →</a>
+                    </div>
+                    <!-- Service 3 -->
+                    <div class="bg-brand-dark p-8 rounded-2xl border border-brand-light group hover:-translate-y-2 transition-transform duration-300"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="font-playfair text-4xl text-brand-primary opacity-50 mb-4">03</div>
+                        <h3 class="font-playfair text-2xl text-white mb-3">Creative Content</h3>
+                        <p class="font-manrope text-gray-400 text-sm mb-6">Social media posts, Reels concepts,
+                            carousels, promotional creatives, and campaign content.</p>
+                        <a href="service-creative-content.html" target="_blank"
+                            class="font-dm text-xs text-brand-primary uppercase tracking-widest group-hover:text-white transition-colors">Explore
+                            Service →</a>
+                    </div>
+                    <!-- Service 4 -->
+                    <div class="bg-brand-dark p-8 rounded-2xl border border-brand-light group hover:-translate-y-2 transition-transform duration-300"
+                        data-aos="fade-up">
+                        <div class="font-playfair text-4xl text-brand-primary opacity-50 mb-4">04</div>
+                        <h3 class="font-playfair text-2xl text-white mb-3">Branding</h3>
+                        <p class="font-manrope text-gray-400 text-sm mb-6">Visual identity systems, social media
+                            branding, creative direction, and promotional materials.</p>
+                        <a href="service-branding.html" target="_blank"
+                            class="font-dm text-xs text-brand-primary uppercase tracking-widest group-hover:text-white transition-colors">Explore
+                            Service →</a>
+                    </div>
+                    <!-- Service 5 -->
+                    <div class="bg-brand-dark p-8 rounded-2xl border border-brand-light group hover:-translate-y-2 transition-transform duration-300"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="font-playfair text-4xl text-brand-primary opacity-50 mb-4">05</div>
+                        <h3 class="font-playfair text-2xl text-white mb-3">Personal Branding</h3>
+                        <p class="font-manrope text-gray-400 text-sm mb-6">Tailored creative support built
+                            exclusively for entrepreneurs, influencers, coaches, and creators.</p>
+                        <a href="service-personal-branding.html" target="_blank"
+                            class="font-dm text-xs text-brand-primary uppercase tracking-widest group-hover:text-white transition-colors">Explore
+                            Service →</a>
+                    </div>
+                    <!-- Service 6 -->
+                    <div class="bg-brand-dark p-8 rounded-2xl border border-brand-light group hover:-translate-y-2 transition-transform duration-300"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="font-playfair text-4xl text-brand-primary opacity-50 mb-4">06</div>
+                        <h3 class="font-playfair text-2xl text-white mb-3">Digital Marketing</h3>
+                        <p class="font-manrope text-gray-400 text-sm mb-6">High-converting ad creatives, social
+                            campaigns, promotional videos, and landing page visuals.</p>
+                        <a href="service-digital-marketing.html" target="_blank"
+                            class="font-dm text-xs text-brand-primary uppercase tracking-widest group-hover:text-white transition-colors">Explore
+                            Service →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Showcase (Slider, Audio, Phones) -->
+        <section class="py-24 px-6 lg:px-12 bg-brand-dark border-b border-brand-light overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-4 block">The
+                        Technical Edge</span>
+                    <h2 class="font-playfair text-4xl lg:text-5xl text-white mb-4">See & Hear The Difference</h2>
+                    <p class="font-manrope text-lg text-gray-400 max-w-2xl mx-auto">We engineer viewer retention through
+                        premium color grading, spatial sound design, and platform-native formatting.</p>
+                </div>
+
+                <!-- Before & After -->
+                <div class="mb-24" data-aos="fade-up">
+                    <h3 class="font-playfair text-2xl text-white mb-6 text-center">Cinematic Color Grading</h3>
+                    <div class="relative w-full max-w-5xl mx-auto aspect-[16/9] rounded-3xl overflow-hidden cursor-ew-resize select-none border border-brand-light shadow-2xl"
+                        id="ba-container">
+                        <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop"
+                            class="absolute inset-0 w-full h-full object-cover grayscale opacity-60 contrast-75">
+                        <div
+                            class="absolute bottom-6 left-6 bg-black/60 px-4 py-2 rounded-full text-xs font-dm tracking-widest text-white backdrop-blur uppercase">
+                            Raw / Log Profile</div>
+                        <div class="absolute inset-0 w-1/2 overflow-hidden border-r-2 border-brand-primary shadow-[2px_0_15px_rgba(161,48,197,0.5)]"
+                            id="ba-after">
+                            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop"
+                                class="absolute inset-0 h-full object-cover max-w-none saturate-150" id="ba-after-img">
+                            <div
+                                class="absolute bottom-6 right-6 bg-brand-primary/80 px-4 py-2 rounded-full text-xs font-dm tracking-widest text-white backdrop-blur uppercase z-10 whitespace-nowrap">
+                                StorySnip Mastered</div>
+                        </div>
+                        <div class="absolute top-0 bottom-0 left-1/2 w-1 bg-white transform -translate-x-1/2"
+                            id="ba-handle">
+                            <div
+                                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center text-brand-primary">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M8 9l4-4 4 4m0 6l-4 4-4-4"></path>
+                                </svg></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Audio Demo -->
+                    <div data-aos="fade-right">
+                        <h3 class="font-playfair text-3xl text-white mb-4">Immersive Sound Design</h3>
+                        <p class="font-manrope text-gray-400 mb-8">Toggle our interactive audio layers to see how we
+                            build depth and impact through SFX and scoring.</p>
+                        <div class="bg-brand-black p-8 rounded-3xl border border-brand-light relative">
+                            <div class="h-16 flex items-end justify-center gap-1 mb-8" id="audio-visualizer">
+                                <div class="bar h-2 bg-current opacity-50"></div>
+                                <div class="bar h-3 bg-current opacity-70"></div>
+                                <div class="bar h-4 bg-current opacity-90"></div>
+                                <div class="bar h-6 bg-current"></div>
+                                <div class="bar h-3 bg-current opacity-70"></div>
+                                <div class="bar h-2 bg-current opacity-50"></div>
+                                <div class="bar h-5 bg-current opacity-80"></div>
+                                <div class="bar h-2 bg-current opacity-50"></div>
+                                <div class="bar h-4 bg-current opacity-90"></div>
+                                <div class="bar h-7 bg-current"></div>
+                                <div class="bar h-3 bg-current opacity-70"></div>
+                                <div class="bar h-2 bg-current opacity-50"></div>
+                            </div>
+                            <div class="flex flex-col gap-4">
+                                <button onclick="toggleAudio('raw')" id="audio-raw"
+                                    class="w-full flex items-center justify-between px-6 py-4 rounded-xl border border-brand-light bg-brand-primary text-white font-dm text-sm uppercase tracking-wider transition-colors">
+                                    <span>Raw Camera Audio</span><span
+                                        class="text-xs bg-black/30 px-2 py-1 rounded">Active</span>
+                                </button>
+                                <button onclick="toggleAudio('pro')" id="audio-pro"
+                                    class="w-full flex items-center justify-between px-6 py-4 rounded-xl border border-brand-light bg-brand-dark text-gray-400 font-dm text-sm uppercase tracking-wider transition-colors">
+                                    <span>StorySnip SFX & Music</span><span
+                                        class="text-xs border border-current px-2 py-1 rounded hidden toggle-label">Active</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phones -->
+                    <div data-aos="fade-left" class="pl-0 lg:pl-12">
+                        <h3 class="font-playfair text-3xl text-white mb-4 text-center lg:text-left">Built for the Feed
+                        </h3>
+                        <p class="font-manrope text-gray-400 mb-8 text-center lg:text-left">Native formatting for Reels,
+                            TikTok, and Shorts.</p>
+                        <div class="swiper phoneSwiper w-full py-10" style="padding-left: 20px; padding-right: 20px;">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide w-[260px]">
+                                    <div class="phone-frame w-full h-[520px]">
+                                        <div class="phone-notch"></div>
+                                        <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=600&auto=format&fit=crop"
+                                            class="w-full h-full object-cover">
+                                        <div class="absolute bottom-6 left-4">
+                                            <p class="font-dm font-bold text-white text-sm">@storysnip</p>
+                                            <p class="font-manrope text-xs text-white">Hooks are key 🚀</p>
+                                        </div>
+                                        <div
+                                            class="absolute bottom-6 right-3 flex flex-col gap-4 text-white items-center">
+                                            <div class="flex flex-col items-center"><svg class="w-6 h-6 fill-current"
+                                                    viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg><span class="text-[10px]">124K</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide w-[260px]">
+                                    <div class="phone-frame w-full h-[520px]">
+                                        <div class="phone-notch"></div>
+                                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=600&auto=format&fit=crop"
+                                            class="w-full h-full object-cover">
+                                        <div class="absolute bottom-6 left-4">
+                                            <p class="font-dm font-bold text-white text-sm">@clientbrand</p>
+                                        </div>
+                                        <div
+                                            class="absolute bottom-6 right-3 flex flex-col gap-4 text-white items-center">
+                                            <div class="flex flex-col items-center"><svg class="w-6 h-6 fill-current"
+                                                    viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                                </svg><span class="text-[10px]">89K</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Timeline (WITH MOVING VIOLET DOT) -->
+        <section class="py-24 px-6 lg:px-12 bg-brand-black border-b border-brand-light relative overflow-hidden">
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <span class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-4 block">The
+                        Workflow</span>
+                    <h2 class="font-playfair text-4xl lg:text-5xl text-white">How We Work</h2>
+                </div>
+                <div class="relative pb-10">
+                    <div class="timeline-line"></div>
+                    <div class="moving-violet-dot"></div>
+                    <div class="space-y-16 pt-4">
+                        <div class="relative flex items-center justify-between md:justify-normal w-full"
+                            data-aos="fade-up">
+                            <div class="md:w-5/12 text-right pr-8 hidden md:block">
+                                <h4 class="font-playfair text-3xl text-white mb-2">Discover</h4>
+                                <p class="text-gray-400 text-sm">Understand the brand, audience and objective.</p>
+                            </div>
+                            <div
+                                class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-black rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0">
+                            </div>
+                            <div class="md:w-5/12 pl-12 md:hidden">
+                                <h4 class="font-playfair text-2xl text-white mb-2">01. Discover</h4>
+                                <p class="text-gray-400 text-sm">Understand the brand and objective.</p>
+                            </div>
+                        </div>
+                        <div class="relative flex items-center justify-between md:justify-end w-full"
+                            data-aos="fade-up">
+                            <div
+                                class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-black rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0">
+                            </div>
+                            <div class="md:w-5/12 pl-12 md:pl-8">
+                                <h4 class="font-playfair text-2xl md:text-3xl text-white mb-2"><span
+                                        class="md:hidden">02. </span>Strategize</h4>
+                                <p class="text-gray-400 text-sm">Develop the content and creative direction.</p>
+                            </div>
+                        </div>
+                        <div class="relative flex items-center justify-between md:justify-normal w-full"
+                            data-aos="fade-up">
+                            <div class="md:w-5/12 text-right pr-8 hidden md:block">
+                                <h4 class="font-playfair text-3xl text-white mb-2">Create</h4>
+                                <p class="text-gray-400 text-sm">Edit, design and produce the high-end content.</p>
+                            </div>
+                            <div
+                                class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-black rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0">
+                            </div>
+                            <div class="md:w-5/12 pl-12 md:hidden">
+                                <h4 class="font-playfair text-2xl text-white mb-2">03. Create</h4>
+                                <p class="text-gray-400 text-sm">Edit, design and produce the content.</p>
+                            </div>
+                        </div>
+                        <div class="relative flex items-center justify-between md:justify-end w-full"
+                            data-aos="fade-up">
+                            <div
+                                class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-black rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0">
+                            </div>
+                            <div class="md:w-5/12 pl-12 md:pl-8">
+                                <h4 class="font-playfair text-2xl md:text-3xl text-white mb-2"><span
+                                        class="md:hidden">04. </span>Refine</h4>
+                                <p class="text-gray-400 text-sm">Review feedback and improve the final result.</p>
+                            </div>
+                        </div>
+                        <div class="relative flex items-center justify-between md:justify-normal w-full"
+                            data-aos="fade-up">
+                            <div class="md:w-5/12 text-right pr-8 hidden md:block">
+                                <h4 class="font-playfair text-3xl text-white mb-2">Deliver</h4>
+                                <p class="text-gray-400 text-sm">Deliver polished, platform-ready content.</p>
+                            </div>
+                            <div
+                                class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-black rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0">
+                            </div>
+                            <div class="md:w-5/12 pl-12 md:hidden">
+                                <h4 class="font-playfair text-2xl text-white mb-2">05. Deliver</h4>
+                                <p class="text-gray-400 text-sm">Deliver platform-ready content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filterable Portfolio -->
+        <section class="py-24 px-6 lg:px-12 bg-brand-dark border-t border-brand-light">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-12" data-aos="fade-up">
+                    <h2 class="font-playfair text-4xl lg:text-5xl text-white mb-4">Selected Work</h2>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 mb-12 font-dm text-sm" data-aos="fade-up">
+                    <button class="px-6 py-2 bg-brand-primary text-white rounded-full filter-btn"
+                        data-filter="all">All</button>
+                    <button
+                        class="px-6 py-2 border border-brand-light text-gray-400 rounded-full hover:border-brand-primary hover:text-white transition-colors filter-btn"
+                        data-filter="video">Video Editing</button>
+                    <button
+                        class="px-6 py-2 border border-brand-light text-gray-400 rounded-full hover:border-brand-primary hover:text-white transition-colors filter-btn"
+                        data-filter="social">Social Media</button>
+                    <button
+                        class="px-6 py-2 border border-brand-light text-gray-400 rounded-full hover:border-brand-primary hover:text-white transition-colors filter-btn"
+                        data-filter="brand">Branding</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 portfolio-grid">
+                    <div class="portfolio-item relative rounded-2xl overflow-hidden h-[350px] group"
+                        data-category="video" data-aos="fade-up">
+                        <img src="image.jpg"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div
+                            class="absolute top-4 left-4 bg-brand-primary px-3 py-1 text-white font-dm text-xs rounded-full">
+                            Demo Project</div>
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-brand-black opacity-90 p-6 flex flex-col justify-end">
+                            <p class="font-dm text-brand-primary text-xs uppercase tracking-wider mb-2">Video Editing
+                            </p>
+                            <h3 class="font-playfair text-xl text-white mb-4">Entrepreneur Mini-Doc</h3>
+                            <a href="work-details.html" target="_blank"
+                                class="inline-block px-6 py-2 border border-white/30 text-white font-dm text-sm rounded-full w-fit hover:bg-white hover:text-brand-black transition-colors">View
+                                Project</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item relative rounded-2xl overflow-hidden h-[350px] group"
+                        data-category="social" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-brand-black opacity-90 p-6 flex flex-col justify-end">
+                            <p class="font-dm text-brand-primary text-xs uppercase tracking-wider mb-2">Social Media</p>
+                            <h3 class="font-playfair text-xl text-white mb-4">B2B Business Growth</h3>
+                            <a href="work-details.html" target="_blank"
+                                class="inline-block px-6 py-2 border border-white/30 text-white font-dm text-sm rounded-full w-fit hover:bg-white hover:text-brand-black transition-colors">View
+                                Project</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item relative rounded-2xl overflow-hidden h-[350px] group"
+                        data-category="brand" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=1000"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-brand-black opacity-90 p-6 flex flex-col justify-end">
+                            <p class="font-dm text-brand-primary text-xs uppercase tracking-wider mb-2">Branding</p>
+                            <h3 class="font-playfair text-xl text-white mb-4">Brand Launch Campaign</h3>
+                            <a href="work-details.html" target="_blank"
+                                class="inline-block px-6 py-2 border border-white/30 text-white font-dm text-sm rounded-full w-fit hover:bg-white hover:text-brand-black transition-colors">View
+                                Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12"><a href="works.html" target="_blank"
+                        class="inline-block px-8 py-3 bg-brand-primary text-white font-dm rounded-full hover:bg-brand-deep transition-colors">View
+                        All Works</a></div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="py-24 px-6 lg:px-12 bg-brand-black">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="font-playfair text-4xl lg:text-5xl text-white mb-4">Choose the Right Creative Support
+                    </h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <div class="bg-brand-dark p-8 rounded-3xl border border-brand-light" data-aos="fade-up">
+                        <h3 class="font-playfair text-2xl text-white mb-2">Starter</h3>
+                        <p class="font-manrope text-sm text-gray-400 mb-6">For creators starting out.</p>
+                        <div class="magnetic-wrap"><a href="contact.html" target="_blank"
+                                class="magnetic-btn block w-full py-3 text-center border border-brand-light text-white font-dm rounded-full hover:bg-brand-primary transition-colors">Get
+                                Started</a></div>
+                    </div>
+                    <div class="bg-brand-deep/20 p-10 rounded-3xl border border-brand-primary transform md:-translate-y-4 shadow-[0_0_30px_rgba(161,48,197,0.15)]"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="text-center bg-brand-primary font-dm text-[10px] font-bold uppercase tracking-widest text-white mb-4 py-1 rounded-full">
+                            Most Popular</div>
+                        <h3 class="font-playfair text-3xl text-white mb-2">Growth</h3>
+                        <p class="font-manrope text-sm text-gray-300 mb-6">For brands needing consistency.</p>
+                        <div class="magnetic-wrap"><a href="contact.html" target="_blank"
+                                class="magnetic-btn block w-full py-4 text-center bg-brand-primary text-white font-dm font-bold rounded-full hover:bg-brand-deep transition-colors">Custom
+                                Quote</a></div>
+                    </div>
+                    <div class="bg-brand-dark p-8 rounded-3xl border border-brand-light" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <h3 class="font-playfair text-2xl text-white mb-2">Premium</h3>
+                        <p class="font-manrope text-sm text-gray-400 mb-6">For established businesses.</p>
+                        <div class="magnetic-wrap"><a href="contact.html" target="_blank"
+                                class="magnetic-btn block w-full py-3 text-center border border-brand-light text-white font-dm rounded-full hover:bg-brand-primary transition-colors">Let's
+                                Talk</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flowing Image Marquee -->
+        <section class="py-12 bg-brand-primary/5 border-y border-brand-primary/20 overflow-hidden relative">
+            <div
+                class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-brand-black to-transparent z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-brand-black to-transparent z-10 pointer-events-none">
+            </div>
+            <div class="flex animate-marquee gap-6 w-max">
+                <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=400"
+                    class="h-48 w-72 object-cover rounded-xl border border-brand-light">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400"
+                    class="h-48 w-72 object-cover rounded-xl border border-brand-light">
+                
+                <img src="https://images.unsplash.com/photo-1626544827763-d516dce335e2?q=80&w=400"
+                    class="h-48 w-72 object-cover rounded-xl border border-brand-light">
+                <img src="https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=400"
+                    class="h-48 w-72 object-cover rounded-xl border border-brand-light">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=400"
+                    class="h-48 w-72 object-cover rounded-xl border border-brand-light">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=400"
+                    class="h-48 w-72 object-cover rounded-xl border border-brand-light">
+                <img src="https://images.unsplash.com/photo-1626544827763-d516dce335e2?q=80&w=400"
+                    class="h-48 w-72 object-cover rounded-xl border border-brand-light">
+            </div>
+        </section>
+
+
+        <section class="py-24 px-6 lg:px-12 bg-brand-dark relative overflow-hidden">
+            <div
+                class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-brand-primary/10 rounded-full blur-[100px] parallax-bg">
+            </div>
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-16 relative z-10">
+                <div class="lg:col-span-2" data-aos="fade-right">
+                    <h2 class="font-playfair text-4xl lg:text-5xl text-white mb-6">Have an Idea? Let's Turn It Into
+                        Content.</h2>
+                    <p class="font-manrope text-gray-400 mb-10">Whether you need one powerful video or a complete
+                        content system, let's build something worth watching.</p>
+                    <div class="space-y-6 font-manrope text-sm text-gray-300">
+                        <p><strong
+                                class="text-brand-primary block font-dm uppercase tracking-wider text-xs mb-1">Email</strong>
+                            hello@storysnipmedia.com</p>
+                        <p><strong class="text-brand-primary block font-dm uppercase tracking-wider text-xs mb-1">Phone
+                                / WhatsApp</strong> +91 xxxxxxxxxxxxxxx</p>
+                        <p><strong
+                                class="text-brand-primary block font-dm uppercase tracking-wider text-xs mb-1">Instagram</strong>
+                            @storysnip_media</p>
+                        <p><strong
+                                class="text-brand-primary block font-dm uppercase tracking-wider text-xs mb-1">YouTube</strong>
+                            /c/StorySnipMedia</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 bg-brand-black p-8 md:p-12 rounded-3xl border border-brand-light shadow-2xl"
+                    data-aos="fade-left">
+                    <form
+                        onsubmit="event.preventDefault(); alert('Thanks! Your project inquiry has been received. We will get back to you shortly.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <input type="text" required placeholder="Full Name *"
+                                class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                            <input type="email" required placeholder="Email *"
+                                class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <input type="tel" placeholder="Phone Number"
+                                class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                            <input type="text" placeholder="Company / Brand"
+                                class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <input type="url" placeholder="Website URL"
+                                class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                            <input type="text" placeholder="Instagram Handle"
+                                class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <select required
+                                class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none">
+                                <option value="" disabled selected>Project Type *</option>
+                                <option>One-off Project</option>
+                                <option>Monthly Retainer</option>
+                            </select>
+                            <select required
+                                class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none">
+                                <option value="" disabled selected>Services Required *</option>
+                                <option>Video Editing</option>
+                                <option>Social Media Management</option>
+                                <option>Full Brand Strategy</option>
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <select required
+                                class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none">
+                                <option value="" disabled selected>Budget Range *</option>
+                                <option>$500 - $1,000</option>
+                                <option>$1,000 - $3,000</option>
+                                <option>$3,000+</option>
+                            </select>
+                            <select required
+                                class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none">
+                                <option value="" disabled selected>Timeline *</option>
+                                <option>ASAP</option>
+                                <option>Within 2 Weeks</option>
+                                <option>Within 1 Month</option>
+                            </select>
+                        </div>
+                        <textarea rows="3" required placeholder="Project Description *"
+                            class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white mb-4 focus:border-brand-primary focus:outline-none"></textarea>
+                        <input type="url" placeholder="Reference Links (Drive, YouTube)"
+                            class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white mb-4 focus:border-brand-primary focus:outline-none">
+                        <div class="mb-4">
+                            <label class="block text-gray-400 font-dm text-xs mb-2 uppercase tracking-widest">Upload
+                                Brief (Optional)</label>
+                            <input type="file"
+                                class="w-full text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-primary/10 file:text-brand-primary cursor-pointer">
+                        </div>
+                        <select
+                            class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-gray-300 mb-6 focus:border-brand-primary focus:outline-none">
+                            <option value="" disabled selected>How Did You Find Us?</option>
+                            <option>Instagram</option>
+                            <option>YouTube</option>
+                            <option>Referral</option>
+                        </select>
+                        <div class="magnetic-wrap"><button type="submit"
+                                class="magnetic-btn w-full py-4 bg-brand-primary text-white font-dm font-bold rounded-xl transition-colors hover:bg-brand-deep shadow-[0_0_15px_rgba(161,48,197,0.4)]">Submit
+                                Project Inquiry</button></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#050208] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-brand-primary/20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+            <div class="md:col-span-1">
+                <img src="116438.png" class="h-8 bg-white p-2 rounded-lg mb-6">
+                <p class="font-dm text-xs uppercase text-brand-primary tracking-widest mb-6">Snip the Content.<br>Tell
+                    the Story.<br>Grow the Brand.</p>
+            </div>
+            <div>
+                <h4 class="font-playfair text-xl mb-6">Navigation</h4>
+                <ul class="space-y-3 font-manrope text-sm text-gray-400">
+                    <li><a href="index.html" class="hover:text-brand-primary transition-colors">Home</a></li>
+                    <li><a href="about.html" target="_blank" class="hover:text-brand-primary transition-colors">About
+                            Us</a></li>
+                    <li><a href="services.html" target="_blank"
+                            class="hover:text-brand-primary transition-colors">Services</a></li>
+                    <li><a href="works.html" target="_blank" class="hover:text-brand-primary transition-colors">Our
+                            Work</a></li>
+                    <li><a href="contact.html" target="_blank"
+                            class="hover:text-brand-primary transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-playfair text-xl mb-6">Services</h4>
+                <ul class="space-y-3 font-manrope text-sm text-gray-400">
+                    <li><a href="service-details.html" target="_blank"
+                            class="hover:text-brand-primary transition-colors">Video Editing</a></li>
+                    <li><a href="service-details.html" target="_blank"
+                            class="hover:text-brand-primary transition-colors">Social Media</a></li>
+                    <li><a href="service-details.html" target="_blank"
+                            class="hover:text-brand-primary transition-colors">Content Creation</a></li>
+                    <li><a href="service-details.html" target="_blank"
+                            class="hover:text-brand-primary transition-colors">Branding</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-playfair text-xl mb-6">Social</h4>
+                <ul class="space-y-3 font-manrope text-sm text-gray-400">
+                    <li><a href="#" target="_blank" class="hover:text-brand-primary transition-colors">Instagram</a>
+                    </li>
+                    <li><a href="#" target="_blank" class="hover:text-brand-primary transition-colors">YouTube</a></li>
+                    <li><a href="#" target="_blank" class="hover:text-brand-primary transition-colors">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-brand-light pt-8 font-manrope text-xs text-gray-500">
+            <p>© 2026 StorySnip Media. All Rights Reserved.</p>
+            <div class="flex gap-4 mt-4 md:mt-0">
+                <a href="privacy.html" target="_blank" class="hover:text-brand-primary transition-colors">Privacy
+                    Policy</a>
+                <a href="terms.html" target="_blank" class="hover:text-brand-primary transition-colors">Terms &
+                    Conditions</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        window.addEventListener('load', () => { setTimeout(() => { document.getElementById('loader').style.opacity = '0'; setTimeout(() => document.getElementById('loader').style.display = 'none', 500); }, 800); });
+        AOS.init({ duration: 800, once: true, offset: 50 });
+        new Swiper(".phoneSwiper", { slidesPerView: "auto", spaceBetween: 30, centeredSlides: true, loop: true, autoplay: { delay: 2500 } });
+
+        const counters = document.querySelectorAll('.count-up');
+        const startCounters = (entries, observer) => { entries.forEach(entry => { if (entry.isIntersecting) { const counter = entry.target; const target = +counter.getAttribute('data-target'); const suffix = counter.getAttribute('data-suffix'); let count = 0; const updateCount = () => { const inc = target / 200; if (count < target) { count += inc; counter.innerText = Math.ceil(count) + suffix; setTimeout(updateCount, 20); } else { counter.innerText = target + suffix; } }; updateCount(); observer.unobserve(counter); } }); };
+        const counterObserver = new IntersectionObserver(startCounters, { threshold: 0.5 });
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        if (window.matchMedia("(min-width: 768px)").matches) {
+            document.querySelectorAll('.magnetic-wrap').forEach(wrap => { const btn = wrap.querySelector('.magnetic-btn'); wrap.addEventListener('mousemove', (e) => { const rect = wrap.getBoundingClientRect(); const x = e.clientX - rect.left - rect.width / 2; const y = e.clientY - rect.top - rect.height / 2; gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.3 }); }); wrap.addEventListener('mouseleave', () => { gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.3)" }); }); });
+            document.addEventListener('mousemove', (e) => { gsap.to('.parallax-bg', { x: (e.clientX - window.innerWidth / 2) * -0.01, y: (e.clientY - window.innerHeight / 2) * -0.01, duration: 1 }); });
+        }
+
+        const container = document.getElementById('ba-container'); const afterLayer = document.getElementById('ba-after'); const handle = document.getElementById('ba-handle'); const afterImg = document.getElementById('ba-after-img'); let isDragging = false;
+        const drag = (e) => { if (!isDragging) return; const rect = container.getBoundingClientRect(); let x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left; x = Math.max(0, Math.min(x, rect.width)); const percent = (x / rect.width) * 100; afterLayer.style.width = `${percent}%`; handle.style.left = `${percent}%`; };
+        if (container) { container.addEventListener('mousedown', () => isDragging = true); window.addEventListener('mouseup', () => isDragging = false); window.addEventListener('mousemove', drag); container.addEventListener('touchstart', () => isDragging = true, { passive: true }); window.addEventListener('touchend', () => isDragging = false); window.addEventListener('touchmove', drag, { passive: true }); const ro = new ResizeObserver(() => { afterImg.style.width = `${container.offsetWidth}px`; }); ro.observe(container); }
+
+        function toggleAudio(type) {
+            const rawBtn = document.getElementById('audio-raw'); const proBtn = document.getElementById('audio-pro'); const visualizer = document.getElementById('audio-visualizer'); const proLabel = proBtn.querySelector('.toggle-label'); const rawLabel = rawBtn.querySelector('span:last-child');
+            if (type === 'pro') { proBtn.classList.replace('bg-brand-black', 'bg-brand-primary'); proBtn.classList.replace('text-gray-400', 'text-white'); rawBtn.classList.replace('bg-brand-primary', 'bg-brand-black'); rawBtn.classList.replace('text-white', 'text-gray-400'); visualizer.classList.add('playing', 'text-brand-primary'); visualizer.classList.remove('text-gray-500'); proLabel.classList.remove('hidden'); proLabel.classList.add('bg-black/30', 'border-transparent'); rawLabel.classList.add('hidden'); }
+            else { rawBtn.classList.replace('bg-brand-black', 'bg-brand-primary'); rawBtn.classList.replace('text-gray-400', 'text-white'); proBtn.classList.replace('bg-brand-primary', 'bg-brand-black'); proBtn.classList.replace('text-white', 'text-gray-400'); visualizer.classList.remove('playing', 'text-brand-primary'); visualizer.classList.add('text-gray-500'); rawLabel.classList.remove('hidden'); proLabel.classList.add('hidden'); }
+        }
+
+        const filterBtns = document.querySelectorAll('.filter-btn'); const portfolioItems = document.querySelectorAll('.portfolio-item');
+        filterBtns.forEach(btn => { btn.addEventListener('click', () => { filterBtns.forEach(b => { b.classList.remove('bg-brand-primary', 'text-white'); b.classList.add('border-brand-light', 'text-gray-400'); }); btn.classList.add('bg-brand-primary', 'text-white'); btn.classList.remove('border-brand-light', 'text-gray-400'); const filterValue = btn.getAttribute('data-filter'); portfolioItems.forEach(item => { if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) { item.classList.remove('filter-hidden'); setTimeout(() => item.style.opacity = '1', 50); } else { item.classList.add('filter-hidden'); item.style.opacity = '0'; } }); }); });
+    </script>
+</body>
+
+</html>
