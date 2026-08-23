@@ -15,7 +15,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { brand: { primary: '#A130C5', deep: '#4B1A6A', black: '#0d0020', dark: '#16002c', light: '#270040', white: '#FFFFFF' } },
+                    colors: { brand: { primary: '#A130C5', deep: '#4B1A6A', black: '#0d0020', dark: '#1a0838', light: '#2a0f4a', white: '#FFFFFF' } },
                     fontFamily: { playfair: ['Fraunces', 'serif'], manrope: ['Switzer', 'sans-serif'], dm: ['Syne', 'sans-serif'], switzer: ['Switzer', 'sans-serif'], fraunces: ['Fraunces', 'serif'], syne: ['Syne', 'sans-serif'] },
                     animation: { 'marquee': 'marquee 30s linear infinite', 'float': 'float 6s ease-in-out infinite' },
                     keyframes: { marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-100%)' } }, float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } } }
@@ -24,36 +24,36 @@
         }
     </script>
     <style>
-        :root { --primary: #A130C5; --deep: #4B1A6A; --black: #0d0020; --site-gradient: linear-gradient(160deg, #0d0020 0%, #16002c 30%, #270040 58%, #4B1A6A 82%, #0d0020 100%); }
+        :root { --primary: #A130C5; --deep: #4B1A6A; --black: #0d0020; --site-gradient: linear-gradient(160deg, #0d0020 0%, #1a0838 25%, #2a0f4a 50%, #4B1A6A 75%, #0d0020 100%); }
         html { background: #0d0020; }
         body { font-family: 'Switzer', sans-serif; background-color: var(--black); color: #FFFFFF; overflow-x: hidden; }
         #site-bg {
             position: fixed; inset: 0; z-index: -1; pointer-events: none;
             background:
-                radial-gradient(ellipse at 20% 25%, rgba(161,48,197,0.18) 0%, transparent 48%),
-                radial-gradient(ellipse at 80% 75%, rgba(120,30,170,0.22) 0%, transparent 45%),
-                radial-gradient(ellipse at 55% 50%, rgba(80,10,130,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 25%, rgba(75,26,106,0.30) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 75%, rgba(75,26,106,0.25) 0%, transparent 48%),
+                radial-gradient(ellipse at 55% 50%, rgba(42,15,74,0.20) 0%, transparent 60%),
                 var(--site-gradient);
         }
         .glass-nav {
             background: linear-gradient(
                 105deg,
-                rgba(255,255,255,0.97) 0%,
-                rgba(245,230,255,0.95) 25%,
-                rgba(210,170,245,0.90) 55%,
-                rgba(161,48,197,0.80) 80%,
-                rgba(100,20,160,0.85) 100%
+                rgba(13,0,32,0.96) 0%,
+                rgba(26,8,56,0.95) 30%,
+                rgba(42,15,74,0.93) 60%,
+                rgba(75,26,106,0.90) 85%,
+                rgba(13,0,32,0.96) 100%
             );
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(161,48,197,0.25);
+            border-bottom: 1px solid rgba(75,26,106,0.50);
             box-shadow:
-                0 1px 0 rgba(255,255,255,0.40) inset,
-                0 4px 32px rgba(161,48,197,0.30),
-                0 8px 60px rgba(161,48,197,0.15);
+                0 1px 0 rgba(75,26,106,0.30) inset,
+                0 4px 32px rgba(13,0,32,0.60),
+                0 8px 60px rgba(75,26,106,0.20);
             transition: background 0.4s ease, box-shadow 0.4s ease;
         }
-        /* White light that bleeds softly downward into the hero */
+        /* Deep glow that bleeds softly downward into the hero */
         .glass-nav::after {
             content: '';
             position: absolute;
@@ -62,8 +62,8 @@
             height: 80px;
             background: linear-gradient(
                 180deg,
-                rgba(200,150,255,0.12) 0%,
-                rgba(161,48,197,0.05) 50%,
+                rgba(75,26,106,0.15) 0%,
+                rgba(42,15,74,0.06) 50%,
                 transparent 100%
             );
             pointer-events: none;
@@ -72,19 +72,19 @@
         .glass-nav.scrolled {
             background: linear-gradient(
                 105deg,
-                rgba(255,255,255,0.97) 0%,
-                rgba(245,230,255,0.95) 25%,
-                rgba(210,170,245,0.90) 55%,
-                rgba(161,48,197,0.80) 80%,
-                rgba(100,20,160,0.85) 100%
+                rgba(13,0,32,0.98) 0%,
+                rgba(26,8,56,0.97) 30%,
+                rgba(42,15,74,0.95) 60%,
+                rgba(75,26,106,0.92) 85%,
+                rgba(13,0,32,0.98) 100%
             );
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(161,48,197,0.25);
+            border-bottom: 1px solid rgba(75,26,106,0.50);
             box-shadow:
-                0 1px 0 rgba(255,255,255,0.40) inset,
-                0 4px 32px rgba(161,48,197,0.30),
-                0 8px 60px rgba(161,48,197,0.15);
+                0 1px 0 rgba(75,26,106,0.25) inset,
+                0 4px 32px rgba(13,0,32,0.70),
+                0 8px 60px rgba(75,26,106,0.18);
         }
         .glass-nav.scrolled::after { display: none; }
 
@@ -180,7 +180,7 @@
         @keyframes fadePanel { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Nav active */
-        .nav-link.active-page { color: #2d0050 !important; }
+        .nav-link.active-page { color: #e0aaff !important; }
         .nav-link:hover { color: inherit !important; }
 
         /* ── Nav underline progress animation ── */
@@ -196,9 +196,9 @@
             width: 0%;
             height: 2.5px;
             border-radius: 999px;
-            background: linear-gradient(90deg, #A130C5, #d38eea);
+            background: linear-gradient(90deg, #c084fc, #e9d5ff);
             transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 0 8px rgba(161,48,197,0.6);
+            box-shadow: 0 0 8px rgba(192,132,252,0.7);
         }
         .nav-link:hover::after,
         .nav-link.active-page::after {
@@ -210,7 +210,7 @@
             position: relative;
             border-radius: 20px;
             overflow: hidden;
-            background: #0e0022;
+            background: linear-gradient(145deg, #1a0838, #0d0020);
             border: 1px solid rgba(161,48,197,0.14);
             transition: transform 0.42s cubic-bezier(0.22,1,0.36,1), border-color 0.35s ease, box-shadow 0.35s ease;
             cursor: default;
@@ -243,7 +243,7 @@
         }
         .proj-video-wrap {
             position: relative; width: 100%; padding-top: 56.25%;
-            background: #08001c; overflow: hidden;
+            background: #0d0020; overflow: hidden;
         }
         .proj-video-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: none; }
         .proj-video-wrap::after {
@@ -255,7 +255,7 @@
         .proj-placeholder {
             position: absolute; inset: 0;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, #0f0022 0%, #0a001e 100%); gap: 12px;
+            background: linear-gradient(135deg, #1a0838 0%, #0d0020 100%); gap: 12px;
         }
         .proj-placeholder-ring {
             width: 60px; height: 60px; border-radius: 50%;
@@ -423,7 +423,7 @@
         /* ── Full-screen Mobile Menu ── */
         #mobile-menu {
             position: fixed; inset: 0; z-index: 9000;
-            background: linear-gradient(160deg, #0d0020 0%, #16002c 60%, #0d0020 100%);
+            background: linear-gradient(160deg, #0d0020 0%, #2a0f4a 40%, #4B1A6A 70%, #0d0020 100%);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             opacity: 0; visibility: hidden; pointer-events: none;
             transition: opacity 0.35s ease, visibility 0.35s ease;
@@ -483,16 +483,16 @@
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar" style="position:fixed;overflow:visible;">
         <div class="max-w-7xl mx-auto px-6 lg:px-12 h-14 lg:h-20 nav-inner flex items-center justify-between">
             <a href="#" onclick="showPage('home'); return false;" class="nav-logo-wrap">
-                <img src="sniplogotrans.png" alt="StorySnip Media" class="nav-logo" style="width:150px;height:auto;display:block;position:relative;z-index:2;">
+                <img src="snipwhite.png" alt="StorySnip Media" class="nav-logo" style="width:150px;height:auto;display:block;position:relative;z-index:2;">
             </a>
-            <nav class="hidden lg:flex gap-6 items-center font-manrope font-bold text-sm" style="color:#2d0050;">
-                <a href="#" onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'}); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Home</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">About</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Expertise</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Process</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Projects</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Work</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Contact</a>
+            <nav class="hidden lg:flex gap-6 items-center font-manrope font-bold text-sm" style="color:#e9d5ff;">
+                <a href="#" onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'}); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Home</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">About</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Expertise</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Process</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Projects</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Work</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Contact</a>
             </nav>
             <div class="hidden lg:flex items-center gap-4">
                 <div class="magnetic-wrap"><a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="magnetic-btn nav-cta-btn font-dm text-sm rounded-full">Let's Work Together</a></div>
@@ -633,12 +633,12 @@
 
 
             <!-- ═══ ABOUT STORYSNIP BRAND ═══ -->
-            <section id="about-brand" class="relative py-12 md:py-16 lg:py-20 px-5 md:px-8 lg:px-12 overflow-hidden" style="background: linear-gradient(160deg, #0d0020 0%, #16002c 50%, #0d0020 100%);">
+            <section id="about-brand" class="relative py-12 md:py-16 lg:py-20 px-5 md:px-8 lg:px-12 overflow-hidden" style="background: linear-gradient(160deg, #1a0838 0%, #2a0f4a 35%, #3b1560 65%, #1a0838 100%);">
 
                 <!-- Ambient glow blobs -->
-                <div class="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[400px] md:w-[700px] h-[200px] md:h-[300px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(161,48,197,0.12) 0%,transparent 70%);"></div>
-                <div class="absolute bottom-0 left-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(75,26,106,0.15) 0%,transparent 70%);"></div>
-                <div class="absolute bottom-0 right-0 w-[180px] md:w-[300px] h-[180px] md:h-[300px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(161,48,197,0.10) 0%,transparent 70%);"></div>
+                <div class="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[400px] md:w-[700px] h-[200px] md:h-[300px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(75,26,106,0.25) 0%,transparent 70%);"></div>
+                <div class="absolute bottom-0 left-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(13,0,32,0.50) 0%,transparent 70%);"></div>
+                <div class="absolute bottom-0 right-0 w-[180px] md:w-[300px] h-[180px] md:h-[300px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(75,26,106,0.20) 0%,transparent 70%);"></div>
 
                 <div class="relative z-10 max-w-7xl mx-auto">
 
@@ -664,7 +664,7 @@
                             </div>
 
                             <!-- Tagline card -->
-                            <div class="w-full rounded-2xl md:rounded-3xl p-6 md:p-8 border border-brand-primary/25 text-center ss-tagline-card" style="background: linear-gradient(135deg,#180028 0%,#0d0020 100%);">
+                            <div class="w-full rounded-2xl md:rounded-3xl p-6 md:p-8 border border-brand-primary/25 text-center ss-tagline-card" style="background: linear-gradient(135deg,#2a0f4a 0%,#0d0020 100%);">
                                 <p class="font-playfair text-xl md:text-2xl text-white italic mb-3">"Snip the Content.<br>Tell the Story.<br>Grow the Brand."</p>
                                 <div class="h-px w-12 md:w-16 bg-gradient-to-r from-transparent via-brand-primary to-transparent mx-auto mb-3"></div>
                                 <p class="font-dm text-xs text-brand-primary uppercase tracking-[0.25em]">StorySnip Media</p>
@@ -776,11 +776,11 @@
             </style>
 
             <!-- ═══ BRANDS WE'VE WORKED WITH ═══ -->
-            <section class="relative py-16 overflow-hidden" style="background:#0d0020; border-top:1px solid rgba(161,48,197,0.12); border-bottom:1px solid rgba(161,48,197,0.12);">
+            <section class="relative py-16 overflow-hidden" style="background:linear-gradient(135deg,#1a0838 0%,#2a0f4a 50%,#1a0838 100%); border-top:1px solid rgba(75,26,106,0.35); border-bottom:1px solid rgba(75,26,106,0.35);">
 
                 <!-- Ambient side fades -->
-                <div class="absolute inset-y-0 left-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to right,#0d0020,transparent);"></div>
-                <div class="absolute inset-y-0 right-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to left,#0d0020,transparent);"></div>
+                <div class="absolute inset-y-0 left-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to right,#1a0838,transparent);"></div>
+                <div class="absolute inset-y-0 right-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to left,#1a0838,transparent);"></div>
 
                 <!-- Eyebrow label -->
                 <div class="relative z-20 text-center mb-6" data-aos="fade-up">
@@ -843,7 +843,7 @@
                 /* ── Expertise Card System ── */
                 .exp-card {
                     position: relative;
-                    background: #16002c;
+                    background: linear-gradient(145deg, #2a0f4a 0%, #1a0838 60%, #0d0020 100%);
                     border: 1px solid rgba(161,48,197,0.15);
                     border-radius: 24px;
                     padding: 36px 32px 32px;
@@ -977,7 +977,7 @@
                     pointer-events: all;
                 }
                 .exp-modal {
-                    background: linear-gradient(160deg, #1a0032 0%, #0f0022 100%);
+                    background: linear-gradient(160deg, #2a0f4a 0%, #1a0838 40%, #0d0020 100%);
                     border: 1px solid rgba(161,48,197,0.3);
                     border-radius: 28px;
                     width: 100%;
@@ -1069,7 +1069,7 @@
                     overflow: hidden;
                     border: 1px solid rgba(161,48,197,0.22);
                     box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-                    background: #0f0022;
+                    background: #1a0838;
                 }
                 .exp-slide {
                     position: absolute;
@@ -1294,7 +1294,7 @@
                     position: relative;
                     padding: 64px 24px;
                     overflow: hidden;
-                    background: linear-gradient(160deg, #0d0020 0%, #0f0022 45%, #0d0020 100%);
+                    background: linear-gradient(160deg, #0d0020 0%, #1a0838 30%, #2a0f4a 60%, #0d0020 100%);
                 }
                 .am-section::before {
                     content: '';
@@ -1345,7 +1345,7 @@
                     overflow: hidden;
                     border: 2px solid rgba(161,48,197,0.3);
                     box-shadow: 0 0 0 8px rgba(161,48,197,0.06), 0 30px 80px rgba(0,0,0,0.55), 0 0 60px rgba(161,48,197,0.15);
-                    background: #0f0022;
+                    background: #1a0838;
                 }
                 .am-photo-frame img {
                     width: 100%;
@@ -2030,7 +2030,7 @@
                 .rw-section {
                     position: relative;
                     padding: 56px 24px;
-                    background: linear-gradient(160deg, #0d0020 0%, #16002c 50%, #0d0020 100%);
+                    background: linear-gradient(160deg, #0d0020 0%, #3b1560 40%, #4B1A6A 65%, #1a0838 100%);
                     overflow: hidden;
                 }
                 .rw-section::before {
@@ -2085,7 +2085,7 @@
                     border-radius: 32px;
                     left: 10px; top: 40px; z-index: 3;
                     transform: rotate(-6deg);
-                    border: 6px solid #180028;
+                    border: 6px solid #2a0f4a;
                     box-shadow: 0 28px 56px rgba(0,0,0,0.75), 0 0 0 1px rgba(161,48,197,0.3);
                 }
                 .rw-device-2 {
@@ -2093,7 +2093,7 @@
                     border-radius: 32px;
                     left: 140px; top: 10px; z-index: 4;
                     transform: rotate(3deg);
-                    border: 6px solid #180028;
+                    border: 6px solid #2a0f4a;
                     box-shadow: 0 32px 64px rgba(0,0,0,0.8), 0 0 0 1px rgba(161,48,197,0.4);
                 }
                 .rw-device-3 {
@@ -2101,7 +2101,7 @@
                     border-radius: 16px;
                     left: 30px; bottom: 10px; z-index: 5;
                     transform: rotate(2deg);
-                    border: 4px solid #180028;
+                    border: 4px solid #2a0f4a;
                     box-shadow: 0 20px 48px rgba(0,0,0,0.65), 0 0 0 1px rgba(161,48,197,0.3);
                 }
 
@@ -2164,7 +2164,7 @@
                 }
 
                 .rw-stat-box {
-                    background: #16002c;
+                    background: linear-gradient(145deg, #2a0f4a, #1a0838);
                     border: 1px solid rgba(161,48,197,0.20);
                     border-radius: 20px;
                     padding: 22px 16px 18px;
@@ -2266,8 +2266,8 @@
                             </div>
 
                             <!-- Front phone (ATOM Logo) -->
-                            <div class="rw-device rw-device-2" style="background:#0d1b3e; display:flex; align-items:center; justify-content:center; padding:20px;">
-                                <img src="atomlogo.jpg" alt="ATOM Home Theatre Logo" style="width:100%; height:100%; object-fit:contain; display:block; background:#0d1b3e;">
+                            <div class="rw-device rw-device-2" style="background:linear-gradient(135deg,#1a0838,#2a0f4a); display:flex; align-items:center; justify-content:center; padding:20px;">
+                                <img src="atomlogo.jpg" alt="ATOM Home Theatre Logo" style="width:100%; height:100%; object-fit:contain; display:block; background:linear-gradient(135deg,#1a0838,#2a0f4a);">
                             </div>
 
                             <!-- Bottom wide panel (Meta Insights) -->
@@ -2356,7 +2356,7 @@
             </section>
 
             <!-- ═══ CONTACT SECTION (inline on home page) ═══ -->
-            <section id="contact-home" class="relative py-16 px-6 lg:px-12 overflow-hidden" style="background:linear-gradient(160deg,#0d0020 0%,#0f0022 55%,#0d0020 100%);">
+            <section id="contact-home" class="relative py-16 px-6 lg:px-12 overflow-hidden" style="background:linear-gradient(160deg,#1a0838 0%,#2a0f4a 40%,#4B1A6A 70%,#1a0838 100%);">
                 <!-- Ambient glows -->
                 <div class="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(75,26,106,0.18) 0%,transparent 65%);"></div>
                 <div class="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(161,48,197,0.12) 0%,transparent 65%);"></div>
@@ -2487,8 +2487,8 @@ ${message}
         </main>
         <!-- Footer -->
         <footer style="
-            background: linear-gradient(180deg, #0a001a 0%, #0d0020 40%, #110028 100%);
-            border-top: 1px solid rgba(161,48,197,0.30);
+            background: linear-gradient(180deg, #1a0838 0%, #2a0f4a 30%, #4B1A6A 60%, #0d0020 100%);
+            border-top: 1px solid rgba(75,26,106,0.50);
             position: relative;
             overflow: hidden;
         " class="text-white pt-16 pb-0 px-6 lg:px-12">
@@ -2686,7 +2686,7 @@ ${message}
                 </div>
             </section>
         </main>
-        <footer class="bg-[#050208] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-brand-primary/20">
+        <footer class="bg-[#1a0838] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-[#4B1A6A]">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
                 <p>© 2026 StorySnip Media. All Rights Reserved.</p>
                 <div class="flex gap-4 mt-4 md:mt-0"><button onclick="showPage('privacy')" class="hover:text-brand-primary transition-colors">Privacy Policy</button><button onclick="showPage('terms')" class="hover:text-brand-primary transition-colors">Terms & Conditions</button></div>
@@ -2709,7 +2709,7 @@ ${message}
                 </div>
             </section>
         </main>
-        <footer class="bg-[#050208] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-brand-primary/20">
+        <footer class="bg-[#1a0838] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-[#4B1A6A]">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
                 <p>© 2026 StorySnip Media. All Rights Reserved.</p>
                 <div class="flex gap-4 mt-4 md:mt-0"><button onclick="showPage('privacy')" class="hover:text-brand-primary transition-colors">Privacy Policy</button><button onclick="showPage('terms')" class="hover:text-brand-primary transition-colors">Terms & Conditions</button></div>
@@ -2764,7 +2764,7 @@ ${message}
                 </div>
             </article>
         </main>
-        <footer class="bg-[#050208] text-white pt-12 pb-10 px-6 border-t border-brand-primary/20 text-center"><p class="font-manrope text-xs text-gray-500">© 2026 StorySnip Media. All Rights Reserved.</p></footer>
+        <footer class="bg-[#1a0838] text-white pt-12 pb-10 px-6 border-t border-[#4B1A6A] text-center"><p class="font-manrope text-xs text-gray-500">© 2026 StorySnip Media. All Rights Reserved.</p></footer>
     </div>
 
 
@@ -2821,7 +2821,7 @@ ${message}
                 </div>
             </article>
         </main>
-        <footer class="bg-[#050208] text-white pt-12 pb-10 px-6 border-t border-brand-primary/20 text-center"><p class="font-manrope text-xs text-gray-500">© 2026 StorySnip Media. All Rights Reserved.</p></footer>
+        <footer class="bg-[#1a0838] text-white pt-12 pb-10 px-6 border-t border-[#4B1A6A] text-center"><p class="font-manrope text-xs text-gray-500">© 2026 StorySnip Media. All Rights Reserved.</p></footer>
     </div>
 
     <!-- ============================================================ -->
@@ -2872,7 +2872,7 @@ ${message}
                 </div>
             </section>
         </main>
-        <footer class="bg-[#050208] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-brand-primary/20">
+        <footer class="bg-[#1a0838] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-[#4B1A6A]">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
                 <p>© 2026 StorySnip Media. All Rights Reserved.</p>
                 <div class="flex gap-4 mt-4 md:mt-0"><button onclick="showPage('privacy')" class="hover:text-brand-primary transition-colors">Privacy Policy</button><button onclick="showPage('terms')" class="hover:text-brand-primary transition-colors">Terms & Conditions</button></div>
