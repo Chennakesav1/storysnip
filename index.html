@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>StorySnip Media | Creative Content, Video Editing & Social Media</title>
     <meta name="description" content="StorySnip Media creates premium video content, social media creatives, branding and digital storytelling for businesses, creators and personal brands.">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=switzer:300,400,500,600,700,800|fraunces:300,400,500,600,700,300i,400i,500i,600i,700i|syne:400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +16,7 @@
             theme: {
                 extend: {
                     colors: { brand: { primary: '#A130C5', deep: '#4B1A6A', black: '#0d0020', dark: '#16002c', light: '#270040', white: '#FFFFFF' } },
-                    fontFamily: { playfair: ['Playfair Display', 'serif'], manrope: ['Manrope', 'sans-serif'], dm: ['DM Sans', 'sans-serif'] },
+                    fontFamily: { playfair: ['Fraunces', 'serif'], manrope: ['Switzer', 'sans-serif'], dm: ['Syne', 'sans-serif'], switzer: ['Switzer', 'sans-serif'], fraunces: ['Fraunces', 'serif'], syne: ['Syne', 'sans-serif'] },
                     animation: { 'marquee': 'marquee 30s linear infinite', 'float': 'float 6s ease-in-out infinite' },
                     keyframes: { marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-100%)' } }, float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } } }
                 }
@@ -25,7 +26,7 @@
     <style>
         :root { --primary: #A130C5; --deep: #4B1A6A; --black: #0d0020; --site-gradient: linear-gradient(160deg, #0d0020 0%, #16002c 30%, #270040 58%, #4B1A6A 82%, #0d0020 100%); }
         html { background: #0d0020; }
-        body { font-family: 'Manrope', sans-serif; background-color: var(--black); color: #FFFFFF; overflow-x: hidden; }
+        body { font-family: 'Switzer', sans-serif; background-color: var(--black); color: #FFFFFF; overflow-x: hidden; }
         #site-bg {
             position: fixed; inset: 0; z-index: -1; pointer-events: none;
             background:
@@ -34,7 +35,83 @@
                 radial-gradient(ellipse at 55% 50%, rgba(80,10,130,0.12) 0%, transparent 60%),
                 var(--site-gradient);
         }
-        .glass-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(161, 48, 197, 0.15); box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
+        .glass-nav {
+            background: linear-gradient(
+                105deg,
+                rgba(255,255,255,0.97) 0%,
+                rgba(245,230,255,0.95) 25%,
+                rgba(210,170,245,0.90) 55%,
+                rgba(161,48,197,0.80) 80%,
+                rgba(100,20,160,0.85) 100%
+            );
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(161,48,197,0.25);
+            box-shadow:
+                0 1px 0 rgba(255,255,255,0.40) inset,
+                0 4px 32px rgba(161,48,197,0.30),
+                0 8px 60px rgba(161,48,197,0.15);
+            transition: background 0.4s ease, box-shadow 0.4s ease;
+        }
+        /* White light that bleeds softly downward into the hero */
+        .glass-nav::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0; right: 0;
+            height: 80px;
+            background: linear-gradient(
+                180deg,
+                rgba(200,150,255,0.12) 0%,
+                rgba(161,48,197,0.05) 50%,
+                transparent 100%
+            );
+            pointer-events: none;
+            z-index: -1;
+        }
+        .glass-nav.scrolled {
+            background: linear-gradient(
+                105deg,
+                rgba(255,255,255,0.97) 0%,
+                rgba(245,230,255,0.95) 25%,
+                rgba(210,170,245,0.90) 55%,
+                rgba(161,48,197,0.80) 80%,
+                rgba(100,20,160,0.85) 100%
+            );
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(161,48,197,0.25);
+            box-shadow:
+                0 1px 0 rgba(255,255,255,0.40) inset,
+                0 4px 32px rgba(161,48,197,0.30),
+                0 8px 60px rgba(161,48,197,0.15);
+        }
+        .glass-nav.scrolled::after { display: none; }
+
+        /* ── Navbar CTA Button — perfect inverse hover ── */
+        .nav-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 11px 26px;
+            background: #A130C5;
+            color: #ffffff;
+            font-weight: 700;
+            border: 2px solid #A130C5;
+            border-radius: 999px;
+            box-shadow: 0 0 18px rgba(161,48,197,0.40), 0 2px 8px rgba(0,0,0,0.12);
+            transition: background 0.28s ease, color 0.28s ease, box-shadow 0.28s ease, transform 0.22s ease;
+            text-decoration: none;
+            letter-spacing: 0.01em;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .nav-cta-btn:hover {
+            background: #4B1A6A;
+            color: #ffffff;
+            border-color: #4B1A6A;
+            box-shadow: 0 0 28px rgba(75,26,106,0.55), 0 2px 8px rgba(0,0,0,0.18);
+            transform: scale(1.03);
+        }
         .text-gradient { background: linear-gradient(135deg, #d38eea 0%, var(--primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         #loader { position: fixed; inset: 0; background: var(--site-gradient); z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease; }
         .loader-bar-track { width: 240px; max-width: 60vw; height: 5px; border-radius: 999px; background: rgba(161,48,197,0.15); border: 1px solid rgba(161,48,197,0.28); overflow: hidden; }
@@ -49,7 +126,7 @@
             display: inline-flex; align-items: center; gap: 8px;
             background: linear-gradient(135deg, rgba(161,48,197,0.18) 0%, rgba(100,10,160,0.12) 100%);
             border: 1px solid rgba(161,48,197,0.50);
-            color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+            color: #fff; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600;
             padding: 10px 20px; border-radius: 999px;
             backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
             box-shadow: 0 0 22px rgba(161,48,197,0.22), 0 2px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
@@ -66,7 +143,7 @@
             display: inline-flex; align-items: center; gap: 6px;
             background: linear-gradient(135deg, rgba(161,48,197,0.16) 0%, rgba(100,10,160,0.10) 100%);
             border: 1px solid rgba(161,48,197,0.45);
-            color: #fff; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+            color: #fff; font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 600;
             padding: 8px 16px; border-radius: 999px;
             backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
             box-shadow: 0 0 16px rgba(161,48,197,0.18), 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
@@ -103,7 +180,30 @@
         @keyframes fadePanel { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Nav active */
-        .nav-link.active-page { color: #A130C5 !important; }
+        .nav-link.active-page { color: #2d0050 !important; }
+        .nav-link:hover { color: inherit !important; }
+
+        /* ── Nav underline progress animation ── */
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0%;
+            height: 2.5px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, #A130C5, #d38eea);
+            transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 0 8px rgba(161,48,197,0.6);
+        }
+        .nav-link:hover::after,
+        .nav-link.active-page::after {
+            width: 100%;
+        }
 
         /* ── Project Video Cards ── */
         .proj-card {
@@ -135,7 +235,7 @@
         .proj-card:hover::after { width: 75%; }
         .proj-num {
             position: absolute; top: 12px; left: 12px; z-index: 10;
-            font-family: 'Playfair Display', serif; font-size: 11px; font-weight: 700;
+            font-family: 'Fraunces', serif; font-size: 11px; font-weight: 700;
             color: rgba(255,255,255,0.75);
             background: rgba(10,5,15,0.75); border: 1px solid rgba(161,48,197,0.3);
             border-radius: 999px; padding: 3px 10px;
@@ -180,7 +280,7 @@
         }
         .proj-card:hover .proj-play-icon { border-color: transparent transparent transparent #c560e8; }
         .proj-placeholder-label {
-            font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700;
+            font-family: 'Syne', sans-serif; font-size: 10px; font-weight: 700;
             letter-spacing: 2px; text-transform: uppercase;
             color: rgba(161,48,197,0.5); transition: color 0.3s ease;
         }
@@ -251,7 +351,7 @@
 
         /* Marquee brands — smaller font on mobile */
         @media (max-width: 639px) {
-            .brands-item { font-size: clamp(20px, 6vw, 32px) !important; padding: 0 18px !important; }
+            .brands-item { font-size: clamp(18px, 6vw, 30px) !important; padding: 0 18px !important; }
         }
 
         /* Swiper controls — larger touch targets */
@@ -282,7 +382,7 @@
             footer { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
         }
         .proj-tag {
-            display: inline-block; font-family: 'DM Sans', sans-serif;
+            display: inline-block; font-family: 'Syne', sans-serif;
             font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
             color: #A130C5; background: rgba(161,48,197,0.10); border: 1px solid rgba(161,48,197,0.28);
             border-radius: 999px; padding: 3px 12px; margin-bottom: 7px;
@@ -290,12 +390,12 @@
         }
         .proj-card:hover .proj-tag { background: rgba(161,48,197,0.20); }
         .proj-title {
-            font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 600;
+            font-family: 'Fraunces', serif; font-size: 17px; font-weight: 600;
             color: #f3f4f6; line-height: 1.3; margin-bottom: 5px; transition: color 0.3s ease;
         }
         .proj-card:hover .proj-title { color: #fff; }
         .proj-desc {
-            font-family: 'Manrope', sans-serif; font-size: 12px; color: #6b7280;
+            font-family: 'Switzer', sans-serif; font-size: 12px; color: #6b7280;
             line-height: 1.6; transition: color 0.3s ease;
         }
         .proj-card:hover .proj-desc { color: #9ca3af; }
@@ -306,10 +406,11 @@
 
     <!-- Loading Screen -->
     <div id="loader">
-        <img src="sniplogotrans.png" alt="StorySnip Media" class="h-24 w-auto bg-white rounded-2xl px-6 py-3 mb-6 animate-pulse">
-        <p class="font-dm text-brand-primary text-xs tracking-widest uppercase mb-7 text-center px-6">Snip the Content. Tell the Story. Grow the Brand.</p>
+        <div class="mb-8 text-center" style="line-height:1;">
+            <span style="font-family:'Fraunces',serif;font-size:clamp(32px,6vw,58px);font-weight:700;font-style:italic;letter-spacing:-0.01em;background:linear-gradient(135deg,#e0aaff 0%,#A130C5 45%,#d38eea 75%,#7b18b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 28px rgba(161,48,197,0.55));">StorySnip</span><span style="font-family:'Syne',sans-serif;font-size:clamp(32px,6vw,58px);font-weight:800;letter-spacing:0.04em;color:rgba(255,255,255,0.92);margin-left:10px;">MEDIA</span>
+        </div>
         <div class="loader-bar-track"><div class="loader-bar-fill" id="loaderBarFill"></div></div>
-        <div class="loader-percent text-gradient font-playfair text-3xl font-semibold" id="loaderPercent">0%</div>
+        <div id="loaderPercent" style="margin-top:14px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.18em;color:rgba(161,48,197,0.80);font-variant-numeric:tabular-nums;">0%</div>
     </div>
 
     <!-- Navigation -->
@@ -317,7 +418,7 @@
         /* ── Mobile-first Navbar heights ── */
         @media (max-width: 1023px) {
             #navbar .nav-inner { height: 64px !important; padding: 0 18px !important; }
-            #navbar .nav-logo  { height: 48px !important; }
+            #navbar .nav-logo  { width: 140px !important; height: auto !important; }
         }
         /* ── Full-screen Mobile Menu ── */
         #mobile-menu {
@@ -329,7 +430,7 @@
         }
         #mobile-menu.mob-open { opacity: 1; visibility: visible; pointer-events: all; }
         .mob-nav-link {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Fraunces', serif;
             font-size: clamp(20px, 5.5vw, 30px); font-weight: 600;
             color: rgba(255,255,255,0.75);
             padding: 13px 0; width: 100%; text-align: center;
@@ -341,7 +442,7 @@
         .mob-nav-cta {
             margin-top: 28px; display: inline-block;
             padding: 14px 40px; background: #A130C5; color: #fff;
-            font-family: 'DM Sans',sans-serif; font-size: 15px; font-weight: 700;
+            font-family: 'Syne',sans-serif; font-size: 15px; font-weight: 700;
             border-radius: 999px; box-shadow: 0 0 30px rgba(161,48,197,0.5);
             text-decoration: none; transition: background 0.25s, transform 0.25s;
         }
@@ -357,22 +458,46 @@
         .mob-close-btn:hover { background: rgba(161,48,197,0.4); transform: rotate(90deg); }
     </style>
 
-    <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-16 lg:h-24 nav-inner flex items-center justify-between">
-            <a href="#" onclick="showPage('home'); return false;"><img src="sniplogotrans.png" alt="StorySnip Media" class="nav-logo" style="height:56px;width:auto;display:block;"></a>
-            <nav class="hidden lg:flex gap-6 items-center font-manrope font-medium text-sm text-gray-700">
-                <a href="#" onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'}); return false;" class="nav-link hover:text-brand-primary transition-colors" data-page="home">Home</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link hover:text-brand-primary transition-colors" data-page="home">About</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link hover:text-brand-primary transition-colors" data-page="home">Expertise</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link hover:text-brand-primary transition-colors" data-page="home">Process</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link hover:text-brand-primary transition-colors" data-page="home">Projects</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link hover:text-brand-primary transition-colors" data-page="home">Work</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link hover:text-brand-primary transition-colors" data-page="home">Contact</a>
+    <style>
+        /* ── Logo wrap — clean on the gradient navbar ── */
+        .nav-logo-wrap {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 6px 12px 6px 6px;
+        }
+        .nav-logo-wrap img {
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.18));
+        }
+        .nav-logo-wrap:hover img {
+            filter: drop-shadow(0 4px 14px rgba(161,48,197,0.45));
+            transform: scale(1.04);
+            transition: filter 0.3s, transform 0.3s;
+        }
+    </style>
+
+    <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar" style="position:fixed;overflow:visible;">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-14 lg:h-20 nav-inner flex items-center justify-between">
+            <a href="#" onclick="showPage('home'); return false;" class="nav-logo-wrap">
+                <img src="sniplogotrans.png" alt="StorySnip Media" class="nav-logo" style="width:150px;height:auto;display:block;position:relative;z-index:2;">
+            </a>
+            <nav class="hidden lg:flex gap-6 items-center font-manrope font-bold text-sm" style="color:#2d0050;">
+                <a href="#" onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'}); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Home</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">About</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Expertise</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Process</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Projects</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Work</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#2d0050;" data-page="home">Contact</a>
             </nav>
             <div class="hidden lg:flex items-center gap-4">
-                <div class="magnetic-wrap"><a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="magnetic-btn px-6 py-2.5 bg-brand-primary text-white font-dm text-sm rounded-full hover:bg-brand-deep transition-all shadow-[0_0_15px_rgba(161,48,197,0.4)]">Let's Work Together</a></div>
+                <div class="magnetic-wrap"><a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="magnetic-btn nav-cta-btn font-dm text-sm rounded-full">Let's Work Together</a></div>
             </div>
-            <button class="lg:hidden text-gray-800 p-2" id="mobile-menu-btn">
+            <button class="lg:hidden text-white p-2" id="mobile-menu-btn">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
         </div>
@@ -402,7 +527,7 @@
     <div id="page-home" class="page-section active">
         <main>
             <!-- Hero -->
-            <section class="relative pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-24 lg:pb-32 px-5 md:px-8 lg:px-10 overflow-hidden" style="background: transparent;">
+            <section class="relative pt-20 md:pt-28 lg:pt-32 pb-10 md:pb-16 lg:pb-20 px-5 md:px-8 lg:px-10 overflow-hidden" style="background: transparent;">
                 <div class="absolute inset-0 -z-10 opacity-[0.03]" style="background-image:radial-gradient(rgba(161,48,197,0.6) 1px, transparent 1px); background-size: 28px 28px;"></div>
                 <!-- Balanced ambient glow blobs -->
                 <div class="absolute top-16 left-[8%] w-64 h-64 md:w-96 md:h-96 rounded-full blur-[100px] md:blur-[130px] -z-10" style="background:radial-gradient(circle, rgba(161,48,197,0.20) 0%, transparent 70%);"></div>
@@ -416,17 +541,17 @@
                         <svg class="absolute -top-3 -right-4 w-5 h-5 md:w-6 md:h-6 text-brand-primary animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
                     </div>
 
-                    <h1 class="font-playfair text-4xl md:text-6xl lg:text-7xl leading-[1.08] text-white mb-2" style="text-shadow:0 2px 40px rgba(0,0,0,0.5);">
+                    <h1 class="font-playfair font-bold text-4xl md:text-6xl lg:text-7xl leading-[1.08] text-white mb-3" style="text-shadow:0 2px 40px rgba(0,0,0,0.5);">
                         I'm <span style="background:linear-gradient(135deg,#d38eea 0%,#A130C5 60%,#7b18b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 20px rgba(161,48,197,0.5));">Sai Kumar</span> <span class="inline-block wave-emoji animate-[wave_1.8s_ease-in-out_infinite]">👋</span>,
                     </h1>
-                    <h2 class="font-playfair font-bold text-2xl md:text-5xl lg:text-6xl leading-[1.1] text-white mb-3 md:mb-4" style="text-shadow:0 2px 30px rgba(0,0,0,0.4);">
+                    <p class="font-manrope font-normal text-base md:text-lg text-white/55 mb-3 md:mb-4 tracking-wide">
                         MBA Marketing &amp; Growth Marketing
-                    </h2>
+                    </p>
                     
                 </div>
 
                 <!-- Logo centrepiece: desktop = orbiting tags, tablet = 2-col tags, mobile = tag strip below -->
-                <div class="relative max-w-5xl mx-auto mt-10 md:mt-16 lg:mt-20" data-aos="zoom-in" data-aos-delay="150">
+                <div class="relative max-w-5xl mx-auto mt-6 md:mt-10 lg:mt-12" data-aos="zoom-in" data-aos-delay="150">
 
                     <!-- ── White Light Shade Behind Logo ── -->
                     <!-- 1. Outer soft white fade -->
@@ -462,7 +587,7 @@
                                     transparent 70%);"></div>
 
                     <!-- Logo -->
-                    <div class="flex justify-center items-center py-12 md:py-20 lg:py-24 relative z-10">
+                    <div class="flex justify-center items-center py-8 md:py-12 lg:py-16 relative z-10">
                         <img src="storysnip-logo-mark.png" alt="StorySnip Media" class="w-[200px] md:w-[300px] lg:w-[360px] h-auto animate-float"
                              style="filter:drop-shadow(0 0 30px rgba(255,255,255,0.55)) drop-shadow(0 0 80px rgba(220,200,255,0.30)) drop-shadow(0 6px 18px rgba(0,0,0,0.5));">
                     </div>
@@ -508,7 +633,7 @@
 
 
             <!-- ═══ ABOUT STORYSNIP BRAND ═══ -->
-            <section id="about-brand" class="relative py-16 md:py-24 lg:py-32 px-5 md:px-8 lg:px-12 overflow-hidden" style="background: linear-gradient(160deg, #0d0020 0%, #16002c 50%, #0d0020 100%);">
+            <section id="about-brand" class="relative py-12 md:py-16 lg:py-20 px-5 md:px-8 lg:px-12 overflow-hidden" style="background: linear-gradient(160deg, #0d0020 0%, #16002c 50%, #0d0020 100%);">
 
                 <!-- Ambient glow blobs -->
                 <div class="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[400px] md:w-[700px] h-[200px] md:h-[300px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(161,48,197,0.12) 0%,transparent 70%);"></div>
@@ -518,14 +643,14 @@
                 <div class="relative z-10 max-w-7xl mx-auto">
 
                     <!-- ── Eyebrow ── -->
-                    <div class="flex items-center justify-center gap-4 mb-8 md:mb-10" data-aos="fade-down">
+                    <div class="flex items-center justify-center gap-4 mb-6 md:mb-8" data-aos="fade-down">
                         <div class="h-px w-8 md:w-12 bg-gradient-to-r from-transparent to-brand-primary"></div>
                         <span class="font-dm text-xs font-bold tracking-[0.35em] text-brand-primary uppercase">Who We Are</span>
                         <div class="h-px w-8 md:w-12 bg-gradient-to-l from-transparent to-brand-primary"></div>
                     </div>
 
                     <!-- ── Mobile: Logo first (stacked), Tablet+: side-by-side ── -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20 items-center mb-12 md:mb-16 lg:mb-24">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center mb-8 md:mb-12 lg:mb-14">
 
                         <!-- RIGHT (shown first on mobile via order): Logo centrepiece + tagline card -->
                         <div data-aos="fade-up" data-aos-delay="100" class="flex flex-col items-center gap-6 md:gap-8 order-1 lg:order-2">
@@ -548,13 +673,13 @@
 
                         <!-- LEFT: Brand narrative -->
                         <div data-aos="fade-up" data-aos-delay="200" class="order-2 lg:order-1">
-                            <h2 class="font-playfair text-4xl md:text-5xl lg:text-6xl text-white leading-[1.08] mb-5 md:mb-6 text-center lg:text-left">
+                            <h2 class="hidden md:block font-playfair text-4xl md:text-5xl lg:text-6xl text-white leading-[1.08] mb-5 md:mb-6 text-center lg:text-left">
                                 We Are<br>
                                 <span class="ss-text-glow italic text-brand-primary">StorySnip</span><br>
                                 <span class="text-white">Media.</span>
                             </h2>
                             <p class="font-manrope text-base md:text-lg text-gray-300 leading-relaxed mb-8 md:mb-10 text-center lg:text-left">
-                                StorySnip Media is a <span class="text-white font-semibold">content-led social media marketing agency</span> helping ambitious brands grow through powerful storytelling, strategic content and creative <span class="text-brand-primary font-semibold">social media management</span>.
+                                <span class="text-brand-primary font-semibold">StorySnip Media</span> is a <span class="text-white font-semibold">content-led social media marketing agency</span> helping ambitious brands grow through powerful storytelling, strategic content and creative.
                             </p>
 
                             <!-- Mission + Vision pills -->
@@ -658,8 +783,8 @@
                 <div class="absolute inset-y-0 right-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to left,#0d0020,transparent);"></div>
 
                 <!-- Eyebrow label -->
-                <div class="relative z-20 text-center mb-10" data-aos="fade-up">
-                    <span style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#A130C5;">
+                <div class="relative z-20 text-center mb-6" data-aos="fade-up">
+                    <span style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#A130C5;">
                         <span style="background:#A130C5;color:#fff;padding:2px 10px;border-radius:3px;">BRANDS WE'VE WORKED WITH</span>
                     </span>
                 </div>
@@ -689,12 +814,12 @@
             <style>
                 /* Brand name items */
                 .brands-item {
-                    font-family: 'Playfair Display', serif;
-                    font-size: clamp(28px, 4vw, 52px);
-                    font-weight: 700;
+                    font-family: 'Fraunces', serif;
+                    font-size: clamp(26px, 4vw, 50px);
+                    font-weight: 800;
                     letter-spacing: 0.04em;
                     text-transform: uppercase;
-                    color: rgba(255,255,255,0.18);
+                    color: rgba(255,255,255,0.65);
                     white-space: nowrap;
                     padding: 0 32px;
                     transition: color 0.3s ease;
@@ -722,6 +847,7 @@
                     border: 1px solid rgba(161,48,197,0.15);
                     border-radius: 24px;
                     padding: 36px 32px 32px;
+                    padding-top: 40px;
                     cursor: pointer;
                     overflow: hidden;
                     transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.35s ease, box-shadow 0.35s ease;
@@ -759,17 +885,8 @@
                 .exp-card:hover .exp-card-glow { opacity: 1; transform: scale(1.3); }
 
                 .exp-card-num {
-                    font-family: 'Playfair Display', serif;
-                    font-size: 48px;
-                    font-weight: 700;
-                    background: linear-gradient(135deg, rgba(161,48,197,0.6), rgba(161,48,197,0.2));
-                    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                    line-height: 1;
-                    margin-bottom: 20px;
-                    transition: opacity 0.3s ease;
+                    display: none;
                 }
-                .exp-card:hover .exp-card-num { opacity: 0.8; }
 
                 .exp-card-icon {
                     font-size: 32px;
@@ -780,14 +897,14 @@
                 .exp-card:hover .exp-card-icon { transform: scale(1.2) rotate(-5deg); }
 
                 .exp-card-title {
-                    font-family: 'Playfair Display', serif;
+                    font-family: 'Fraunces', serif;
                     font-size: 22px;
                     color: #fff;
                     margin-bottom: 10px;
                     line-height: 1.25;
                 }
                 .exp-card-desc {
-                    font-family: 'Manrope', sans-serif;
+                    font-family: 'Switzer', sans-serif;
                     font-size: 13.5px;
                     color: #9ca3af;
                     line-height: 1.7;
@@ -800,7 +917,7 @@
                     margin-bottom: 24px;
                 }
                 .exp-tag {
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 10px;
                     font-weight: 700;
                     letter-spacing: 0.8px;
@@ -817,7 +934,7 @@
                     border-color: rgba(161,48,197,0.6);
                 }
                 .exp-card-cta {
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 12px;
                     font-weight: 700;
                     letter-spacing: 1.5px;
@@ -917,12 +1034,12 @@
 
                 .exp-modal-icon { font-size: 40px; margin-bottom: 16px; display: inline-block; }
                 .exp-modal-title {
-                    font-family: 'Playfair Display', serif;
+                    font-family: 'Fraunces', serif;
                     font-size: 34px; font-weight: 700;
                     color: #fff; margin-bottom: 10px; line-height: 1.15;
                 }
                 .exp-modal-subtitle {
-                    font-family: 'Manrope', sans-serif;
+                    font-family: 'Switzer', sans-serif;
                     font-size: 15px; color: #9ca3af; line-height: 1.7;
                     max-width: 580px;
                 }
@@ -930,7 +1047,7 @@
 
                 .exp-modal-section { margin-bottom: 44px; }
                 .exp-modal-label {
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 10px; font-weight: 700;
                     letter-spacing: 2.5px; text-transform: uppercase;
                     color: rgba(161,48,197,0.8);
@@ -981,14 +1098,14 @@
                     z-index: 2;
                 }
                 .exp-slide-badge {
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 10px; font-weight: 700;
                     letter-spacing: 1.2px; text-transform: uppercase;
                     color: #A130C5;
                     display: block; margin-bottom: 4px;
                 }
                 .exp-slide-label {
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 15px; font-weight: 700;
                     color: #fff;
                     text-shadow: 0 1px 6px rgba(0,0,0,0.6);
@@ -1060,7 +1177,7 @@
                     box-shadow: 0 0 8px rgba(161,48,197,0.6);
                 }
                 .exp-feat-text {
-                    font-family: 'Manrope', sans-serif;
+                    font-family: 'Switzer', sans-serif;
                     font-size: 13px; color: #9ca3af; line-height: 1.5;
                 }
 
@@ -1072,7 +1189,7 @@
                     border-radius: 12px;
                     border: 1px solid rgba(161,48,197,0.2);
                     background: rgba(161,48,197,0.06);
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 13px; font-weight: 600;
                     color: #d1d5db;
                     transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
@@ -1097,14 +1214,14 @@
                 }
                 .exp-stat:hover { background: rgba(161,48,197,0.12); transform: translateY(-3px); }
                 .exp-stat-num {
-                    font-family: 'Playfair Display', serif;
+                    font-family: 'Fraunces', serif;
                     font-size: 30px; font-weight: 700;
                     color: #A130C5;
                     text-shadow: 0 0 20px rgba(161,48,197,0.4);
                     margin-bottom: 4px;
                 }
                 .exp-stat-label {
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 11px; color: #6b7280;
                     text-transform: uppercase; letter-spacing: 0.5px;
                 }
@@ -1119,14 +1236,14 @@
                     margin-top: 0;
                 }
                 .exp-modal-cta-text {
-                    font-family: 'Playfair Display', serif;
+                    font-family: 'Fraunces', serif;
                     font-size: 20px; color: #fff;
                 }
                 .exp-modal-cta-btn {
                     padding: 12px 28px;
                     background: #A130C5;
                     color: #fff;
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 13px; font-weight: 700;
                     border-radius: 999px;
                     border: none; cursor: pointer;
@@ -1157,12 +1274,12 @@
                 <div class="exp-modal" id="expModal"></div>
             </div>
 
-            <section class="py-16 md:py-24 px-5 md:px-8 lg:px-12 bg-brand-black border-b border-brand-light">
+            <section class="py-12 md:py-16 px-5 md:px-8 lg:px-12 bg-brand-black border-b border-brand-light">
                 <div class="max-w-7xl mx-auto">
-                    <div class="text-center mb-10 md:mb-16" data-aos="fade-up">
-                        <span class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-3 md:mb-4 block">Our Expertise</span>
-                        <h2 class="font-playfair text-3xl md:text-4xl lg:text-5xl text-white mb-3 md:mb-4">What We Create</h2>
-                        <p class="font-manrope text-gray-400 text-xs md:text-sm mt-2 md:mt-3">Tap any card to explore the full details</p>
+                    <div class="text-center mb-8 md:mb-10" data-aos="fade-up">
+                        <span class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-2 md:mb-3 block">Our Expertise</span>
+                        <h2 class="font-playfair text-3xl md:text-4xl lg:text-5xl text-white mb-2 md:mb-3">What We Create</h2>
+                        
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6" id="expertiseGrid">
                         <!-- Cards injected by JS -->
@@ -1175,7 +1292,7 @@
                 /* ── About Me Section ── */
                 .am-section {
                     position: relative;
-                    padding: 120px 24px;
+                    padding: 64px 24px;
                     overflow: hidden;
                     background: linear-gradient(160deg, #0d0020 0%, #0f0022 45%, #0d0020 100%);
                 }
@@ -1256,7 +1373,7 @@
                     border-radius: 999px;
                     background: rgba(22,11,30,0.92);
                     border: 1px solid rgba(161,48,197,0.35);
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 12px; font-weight: 700;
                     color: #fff;
                     backdrop-filter: blur(10px);
@@ -1278,7 +1395,7 @@
                 /* Right content */
                 .am-eyebrow {
                     display: inline-flex; align-items: center; gap: 10px;
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 11px; font-weight: 700;
                     letter-spacing: 3px; text-transform: uppercase;
                     color: #A130C5;
@@ -1292,7 +1409,7 @@
                     opacity: 0.6;
                 }
                 .am-name {
-                    font-family: 'Playfair Display', serif;
+                    font-family: 'Fraunces', serif;
                     font-size: clamp(38px, 5vw, 58px);
                     font-weight: 700;
                     color: #fff;
@@ -1305,14 +1422,14 @@
                     -webkit-text-fill-color: transparent;
                 }
                 .am-role {
-                    font-family: 'Manrope', sans-serif;
+                    font-family: 'Switzer', sans-serif;
                     font-size: 15px; font-weight: 600;
                     color: #9ca3af;
                     letter-spacing: 0.5px;
                     margin-bottom: 28px;
                 }
                 .am-bio {
-                    font-family: 'Manrope', sans-serif;
+                    font-family: 'Switzer', sans-serif;
                     font-size: 16px;
                     line-height: 1.8;
                     color: #c4b8d0;
@@ -1333,21 +1450,21 @@
                 }
                 .am-stat-item { text-align: center; }
                 .am-stat-num {
-                    font-family: 'Playfair Display', serif;
+                    font-family: 'Fraunces', serif;
                     font-size: 28px; font-weight: 700;
                     color: #A130C5;
                     text-shadow: 0 0 20px rgba(161,48,197,0.5);
                     display: block;
                 }
                 .am-stat-lbl {
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 11px; color: #6b7280;
                     text-transform: uppercase; letter-spacing: 0.8px;
                 }
 
                 /* ══ NEW SKILLS SECTION ══ */
                 .am-skills-wrap {
-                    margin-top: 64px;
+                    margin-top: 40px;
                     position: relative;
                     z-index: 2;
                 }
@@ -1357,7 +1474,7 @@
                     display: flex;
                     align-items: center;
                     gap: 18px;
-                    margin-bottom: 40px;
+                    margin-bottom: 24px;
                 }
                 .am-skills-header-line {
                     flex: 1;
@@ -1365,7 +1482,7 @@
                     background: linear-gradient(90deg, transparent, rgba(161,48,197,0.4), transparent);
                 }
                 .am-skills-title {
-                    font-family: 'Playfair Display', serif;
+                    font-family: 'Fraunces', serif;
                     font-size: 26px;
                     font-style: italic;
                     color: #fff;
@@ -1473,7 +1590,7 @@
                 }
 
                 .am-skill-name {
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 14px; font-weight: 700;
                     color: #e5e7eb;
                     letter-spacing: 0.3px;
@@ -1484,7 +1601,7 @@
                 .am-skill-card:hover .am-skill-name { color: #fff; }
 
                 .am-skill-sub {
-                    font-family: 'Manrope', sans-serif;
+                    font-family: 'Switzer', sans-serif;
                     font-size: 11.5px;
                     color: #6b7280;
                     line-height: 1.5;
@@ -1544,41 +1661,48 @@
                 <div class="max-w-7xl mx-auto relative z-10">
 
                     <!-- Eyebrow -->
-                    <div class="flex items-center justify-center gap-4 mb-16" data-aos="fade-down">
+                    <div class="flex items-center justify-center gap-4 mb-8" data-aos="fade-down">
                         <div class="h-px w-10 bg-gradient-to-r from-transparent to-brand-primary"></div>
                         <span class="font-dm text-xs font-bold tracking-[0.35em] text-brand-primary uppercase">About Me</span>
                         <div class="h-px w-10 bg-gradient-to-l from-transparent to-brand-primary"></div>
                     </div>
 
                     <!-- Main grid -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
                         <!-- LEFT — Photo -->
-                        <div class="am-photo-wrap" data-aos="fade-right" data-aos-duration="900">
-                            <!-- Spinning rings -->
-                            <div class="am-photo-ring absolute" style="width:460px;height:460px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
-                            <div class="am-photo-ring am-photo-ring-2 absolute" style="width:520px;height:520px;top:50%;left:50%;transform:translate(-50%,-50%);"></div>
+                        <div class="am-photo-wrap" data-aos="fade-right" data-aos-duration="900" style="min-height:560px;">
+
+                            <!-- SVG connector lines — all three pills connected to image -->
+                            <svg style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible;" viewBox="0 0 560 560" preserveAspectRatio="none">
+                                <!-- MBA Marketing (top-left) → image top area -->
+                                <line x1="170" y1="42" x2="280" y2="190" stroke="rgba(161,48,197,0.5)" stroke-width="1.5" stroke-dasharray="5 4"/>
+                                <circle cx="170" cy="42" r="4" fill="#A130C5" opacity="0.9"/>
+                                <circle cx="280" cy="190" r="3" fill="#A130C5" opacity="0.5"/>
+                                <!-- Growth Specialist (right) → image right-center -->
+                                <line x1="390" y1="218" x2="305" y2="255" stroke="rgba(161,48,197,0.5)" stroke-width="1.5" stroke-dasharray="5 4"/>
+                                <circle cx="390" cy="218" r="4" fill="#A130C5" opacity="0.9"/>
+                                <circle cx="305" cy="255" r="3" fill="#A130C5" opacity="0.5"/>
+                                <!-- Brand Storyteller (left-mid) → image left-center -->
+                                <line x1="108" y1="310" x2="220" y2="300" stroke="rgba(161,48,197,0.5)" stroke-width="1.5" stroke-dasharray="5 4"/>
+                                <circle cx="108" cy="310" r="4" fill="#A130C5" opacity="0.9"/>
+                                <circle cx="220" cy="300" r="3" fill="#A130C5" opacity="0.5"/>
+                            </svg>
 
                             <!-- Floating badges -->
-                            <div class="am-badge" style="top:-18px; left:-10px; animation-delay:0s;">
+                            <div class="am-badge" style="top:20px; left:30px; animation-delay:0s; z-index:10;">
                                 <div class="am-badge-dot"></div> MBA Marketing
                             </div>
-                            <div class="am-badge" style="top:30%; right:-20px; animation-delay:1.2s;">
+                            <div class="am-badge" style="top:36%; right:0px; animation-delay:1.2s; z-index:10;">
                                 <div class="am-badge-dot"></div> Growth Specialist
                             </div>
-                            <div class="am-badge" style="bottom:10px; left:-10px; animation-delay:0.6s;">
+                            <div class="am-badge" style="top:50%; left:-10px; animation-delay:0.6s; z-index:10; transform:translateY(-50%);">
                                 <div class="am-badge-dot"></div> Brand Storyteller
                             </div>
 
-                            <!-- Glow -->
-                            <div class="am-photo-glow"></div>
-
-                            <!-- Photo -->
-                            <div class="am-photo-frame">
-                                <img src="webpic.png" alt="Sai Kumar — StorySnip Media">
-                                <!-- Purple overlay gradient at bottom -->
-                                <div style="position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(to top,rgba(10,5,15,0.6) 0%,transparent 100%);"></div>
-                            </div>
+                            <!-- Photo — large, no box, transparent background -->
+                            <img src="pic.png" alt="Sai Kumar — StorySnip Media"
+                                 style="position:relative;z-index:3;width:100%;max-width:520px;height:auto;display:block;margin:0 auto;object-fit:contain;filter:drop-shadow(0 24px 70px rgba(161,48,197,0.40)) drop-shadow(0 6px 28px rgba(0,0,0,0.55));">
                         </div>
 
                         <!-- RIGHT — Content -->
@@ -1599,7 +1723,7 @@
                             <!-- CTA buttons -->
                             <div class="flex flex-wrap gap-4">
                                 <button onclick="showPage('contact')" class="px-7 py-3 bg-brand-primary text-white font-dm font-bold text-sm rounded-full hover:bg-brand-deep transition-all shadow-[0_0_20px_rgba(161,48,197,0.4)] hover:shadow-[0_0_30px_rgba(161,48,197,0.6)] hover:-translate-y-0.5">Work With Me →</button>
-                                <button onclick="showPage('projects')" class="px-7 py-3 border border-brand-primary/40 text-white font-dm font-bold text-sm rounded-full hover:border-brand-primary hover:bg-brand-primary/10 transition-all">View My Work</button>
+                                
                             </div>
                         </div>
                     </div>
@@ -1607,86 +1731,129 @@
                     <!-- ── SKILLS ── -->
                     <div class="am-skills-wrap" data-aos="fade-up" data-aos-delay="100">
 
-                        <!-- Header -->
-                        <div class="am-skills-header">
-                            <div class="am-skills-header-line"></div>
-                            <div class="am-skills-title">
-                                <span class="am-skill-star">✦</span>
+                        <style>
+                            .am-skills-wrap { margin-top: 40px; }
+
+                            /* ── Title ── */
+                            .skills-title-row {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 18px;
+                                margin-bottom: 24px;
+                            }
+                            .skills-title-text {
+                                font-family: 'Switzer', sans-serif;
+                                font-size: clamp(32px, 5vw, 52px);
+                                font-weight: 800;
+                                color: #fff;
+                                letter-spacing: -0.5px;
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                            }
+                            .skills-title-star {
+                                font-size: 22px;
+                                color: #A130C5;
+                                display: inline-block;
+                                animation: amStarSpin 5s linear infinite;
+                                line-height: 1;
+                            }
+                            .skills-title-star.rev { animation-direction: reverse; }
+
+                            /* Orange squiggle SVG accents */
+                            .skills-squiggle {
+                                flex-shrink: 0;
+                                opacity: 0.92;
+                            }
+
+                            /* ── Pill tags ── */
+                            .skills-pills-wrap {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                gap: 14px;
+                            }
+                            .skills-pills-row {
+                                display: flex;
+                                flex-wrap: wrap;
+                                justify-content: center;
+                                gap: 12px;
+                            }
+                            .skill-pill {
+                                display: inline-flex;
+                                align-items: center;
+                                padding: 10px 22px;
+                                border-radius: 999px;
+                                border: 1.5px solid rgba(255,255,255,0.18);
+                                background: rgba(255,255,255,0.04);
+                                font-family: 'Syne', sans-serif;
+                                font-size: 14px;
+                                font-weight: 600;
+                                color: rgba(255,255,255,0.88);
+                                letter-spacing: 0.1px;
+                                white-space: nowrap;
+                                backdrop-filter: blur(8px);
+                                transition: border-color 0.28s ease, background 0.28s ease, color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
+                                cursor: default;
+                            }
+                            .skill-pill:hover {
+                                border-color: rgba(161,48,197,0.7);
+                                background: rgba(161,48,197,0.12);
+                                color: #fff;
+                                transform: translateY(-3px);
+                                box-shadow: 0 8px 24px rgba(161,48,197,0.22);
+                            }
+                        </style>
+
+                        <!-- Title with squiggles -->
+                        <div class="skills-title-row">
+                            <!-- Left squiggle -->
+                            <svg class="skills-squiggle" width="54" height="38" viewBox="0 0 54 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M52 6 C44 2, 34 14, 28 10 C22 6, 14 20, 6 16" stroke="#E8924A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                <path d="M46 22 C40 18, 32 28, 24 24" stroke="#E8924A" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+                            </svg>
+
+                            <div class="skills-title-text">
+                                <span class="skills-title-star">✦</span>
                                 skills.
-                                <span class="am-skill-star rev">✦</span>
+                                <span class="skills-title-star rev">✦</span>
                             </div>
-                            <div class="am-skills-header-line"></div>
+
+                            <!-- Right squiggle -->
+                            <svg class="skills-squiggle" width="54" height="38" viewBox="0 0 54 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 6 C10 2, 20 14, 26 10 C32 6, 40 20, 48 16" stroke="#E8924A" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+                                <path d="M8 22 C14 18, 22 28, 30 24" stroke="#E8924A" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.6"/>
+                            </svg>
                         </div>
 
-                        <!-- Bento skill grid (injected by JS) -->
-                        <div class="am-skills-grid" id="amSkillGrid"></div>
+                        <!-- Pill tags — Row 1 -->
+                        <div class="skills-pills-wrap">
+                            <div class="skills-pills-row">
+                                <span class="skill-pill">Content &amp; Branding</span>
+                                <span class="skill-pill">Growth Marketing</span>
+                                <span class="skill-pill">Social Media &amp; Strategy</span>
+                                <span class="skill-pill">Analytics</span>
+                            </div>
+                            <!-- Pill tags — Row 2 -->
+                            <div class="skills-pills-row">
+                                <span class="skill-pill">Marketing Strategy</span>
+                                <span class="skill-pill">Brand Management</span>
+                                <span class="skill-pill">Creative Campaign</span>
+                            </div>
+                        </div>
 
                     </div>
 
                 </div>
             </section>
 
-            <script>
-            // ── Bento Skill Grid ──
-            (function() {
-                const skills = [
-                    { icon: '🎬', name: 'Video Editing', sub: 'Reels, long-form & cinematic cuts', wide: false },
-                    { icon: '📣', name: 'Social Media & Strategy', sub: 'Platform-native growth systems', wide: false },
-                    { icon: '🎨', name: 'Content & Branding', sub: 'Visual identity that converts', wide: true },
-                    { icon: '📈', name: 'Growth Marketing', sub: 'Funnels, paid & organic growth', wide: false },
-                    { icon: '📊', name: 'Analytics & Reporting', sub: 'Data-driven content decisions', wide: false },
-                    { icon: '🧭', name: 'Marketing Strategy', sub: '360° campaigns from concept to launch', wide: true },
-                    { icon: '🧬', name: 'Brand Management', sub: 'Consistency across every touchpoint', wide: false },
-                    { icon: '✨', name: 'Creative Campaigns', sub: 'Ideas that stop the scroll', wide: false },
-                ];
-
-                const grid = document.getElementById('amSkillGrid');
-                if (!grid) return;
-
-                skills.forEach((s, i) => {
-                    const card = document.createElement('div');
-                    card.className = 'am-skill-card' + (s.wide ? ' wide' : '');
-                    card.style.animationDelay = (0.08 + i * 0.07) + 's';
-
-                    if (s.wide) {
-                        card.innerHTML = `
-                            <div class="am-skill-glow"></div>
-                            <div class="am-skill-icon-wrap">${s.icon}</div>
-                            <div class="am-skill-body">
-                                <div class="am-skill-name">${s.name}</div>
-                                <div class="am-skill-sub">${s.sub}</div>
-                            </div>
-                            <div class="am-skill-dot"></div>`;
-                    } else {
-                        card.innerHTML = `
-                            <div class="am-skill-glow"></div>
-                            <div class="am-skill-icon-wrap">${s.icon}</div>
-                            <div class="am-skill-name">${s.name}</div>
-                            <div class="am-skill-sub">${s.sub}</div>
-                            <div class="am-skill-dot"></div>`;
-                    }
-
-                    grid.appendChild(card);
-                });
-
-                // Mouse-follow radial highlight per card
-                grid.addEventListener('mousemove', e => {
-                    const cards = grid.querySelectorAll('.am-skill-card');
-                    cards.forEach(card => {
-                        const rect = card.getBoundingClientRect();
-                        const x = ((e.clientX - rect.left) / rect.width * 100).toFixed(1);
-                        const y = ((e.clientY - rect.top) / rect.height * 100).toFixed(1);
-                        card.style.setProperty('--mx', x + '%');
-                        card.style.setProperty('--my', y + '%');
-                    });
-                });
-            })();
-            </script>
+            <!-- Skills JS removed — now using static pill layout -->
 
             <!-- Process Timeline -->
-            <section id="how-we-work-home" class="py-24 px-6 lg:px-12 bg-brand-black border-b border-brand-light relative overflow-hidden">
+            <section id="how-we-work-home" class="py-14 px-6 lg:px-12 bg-brand-black border-b border-brand-light relative overflow-hidden">
                 <div class="max-w-4xl mx-auto relative z-10">
-                    <div class="text-center mb-20" data-aos="fade-up"><span class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-4 block">The Workflow</span><h2 class="font-playfair text-4xl lg:text-5xl text-white">How We Work</h2></div>
+                    <div class="text-center mb-12" data-aos="fade-up"><span class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-2 block">The Workflow</span><h2 class="font-playfair text-4xl lg:text-5xl text-white">How We Work</h2></div>
                     <div class="relative pb-10">
                         <div class="timeline-line"></div>
                         <div class="moving-violet-dot"></div>
@@ -1722,7 +1889,7 @@
 
 
             <!-- ═══ PROJECTS ═══ -->
-            <section id="projects-home" class="py-24 px-6 lg:px-12 bg-brand-black border-t border-brand-light relative overflow-hidden">
+            <section id="projects-home" class="py-14 px-6 lg:px-12 bg-brand-black border-t border-brand-light relative overflow-hidden">
 
                 <!-- Ambient glow -->
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] pointer-events-none" style="background:radial-gradient(ellipse,rgba(161,48,197,0.09) 0%,transparent 70%);"></div>
@@ -1734,13 +1901,13 @@
                 <div class="max-w-7xl mx-auto relative z-10">
 
                     <!-- Header -->
-                    <div class="text-center mb-14" data-aos="fade-up">
-                        <div class="flex items-center justify-center gap-4 mb-6">
+                    <div class="text-center mb-10" data-aos="fade-up">
+                        <div class="flex items-center justify-center gap-4 mb-3">
                             <div class="h-px w-10 bg-gradient-to-r from-transparent to-brand-primary"></div>
                             <span class="font-dm text-xs font-bold tracking-[0.35em] text-brand-primary uppercase">Projects</span>
                             <div class="h-px w-10 bg-gradient-to-l from-transparent to-brand-primary"></div>
                         </div>
-                        <h2 class="font-playfair text-4xl lg:text-5xl text-white mb-4 leading-[1.08]">
+                        <h2 class="font-playfair text-4xl lg:text-5xl text-white mb-2 leading-[1.08]">
                             Work that <span class="text-brand-primary italic">Moves</span> People.
                         </h2>
                         <p class="font-manrope text-gray-400 max-w-lg mx-auto text-sm leading-relaxed">
@@ -1862,7 +2029,7 @@
                 /* ── Recent Works Section ── */
                 .rw-section {
                     position: relative;
-                    padding: 100px 24px;
+                    padding: 56px 24px;
                     background: linear-gradient(160deg, #0d0020 0%, #16002c 50%, #0d0020 100%);
                     overflow: hidden;
                 }
@@ -1879,9 +2046,9 @@
                 .rw-work-item {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    gap: 60px;
+                    gap: 48px;
                     align-items: center;
-                    padding: 80px 0;
+                    padding: 48px 0;
                     border-bottom: 1px solid rgba(161,48,197,0.12);
                     position: relative;
                 }
@@ -1955,13 +2122,13 @@
                 .rw-content-area { }
 
                 .rw-work-tag {
-                    font-family: 'DM Sans', sans-serif;
+                    font-family: 'Syne', sans-serif;
                     font-size: 11px; font-weight: 700;
                     letter-spacing: 3px; text-transform: uppercase;
                     color: #A130C5; margin-bottom: 14px; display: block;
                 }
                 .rw-work-title {
-                    font-family: 'Playfair Display', serif;
+                    font-family: 'Fraunces', serif;
                     font-size: clamp(28px, 3.5vw, 42px);
                     font-weight: 700;
                     color: #ffffff;
@@ -1969,7 +2136,7 @@
                     margin-bottom: 18px;
                 }
                 .rw-work-desc {
-                    font-family: 'Manrope', sans-serif;
+                    font-family: 'Switzer', sans-serif;
                     font-size: 15px;
                     color: #9ca3af;
                     line-height: 1.75;
@@ -1979,7 +2146,7 @@
 
                 /* "Result" sub-heading */
                 .rw-result-heading {
-                    font-family: 'Playfair Display', serif;
+                    font-family: 'Fraunces', serif;
                     font-size: 26px;
                     font-weight: 700;
                     color: #ffffff;
@@ -2022,7 +2189,7 @@
                 .rw-stat-box:hover::after { width: 70%; }
 
                 .rw-stat-num {
-                    font-family: 'Playfair Display', serif;
+                    font-family: 'Fraunces', serif;
                     font-size: clamp(24px, 3vw, 34px);
                     font-weight: 700;
                     color: #ffffff;
@@ -2040,7 +2207,7 @@
                     display: inline-block;
                 }
                 .rw-stat-label {
-                    font-family: 'Manrope', sans-serif;
+                    font-family: 'Switzer', sans-serif;
                     font-size: 11px;
                     color: #9ca3af;
                     font-weight: 600;
@@ -2058,7 +2225,7 @@
                 }
 
                 @media (max-width: 640px) {
-                    .rw-section { padding: 80px 20px; }
+                    .rw-section { padding: 48px 20px; }
                 }
             </style>
 
@@ -2070,13 +2237,13 @@
                 <div class="max-w-7xl mx-auto relative z-10">
 
                     <!-- Section eyebrow -->
-                    <div class="flex items-center justify-center gap-4 mb-6" data-aos="fade-down">
+                    <div class="flex items-center justify-center gap-4 mb-3" data-aos="fade-down">
                         <div class="h-px w-12 bg-gradient-to-r from-transparent to-brand-primary"></div>
                         <span class="font-dm text-xs font-bold tracking-[0.35em] text-brand-primary uppercase">Portfolio</span>
                         <div class="h-px w-12 bg-gradient-to-l from-transparent to-brand-primary"></div>
                     </div>
                     <div class="text-center mb-4" data-aos="fade-up">
-                        <h2 class="font-playfair text-4xl lg:text-5xl text-white mb-3">
+                        <h2 class="font-playfair text-4xl lg:text-5xl text-white mb-2">
                             Recent <span class="text-brand-primary italic">Works</span>
                         </h2>
                         <p class="font-manrope text-gray-400 max-w-xl mx-auto text-base">
@@ -2098,9 +2265,9 @@
                                 <img src="instaimage.jpg" alt="ATOM Instagram Profile">
                             </div>
 
-                            <!-- Front phone (Analytics) -->
-                            <div class="rw-device rw-device-2">
-                                <img src="test1.jpg" alt="Instagram Performance">
+                            <!-- Front phone (ATOM Logo) -->
+                            <div class="rw-device rw-device-2" style="background:#0d1b3e; display:flex; align-items:center; justify-content:center; padding:20px;">
+                                <img src="atomlogo.jpg" alt="ATOM Home Theatre Logo" style="width:100%; height:100%; object-fit:contain; display:block; background:#0d1b3e;">
                             </div>
 
                             <!-- Bottom wide panel (Meta Insights) -->
@@ -2111,11 +2278,12 @@
 
                         <!-- RIGHT: Title + desc + result grid -->
                         <div class="rw-content-area" data-aos="fade-left" data-aos-delay="150">
-                            <span class="rw-work-tag">Social Media &amp; KOL</span>
-                            <h3 class="rw-work-title">Social Media &amp; KOL</h3>
+                            <span class="rw-work-tag">ATOM Home Theatre — Case Study</span>
+                            
                             <p class="rw-work-desc">
-                                Managed ATOM Home Theatre's social media and Key Opinion Leader (KOL) collaborations to enhance brand visibility, user engagement, and account growth.
+                                Over a 2-month period, I worked on ATOM Home Theatre's organic digital growth, focusing on transforming its Instagram presence into a stronger premium brand channel. I developed the content strategy around high-retention Reels, project showcases, luxury home theatre experiences, trend-led content, and visual storytelling. I also contributed to the brand identity, Instagram positioning, content direction, and website insights to create a more consistent and premium digital presence.
                             </p>
+                            
 
                             <div class="rw-result-heading">Result</div>
 
@@ -2178,7 +2346,7 @@
                     </div><!-- /work item 1 -->
 
                     <!-- Bottom CTA -->
-                    <div class="text-center mt-20" data-aos="fade-up">
+                    <div class="text-center mt-10" data-aos="fade-up">
                         <button onclick="showPage('contact')" class="inline-flex items-center gap-3 px-10 py-4 bg-brand-primary text-white font-dm font-bold rounded-full hover:bg-brand-deep transition-all duration-300 shadow-[0_0_24px_rgba(161,48,197,0.45)] text-sm tracking-wide">
                             Start Your Project <span style="font-size:16px;">→</span>
                         </button>
@@ -2188,7 +2356,7 @@
             </section>
 
             <!-- ═══ CONTACT SECTION (inline on home page) ═══ -->
-            <section id="contact-home" class="relative py-28 px-6 lg:px-12 overflow-hidden" style="background:linear-gradient(160deg,#0d0020 0%,#0f0022 55%,#0d0020 100%);">
+            <section id="contact-home" class="relative py-16 px-6 lg:px-12 overflow-hidden" style="background:linear-gradient(160deg,#0d0020 0%,#0f0022 55%,#0d0020 100%);">
                 <!-- Ambient glows -->
                 <div class="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(75,26,106,0.18) 0%,transparent 65%);"></div>
                 <div class="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(161,48,197,0.12) 0%,transparent 65%);"></div>
@@ -2206,7 +2374,7 @@
                     <h2 class="font-playfair text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-none mb-4" data-aos="fade-up" data-aos-delay="60">
                         Ready to <span class="text-brand-primary">Grow?</span>
                     </h2>
-                    <p class="font-manrope text-gray-400 mb-12 text-base" data-aos="fade-up" data-aos-delay="100">
+                    <p class="font-manrope text-gray-400 mb-8 text-base" data-aos="fade-up" data-aos-delay="100">
                         Tell us about your brand — we'll follow up within 48 hours.
                     </p>
 
@@ -2318,16 +2486,172 @@ ${message}
             </section>
         </main>
         <!-- Footer -->
-        <footer class="bg-[#050208] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-brand-primary/20">
-            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-1"><img src="sniplogotrans.png" style="height:78px;width:auto;" class="bg-white px-4 py-2 rounded-xl mb-6 block"><p class="font-dm text-xs uppercase text-brand-primary tracking-widest mb-6">Snip the Content.<br>Tell the Story.<br>Grow the Brand.</p></div>
-                <div><h4 class="font-playfair text-xl mb-6">Navigation</h4><ul class="space-y-3 font-manrope text-sm text-gray-400"><li><button onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'});" class="hover:text-brand-primary transition-colors">Home</button></li><li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300);" class="hover:text-brand-primary transition-colors">About</button></li><li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300);" class="hover:text-brand-primary transition-colors">Expertise</button></li><li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300);" class="hover:text-brand-primary transition-colors">Process</button></li><li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300);" class="hover:text-brand-primary transition-colors">Projects</button></li><li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300);" class="hover:text-brand-primary transition-colors">Work</button></li><li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);" class="hover:text-brand-primary transition-colors">Contact</button></li></ul></div>
-                <div><h4 class="font-playfair text-xl mb-6">Services</h4><ul class="space-y-3 font-manrope text-sm text-gray-400"><li><button onclick="showServiceDetail('video')" class="hover:text-brand-primary transition-colors">Video Editing</button></li><li><button onclick="showServiceDetail('social')" class="hover:text-brand-primary transition-colors">Social Media</button></li><li><button onclick="showServiceDetail('creative')" class="hover:text-brand-primary transition-colors">Content Creation</button></li><li><button onclick="showServiceDetail('branding')" class="hover:text-brand-primary transition-colors">Branding</button></li></ul></div>
-                <div><h4 class="font-playfair text-xl mb-6">Social</h4><ul class="space-y-3 font-manrope text-sm text-gray-400"><li><a href="#" class="hover:text-brand-primary transition-colors">Instagram</a></li><li><a href="#" class="hover:text-brand-primary transition-colors">YouTube</a></li><li><a href="#" class="hover:text-brand-primary transition-colors">LinkedIn</a></li></ul></div>
-            </div>
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center border-t border-brand-light pt-8 font-manrope text-xs text-gray-500">
-                <p>© 2026 StorySnip Media. All Rights Reserved.</p>
-                <div class="flex gap-4 mt-4 md:mt-0"><button onclick="showPage('privacy')" class="hover:text-brand-primary transition-colors">Privacy Policy</button><button onclick="showPage('terms')" class="hover:text-brand-primary transition-colors">Terms & Conditions</button></div>
+        <footer style="
+            background: linear-gradient(180deg, #0a001a 0%, #0d0020 40%, #110028 100%);
+            border-top: 1px solid rgba(161,48,197,0.30);
+            position: relative;
+            overflow: hidden;
+        " class="text-white pt-16 pb-0 px-6 lg:px-12">
+
+            <!-- Ambient background glows -->
+            <div style="position:absolute;top:-100px;left:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(161,48,197,0.14) 0%,transparent 70%);pointer-events:none;"></div>
+            <div style="position:absolute;bottom:-80px;right:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(ellipse,rgba(75,26,106,0.18) 0%,transparent 70%);pointer-events:none;"></div>
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;border-radius:50%;background:radial-gradient(ellipse,rgba(120,20,180,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+
+            <!-- Thin top accent line -->
+            <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(161,48,197,0.6) 30%,rgba(211,142,234,0.8) 50%,rgba(161,48,197,0.6) 70%,transparent 100%);"></div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+
+                <!-- Top grid: Brand | Nav | Services | Social -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12 footer-grid">
+
+                    <!-- Brand col — wider -->
+                    <div class="md:col-span-4 flex flex-col gap-6">
+
+                        <!-- Logo — white version, no background -->
+                        <a href="#" onclick="showPage('home'); return false;" style="
+                            display: inline-block;
+                            text-decoration: none;
+                            width: fit-content;
+                            transition: opacity 0.25s ease, transform 0.25s ease;
+                        " onmouseover="this.style.opacity='0.82';this.style.transform='scale(1.03)'" onmouseout="this.style.opacity='1';this.style.transform='scale(1)'">
+                            <img src="snipwhite.png" alt="StorySnip Media"
+                                 style="height:110px;width:auto;display:block;">
+                        </a>
+
+                        <!-- Caption — aligned flush with logo -->
+                        <p style="
+                            font-family:'Fraunces',serif;
+                            font-size:15.5px;
+                            font-style:italic;
+                            font-weight:500;
+                            background:linear-gradient(135deg,#e0aaff 0%,#A130C5 55%,#7b18b8 100%);
+                            -webkit-background-clip:text;
+                            -webkit-text-fill-color:transparent;
+                            letter-spacing:0.015em;
+                            margin:0;
+                            line-height:1.5;
+                        ">"Snip the Content. Tell the Story. Grow the Brand."</p>
+
+                        <!-- Short tagline / descriptor -->
+                        <p style="font-family:'Switzer',sans-serif;font-size:13px;color:rgba(255,255,255,0.42);line-height:1.7;margin:0;max-width:280px;">A brand & content studio crafting stories that scale — through video, visuals, and strategy.</p>
+
+                        <!-- Social icons row -->
+                        <div style="display:flex;gap:12px;align-items:center;margin-top:2px;">
+
+                            <!-- Instagram -->
+                            <a href="#" aria-label="Instagram" style="
+                                display:inline-flex;align-items:center;justify-content:center;
+                                width:42px;height:42px;border-radius:12px;
+                                background:rgba(161,48,197,0.10);
+                                border:1px solid rgba(161,48,197,0.28);
+                                color:rgba(255,255,255,0.65);
+                                text-decoration:none;
+                                transition:all 0.25s ease;
+                            " onmouseover="this.style.background='rgba(161,48,197,0.28)';this.style.borderColor='rgba(161,48,197,0.70)';this.style.color='#fff';this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 20px rgba(161,48,197,0.35)'" onmouseout="this.style.background='rgba(161,48,197,0.10)';this.style.borderColor='rgba(161,48,197,0.28)';this.style.color='rgba(255,255,255,0.65)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                                </svg>
+                            </a>
+
+                            <!-- YouTube -->
+                            <a href="#" aria-label="YouTube" style="
+                                display:inline-flex;align-items:center;justify-content:center;
+                                width:42px;height:42px;border-radius:12px;
+                                background:rgba(161,48,197,0.10);
+                                border:1px solid rgba(161,48,197,0.28);
+                                color:rgba(255,255,255,0.65);
+                                text-decoration:none;
+                                transition:all 0.25s ease;
+                            " onmouseover="this.style.background='rgba(161,48,197,0.28)';this.style.borderColor='rgba(161,48,197,0.70)';this.style.color='#fff';this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 20px rgba(161,48,197,0.35)'" onmouseout="this.style.background='rgba(161,48,197,0.10)';this.style.borderColor='rgba(161,48,197,0.28)';this.style.color='rgba(255,255,255,0.65)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
+                                </svg>
+                            </a>
+
+                            <!-- LinkedIn -->
+                            <a href="#" aria-label="LinkedIn" style="
+                                display:inline-flex;align-items:center;justify-content:center;
+                                width:42px;height:42px;border-radius:12px;
+                                background:rgba(161,48,197,0.10);
+                                border:1px solid rgba(161,48,197,0.28);
+                                color:rgba(255,255,255,0.65);
+                                text-decoration:none;
+                                transition:all 0.25s ease;
+                            " onmouseover="this.style.background='rgba(161,48,197,0.28)';this.style.borderColor='rgba(161,48,197,0.70)';this.style.color='#fff';this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 20px rgba(161,48,197,0.35)'" onmouseout="this.style.background='rgba(161,48,197,0.10)';this.style.borderColor='rgba(161,48,197,0.28)';this.style.color='rgba(255,255,255,0.65)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+                                </svg>
+                            </a>
+
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="md:col-span-2 md:col-start-6">
+                        <h4 style="font-family:'Fraunces',serif;font-size:16px;font-weight:600;margin-bottom:22px;letter-spacing:0.03em;background:linear-gradient(135deg,#d38eea 0%,#A130C5 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;font-size:11px;letter-spacing:0.12em;">Navigation</h4>
+                        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-family:'Switzer',sans-serif;font-size:14px;">
+                            <li><button onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'});" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>Home</button></li>
+                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>About</button></li>
+                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>Expertise</button></li>
+                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>Process</button></li>
+                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>Projects</button></li>
+                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>Work</button></li>
+                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>Contact</button></li>
+                        </ul>
+                    </div>
+
+                    <!-- Services -->
+                    <div class="md:col-span-2">
+                        <h4 style="font-family:'Fraunces',serif;font-size:11px;font-weight:600;margin-bottom:22px;letter-spacing:0.12em;background:linear-gradient(135deg,#d38eea 0%,#A130C5 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;">Services</h4>
+                        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-family:'Switzer',sans-serif;font-size:14px;">
+                            <li><button onclick="showServiceDetail('video')" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>Video Editing</button></li>
+                            <li><button onclick="showServiceDetail('social')" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>Social Media</button></li>
+                            <li><button onclick="showServiceDetail('creative')" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>Content Creation</button></li>
+                            <li><button onclick="showServiceDetail('branding')" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#d38eea';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#A130C5;opacity:0.5;flex-shrink:0;"></span>Branding</button></li>
+                        </ul>
+                    </div>
+
+                    <!-- CTA / Contact column -->
+                    <div class="md:col-span-2">
+                        <h4 style="font-family:'Fraunces',serif;font-size:11px;font-weight:600;margin-bottom:22px;letter-spacing:0.12em;background:linear-gradient(135deg,#d38eea 0%,#A130C5 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;">Get In Touch</h4>
+                        <p style="font-family:'Switzer',sans-serif;font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;margin:0 0 18px;">Ready to grow your brand? Let's create something remarkable together.</p>
+                        <button onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);" style="
+                            display:inline-flex;align-items:center;gap:8px;
+                            padding:11px 22px;
+                            background:linear-gradient(135deg,#A130C5 0%,#7b18b8 100%);
+                            color:#fff;
+                            border:none;
+                            border-radius:999px;
+                            font-family:'Switzer',sans-serif;font-size:13px;font-weight:700;
+                            cursor:pointer;
+                            box-shadow:0 4px 20px rgba(161,48,197,0.40);
+                            transition:all 0.25s ease;
+                            letter-spacing:0.02em;
+                        " onmouseover="this.style.background='linear-gradient(135deg,#b840d8 0%,#8e22cc 100%)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(161,48,197,0.55)'" onmouseout="this.style.background='linear-gradient(135deg,#A130C5 0%,#7b18b8 100%)';this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(161,48,197,0.40)'">
+                            Start a Project
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- Divider with glow dot -->
+                <div style="position:relative;border-top:1px solid rgba(161,48,197,0.18);margin-bottom:0;">
+                    <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:60px;height:2px;background:linear-gradient(90deg,transparent,rgba(211,142,234,0.9),transparent);border-radius:1px;"></div>
+                </div>
+
+                <!-- Bottom bar -->
+                <div style="padding:18px 0 24px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+                    <p style="font-family:'Switzer',sans-serif;font-size:12px;color:rgba(255,255,255,0.28);margin:0;letter-spacing:0.02em;">© 2026 StorySnip Media. All Rights Reserved.</p>
+                    <div style="display:flex;gap:20px;align-items:center;">
+                        <button onclick="showPage('privacy')" style="background:none;border:none;font-family:'Switzer',sans-serif;font-size:12px;color:rgba(255,255,255,0.28);cursor:pointer;padding:0;transition:color 0.2s;letter-spacing:0.02em;" onmouseover="this.style.color='#A130C5'" onmouseout="this.style.color='rgba(255,255,255,0.28)'">Privacy Policy</button>
+                        <span style="width:1px;height:12px;background:rgba(161,48,197,0.25);display:inline-block;"></span>
+                        <button onclick="showPage('terms')" style="background:none;border:none;font-family:'Switzer',sans-serif;font-size:12px;color:rgba(255,255,255,0.28);cursor:pointer;padding:0;transition:color 0.2s;letter-spacing:0.02em;" onmouseover="this.style.color='#A130C5'" onmouseout="this.style.color='rgba(255,255,255,0.28)'">Terms & Conditions</button>
+                    </div>
+                </div>
+
             </div>
         </footer>
     </div>
@@ -2637,13 +2961,13 @@ ${message}
         /* Text block */
         #engageBar .eb-text { display:flex; flex-direction:column; gap:1px; }
         #engageBar .eb-title {
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Syne', sans-serif;
             font-size: 12px; font-weight: 700;
             color: #fff; letter-spacing: 0.2px;
             line-height: 1.2;
         }
         #engageBar .eb-sub {
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Switzer', sans-serif;
             font-size: 10px; color: rgba(255,255,255,0.45);
             line-height: 1.2;
         }
@@ -2661,7 +2985,7 @@ ${message}
             padding: 7px 16px;
             background: #A130C5;
             border: none; border-radius: 999px;
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Syne', sans-serif;
             font-size: 12px; font-weight: 700;
             color: #fff; cursor: pointer;
             text-decoration: none;
@@ -2683,7 +3007,7 @@ ${message}
             background: rgba(255,255,255,0.06);
             border: 1px solid rgba(255,255,255,0.12);
             border-radius: 999px;
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Syne', sans-serif;
             font-size: 12px; font-weight: 700;
             color: rgba(255,255,255,0.75);
             cursor: pointer;
@@ -3033,56 +3357,42 @@ ${message}
         document.body.style.overflow = '';
     }
 
-    // ── Init: loading screen with live 0% → 100% progress ───────────────
+    // ── Init: loading screen — perfectly linear 0→100 in 2s ─────────────
     (function () {
         const loaderEl  = document.getElementById('loader');
         const percentEl = document.getElementById('loaderPercent');
         const barFillEl = document.getElementById('loaderBarFill');
         if (!loaderEl) return;
 
-        let shown = 0;      // number currently displayed
-        let target = 0;     // number we're easing toward
-        let pageLoaded = false;
+        const DURATION = 300; // total ms for 0→100
+        let startTime = null;
+        let rafId;
 
-        function render(n) {
-            const val = Math.min(100, Math.max(0, Math.round(n)));
-            if (percentEl) percentEl.textContent = val + '%';
-            if (barFillEl) barFillEl.style.width = val + '%';
+        function render(val) {
+            const v = Math.min(100, Math.max(0, val));
+            if (percentEl) percentEl.textContent = v + '%';
+            if (barFillEl) barFillEl.style.width = v + '%';
         }
 
-        function frame() {
-            shown += (target - shown) * 0.09;
-            if (Math.abs(target - shown) < 0.3) shown = target;
-            render(shown);
-            if (shown >= 100) { hideLoader(); return; }
-            requestAnimationFrame(frame);
+        function frame(ts) {
+            if (!startTime) startTime = ts;
+            const elapsed = ts - startTime;
+            const progress = Math.min(1, elapsed / DURATION);
+            const val = Math.round(progress * 100);
+            render(val);
+            if (progress < 1) {
+                rafId = requestAnimationFrame(frame);
+            } else {
+                hideLoader();
+            }
         }
-        requestAnimationFrame(frame);
-
-        // Creep the number upward while real assets (fonts, images, video) are still loading
-        const creepTimer = setInterval(() => {
-            if (pageLoaded) { clearInterval(creepTimer); return; }
-            target = Math.min(92, target + (92 - target) * 0.1 + 1.2);
-        }, 140);
+        rafId = requestAnimationFrame(frame);
 
         function hideLoader() {
             setTimeout(() => {
                 loaderEl.style.opacity = '0';
                 setTimeout(() => { loaderEl.style.display = 'none'; }, 500);
-            }, 350);
-        }
-
-        function completeLoad() {
-            if (pageLoaded) return;
-            pageLoaded = true;
-            clearInterval(creepTimer);
-            target = 100;
-        }
-
-        if (document.readyState === 'complete') {
-            completeLoad();
-        } else {
-            window.addEventListener('load', completeLoad);
+            }, 200);
         }
     })();
 
@@ -3162,42 +3472,13 @@ ${message}
     // ══════════════════════════════════════════════════════════════════
     // OUR EXPERTISE — Animated Cards + Beautiful Popup Modal
     // ══════════════════════════════════════════════════════════════════
+    // expertiseItems ordered to match image grid layout: positions show numbers 4,2,3,5,6,1
     const expertiseItems = [
         {
-            key: 'video',
-            num: '01',
-            icon: '🎬',
-            title: 'Video Editing',
-            short: 'Reels, Shorts, YouTube edits, cinematic cuts & motion graphics.',
-            tags: ['Reels', 'YouTube', 'Premiere Pro'],
-            description: 'We transform raw footage into high-retention, scroll-stopping video content. From cinematic short films to snappy Reels, every edit is engineered for platform-native performance and maximum watch time.',
-            images: [
-                { img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop', label: 'Cinematic Reels', badge: 'Color Graded' },
-                { img: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop', label: 'Short-Form Edits', badge: 'Reels & TikTok' },
-                { img: 'https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=800&auto=format&fit=crop', label: 'YouTube Videos', badge: 'Long-Form' }
-            ],
-            features: [
-                'Instagram Reels & TikToks', 'YouTube Long-Form Edits',
-                'Cinematic Mini-Docs', 'Motion Graphics & Titles',
-                'Colour Grading & LUTs', 'Sound Design & SFX'
-            ],
-            tools: [
-                { icon: '🎞️', name: 'Premiere Pro' }, { icon: '⚡', name: 'After Effects' },
-                { icon: '🎨', name: 'DaVinci Resolve' }, { icon: '🔊', name: 'Audition' },
-                { icon: '✂️', name: 'CapCut' }
-            ],
-            stats: [
-                { num: '500+', label: 'Videos Edited' },
-                { num: '2.5M+', label: 'Views Generated' },
-                { num: '90%', label: 'Client Retention' }
-            ],
-            ctaText: 'Ready for premium video edits?'
-        },
-        {
             key: 'social',
-            num: '02',
-            icon: '📣',
-            title: 'Social Media Mgt.',
+            num: '4',
+            icon: '📊',
+            title: 'Social Media Management',
             short: 'Instagram & Facebook management, content calendars & strategy.',
             tags: ['Instagram', 'Facebook', 'Strategy'],
             description: 'We handle your social presence end-to-end — from content planning and creative production to scheduling, posting, and community engagement. Consistent, brand-aligned, algorithm-aware.',
@@ -3224,13 +3505,13 @@ ${message}
             ctaText: 'Want consistent social growth?'
         },
         {
-            key: 'creative',
-            num: '03',
-            icon: '✨',
-            title: 'Creative Content',
-            short: 'Social posts, Reels concepts, carousels & campaign creatives.',
-            tags: ['Creatives', 'Carousels', 'Campaigns'],
-            description: 'Great content doesn\'t happen by accident. We conceptualise, design, and produce scroll-stopping social media assets that communicate your brand story clearly and compellingly across every touchpoint.',
+            key: 'content',
+            num: '2',
+            icon: '✍️',
+            title: 'Content Creation',
+            short: 'Reels, short-form videos, carousels, static posts & educational content built to perform.',
+            tags: ['Reels', 'Carousels', 'Campaigns'],
+            description: 'Great content doesn\'t happen by accident. We conceptualise, script, design, and produce scroll-stopping social media assets — from educational carousels to viral Reels — that communicate your brand story compellingly across every platform.',
             images: [
                 { img: 'https://images.unsplash.com/photo-1542744094-24638eff58bb?q=80&w=800&auto=format&fit=crop', label: 'Carousel Posts', badge: 'Instagram' },
                 { img: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop', label: 'Ad Creatives', badge: 'Performance' },
@@ -3239,7 +3520,7 @@ ${message}
             features: [
                 'Instagram Carousel Design', 'Promotional Creatives',
                 'Reel Concept & Scripting', 'Story Template Packs',
-                'Campaign Visual Direction', 'Content Repurposing'
+                'Educational Content Series', 'Content Repurposing'
             ],
             tools: [
                 { icon: '🎨', name: 'Canva Pro' }, { icon: '🖌️', name: 'Adobe Photoshop' },
@@ -3251,25 +3532,85 @@ ${message}
                 { num: '5×', label: 'Avg. Share Rate' },
                 { num: '98%', label: 'On-Brand Score' }
             ],
-            ctaText: 'Need creatives that convert?'
+            ctaText: 'Need content that converts?'
         },
         {
-            key: 'branding',
-            num: '04',
+            key: 'video',
+            num: '3',
+            icon: '🎬',
+            title: 'Video Editing',
+            short: 'Product videos, testimonial videos, promotional videos & event highlights.',
+            tags: ['Reels', 'YouTube', 'Premiere Pro'],
+            description: 'We transform raw footage into high-retention, scroll-stopping video content. From cinematic product showcases to powerful testimonials and event highlights — every edit is engineered for platform-native performance and maximum watch time.',
+            images: [
+                { img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=800&auto=format&fit=crop', label: 'Cinematic Reels', badge: 'Color Graded' },
+                { img: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop', label: 'Short-Form Edits', badge: 'Reels & TikTok' },
+                { img: 'https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=800&auto=format&fit=crop', label: 'YouTube Videos', badge: 'Long-Form' }
+            ],
+            features: [
+                'Instagram Reels & TikToks', 'YouTube Long-Form Edits',
+                'Product & Testimonial Videos', 'Motion Graphics & Titles',
+                'Colour Grading & LUTs', 'Event Highlight Reels'
+            ],
+            tools: [
+                { icon: '🎞️', name: 'Premiere Pro' }, { icon: '⚡', name: 'After Effects' },
+                { icon: '🎨', name: 'DaVinci Resolve' }, { icon: '🔊', name: 'Audition' },
+                { icon: '✂️', name: 'CapCut' }
+            ],
+            stats: [
+                { num: '500+', label: 'Videos Edited' },
+                { num: '2.5M+', label: 'Views Generated' },
+                { num: '90%', label: 'Client Retention' }
+            ],
+            ctaText: 'Ready for premium video edits?'
+        },
+        {
+            key: 'marketing',
+            num: '5',
+            icon: '🎯',
+            title: 'Marketing Consultation',
+            short: 'How to attract customers, brand positioning & a clear marketing roadmap.',
+            tags: ['Strategy', 'Brand Positioning', 'Roadmap'],
+            description: 'Not sure where to start or why your current marketing isn\'t working? We audit your brand, identify opportunities, and build a clear marketing roadmap — covering positioning, content mix, and channel strategy — so every rupee works harder.',
+            images: [
+                { img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop', label: 'Strategy Session', badge: 'Consultation' },
+                { img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', label: 'Marketing Roadmap', badge: 'Growth Plan' },
+                { img: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800&auto=format&fit=crop', label: 'Brand Audit', badge: 'Deep Dive' }
+            ],
+            features: [
+                'Brand Positioning Audit', 'Competitor Analysis',
+                'Customer Persona Building', 'Content Channel Strategy',
+                '90-Day Marketing Roadmap', 'Monthly Strategy Calls'
+            ],
+            tools: [
+                { icon: '📊', name: 'Google Analytics' }, { icon: '🔍', name: 'SEMrush' },
+                { icon: '📋', name: 'Notion' }, { icon: '🎯', name: 'Meta Ads Manager' },
+                { icon: '📈', name: 'Data Studio' }
+            ],
+            stats: [
+                { num: '40+', label: 'Brands Consulted' },
+                { num: '3×', label: 'Avg. Revenue Growth' },
+                { num: '100%', label: 'Roadmap Delivery' }
+            ],
+            ctaText: 'Need a clear marketing direction?'
+        },
+        {
+            key: 'brandstrategy',
+            num: '6',
             icon: '🧬',
-            title: 'Branding',
-            short: 'Visual identity systems, brand direction & promo materials.',
+            title: 'Brand Strategy',
+            short: 'Instagram audits, competitor analysis, content strategy & a full social media roadmap.',
             tags: ['Identity', 'Visual System', 'Direction'],
-            description: 'Your brand is more than a logo. We build complete visual identity systems — colour palettes, typography, social media branding kits, and creative direction that makes your brand instantly recognisable.',
+            description: 'Your brand is more than a logo. We build complete visual identity systems combined with a rock-solid social strategy — colour palettes, typography, content direction, and a full social media roadmap that makes your brand instantly recognisable and consistently growing.',
             images: [
                 { img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800&auto=format&fit=crop', label: 'Brand Identity', badge: 'Logo & Mark' },
                 { img: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop', label: 'Typography System', badge: 'Type & Color' },
                 { img: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=800&auto=format&fit=crop', label: 'Brand Kit', badge: 'Complete Pack' }
             ],
             features: [
-                'Logo & Visual Identity', 'Brand Colour System',
-                'Typography Selection', 'Social Media Brand Kit',
-                'Brand Guidelines Doc', 'Creative Direction'
+                'Instagram & Social Audit', 'Competitor Deep-Dive',
+                'Content Pillars & Calendar', 'Visual Identity System',
+                'Brand Guidelines Document', 'Full Social Media Roadmap'
             ],
             tools: [
                 { icon: '🖌️', name: 'Illustrator' }, { icon: '📱', name: 'Figma' },
@@ -3281,67 +3622,37 @@ ${message}
                 { num: '100%', label: 'Brand Consistency' },
                 { num: '4.9★', label: 'Avg. Client Rating' }
             ],
-            ctaText: 'Ready to build your brand identity?'
+            ctaText: 'Ready to build your brand strategy?'
         },
         {
-            key: 'personal',
-            num: '05',
-            icon: '🧑‍💼',
-            title: 'Personal Branding',
-            short: 'Exclusive creative support for founders, coaches & creators.',
-            tags: ['Creators', 'Influencers', 'Coaches'],
-            description: 'People buy from people. We help entrepreneurs, thought leaders, and creators package their expertise into a polished, high-authority digital presence that attracts premium clients and loyal audiences.',
-            images: [
-                { img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop', label: 'Authority Content', badge: 'Thought Leader' },
-                { img: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=800&auto=format&fit=crop', label: 'Podcast Edits', badge: 'Audio & Video' },
-                { img: 'https://images.unsplash.com/photo-1611944212129-29977ae1398c?q=80&w=800&auto=format&fit=crop', label: 'LinkedIn Strategy', badge: 'B2B Growth' }
-            ],
-            features: [
-                'Authority Positioning', 'Vlog & Podcast Editing',
-                'Talking-Head Video Polish', 'Visual Consistency System',
-                '1 Long-Form → 10 Shorts', 'LinkedIn + Instagram Strategy'
-            ],
-            tools: [
-                { icon: '🎞️', name: 'Premiere Pro' }, { icon: '🎙️', name: 'Audition' },
-                { icon: '💼', name: 'LinkedIn' }, { icon: '🎨', name: 'Canva' },
-                { icon: '📊', name: 'Analytics Tools' }
-            ],
-            stats: [
-                { num: '30+', label: 'Creators Elevated' },
-                { num: '10×', label: 'Content Output' },
-                { num: '60%', label: 'Avg. Follower Growth' }
-            ],
-            ctaText: 'Ready to scale your personal brand?'
-        },
-        {
-            key: 'digital',
-            num: '06',
+            key: 'socialgrowth',
+            num: '1',
             icon: '📈',
-            title: 'Digital Marketing',
-            short: 'High-converting ad creatives, campaigns & landing page visuals.',
-            tags: ['Paid Ads', 'Meta Ads', 'ROI'],
-            description: 'An ad budget is wasted if the creative doesn\'t convert. We engineer direct-response video ads, UGC-style edits, and campaign visuals designed to lower your CPA and maximise return on ad spend.',
+            title: 'Social Media Growth',
+            short: 'Instagram audits, engagement strategy, community building & profile optimisation.',
+            tags: ['Instagram', 'Engagement', 'Growth'],
+            description: 'We turn your social profiles into growth engines. Through account audits, algorithm-aligned posting schedules, engagement tactics, and community management, we build an audience that is loyal, active, and converting.',
             images: [
-                { img: 'https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=800&auto=format&fit=crop', label: 'Meta Ad Creatives', badge: 'Direct Response' },
-                { img: 'https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?q=80&w=800&auto=format&fit=crop', label: 'UGC-Style Videos', badge: 'Hook-First' },
-                { img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop', label: 'Campaign Analytics', badge: 'ROAS Optimised' }
+                { img: 'https://images.unsplash.com/photo-1562577309-4932fdd64cd1?q=80&w=800&auto=format&fit=crop', label: 'Profile Optimisation', badge: 'Instagram' },
+                { img: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=800&auto=format&fit=crop', label: 'Community Mgmt', badge: 'Engagement' },
+                { img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop', label: 'Analytics Reports', badge: 'Growth Metrics' }
             ],
             features: [
-                'Meta & TikTok Ad Creatives', 'A/B Creative Variants',
-                'UGC-Style Video Ads', 'Hook-First Editing',
-                'Campaign Visual Direction', 'Landing Page Imagery'
+                'Instagram Account Audit', 'Algorithm-Aligned Posting',
+                'Community Engagement Strategy', 'Profile Bio & Highlights Optimisation',
+                'Follower Growth Campaigns', 'Monthly Growth Reports'
             ],
             tools: [
-                { icon: '📘', name: 'Meta Ads Manager' }, { icon: '🎯', name: 'TikTok Ads' },
-                { icon: '🎨', name: 'Photoshop' }, { icon: '🎬', name: 'Premiere Pro' },
-                { icon: '📊', name: 'Google Analytics' }
+                { icon: '📷', name: 'Instagram' }, { icon: '📊', name: 'Meta Business Suite' },
+                { icon: '📅', name: 'Buffer' }, { icon: '🎨', name: 'Canva Pro' },
+                { icon: '📈', name: 'Insights & Analytics' }
             ],
             stats: [
-                { num: '40%', label: 'Avg. CPA Reduction' },
-                { num: '3.8×', label: 'Avg. ROAS Lift' },
-                { num: '25+', label: 'Campaigns Run' }
+                { num: '50+', label: 'Accounts Grown' },
+                { num: '45%', label: 'Avg. Follower Growth' },
+                { num: '3×', label: 'Avg. Engagement Lift' }
             ],
-            ctaText: 'Need higher-converting creatives?'
+            ctaText: 'Ready to grow your social presence?'
         }
     ];
 
@@ -3351,6 +3662,7 @@ ${message}
         card.style.animationDelay = delay + 's';
         card.innerHTML = `
             <div class="exp-card-glow"></div>
+            <div class="exp-card-num">${item.num}</div>
             <div class="exp-card-icon">${item.icon}</div>
             <h3 class="exp-card-title">${item.title}</h3>
             <p class="exp-card-desc">${item.short}</p>
@@ -3514,6 +3826,20 @@ ${message}
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') closeExpertiseModal();
     });
+
+    // ── Navbar scroll — keep same background always ──
+    (function() {
+        const navbar = document.getElementById('navbar');
+        function updateNav() {
+            if (window.scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        }
+        window.addEventListener('scroll', updateNav, { passive: true });
+        updateNav();
+    })();
     </script>
 </body>
 </html>
