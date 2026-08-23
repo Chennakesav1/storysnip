@@ -1709,10 +1709,10 @@
                         <div data-aos="fade-left" data-aos-duration="900" data-aos-delay="100">
                             <div class="am-eyebrow">The Creative Mind</div>
                             <h2 class="am-name">I'm <span>Sai Kumar</span></h2>
-                            <p class="am-role">Brand & Marketing Specialist &nbsp;·&nbsp; MBA Marketing &nbsp;·&nbsp; Growth Marketing</p>
+                            <p class="am-role">Brand & Marketing Specialist</p>
 
                             <p class="am-bio">
-                                I'm a <strong>creative strategist and brand builder</strong> with a passion for turning raw ideas into powerful digital stories. With an MBA in Marketing and hands-on experience across video editing, social media, and brand strategy — I don't just create content, I <strong>engineer experiences</strong> that make audiences stop, watch, and remember.
+                                I'm a <strong>creative strategist and brand builder</strong> with a passion for turning raw ideas into powerful digital stories. With an MBA in Marketing and hands-on experience across  social media, brand strategy and video editing — I don't just create content, I <strong>engineer experiences</strong> that make audiences stop, watch, and remember.
                             </p>
                             <p class="am-bio" style="margin-top:-16px;">
                                 Through <strong>StorySnip Media</strong>, I work with founders, businesses, and creators to build digital presences that are not just beautiful — but <strong>strategically built to grow</strong>.
@@ -1722,7 +1722,7 @@
 
                             <!-- CTA buttons -->
                             <div class="flex flex-wrap gap-4">
-                                <button onclick="showPage('contact')" class="px-7 py-3 bg-brand-primary text-white font-dm font-bold text-sm rounded-full hover:bg-brand-deep transition-all shadow-[0_0_20px_rgba(161,48,197,0.4)] hover:shadow-[0_0_30px_rgba(161,48,197,0.6)] hover:-translate-y-0.5">Work With Me →</button>
+                                <button onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);" class="px-7 py-3 bg-brand-primary text-white font-dm font-bold text-sm rounded-full hover:bg-brand-deep transition-all shadow-[0_0_20px_rgba(161,48,197,0.4)] hover:shadow-[0_0_30px_rgba(161,48,197,0.6)] hover:-translate-y-0.5">Work With Me →</button>
                                 
                             </div>
                         </div>
@@ -3297,6 +3297,8 @@ ${message}
     let workDetailSwiper = null;
 
     function showPage(page) {
+        // Snap to top FIRST so new section always starts at 0
+        window.scrollTo({ top: 0, behavior: 'instant' });
         // Hide all
         document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
         // Show target
@@ -3309,7 +3311,6 @@ ${message}
         });
         // Re-init AOS for new sections
         AOS.refreshHard();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
 
         // Init work detail swiper on first show
         if (page === 'work-detail' && !workDetailSwiper) {
