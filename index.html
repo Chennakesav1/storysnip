@@ -14,7 +14,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { brand: { primary: '#A130C5', deep: '#4B1A6A', black: '#0a050f', dark: '#160b1e', light: '#2d163d', white: '#FFFFFF' } },
+                    colors: { brand: { primary: '#A130C5', deep: '#4B1A6A', black: '#0d0020', dark: '#16002c', light: '#270040', white: '#FFFFFF' } },
                     fontFamily: { playfair: ['Playfair Display', 'serif'], manrope: ['Manrope', 'sans-serif'], dm: ['DM Sans', 'sans-serif'] },
                     animation: { 'marquee': 'marquee 30s linear infinite', 'float': 'float 6s ease-in-out infinite' },
                     keyframes: { marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-100%)' } }, float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } } }
@@ -23,14 +23,54 @@
         }
     </script>
     <style>
-        :root { --primary: #A130C5; --deep: #4B1A6A; --black: #0a050f; }
+        :root { --primary: #A130C5; --deep: #4B1A6A; --black: #0d0020; --site-gradient: linear-gradient(160deg, #0d0020 0%, #16002c 30%, #270040 58%, #4B1A6A 82%, #0d0020 100%); }
+        html { background: #0d0020; }
         body { font-family: 'Manrope', sans-serif; background-color: var(--black); color: #FFFFFF; overflow-x: hidden; }
+        #site-bg {
+            position: fixed; inset: 0; z-index: -1; pointer-events: none;
+            background:
+                radial-gradient(ellipse at 20% 25%, rgba(161,48,197,0.18) 0%, transparent 48%),
+                radial-gradient(ellipse at 80% 75%, rgba(120,30,170,0.22) 0%, transparent 45%),
+                radial-gradient(ellipse at 55% 50%, rgba(80,10,130,0.12) 0%, transparent 60%),
+                var(--site-gradient);
+        }
         .glass-nav { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(161, 48, 197, 0.15); box-shadow: 0 2px 24px rgba(0,0,0,0.08); }
         .text-gradient { background: linear-gradient(135deg, #d38eea 0%, var(--primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        #loader { position: fixed; inset: 0; background: var(--black); z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease; }
+        #loader { position: fixed; inset: 0; background: var(--site-gradient); z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease; }
+        .loader-bar-track { width: 240px; max-width: 60vw; height: 5px; border-radius: 999px; background: rgba(161,48,197,0.15); border: 1px solid rgba(161,48,197,0.28); overflow: hidden; }
+        .loader-bar-fill { height: 100%; width: 0%; border-radius: 999px; background: linear-gradient(90deg, var(--deep) 0%, var(--primary) 55%, #d38eea 100%); box-shadow: 0 0 14px rgba(161,48,197,0.75); transition: width 0.2s ease-out; }
+        .loader-percent { margin-top: 16px; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
         ::-webkit-scrollbar { width: 8px; } ::-webkit-scrollbar-track { background: var(--black); } ::-webkit-scrollbar-thumb { background: var(--deep); border-radius: 10px; }
         .filter-hidden { display: none !important; }
         .magnetic-btn { display: inline-block; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); will-change: transform; }
+
+        /* ── Hero Tag Pills ── */
+        .hero-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: linear-gradient(135deg, rgba(161,48,197,0.18) 0%, rgba(100,10,160,0.12) 100%);
+            border: 1px solid rgba(161,48,197,0.50);
+            color: #fff; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 600;
+            padding: 10px 20px; border-radius: 999px;
+            backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 0 22px rgba(161,48,197,0.22), 0 2px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08);
+            transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+            cursor: default; text-shadow: 0 0 12px rgba(161,48,197,0.3);
+        }
+        .hero-tag:hover {
+            background: linear-gradient(135deg, rgba(161,48,197,0.32) 0%, rgba(120,20,190,0.20) 100%);
+            border-color: rgba(161,48,197,0.80);
+            box-shadow: 0 0 36px rgba(161,48,197,0.40), 0 4px 20px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.12);
+            transform: scale(1.04);
+        }
+        .hero-tag-sm {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: linear-gradient(135deg, rgba(161,48,197,0.16) 0%, rgba(100,10,160,0.10) 100%);
+            border: 1px solid rgba(161,48,197,0.45);
+            color: #fff; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+            padding: 8px 16px; border-radius: 999px;
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 0 16px rgba(161,48,197,0.18), 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+        }
 
         /* Timeline */
         .timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: rgba(161, 48, 197, 0.2); transform: translateX(-50%); }
@@ -70,7 +110,7 @@
             position: relative;
             border-radius: 20px;
             overflow: hidden;
-            background: #100720;
+            background: #0e0022;
             border: 1px solid rgba(161,48,197,0.14);
             transition: transform 0.42s cubic-bezier(0.22,1,0.36,1), border-color 0.35s ease, box-shadow 0.35s ease;
             cursor: default;
@@ -103,7 +143,7 @@
         }
         .proj-video-wrap {
             position: relative; width: 100%; padding-top: 56.25%;
-            background: #080410; overflow: hidden;
+            background: #08001c; overflow: hidden;
         }
         .proj-video-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: none; }
         .proj-video-wrap::after {
@@ -115,7 +155,7 @@
         .proj-placeholder {
             position: absolute; inset: 0;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, #130820 0%, #0c0618 100%); gap: 12px;
+            background: linear-gradient(135deg, #0f0022 0%, #0a001e 100%); gap: 12px;
         }
         .proj-placeholder-ring {
             width: 60px; height: 60px; border-radius: 50%;
@@ -262,11 +302,14 @@
     </style>
 </head>
 <body class="antialiased">
+    <div id="site-bg"></div>
 
     <!-- Loading Screen -->
     <div id="loader">
         <img src="sniplogotrans.png" alt="StorySnip Media" class="h-24 w-auto bg-white rounded-2xl px-6 py-3 mb-6 animate-pulse">
-        <p class="font-dm text-brand-primary text-xs tracking-widest uppercase animate-bounce">Snip the Content. Tell the Story. Grow the Brand.</p>
+        <p class="font-dm text-brand-primary text-xs tracking-widest uppercase mb-7 text-center px-6">Snip the Content. Tell the Story. Grow the Brand.</p>
+        <div class="loader-bar-track"><div class="loader-bar-fill" id="loaderBarFill"></div></div>
+        <div class="loader-percent text-gradient font-playfair text-3xl font-semibold" id="loaderPercent">0%</div>
     </div>
 
     <!-- Navigation -->
@@ -279,7 +322,7 @@
         /* ── Full-screen Mobile Menu ── */
         #mobile-menu {
             position: fixed; inset: 0; z-index: 9000;
-            background: linear-gradient(160deg, #0a050f 0%, #160b1e 60%, #0a050f 100%);
+            background: linear-gradient(160deg, #0d0020 0%, #16002c 60%, #0d0020 100%);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             opacity: 0; visibility: hidden; pointer-events: none;
             transition: opacity 0.35s ease, visibility 0.35s ease;
@@ -359,22 +402,24 @@
     <div id="page-home" class="page-section active">
         <main>
             <!-- Hero -->
-            <section class="relative pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-24 lg:pb-32 px-5 md:px-8 lg:px-10 overflow-hidden" style="background-color:#0a050f;">
-                <div class="absolute inset-0 -z-10 opacity-[0.04]" style="background-image:radial-gradient(#fff 1px, transparent 1px); background-size: 22px 22px;"></div>
-                <div class="absolute top-24 left-10 w-48 h-48 md:w-72 md:h-72 bg-brand-primary/20 rounded-full blur-[80px] md:blur-[100px] -z-10"></div>
-                <div class="absolute bottom-10 right-10 w-60 h-60 md:w-96 md:h-96 bg-brand-deep/20 rounded-full blur-[90px] md:blur-[120px] -z-10"></div>
+            <section class="relative pt-24 md:pt-32 lg:pt-40 pb-16 md:pb-24 lg:pb-32 px-5 md:px-8 lg:px-10 overflow-hidden" style="background: transparent;">
+                <div class="absolute inset-0 -z-10 opacity-[0.03]" style="background-image:radial-gradient(rgba(161,48,197,0.6) 1px, transparent 1px); background-size: 28px 28px;"></div>
+                <!-- Balanced ambient glow blobs -->
+                <div class="absolute top-16 left-[8%] w-64 h-64 md:w-96 md:h-96 rounded-full blur-[100px] md:blur-[130px] -z-10" style="background:radial-gradient(circle, rgba(161,48,197,0.20) 0%, transparent 70%);"></div>
+                <div class="absolute top-20 right-[8%] w-56 h-56 md:w-80 md:h-80 rounded-full blur-[90px] md:blur-[120px] -z-10" style="background:radial-gradient(circle, rgba(120,20,190,0.18) 0%, transparent 70%);"></div>
+                <div class="absolute bottom-12 left-1/2 -translate-x-1/2 w-72 h-40 md:w-[500px] md:h-[200px] rounded-full blur-[80px] md:blur-[110px] -z-10" style="background:radial-gradient(ellipse, rgba(80,10,140,0.22) 0%, transparent 70%);"></div>
 
                 <div class="max-w-4xl mx-auto text-center relative z-10" data-aos="fade-up">
                     <!-- Greeting pill -->
-                    <div class="relative inline-flex items-center gap-2 px-5 md:px-6 py-2 md:py-2.5 bg-brand-dark border-2 border-brand-primary/40 rounded-full font-manrope font-semibold text-xs md:text-sm text-white shadow-[0_0_20px_rgba(161,48,197,0.2)] mb-6 md:mb-8">
-                        Namaste
+                    <div class="relative inline-flex items-center gap-2 px-5 md:px-6 py-2 md:py-2.5 rounded-full font-manrope font-semibold text-xs md:text-sm text-white mb-6 md:mb-8" style="background:linear-gradient(135deg,rgba(161,48,197,0.20) 0%,rgba(75,10,130,0.14) 100%); border:1.5px solid rgba(161,48,197,0.55); box-shadow:0 0 24px rgba(161,48,197,0.25), inset 0 1px 0 rgba(255,255,255,0.08); backdrop-filter:blur(12px);">
+                        🙏 Namaste
                         <svg class="absolute -top-3 -right-4 w-5 h-5 md:w-6 md:h-6 text-brand-primary animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
                     </div>
 
-                    <h1 class="font-playfair text-4xl md:text-6xl lg:text-7xl leading-[1.08] text-white mb-2">
-                        I'm <span class="text-brand-primary">Sai Kumar</span> <span class="inline-block wave-emoji animate-[wave_1.8s_ease-in-out_infinite]">👋</span>,
+                    <h1 class="font-playfair text-4xl md:text-6xl lg:text-7xl leading-[1.08] text-white mb-2" style="text-shadow:0 2px 40px rgba(0,0,0,0.5);">
+                        I'm <span style="background:linear-gradient(135deg,#d38eea 0%,#A130C5 60%,#7b18b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 20px rgba(161,48,197,0.5));">Sai Kumar</span> <span class="inline-block wave-emoji animate-[wave_1.8s_ease-in-out_infinite]">👋</span>,
                     </h1>
-                    <h2 class="font-playfair font-bold text-2xl md:text-5xl lg:text-6xl leading-[1.1] text-white mb-3 md:mb-4">
+                    <h2 class="font-playfair font-bold text-2xl md:text-5xl lg:text-6xl leading-[1.1] text-white mb-3 md:mb-4" style="text-shadow:0 2px 30px rgba(0,0,0,0.4);">
                         MBA Marketing &amp; Growth Marketing
                     </h2>
                     
@@ -382,34 +427,67 @@
 
                 <!-- Logo centrepiece: desktop = orbiting tags, tablet = 2-col tags, mobile = tag strip below -->
                 <div class="relative max-w-5xl mx-auto mt-10 md:mt-16 lg:mt-20" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[200px] md:w-[420px] md:h-[260px] bg-brand-primary/20 rounded-full blur-[50px] md:blur-[60px] -z-10"></div>
+
+                    <!-- ── White Light Shade Behind Logo ── -->
+                    <!-- 1. Outer soft white fade -->
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 rounded-full"
+                         style="width:750px;height:480px;filter:blur(110px);
+                                background:radial-gradient(ellipse at center,
+                                    rgba(255,255,255,0.22) 0%,
+                                    rgba(255,255,255,0.10) 45%,
+                                    transparent 70%);"></div>
+
+                    <!-- 2. Mid white glow -->
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 rounded-full"
+                         style="width:460px;height:310px;filter:blur(65px);
+                                background:radial-gradient(ellipse at center,
+                                    rgba(255,255,255,0.40) 0%,
+                                    rgba(255,255,255,0.18) 50%,
+                                    transparent 72%);"></div>
+
+                    <!-- 3. Bright white core -->
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 rounded-full"
+                         style="width:260px;height:210px;filter:blur(40px);
+                                background:radial-gradient(ellipse at center,
+                                    rgba(255,255,255,0.60) 0%,
+                                    rgba(255,255,255,0.30) 45%,
+                                    transparent 68%);"></div>
+
+                    <!-- 4. Hotspot — pure white centre -->
+                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 rounded-full"
+                         style="width:140px;height:120px;filter:blur(22px);
+                                background:radial-gradient(ellipse at center,
+                                    rgba(255,255,255,0.80) 0%,
+                                    rgba(255,255,255,0.40) 50%,
+                                    transparent 70%);"></div>
 
                     <!-- Logo -->
                     <div class="flex justify-center items-center py-12 md:py-20 lg:py-24 relative z-10">
-                        <img src="storysnip-logo-mark.png" alt="StorySnip Media" class="w-[200px] md:w-[300px] lg:w-[360px] h-auto drop-shadow-[0_0_40px_rgba(161,48,197,0.5)] animate-float">
+                        <img src="storysnip-logo-mark.png" alt="StorySnip Media" class="w-[200px] md:w-[300px] lg:w-[360px] h-auto animate-float"
+                             style="filter:drop-shadow(0 0 30px rgba(255,255,255,0.55)) drop-shadow(0 0 80px rgba(220,200,255,0.30)) drop-shadow(0 6px 18px rgba(0,0,0,0.5));">
                     </div>
 
                     <!-- Desktop floating tags (lg+) -->
-                    <div class="hidden lg:block absolute left-[5%] top-[8%] animate-float" style="animation-delay:0s;"><span class="inline-flex items-center gap-2 bg-brand-dark border border-brand-primary/40 text-white text-sm font-dm font-semibold px-5 py-2.5 rounded-full shadow-[0_0_14px_rgba(161,48,197,0.35)]">📣 Marketing</span></div>
-                    <div class="hidden lg:block absolute left-[0%] top-[38%] animate-float" style="animation-delay:1.0s;"><span class="inline-flex items-center gap-2 bg-brand-dark border border-brand-primary/40 text-white text-sm font-dm font-semibold px-5 py-2.5 rounded-full shadow-[0_0_14px_rgba(161,48,197,0.35)]">✨ Branding</span></div>
-                    <div class="hidden lg:block absolute left-[5%] top-[68%] animate-float" style="animation-delay:2.0s;"><span class="inline-flex items-center gap-2 bg-brand-dark border border-brand-primary/40 text-white text-sm font-dm font-semibold px-5 py-2.5 rounded-full shadow-[0_0_14px_rgba(161,48,197,0.35)]">🎬 Video Editing</span></div>
-                    <div class="hidden lg:block absolute left-[10%] top-[88%] animate-float" style="animation-delay:0.6s;"><span class="inline-flex items-center gap-2 bg-brand-dark border border-brand-primary/40 text-white text-sm font-dm font-semibold px-5 py-2.5 rounded-full shadow-[0_0_14px_rgba(161,48,197,0.35)]">💡 Strategy</span></div>
-                    <div class="hidden lg:block absolute right-[5%] top-[8%] animate-float" style="animation-delay:0.4s;"><span class="inline-flex items-center gap-2 bg-brand-dark border border-brand-primary/40 text-white text-sm font-dm font-semibold px-5 py-2.5 rounded-full shadow-[0_0_14px_rgba(161,48,197,0.35)]">🚀 Paid Ads</span></div>
-                    <div class="hidden lg:block absolute right-[0%] top-[38%] animate-float" style="animation-delay:1.6s;"><span class="inline-flex items-center gap-2 bg-brand-dark border border-brand-primary/40 text-white text-sm font-dm font-semibold px-5 py-2.5 rounded-full shadow-[0_0_14px_rgba(161,48,197,0.35)]">📈 Social Media</span></div>
-                    <div class="hidden lg:block absolute right-[5%] top-[68%] animate-float" style="animation-delay:2.4s;"><span class="inline-flex items-center gap-2 bg-brand-dark border border-brand-primary/40 text-white text-sm font-dm font-semibold px-5 py-2.5 rounded-full shadow-[0_0_14px_rgba(161,48,197,0.35)]">🎯 Growth</span></div>
-                    <div class="hidden lg:block absolute right-[10%] top-[88%] animate-float" style="animation-delay:1.2s;"><span class="inline-flex items-center gap-2 bg-brand-dark border border-brand-primary/40 text-white text-sm font-dm font-semibold px-5 py-2.5 rounded-full shadow-[0_0_14px_rgba(161,48,197,0.35)]">✍️ Content</span></div>
+                    <div class="hidden lg:block absolute left-[5%] top-[8%] animate-float" style="animation-delay:0s;"><span class="hero-tag">📣 Marketing</span></div>
+                    <div class="hidden lg:block absolute left-[0%] top-[38%] animate-float" style="animation-delay:1.0s;"><span class="hero-tag">✨ Branding</span></div>
+                    <div class="hidden lg:block absolute left-[5%] top-[68%] animate-float" style="animation-delay:2.0s;"><span class="hero-tag">🎬 Video Editing</span></div>
+                    <div class="hidden lg:block absolute left-[10%] top-[88%] animate-float" style="animation-delay:0.6s;"><span class="hero-tag">💡 Strategy</span></div>
+                    <div class="hidden lg:block absolute right-[5%] top-[8%] animate-float" style="animation-delay:0.4s;"><span class="hero-tag">🚀 Paid Ads</span></div>
+                    <div class="hidden lg:block absolute right-[0%] top-[38%] animate-float" style="animation-delay:1.6s;"><span class="hero-tag">📈 Social Media</span></div>
+                    <div class="hidden lg:block absolute right-[5%] top-[68%] animate-float" style="animation-delay:2.4s;"><span class="hero-tag">🎯 Growth</span></div>
+                    <div class="hidden lg:block absolute right-[10%] top-[88%] animate-float" style="animation-delay:1.2s;"><span class="hero-tag">✍️ Content</span></div>
                 </div>
 
                 <!-- Mobile / Tablet tag pill grid (hidden on lg) -->
-                <div class="lg:hidden flex flex-wrap justify-center gap-2.5 mt-2 pb-2 px-2">
-                    <span class="inline-flex items-center gap-1.5 bg-brand-dark border border-brand-primary/40 text-white text-xs font-dm font-semibold px-4 py-2 rounded-full shadow-[0_0_10px_rgba(161,48,197,0.3)]">📣 Marketing</span>
-                    <span class="inline-flex items-center gap-1.5 bg-brand-dark border border-brand-primary/40 text-white text-xs font-dm font-semibold px-4 py-2 rounded-full shadow-[0_0_10px_rgba(161,48,197,0.3)]">✨ Branding</span>
-                    <span class="inline-flex items-center gap-1.5 bg-brand-dark border border-brand-primary/40 text-white text-xs font-dm font-semibold px-4 py-2 rounded-full shadow-[0_0_10px_rgba(161,48,197,0.3)]">🎬 Video Editing</span>
-                    <span class="inline-flex items-center gap-1.5 bg-brand-dark border border-brand-primary/40 text-white text-xs font-dm font-semibold px-4 py-2 rounded-full shadow-[0_0_10px_rgba(161,48,197,0.3)]">🚀 Paid Ads</span>
-                    <span class="inline-flex items-center gap-1.5 bg-brand-dark border border-brand-primary/40 text-white text-xs font-dm font-semibold px-4 py-2 rounded-full shadow-[0_0_10px_rgba(161,48,197,0.3)]">📈 Social Media</span>
-                    <span class="inline-flex items-center gap-1.5 bg-brand-dark border border-brand-primary/40 text-white text-xs font-dm font-semibold px-4 py-2 rounded-full shadow-[0_0_10px_rgba(161,48,197,0.3)]">💡 Strategy</span>
-                    <span class="inline-flex items-center gap-1.5 bg-brand-dark border border-brand-primary/40 text-white text-xs font-dm font-semibold px-4 py-2 rounded-full shadow-[0_0_10px_rgba(161,48,197,0.3)]">🎯 Growth</span>
-                    <span class="inline-flex items-center gap-1.5 bg-brand-dark border border-brand-primary/40 text-white text-xs font-dm font-semibold px-4 py-2 rounded-full shadow-[0_0_10px_rgba(161,48,197,0.3)]">✍️ Content</span>
+                <div class="lg:hidden flex flex-wrap justify-center gap-2.5 mt-4 pb-2 px-2">
+                    <span class="hero-tag-sm">📣 Marketing</span>
+                    <span class="hero-tag-sm">✨ Branding</span>
+                    <span class="hero-tag-sm">🎬 Video Editing</span>
+                    <span class="hero-tag-sm">🚀 Paid Ads</span>
+                    <span class="hero-tag-sm">📈 Social Media</span>
+                    <span class="hero-tag-sm">💡 Strategy</span>
+                    <span class="hero-tag-sm">🎯 Growth</span>
+                    <span class="hero-tag-sm">✍️ Content</span>
                 </div>
             </section>
             <style>
@@ -430,7 +508,7 @@
 
 
             <!-- ═══ ABOUT STORYSNIP BRAND ═══ -->
-            <section id="about-brand" class="relative py-16 md:py-24 lg:py-32 px-5 md:px-8 lg:px-12 overflow-hidden" style="background: linear-gradient(160deg, #0a050f 0%, #160b1e 50%, #0a050f 100%);">
+            <section id="about-brand" class="relative py-16 md:py-24 lg:py-32 px-5 md:px-8 lg:px-12 overflow-hidden" style="background: linear-gradient(160deg, #0d0020 0%, #16002c 50%, #0d0020 100%);">
 
                 <!-- Ambient glow blobs -->
                 <div class="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[400px] md:w-[700px] h-[200px] md:h-[300px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(161,48,197,0.12) 0%,transparent 70%);"></div>
@@ -461,7 +539,7 @@
                             </div>
 
                             <!-- Tagline card -->
-                            <div class="w-full rounded-2xl md:rounded-3xl p-6 md:p-8 border border-brand-primary/25 text-center ss-tagline-card" style="background: linear-gradient(135deg,#1a0a26 0%,#0a050f 100%);">
+                            <div class="w-full rounded-2xl md:rounded-3xl p-6 md:p-8 border border-brand-primary/25 text-center ss-tagline-card" style="background: linear-gradient(135deg,#180028 0%,#0d0020 100%);">
                                 <p class="font-playfair text-xl md:text-2xl text-white italic mb-3">"Snip the Content.<br>Tell the Story.<br>Grow the Brand."</p>
                                 <div class="h-px w-12 md:w-16 bg-gradient-to-r from-transparent via-brand-primary to-transparent mx-auto mb-3"></div>
                                 <p class="font-dm text-xs text-brand-primary uppercase tracking-[0.25em]">StorySnip Media</p>
@@ -573,11 +651,11 @@
             </style>
 
             <!-- ═══ BRANDS WE'VE WORKED WITH ═══ -->
-            <section class="relative py-16 overflow-hidden" style="background:#0a050f; border-top:1px solid rgba(161,48,197,0.12); border-bottom:1px solid rgba(161,48,197,0.12);">
+            <section class="relative py-16 overflow-hidden" style="background:#0d0020; border-top:1px solid rgba(161,48,197,0.12); border-bottom:1px solid rgba(161,48,197,0.12);">
 
                 <!-- Ambient side fades -->
-                <div class="absolute inset-y-0 left-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to right,#0a050f,transparent);"></div>
-                <div class="absolute inset-y-0 right-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to left,#0a050f,transparent);"></div>
+                <div class="absolute inset-y-0 left-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to right,#0d0020,transparent);"></div>
+                <div class="absolute inset-y-0 right-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to left,#0d0020,transparent);"></div>
 
                 <!-- Eyebrow label -->
                 <div class="relative z-20 text-center mb-10" data-aos="fade-up">
@@ -640,7 +718,7 @@
                 /* ── Expertise Card System ── */
                 .exp-card {
                     position: relative;
-                    background: #160b1e;
+                    background: #16002c;
                     border: 1px solid rgba(161,48,197,0.15);
                     border-radius: 24px;
                     padding: 36px 32px 32px;
@@ -782,7 +860,7 @@
                     pointer-events: all;
                 }
                 .exp-modal {
-                    background: linear-gradient(160deg, #1c0b28 0%, #0f0718 100%);
+                    background: linear-gradient(160deg, #1a0032 0%, #0f0022 100%);
                     border: 1px solid rgba(161,48,197,0.3);
                     border-radius: 28px;
                     width: 100%;
@@ -874,7 +952,7 @@
                     overflow: hidden;
                     border: 1px solid rgba(161,48,197,0.22);
                     box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-                    background: #0f0718;
+                    background: #0f0022;
                 }
                 .exp-slide {
                     position: absolute;
@@ -1099,7 +1177,7 @@
                     position: relative;
                     padding: 120px 24px;
                     overflow: hidden;
-                    background: linear-gradient(160deg, #0a050f 0%, #130820 45%, #0a050f 100%);
+                    background: linear-gradient(160deg, #0d0020 0%, #0f0022 45%, #0d0020 100%);
                 }
                 .am-section::before {
                     content: '';
@@ -1150,7 +1228,7 @@
                     overflow: hidden;
                     border: 2px solid rgba(161,48,197,0.3);
                     box-shadow: 0 0 0 8px rgba(161,48,197,0.06), 0 30px 80px rgba(0,0,0,0.55), 0 0 60px rgba(161,48,197,0.15);
-                    background: #0f0718;
+                    background: #0f0022;
                 }
                 .am-photo-frame img {
                     width: 100%;
@@ -1785,7 +1863,7 @@
                 .rw-section {
                     position: relative;
                     padding: 100px 24px;
-                    background: linear-gradient(160deg, #0a050f 0%, #160b1e 50%, #0a050f 100%);
+                    background: linear-gradient(160deg, #0d0020 0%, #16002c 50%, #0d0020 100%);
                     overflow: hidden;
                 }
                 .rw-section::before {
@@ -1840,7 +1918,7 @@
                     border-radius: 32px;
                     left: 10px; top: 40px; z-index: 3;
                     transform: rotate(-6deg);
-                    border: 6px solid #1a0a26;
+                    border: 6px solid #180028;
                     box-shadow: 0 28px 56px rgba(0,0,0,0.75), 0 0 0 1px rgba(161,48,197,0.3);
                 }
                 .rw-device-2 {
@@ -1848,7 +1926,7 @@
                     border-radius: 32px;
                     left: 140px; top: 10px; z-index: 4;
                     transform: rotate(3deg);
-                    border: 6px solid #1a0a26;
+                    border: 6px solid #180028;
                     box-shadow: 0 32px 64px rgba(0,0,0,0.8), 0 0 0 1px rgba(161,48,197,0.4);
                 }
                 .rw-device-3 {
@@ -1856,7 +1934,7 @@
                     border-radius: 16px;
                     left: 30px; bottom: 10px; z-index: 5;
                     transform: rotate(2deg);
-                    border: 4px solid #1a0a26;
+                    border: 4px solid #180028;
                     box-shadow: 0 20px 48px rgba(0,0,0,0.65), 0 0 0 1px rgba(161,48,197,0.3);
                 }
 
@@ -1919,7 +1997,7 @@
                 }
 
                 .rw-stat-box {
-                    background: #160b1e;
+                    background: #16002c;
                     border: 1px solid rgba(161,48,197,0.20);
                     border-radius: 20px;
                     padding: 22px 16px 18px;
@@ -2110,7 +2188,7 @@
             </section>
 
             <!-- ═══ CONTACT SECTION (inline on home page) ═══ -->
-            <section id="contact-home" class="relative py-28 px-6 lg:px-12 overflow-hidden" style="background:linear-gradient(160deg,#0a050f 0%,#100618 55%,#0a050f 100%);">
+            <section id="contact-home" class="relative py-28 px-6 lg:px-12 overflow-hidden" style="background:linear-gradient(160deg,#0d0020 0%,#0f0022 55%,#0d0020 100%);">
                 <!-- Ambient glows -->
                 <div class="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(75,26,106,0.18) 0%,transparent 65%);"></div>
                 <div class="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(161,48,197,0.12) 0%,transparent 65%);"></div>
@@ -2955,13 +3033,58 @@ ${message}
         document.body.style.overflow = '';
     }
 
-    // ── Init ──────────────────────────────────────────────────────────
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            document.getElementById('loader').style.opacity = '0';
-            setTimeout(() => document.getElementById('loader').style.display = 'none', 500);
-        }, 800);
-    });
+    // ── Init: loading screen with live 0% → 100% progress ───────────────
+    (function () {
+        const loaderEl  = document.getElementById('loader');
+        const percentEl = document.getElementById('loaderPercent');
+        const barFillEl = document.getElementById('loaderBarFill');
+        if (!loaderEl) return;
+
+        let shown = 0;      // number currently displayed
+        let target = 0;     // number we're easing toward
+        let pageLoaded = false;
+
+        function render(n) {
+            const val = Math.min(100, Math.max(0, Math.round(n)));
+            if (percentEl) percentEl.textContent = val + '%';
+            if (barFillEl) barFillEl.style.width = val + '%';
+        }
+
+        function frame() {
+            shown += (target - shown) * 0.09;
+            if (Math.abs(target - shown) < 0.3) shown = target;
+            render(shown);
+            if (shown >= 100) { hideLoader(); return; }
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+
+        // Creep the number upward while real assets (fonts, images, video) are still loading
+        const creepTimer = setInterval(() => {
+            if (pageLoaded) { clearInterval(creepTimer); return; }
+            target = Math.min(92, target + (92 - target) * 0.1 + 1.2);
+        }, 140);
+
+        function hideLoader() {
+            setTimeout(() => {
+                loaderEl.style.opacity = '0';
+                setTimeout(() => { loaderEl.style.display = 'none'; }, 500);
+            }, 350);
+        }
+
+        function completeLoad() {
+            if (pageLoaded) return;
+            pageLoaded = true;
+            clearInterval(creepTimer);
+            target = 100;
+        }
+
+        if (document.readyState === 'complete') {
+            completeLoad();
+        } else {
+            window.addEventListener('load', completeLoad);
+        }
+    })();
 
     AOS.init({ duration: 800, once: true, offset: 50 });
 
