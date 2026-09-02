@@ -15,7 +15,7 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { brand: { primary: '#A130C5', deep: '#4B1A6A', black: '#0d0020', dark: '#1a0838', light: '#2a0f4a', white: '#FFFFFF' } },
+                    colors: { brand: { primary: '#A130C5', deep: '#4B1A6A', black: '#1a0838', dark: '#1a0838', light: '#2a0f4a', white: '#FFFFFF' } },
                     fontFamily: { playfair: ['Fraunces', 'serif'], manrope: ['Switzer', 'sans-serif'], dm: ['Syne', 'sans-serif'], switzer: ['Switzer', 'sans-serif'], fraunces: ['Fraunces', 'serif'], syne: ['Syne', 'sans-serif'] },
                     animation: { 'marquee': 'marquee 30s linear infinite', 'float': 'float 6s ease-in-out infinite' },
                     keyframes: { marquee: { '0%': { transform: 'translateX(0%)' }, '100%': { transform: 'translateX(-100%)' } }, float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-15px)' } } }
@@ -30,10 +30,10 @@
         #site-bg {
             position: fixed; inset: 0; z-index: -1; pointer-events: none;
             background:
-                radial-gradient(ellipse at 20% 25%, rgba(75,26,106,0.30) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 75%, rgba(75,26,106,0.25) 0%, transparent 48%),
-                radial-gradient(ellipse at 55% 50%, rgba(42,15,74,0.20) 0%, transparent 60%),
-                var(--site-gradient);
+                radial-gradient(ellipse at 20% 25%, rgba(75,26,106,0.35) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 75%, rgba(75,26,106,0.30) 0%, transparent 48%),
+                radial-gradient(ellipse at 55% 50%, rgba(42,15,74,0.25) 0%, transparent 60%),
+                linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);
         }
         .glass-nav {
             background: linear-gradient(
@@ -88,29 +88,37 @@
         }
         .glass-nav.scrolled::after { display: none; }
 
-        /* ── Navbar CTA Button — perfect inverse hover ── */
+        /* ── Navbar CTA Button — pink/magenta pill ── */
         .nav-cta-btn {
             display: inline-flex;
             align-items: center;
-            padding: 11px 26px;
-            background: #A130C5;
+            gap: 10px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #A130C5 0%, #4B1A6A 50%, #7b2fbe 100%);
             color: #ffffff;
             font-weight: 700;
-            border: 2px solid #A130C5;
+            border: none;
             border-radius: 999px;
-            box-shadow: 0 0 18px rgba(161,48,197,0.40), 0 2px 8px rgba(0,0,0,0.12);
-            transition: background 0.28s ease, color 0.28s ease, box-shadow 0.28s ease, transform 0.22s ease;
+            box-shadow: 0 0 24px rgba(161,48,197,0.50), 0 4px 16px rgba(0,0,0,0.25);
+            transition: background 0.28s ease, box-shadow 0.28s ease, transform 0.22s ease;
             text-decoration: none;
             letter-spacing: 0.01em;
             white-space: nowrap;
             cursor: pointer;
+            font-size: 14px;
         }
         .nav-cta-btn:hover {
-            background: #4B1A6A;
-            color: #ffffff;
-            border-color: #4B1A6A;
-            box-shadow: 0 0 28px rgba(75,26,106,0.55), 0 2px 8px rgba(0,0,0,0.18);
-            transform: scale(1.03);
+            background: linear-gradient(135deg, #d38eea 0%, #A130C5 100%);
+            box-shadow: 0 0 36px rgba(161,48,197,0.70), 0 4px 20px rgba(0,0,0,0.30);
+            transform: scale(1.04);
+        }
+        .nav-cta-arrow {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 26px; height: 26px; border-radius: 50%;
+            background: rgba(255,255,255,0.22);
+            flex-shrink: 0;
+            font-size: 14px;
+            font-weight: 900;
         }
         .text-gradient { background: linear-gradient(135deg, #d38eea 0%, var(--primary) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         #loader { position: fixed; inset: 0; background: var(--site-gradient); z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s ease; }
@@ -163,8 +171,8 @@
         .playing .bar:nth-child(1) { animation-delay: 0.1s; } .playing .bar:nth-child(2) { animation-delay: 0.4s; } .playing .bar:nth-child(3) { animation-delay: 0.2s; } .playing .bar:nth-child(4) { animation-delay: 0.5s; } .playing .bar:nth-child(5) { animation-delay: 0.3s; } .playing .bar:nth-child(6) { animation-delay: 0.6s; }
 
         /* Phone frame */
-        .phone-frame { border: 6px solid #1f1f1f; border-radius: 36px; box-shadow: inset 0 0 0 4px #000, 0 20px 40px rgba(0,0,0,0.6); position: relative; overflow: hidden; background: #000; }
-        .phone-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 20px; background: #000; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; z-index: 20; }
+        .phone-frame { border: 6px solid #1f1f1f; border-radius: 36px; box-shadow: inset 0 0 0 4px #000, 0 20px 40px rgba(0,0,0,0.6); position: relative; overflow: hidden; background: #0d0020; }
+        .phone-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 100px; height: 20px; background: #0d0020; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; z-index: 20; }
 
         /* Swiper overrides */
         .swiper-button-next, .swiper-button-prev { color: var(--primary) !important; }
@@ -210,8 +218,8 @@
             position: relative;
             border-radius: 20px;
             overflow: hidden;
-            background: linear-gradient(145deg, #1a0838, #0d0020);
-            border: 1px solid rgba(161,48,197,0.14);
+            background: linear-gradient(145deg, #2a0f4a, #1a0838);
+            border: 1px solid rgba(161,48,197,0.25);
             transition: transform 0.42s cubic-bezier(0.22,1,0.36,1), border-color 0.35s ease, box-shadow 0.35s ease;
             cursor: default;
             opacity: 0;
@@ -237,13 +245,13 @@
             position: absolute; top: 12px; left: 12px; z-index: 10;
             font-family: 'Fraunces', serif; font-size: 11px; font-weight: 700;
             color: rgba(255,255,255,0.75);
-            background: rgba(10,5,15,0.75); border: 1px solid rgba(161,48,197,0.3);
+            background: rgba(26,8,56,0.85); border: 1px solid rgba(161,48,197,0.3);
             border-radius: 999px; padding: 3px 10px;
             backdrop-filter: blur(8px);
         }
         .proj-video-wrap {
             position: relative; width: 100%; padding-top: 56.25%;
-            background: #0d0020; overflow: hidden;
+            background: linear-gradient(135deg, #2a0f4a 0%, #1a0838 100%); overflow: hidden;
         }
         .proj-video-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: none; }
         .proj-video-wrap::after {
@@ -255,7 +263,7 @@
         .proj-placeholder {
             position: absolute; inset: 0;
             display: flex; flex-direction: column; align-items: center; justify-content: center;
-            background: linear-gradient(135deg, #1a0838 0%, #0d0020 100%); gap: 12px;
+            background: linear-gradient(135deg, #2a0f4a 0%, #1a0838 100%); gap: 12px;
         }
         .proj-placeholder-ring {
             width: 60px; height: 60px; border-radius: 50%;
@@ -287,7 +295,7 @@
         .proj-card:hover .proj-placeholder-label { color: #A130C5; }
         .proj-info {
             padding: 18px 20px 20px;
-            background: linear-gradient(180deg, rgba(16,7,32,0.5) 0%, rgba(10,5,15,0.95) 100%);
+            background: linear-gradient(180deg, rgba(42,15,74,0.5) 0%, rgba(26,8,56,0.98) 100%);
             border-top: 1px solid rgba(161,48,197,0.10);
         }
 
@@ -346,7 +354,6 @@
         @media (max-width: 767px) {
             .filter-bar-scroll { display: flex; overflow-x: auto; gap: 8px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
             .filter-bar-scroll::-webkit-scrollbar { display: none; }
-            .filter-btn, .works-filter-btn { white-space: nowrap; flex-shrink: 0; }
         }
 
         /* Marquee brands — smaller font on mobile */
@@ -400,6 +407,889 @@
         }
         .proj-card:hover .proj-desc { color: #9ca3af; }
     </style>
+
+<style>
+    :root {
+  --bg: #0d0020;
+  --bg-soft: #0d0020;
+  --panel: rgba(26, 8, 56, .75);
+  --panel-strong: rgba(26, 8, 56, .92);
+  --purple: #A130C5;
+  --purple-2: #d38eea;
+  --pink: #7b2fbe;
+  --pink-2: #9b43df;
+  --text: #f8f3ff;
+  --muted: #aaa1b7;
+  --line: rgba(216, 139, 255, .22);
+  --container: 1370px;
+  --radius: 24px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+body::selection {
+  background: var(--purple);
+  color: white;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: min(calc(100% - 72px), var(--container));
+  margin-inline: auto;
+}
+
+/* ================= NAVBAR ================= */
+
+.site-header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(105deg, rgba(13,0,32,0.96) 0%, rgba(26,8,56,0.95) 30%, rgba(42,15,74,0.93) 60%, rgba(75,26,106,0.90) 85%, rgba(13,0,32,0.96) 100%);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(75,26,106,0.50);
+}
+
+.navbar {
+  height: 124px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+}
+
+.brand-mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 50% 20% 50% 20%;
+  display: grid;
+  place-items: center;
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #4B1A6A, #A130C5);
+  transform: rotate(-8deg);
+  box-shadow: 0 0 28px rgba(161, 48, 197, .40);
+}
+
+.brand-copy {
+  display: grid;
+  margin-left: 10px;
+  line-height: .9;
+}
+
+.brand-name {
+  font-family: "Playfair Display", serif;
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.brand-name span { color: var(--purple-2); }
+
+.brand-copy small {
+  letter-spacing: 8px;
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.brand-copy em {
+  color: #9b91a7;
+  font-size: 8px;
+  margin-top: 9px;
+  font-style: normal;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(22px, 2.2vw, 43px);
+  flex: 1;
+}
+
+.nav-links a {
+  font-weight: 600;
+  font-size: 16px;
+  color: #f1ebf6;
+  padding: 12px 0;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 3px;
+  width: 0;
+  height: 2px;
+  background: var(--purple-2);
+  transition: width .25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after { width: 100%; }
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  white-space: nowrap;
+  padding: 16px 25px;
+  border-radius: 18px;
+  background: linear-gradient(100deg, #A130C5, #4B1A6A);
+  box-shadow: 0 12px 30px rgba(161, 48, 197, .28);
+  font-weight: 700;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.nav-cta span {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  color: #4B1A6A;
+  border-radius: 50%;
+}
+
+.nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(161, 48, 197, .45);
+}
+
+.menu-toggle { display: none; }
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 100vh;
+  padding: 155px 0 70px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 58%, rgba(135, 47, 189, .15), transparent 30%),
+    radial-gradient(ellipse at 10% 60%, rgba(110, 23, 154, .10), transparent 32%),
+    linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -5;
+  background-image:
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+  background-size: 70px 70px;
+  mask-image: radial-gradient(circle at center, black, transparent 75%);
+}
+
+.hero-orbit {
+  position: absolute;
+  z-index: -3;
+  width: 1250px;
+  height: 760px;
+  border: 1px solid rgba(204, 105, 255, .13);
+  border-radius: 50%;
+  left: 50%;
+  top: 320px;
+  transform: translateX(-50%);
+}
+
+.orbit-two {
+  width: 1650px;
+  height: 900px;
+  top: 255px;
+  border-color: rgba(161, 48, 197, .10);
+}
+
+.ambient {
+  position: absolute;
+  z-index: -4;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: .18;
+}
+
+.ambient-left {
+  left: -200px;
+  top: 430px;
+  background: #7d16cc;
+}
+
+.ambient-right {
+  right: -220px;
+  top: 520px;
+  background: #7b2fbe;
+}
+
+.dot-field {
+  position: absolute;
+  z-index: -2;
+  width: 390px;
+  height: 250px;
+  opacity: .45;
+  background-image: radial-gradient(circle, rgba(161, 48, 197, .6) 1.3px, transparent 1.6px);
+  background-size: 17px 17px;
+  mask-image: linear-gradient(90deg, black, transparent);
+}
+
+.dots-left {
+  left: -20px;
+  bottom: 20px;
+  transform: rotate(-4deg);
+}
+
+.dots-right {
+  right: -20px;
+  bottom: 40px;
+  transform: rotate(4deg) scaleX(-1);
+}
+
+.hero-content {
+  text-align: center;
+  position: relative;
+}
+
+.hello-pill {
+  width: max-content;
+  margin: 0 auto 22px;
+  border: 1px solid rgba(204, 89, 255, .45);
+  border-radius: 999px;
+  padding: 10px 20px;
+  background: rgba(42, 15, 74, .60);
+  box-shadow: 0 0 25px rgba(157, 45, 255, .1);
+  font-weight: 600;
+}
+
+.hello-pill span { margin-right: 7px; }
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(58px, 5.5vw, 92px);
+  line-height: .98;
+  letter-spacing: -3px;
+}
+
+.hero h1 span {
+  background: linear-gradient(100deg, #4B1A6A, #A130C5, #d38eea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero h1 b {
+  font-family: "DM Sans", sans-serif;
+  font-size: .72em;
+  font-weight: 400;
+  margin-left: 12px;
+  letter-spacing: 0;
+}
+
+.hero-subtitle {
+  color: #aaa2b1;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 17px;
+}
+
+.hero-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 23px auto 20px;
+}
+
+.hero-divider i {
+  width: 72px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(213, 137, 255, .5));
+}
+
+.hero-divider i:last-child {
+  transform: rotate(180deg);
+}
+
+.hero-divider span {
+  color: var(--purple-2);
+  font-size: 19px;
+  text-shadow: 0 0 15px var(--purple);
+}
+
+.hero-description {
+  font-size: 18px;
+  line-height: 1.55;
+  color: #d8d0dd;
+}
+
+.hero-description strong { color: #f0eaf3; }
+
+.hero-description mark {
+  background: transparent;
+  color: var(--pink);
+  font-weight: 700;
+}
+
+/* service layout */
+
+.service-layout {
+  display: grid;
+  grid-template-columns: 1fr minmax(470px, 560px) 1fr;
+  gap: 55px;
+  align-items: center;
+  max-width: 1360px;
+  margin: 38px auto 25px;
+}
+
+.service-column {
+  display: grid;
+  gap: 24px;
+}
+
+.service-column.left .service-card {
+  margin-right: auto;
+}
+
+.service-column.right .service-card {
+  margin-left: auto;
+}
+
+.service-card {
+  width: min(100%, 300px);
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  text-align: left;
+  padding: 13px 20px;
+  border: 1px solid rgba(212, 129, 255, .17);
+  border-radius: 19px;
+  background: linear-gradient(120deg, rgba(42, 15, 74, .70), rgba(26, 8, 56, .55));
+  box-shadow: inset 0 1px rgba(255,255,255,.025), 0 15px 35px rgba(0,0,0,.13);
+  position: relative;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 62px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--purple), transparent);
+  opacity: .55;
+}
+
+.left .service-card::after { right: -62px; }
+.right .service-card::after {
+  left: -62px;
+  transform: rotate(180deg);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(220, 99, 255, .5);
+  box-shadow: 0 18px 40px rgba(130, 28, 190, .18);
+}
+
+.service-icon {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  border: 1px solid rgba(161, 48, 197, .45);
+  color: #d38eea;
+  font-size: 25px;
+  background: rgba(75, 26, 106, .12);
+  box-shadow: 0 0 18px rgba(161, 48, 197, .15);
+}
+
+.service-card h3 {
+  font-size: 16px;
+  margin-bottom: 3px;
+}
+
+.service-card p {
+  color: #9d95a6;
+  font-size: 12px;
+}
+
+.brand-stage {
+  padding: 2px;
+  border-radius: 25px;
+  background: linear-gradient(130deg, rgba(161, 48, 197, .65), rgba(75, 26, 106, .50), rgba(211, 142, 234, .45));
+  box-shadow: 0 0 50px rgba(161, 48, 197, .18);
+}
+
+.brand-stage-inner {
+  min-height: 285px;
+  border-radius: 23px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at center, rgba(125, 43, 154, .2), transparent 45%),
+    rgba(26, 8, 56, .94);
+}
+
+.brand-stage-inner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(255,255,255,.05), transparent 35%);
+}
+
+.stage-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.stage-symbol {
+  font-family: "Playfair Display", serif;
+  font-size: 91px;
+  line-height: .7;
+  font-weight: 800;
+  font-style: italic;
+  background: linear-gradient(150deg, #4B1A6A, #A130C5, #d38eea);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stage-logo strong {
+  font-family: "Playfair Display", serif;
+  font-size: 57px;
+  font-weight: 700;
+  letter-spacing: -3px;
+}
+
+.stage-logo strong span { color: #d38eea; }
+
+.stage-logo small {
+  display: block;
+  text-align: center;
+  letter-spacing: 13px;
+  font-size: 19px;
+  margin-left: 10px;
+  color: #d6c9dd;
+}
+
+.brand-stage-inner > p {
+  color: #c5bbc9;
+  letter-spacing: 1.5px;
+  margin-top: 30px;
+  font-size: 16px;
+  position: relative;
+}
+
+.stage-arrow {
+  position: absolute;
+  right: 20px;
+  bottom: 17px;
+  color: var(--purple-2);
+  font-size: 32px;
+}
+
+/* hero CTA */
+
+.hero-bottom-cta {
+  width: min(100%, 560px);
+  margin: 20px auto 0;
+  min-height: 80px;
+  border: 1px solid rgba(214, 127, 255, .22);
+  border-radius: 20px;
+  background: rgba(26, 8, 56, .70);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 13px 10px 16px;
+  text-align: left;
+}
+
+.cta-message {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.calendar-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  color: var(--purple-2);
+  border: 1px solid rgba(161, 48, 197, .35);
+  background: rgba(161, 48, 197, .07);
+  font-size: 22px;
+}
+
+.cta-message strong,
+.cta-message span {
+  display: block;
+  font-size: 14px;
+}
+
+.cta-message span { color: #eee7ef; margin-top: 2px; }
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  border: 0;
+  border-radius: 15px;
+  padding: 16px 24px;
+  background: linear-gradient(100deg, #A130C5, #4B1A6A);
+  color: white;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(161, 48, 197, .30);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.primary-button span { font-size: 22px; }
+
+.primary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(161, 48, 197, .45);
+}
+
+/* ================= OTHER SECTIONS ================= */
+
+.content-section,
+.contact-section {
+  padding: 130px 0;
+  position: relative;
+}
+
+.content-section.alt {
+  background: linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);
+}
+
+.narrow { max-width: 900px; }
+
+.eyebrow {
+  color: var(--pink);
+  font-size: 12px;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
+.content-section h2,
+.contact-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(42px, 5vw, 70px);
+  line-height: 1.05;
+  margin: 20px 0 25px;
+  letter-spacing: -2px;
+}
+
+.content-section h2 span,
+.contact-section h2 span { color: var(--pink); }
+
+.content-section > .container > p,
+.narrow > p,
+.contact-section p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 720px;
+}
+
+.expertise-grid,
+.process-grid,
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 55px;
+}
+
+.expertise-box,
+.process-grid > div,
+.project-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 30px;
+  background: var(--panel);
+  min-height: 210px;
+}
+
+.expertise-box b,
+.process-grid span,
+.project-card > span {
+  color: var(--pink);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.expertise-box h3,
+.process-grid h3,
+.project-card h3 {
+  margin: 30px 0 10px;
+  font-size: 22px;
+}
+
+.expertise-box p,
+.process-grid p,
+.project-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.project-grid { grid-template-columns: repeat(3, 1fr); }
+
+.project-card {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background:
+    radial-gradient(circle at 70% 20%, rgba(161, 48, 197, .22), transparent 30%),
+    var(--panel);
+}
+
+.standalone { margin-top: 35px; }
+
+.contact-section {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(151, 36, 191, .18), transparent 40%),
+    linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);
+}
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 1fr .8fr;
+  gap: 80px;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 65px;
+  background: rgba(30, 10, 60, .80);
+}
+
+form { display: grid; gap: 16px; }
+
+label {
+  color: #d8cedf;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid rgba(214, 130, 255, .25);
+  border-radius: 12px;
+  background: rgba(26,8,56,0.80);
+  color: white;
+  font: inherit;
+  padding: 14px 15px;
+  outline: none;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(161, 48, 197, .12);
+}
+
+.form-message { color: var(--purple-2) !important; font-size: 13px !important; }
+
+footer {
+  border-top: 1px solid rgba(75,26,106,0.40);
+  padding: 30px 0;
+  background: linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #8d8495;
+  font-size: 13px;
+}
+
+.footer-inner a { color: #d5c9dc; }
+
+/* cursor */
+
+.cursor-glow {
+  width: 300px;
+  height: 300px;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(161, 48, 197, .10), transparent 65%);
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1200px) {
+  .brand { min-width: 230px; }
+  .nav-links { gap: 22px; }
+  .nav-cta { padding: 14px 17px; }
+  .service-layout {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+  }
+  .service-column {
+    grid-template-columns: 1fr 1fr;
+  }
+  .service-column .service-card { margin: 0 !important; width: 100%; }
+  .service-card::after { display: none; }
+  .brand-stage { order: -1; }
+  .expertise-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .container { width: min(calc(100% - 36px), var(--container)); }
+  .navbar { height: 92px; }
+  .brand { min-width: 0; flex: 1; }
+  .brand-copy em { display: none; }
+
+  .menu-toggle {
+    display: flex;
+    width: 45px;
+    height: 45px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: rgba(20, 10, 30, .8);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 20px;
+    height: 2px;
+    background: white;
+    transition: transform .2s ease;
+  }
+
+  .nav-links {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    top: 82px;
+    display: none;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: rgba(13, 0, 32, .96);
+    backdrop-filter: blur(20px);
+  }
+
+  .nav-links.open { display: flex; }
+
+  .nav-cta { display: none; }
+
+  .hero { padding-top: 125px; }
+  .hero h1 { font-size: clamp(48px, 10vw, 72px); }
+  .hero h1 b { display: block; margin-top: 10px; }
+  .hero-subtitle { font-size: 17px; }
+
+  .brand-stage-inner { min-height: 240px; }
+  .stage-logo strong { font-size: 43px; }
+  .stage-symbol { font-size: 70px; }
+  .stage-logo small { font-size: 13px; letter-spacing: 9px; }
+  .contact-card { grid-template-columns: 1fr; padding: 35px; gap: 40px; }
+}
+
+@media (max-width: 600px) {
+  .container { width: min(calc(100% - 28px), var(--container)); }
+
+  .brand-name { font-size: 22px; }
+  .brand-mark { width: 42px; height: 42px; font-size: 30px; }
+  .brand-copy small { font-size: 8px; letter-spacing: 5px; }
+
+  .hero {
+    padding-top: 120px;
+    padding-bottom: 45px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+    letter-spacing: -2px;
+  }
+
+  .hero-description { font-size: 15px; }
+  .service-column { grid-template-columns: 1fr; }
+  .service-layout { margin-top: 30px; gap: 22px; }
+
+  .brand-stage-inner { min-height: 210px; }
+  .stage-logo strong { font-size: 34px; letter-spacing: -2px; }
+  .stage-symbol { font-size: 57px; }
+  .stage-logo small { font-size: 10px; letter-spacing: 7px; }
+  .brand-stage-inner > p { font-size: 13px; margin-top: 22px; }
+
+  .hero-bottom-cta {
+    flex-direction: column;
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .cta-message { width: 100%; }
+  .primary-button { width: 100%; }
+  .hero-bottom-cta .primary-button { width: 100%; }
+
+  .content-section,
+  .contact-section { padding: 90px 0; }
+
+  .expertise-grid,
+  .process-grid,
+  .project-grid { grid-template-columns: 1fr; }
+
+  .content-section h2,
+  .contact-section h2 {
+    font-size: 43px;
+  }
+
+  .contact-card { padding: 25px; }
+  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+  .cursor-glow { display: none; }
+}
+
+</style>
 </head>
 <body class="antialiased">
     <div id="site-bg"></div>
@@ -417,8 +1307,8 @@
     <style>
         /* ── Mobile-first Navbar heights ── */
         @media (max-width: 1023px) {
-            #navbar .nav-inner { height: 64px !important; padding: 0 18px !important; }
-            #navbar .nav-logo  { width: 140px !important; height: auto !important; }
+            #navbar .nav-inner { height: 90px !important; padding: 0 18px !important; }
+            #navbar .nav-logo  { height: 80px !important; width: auto !important; }
         }
         /* ── Full-screen Mobile Menu ── */
         #mobile-menu {
@@ -466,7 +1356,8 @@
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            padding: 6px 12px 6px 6px;
+            padding: 0;
+            min-height: 115px;
         }
         .nav-logo-wrap img {
             position: relative;
@@ -474,28 +1365,27 @@
             filter: drop-shadow(0 2px 6px rgba(0,0,0,0.18));
         }
         .nav-logo-wrap:hover img {
-            filter: drop-shadow(0 4px 14px rgba(161,48,197,0.45));
-            transform: scale(1.04);
-            transition: filter 0.3s, transform 0.3s;
+            filter: brightness(2.8) contrast(1.25) drop-shadow(0 0 36px rgba(255,220,255,1.0));
+            transform: scale(1.06);
         }
     </style>
 
     <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300" id="navbar" style="position:fixed;overflow:visible;">
-        <div class="max-w-7xl mx-auto px-6 lg:px-12 h-14 lg:h-20 nav-inner flex items-center justify-between">
-            <a href="#" onclick="showPage('home'); return false;" class="nav-logo-wrap">
-                <img src="snipwhite.png" alt="StorySnip Media" class="nav-logo" style="width:150px;height:auto;display:block;position:relative;z-index:2;">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 nav-inner flex items-center justify-between" style="height:120px;">
+            <a href="#" onclick="showPage('home'); return false;" class="nav-logo-wrap" style="padding:4px 16px 4px 0px;">
+                <img src="snipwhite.png" alt="StorySnip Media" class="nav-logo" style="height:115px;width:auto;display:block;filter:brightness(2.2) contrast(1.2) drop-shadow(0 0 30px rgba(255,220,255,1.0));transition:filter 0.3s,transform 0.3s;" />
             </a>
-            <nav class="hidden lg:flex gap-6 items-center font-manrope font-bold text-sm" style="color:#e9d5ff;">
-                <a href="#" onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'}); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Home</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">About</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Expertise</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Process</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Projects</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Work</a>
-                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:#e9d5ff;" data-page="home">Contact</a>
+            <nav class="hidden lg:flex items-center font-manrope font-bold text-sm" style="color:#e9d5ff;gap:36px;">
+                <a href="#" onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'}); return false;" class="nav-link" style="color:#ffffff;font-weight:800;" data-page="home">Home</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:rgba(233,213,255,0.65);" data-page="home">About</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:rgba(233,213,255,0.65);" data-page="home">Expertise</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:rgba(233,213,255,0.65);" data-page="home">Process</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:rgba(233,213,255,0.65);" data-page="home">Projects</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:rgba(233,213,255,0.65);" data-page="home">Work</a>
+                <a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" style="color:rgba(233,213,255,0.65);" data-page="home">Contact</a>
             </nav>
             <div class="hidden lg:flex items-center gap-4">
-                <div class="magnetic-wrap"><a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="magnetic-btn nav-cta-btn font-dm text-sm rounded-full">Let's Work Together</a></div>
+                <div class="magnetic-wrap"><a href="#" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="magnetic-btn nav-cta-btn font-dm text-sm rounded-full">Let's Work Together <span class="nav-cta-arrow">↗</span></a></div>
             </div>
             <button class="lg:hidden text-white p-2" id="mobile-menu-btn">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
@@ -507,7 +1397,9 @@
     <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
         <button class="mob-close-btn" id="mobile-close" aria-label="Close menu">✕</button>
         <div style="padding:0 32px;width:100%;max-width:400px;text-align:center;">
-            <img src="sniplogotrans.png" alt="StorySnip Media" style="height:52px;width:auto;background:#fff;border-radius:12px;padding:6px 18px;margin:0 auto 28px;display:block;">
+            <div style="display:flex;align-items:center;justify-content:center;margin:0 auto 28px;">
+                <img src="snipwhite.png" alt="StorySnip Media" style="height:56px;width:auto;filter:drop-shadow(0 0 18px rgba(161,48,197,0.5));" />
+            </div>
         </div>
         <div style="width:100%;max-width:400px;">
             <a href="#" class="mob-nav-link" onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'}); closeMobile(); return false;">Home</a>
@@ -527,103 +1419,408 @@
     <div id="page-home" class="page-section active">
         <main>
             <!-- Hero -->
-            <section class="relative pt-20 md:pt-28 lg:pt-32 pb-10 md:pb-16 lg:pb-20 px-5 md:px-8 lg:px-10 overflow-hidden" style="background: transparent;">
-                <div class="absolute inset-0 -z-10 opacity-[0.03]" style="background-image:radial-gradient(rgba(161,48,197,0.6) 1px, transparent 1px); background-size: 28px 28px;"></div>
-                <!-- Balanced ambient glow blobs -->
-                <div class="absolute top-16 left-[8%] w-64 h-64 md:w-96 md:h-96 rounded-full blur-[100px] md:blur-[130px] -z-10" style="background:radial-gradient(circle, rgba(161,48,197,0.20) 0%, transparent 70%);"></div>
-                <div class="absolute top-20 right-[8%] w-56 h-56 md:w-80 md:h-80 rounded-full blur-[90px] md:blur-[120px] -z-10" style="background:radial-gradient(circle, rgba(120,20,190,0.18) 0%, transparent 70%);"></div>
-                <div class="absolute bottom-12 left-1/2 -translate-x-1/2 w-72 h-40 md:w-[500px] md:h-[200px] rounded-full blur-[80px] md:blur-[110px] -z-10" style="background:radial-gradient(ellipse, rgba(80,10,140,0.22) 0%, transparent 70%);"></div>
-
-                <div class="max-w-4xl mx-auto text-center relative z-10" data-aos="fade-up">
-                    <!-- Greeting pill -->
-                    <div class="relative inline-flex items-center gap-2 px-5 md:px-6 py-2 md:py-2.5 rounded-full font-manrope font-semibold text-xs md:text-sm text-white mb-6 md:mb-8" style="background:linear-gradient(135deg,rgba(161,48,197,0.20) 0%,rgba(75,10,130,0.14) 100%); border:1.5px solid rgba(161,48,197,0.55); box-shadow:0 0 24px rgba(161,48,197,0.25), inset 0 1px 0 rgba(255,255,255,0.08); backdrop-filter:blur(12px);">
-                        🙏 Namaste
-                        <svg class="absolute -top-3 -right-4 w-5 h-5 md:w-6 md:h-6 text-brand-primary animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
-                    </div>
-
-                    <h1 class="font-playfair font-bold text-4xl md:text-6xl lg:text-7xl leading-[1.08] text-white mb-3" style="text-shadow:0 2px 40px rgba(0,0,0,0.5);">
-                        I'm <span style="background:linear-gradient(135deg,#d38eea 0%,#A130C5 60%,#7b18b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 20px rgba(161,48,197,0.5));">Sai Kumar</span> <span class="inline-block wave-emoji animate-[wave_1.8s_ease-in-out_infinite]">👋</span>,
-                    </h1>
-                    <p class="font-manrope font-normal text-base md:text-lg text-white/55 mb-3 md:mb-4 tracking-wide">
-                        MBA Marketing &amp; Growth Marketing
-                    </p>
-                    
-                </div>
-
-                <!-- Logo centrepiece: desktop = orbiting tags, tablet = 2-col tags, mobile = tag strip below -->
-                <div class="relative max-w-5xl mx-auto mt-6 md:mt-10 lg:mt-12" data-aos="zoom-in" data-aos-delay="150">
-
-                    <!-- ── White Light Shade Behind Logo ── -->
-                    <!-- 1. Outer soft white fade -->
-                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 rounded-full"
-                         style="width:750px;height:480px;filter:blur(110px);
-                                background:radial-gradient(ellipse at center,
-                                    rgba(255,255,255,0.22) 0%,
-                                    rgba(255,255,255,0.10) 45%,
-                                    transparent 70%);"></div>
-
-                    <!-- 2. Mid white glow -->
-                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 rounded-full"
-                         style="width:460px;height:310px;filter:blur(65px);
-                                background:radial-gradient(ellipse at center,
-                                    rgba(255,255,255,0.40) 0%,
-                                    rgba(255,255,255,0.18) 50%,
-                                    transparent 72%);"></div>
-
-                    <!-- 3. Bright white core -->
-                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 rounded-full"
-                         style="width:260px;height:210px;filter:blur(40px);
-                                background:radial-gradient(ellipse at center,
-                                    rgba(255,255,255,0.60) 0%,
-                                    rgba(255,255,255,0.30) 45%,
-                                    transparent 68%);"></div>
-
-                    <!-- 4. Hotspot — pure white centre -->
-                    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 rounded-full"
-                         style="width:140px;height:120px;filter:blur(22px);
-                                background:radial-gradient(ellipse at center,
-                                    rgba(255,255,255,0.80) 0%,
-                                    rgba(255,255,255,0.40) 50%,
-                                    transparent 70%);"></div>
-
-                    <!-- Logo -->
-                    <div class="flex justify-center items-center py-8 md:py-12 lg:py-16 relative z-10">
-                        <img src="storysnip-logo-mark.png" alt="StorySnip Media" class="w-[200px] md:w-[300px] lg:w-[360px] h-auto animate-float"
-                             style="filter:drop-shadow(0 0 30px rgba(255,255,255,0.55)) drop-shadow(0 0 80px rgba(220,200,255,0.30)) drop-shadow(0 6px 18px rgba(0,0,0,0.5));">
-                    </div>
-
-                    <!-- Desktop floating tags (lg+) -->
-                    <div class="hidden lg:block absolute left-[5%] top-[8%] animate-float" style="animation-delay:0s;"><span class="hero-tag">📣 Marketing</span></div>
-                    <div class="hidden lg:block absolute left-[0%] top-[38%] animate-float" style="animation-delay:1.0s;"><span class="hero-tag">✨ Branding</span></div>
-                    <div class="hidden lg:block absolute left-[5%] top-[68%] animate-float" style="animation-delay:2.0s;"><span class="hero-tag">🎬 Video Editing</span></div>
-                    <div class="hidden lg:block absolute left-[10%] top-[88%] animate-float" style="animation-delay:0.6s;"><span class="hero-tag">💡 Strategy</span></div>
-                    <div class="hidden lg:block absolute right-[5%] top-[8%] animate-float" style="animation-delay:0.4s;"><span class="hero-tag">🚀 Paid Ads</span></div>
-                    <div class="hidden lg:block absolute right-[0%] top-[38%] animate-float" style="animation-delay:1.6s;"><span class="hero-tag">📈 Social Media</span></div>
-                    <div class="hidden lg:block absolute right-[5%] top-[68%] animate-float" style="animation-delay:2.4s;"><span class="hero-tag">🎯 Growth</span></div>
-                    <div class="hidden lg:block absolute right-[10%] top-[88%] animate-float" style="animation-delay:1.2s;"><span class="hero-tag">✍️ Content</span></div>
-                </div>
-
-                <!-- Mobile / Tablet tag pill grid (hidden on lg) -->
-                <div class="lg:hidden flex flex-wrap justify-center gap-2.5 mt-4 pb-2 px-2">
-                    <span class="hero-tag-sm">📣 Marketing</span>
-                    <span class="hero-tag-sm">✨ Branding</span>
-                    <span class="hero-tag-sm">🎬 Video Editing</span>
-                    <span class="hero-tag-sm">🚀 Paid Ads</span>
-                    <span class="hero-tag-sm">📈 Social Media</span>
-                    <span class="hero-tag-sm">💡 Strategy</span>
-                    <span class="hero-tag-sm">🎯 Growth</span>
-                    <span class="hero-tag-sm">✍️ Content</span>
-                </div>
-            </section>
             <style>
+                /* ── New Hero Layout ── */
+                .hero-new {
+                    min-height: 100vh;
+                    padding: 110px 40px 60px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    position: relative;
+                    overflow: hidden;
+                }
+                /* Hero ambient glows */
+                .hero-new::before {
+                    content: '';
+                    position: absolute;
+                    left: 8%; top: 20%;
+                    width: 520px; height: 520px;
+                    border-radius: 50%;
+                    background: radial-gradient(ellipse, rgba(161,48,197,0.22) 0%, transparent 65%);
+                    filter: blur(70px);
+                    pointer-events: none;
+                }
+                .hero-new::after {
+                    content: '';
+                    position: absolute;
+                    right: 8%; bottom: 10%;
+                    width: 420px; height: 420px;
+                    border-radius: 50%;
+                    background: radial-gradient(ellipse, rgba(75,26,106,0.28) 0%, transparent 65%);
+                    filter: blur(70px);
+                    pointer-events: none;
+                }
+
+                /* Namaste pill */
+                .namaste-pill {
+                    display: inline-flex; align-items: center; gap: 8px;
+                    background: rgba(26,8,56,0.80);
+                    border: 1px solid rgba(161,48,197,0.40);
+                    color: #fff;
+                    font-family: 'Switzer', sans-serif; font-size: 14px; font-weight: 600;
+                    padding: 8px 22px; border-radius: 999px;
+                    backdrop-filter: blur(12px);
+                    box-shadow: 0 0 18px rgba(161,48,197,0.18);
+                    margin-bottom: 20px;
+                    position: relative; z-index: 2;
+                }
+
+                /* ── Service Cards (left & right columns) ── */
+                .svc-card {
+                    display: flex; align-items: center; gap: 14px;
+                    background: rgba(20,6,45,0.82);
+                    border: 1px solid rgba(161,48,197,0.22);
+                    border-radius: 18px;
+                    padding: 14px 18px;
+                    backdrop-filter: blur(14px);
+                    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+                    cursor: default;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .svc-card::before {
+                    content: '';
+                    position: absolute; inset: 0;
+                    background: linear-gradient(135deg, rgba(161,48,197,0.06) 0%, transparent 60%);
+                    pointer-events: none;
+                }
+                .svc-card:hover {
+                    border-color: rgba(161,48,197,0.55);
+                    box-shadow: 0 8px 32px rgba(161,48,197,0.18), 0 0 0 1px rgba(161,48,197,0.15);
+                    transform: translateY(-3px);
+                }
+
+                /* ── SVG circular icon wrap — matches the circular outline icons in screenshot ── */
+                .svc-icon-circle {
+                    width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0;
+                    border: 1.5px solid rgba(161,48,197,0.55);
+                    background: rgba(161,48,197,0.10);
+                    display: flex; align-items: center; justify-content: center;
+                    position: relative;
+                }
+                .svc-icon-circle svg {
+                    width: 22px; height: 22px;
+                    stroke: #c560e8; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round;
+                }
+
+                .svc-card-title {
+                    font-family: 'Switzer', sans-serif; font-size: 14px; font-weight: 700;
+                    color: #fff; margin: 0 0 2px;
+                }
+                .svc-card-sub {
+                    font-family: 'Switzer', sans-serif; font-size: 11px; font-weight: 400;
+                    color: rgba(255,255,255,0.45); margin: 0;
+                }
+
+                /* ── Hero 3-col grid ── */
+                .hero-grid {
+                    display: grid;
+                    grid-template-columns: 268px 268px 268px;
+                    justify-content: center;
+                    gap: 0;
+                    align-items: center;
+                    width: 100%;
+                    max-width: 1120px;
+                    position: relative; z-index: 2;
+                }
+                .svc-col-left, .svc-col-right {
+                    display: flex; flex-direction: column; gap: 13px;
+                }
+                .svc-col-center {
+                    display: flex; flex-direction: column; align-items: center;
+                    padding: 0 24px;
+                    position: relative;
+                }
+
+                /* ── Dashed connector lines — left cards → center and center → right cards ── */
+                /* Left cards connector lines — positioned relative to each card wrapper */
+                .svc-col-left .svc-card-wrap {
+                    position: relative;
+                }
+                .svc-col-left .svc-card-wrap::after {
+                    content: '';
+                    position: absolute;
+                    right: -24px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 24px;
+                    height: 1.5px;
+                    background: repeating-linear-gradient(90deg, rgba(161,48,197,0.50) 0px, rgba(161,48,197,0.50) 4px, transparent 4px, transparent 8px);
+                    pointer-events: none;
+                    z-index: 4;
+                }
+                /* Right cards: dashed line connector — positioned relative to each card wrapper */
+                .svc-col-right .svc-card {
+                    border-radius: 18px;
+                }
+                .svc-col-right .svc-card-wrap {
+                    position: relative;
+                }
+                .svc-col-right .svc-card-wrap::before {
+                    content: '';
+                    position: absolute;
+                    left: -24px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 24px;
+                    height: 1.5px;
+                    background: repeating-linear-gradient(90deg, rgba(161,48,197,0.50) 0px, rgba(161,48,197,0.50) 4px, transparent 4px, transparent 8px);
+                    pointer-events: none;
+                    z-index: 4;
+                }
+
+                /* Dot at center connection point */
+                .connector-dot-left {
+                    position: absolute;
+                    right: -4px; top: 50%; transform: translateY(-50%);
+                    width: 7px; height: 7px; border-radius: 50%;
+                    background: rgba(161,48,197,0.75);
+                    box-shadow: 0 0 8px rgba(161,48,197,0.6);
+                    pointer-events: none;
+                    z-index: 3;
+                }
+                .connector-dot-right {
+                    position: absolute;
+                    left: -4px; top: 50%; transform: translateY(-50%);
+                    width: 7px; height: 7px; border-radius: 50%;
+                    background: rgba(161,48,197,0.75);
+                    box-shadow: 0 0 8px rgba(161,48,197,0.6);
+                    pointer-events: none;
+                    z-index: 3;
+                }
+
+                /* ── Centre Logo Card ── */
+                .logo-card {
+                    background: linear-gradient(145deg, rgba(42,15,74,0.90) 0%, rgba(26,8,56,0.95) 100%);
+                    border: 1px solid rgba(161,48,197,0.38);
+                    border-radius: 22px;
+                    padding: 22px 18px 20px;
+                    text-align: center;
+                    backdrop-filter: blur(20px);
+                    box-shadow: 0 0 60px rgba(161,48,197,0.22), 0 16px 44px rgba(0,0,0,0.45);
+                    position: relative; overflow: hidden;
+                    width: 100%;
+                }
+                .logo-card::before {
+                    content: '';
+                    position: absolute; top: -40px; left: 50%; transform: translateX(-50%);
+                    width: 200px; height: 130px; border-radius: 50%;
+                    background: radial-gradient(ellipse, rgba(161,48,197,0.16) 0%, transparent 70%);
+                    pointer-events: none;
+                }
+
+                /* ── CTA bar — SEPARATE element below logo card ── */
+                .hero-cta-bar {
+                    display: flex; flex-direction: column; align-items: stretch; gap: 10px;
+                    background: rgba(18,5,40,0.80);
+                    border: 1px solid rgba(161,48,197,0.25);
+                    border-radius: 16px;
+                    padding: 14px 16px;
+                    margin-top: 14px;
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                .hero-cta-text {
+                    font-family: 'Switzer', sans-serif; font-size: 13px; font-weight: 600;
+                    color: rgba(255,255,255,0.82);
+                    display: flex; align-items: center; justify-content: center; gap: 12px;
+                    flex: 1; min-width: 0;
+                    text-align: center;
+                }
+                .hero-cta-icon {
+                    width: 34px; height: 34px; border-radius: 8px;
+                    background: rgba(161,48,197,0.20); border: 1px solid rgba(161,48,197,0.32);
+                    display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0;
+                }
+                .hero-cta-btn {
+                    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+                    padding: 11px 26px;
+                    background: linear-gradient(135deg, #A130C5 0%, #4B1A6A 100%);
+                    color: #fff; font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
+                    border-radius: 999px; border: none; cursor: pointer;
+                    box-shadow: 0 0 22px rgba(161,48,197,0.50);
+                    transition: background 0.25s ease, transform 0.22s ease, box-shadow 0.25s ease;
+                    text-decoration: none; white-space: nowrap;
+                    text-align: center;
+                }
+                .hero-cta-btn:hover {
+                    background: linear-gradient(135deg, #d38eea 0%, #A130C5 100%);
+                    transform: scale(1.04); box-shadow: 0 0 32px rgba(161,48,197,0.70);
+                }
+
+                /* ── Responsive ── */
+                @media (max-width: 1023px) {
+                    .hero-grid {
+                        display: flex;
+                        flex-direction: column;
+                        max-width: 520px;
+                        gap: 16px;
+                    }
+                    /* On mobile: center column comes first via order */
+                    .svc-col-center { order: -1; padding: 0; }
+                    .svc-col-left { order: 0; }
+                    .svc-col-right { order: 1; }
+                    /* Both left and right columns become 2×2 grids */
+                    .svc-col-left, .svc-col-right {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 10px;
+                    }
+                    /* Hide all connector lines and dots on mobile */
+                    .svc-connector-line,
+                    .connector-dot-left,
+                    .connector-dot-right { display: none !important; }
+                    /* CTA bar stacks vertically */
+                    .hero-cta-bar { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 12px; }
+                    .hero-cta-text { justify-content: center; }
+                    .hero-cta-btn { text-align: center; justify-content: center; }
+                }
+                @media (max-width: 540px) {
+                    .hero-new { padding: 90px 16px 40px; }
+                    .svc-col-left, .svc-col-right { grid-template-columns: 1fr 1fr; gap: 8px; }
+                    .hero-grid { gap: 12px; }
+                    .svc-card { padding: 12px 14px; gap: 10px; }
+                    .svc-icon-circle { width: 38px; height: 38px; }
+                    .svc-icon-circle svg { width: 18px; height: 18px; }
+                    .svc-card-title { font-size: 12px; }
+                    .svc-card-sub { font-size: 10px; }
+                }
+
                 @keyframes wave { 0%,100% { transform: rotate(0deg); } 25% { transform: rotate(18deg); } 75% { transform: rotate(-10deg); } }
                 @media (prefers-reduced-motion: reduce) {
                     .animate-float, .wave-emoji { animation: none !important; }
                 }
             </style>
 
+            <section class="hero" id="home"> 
+      <div class="hero-orbit orbit-one"></div>
+      <div class="hero-orbit orbit-two"></div>
+      <div class="ambient ambient-left"></div>
+      <div class="ambient ambient-right"></div>
+      <div class="dot-field dots-left"></div>
+      <div class="dot-field dots-right"></div>
+
+      <div class="container hero-content">
+
+        <div class="hello-pill">
+          <span>👋</span> Namasté!
+        </div>
+
+        <h1>I'm <span>Sai Kumar</span>, <b>👋</b></h1>
+
+        <p class="hero-subtitle">MBA Marketing &amp; Growth Marketing</p>
+
+        <div class="hero-divider">
+          <i></i><span>✦</span><i></i>
+        </div>
+
+        <p class="hero-description">
+          Helping brands grow with <strong>strategy-driven marketing</strong><br>
+          and <mark>scroll-stopping</mark> content.
+        </p>
+
+        <!-- Service cards -->
+        <div class="service-layout">
+
+          <div class="service-column left">
+            <article class="service-card">
+              <div class="service-icon">◎</div>
+              <div>
+                <h3>Marketing</h3>
+                <p>Strategy that drives growth</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon">◇</div>
+              <div>
+                <h3>Branding</h3>
+                <p>Build a brand worth remembering</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon">▣</div>
+              <div>
+                <h3>Video Editing</h3>
+                <p>Crafted to captivate</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon">♧</div>
+              <div>
+                <h3>Strategy</h3>
+                <p>Smart moves, bigger impact</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="brand-stage">
+            <div class="brand-stage-inner" style="padding:0;">
+              <img src="snipwhite.png" alt="StorySnip Media"
+                style="width:100%;height:100%;position:absolute;inset:0;
+                       object-fit:contain;padding:10px;
+                       filter:brightness(1.6) contrast(1.1) drop-shadow(0 0 28px rgba(211,142,234,0.75));" />
+            </div>
+          </div>
+
+          <div class="service-column right">
+            <article class="service-card">
+              <div class="service-icon">⌁</div>
+              <div>
+                <h3>Paid Ads</h3>
+                <p>Ads that actually convert</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon">▤</div>
+              <div>
+                <h3>Social Media</h3>
+                <p>Presence that connects</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon">↗</div>
+              <div>
+                <h3>Growth</h3>
+                <p>Scale with data &amp; creativity</p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <div class="service-icon">✎</div>
+              <div>
+                <h3>Content</h3>
+                <p>Words &amp; visuals that sell</p>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+        <div class="hero-bottom-cta">
+          <div class="cta-message">
+            <div class="calendar-icon">▦</div>
+            <div>
+              <strong>Let's build something</strong>
+              <span>impactful together.</span>
+            </div>
+          </div>
+          <a href="#contact" class="primary-button">
+            Book a Free Call <span>→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
             <!-- Trust Marquee -->
-            <div class="w-full bg-brand-dark border-y border-brand-primary/30 py-4 flex overflow-hidden">
+            <div class="w-full border-y border-brand-primary/30 py-4 flex overflow-hidden" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);">
                 <div class="whitespace-nowrap animate-marquee flex items-center font-dm text-sm font-bold tracking-widest text-brand-primary uppercase">
                     <span class="mx-8">VIDEO EDITING</span> • <span class="mx-8">SOCIAL MEDIA</span> • <span class="mx-8">CONTENT CREATION</span> • <span class="mx-8">BRAND STORYTELLING</span> • <span class="mx-8">CREATIVE STRATEGY</span> • <span class="mx-8">DIGITAL GROWTH</span> •
                     <span class="mx-8">VIDEO EDITING</span> • <span class="mx-8">SOCIAL MEDIA</span> • <span class="mx-8">CONTENT CREATION</span> • <span class="mx-8">BRAND STORYTELLING</span> • <span class="mx-8">CREATIVE STRATEGY</span> • <span class="mx-8">DIGITAL GROWTH</span>
@@ -633,7 +1830,7 @@
 
 
             <!-- ═══ ABOUT STORYSNIP BRAND ═══ -->
-            <section id="about-brand" class="relative py-12 md:py-16 lg:py-20 px-5 md:px-8 lg:px-12 overflow-hidden" style="background: linear-gradient(160deg, #1a0838 0%, #2a0f4a 35%, #3b1560 65%, #1a0838 100%);">
+            <section id="about-brand" class="relative py-12 md:py-16 lg:py-20 px-5 md:px-8 lg:px-12 overflow-hidden" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);">
 
                 <!-- Ambient glow blobs -->
                 <div class="absolute top-[-60px] left-1/2 -translate-x-1/2 w-[400px] md:w-[700px] h-[200px] md:h-[300px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(75,26,106,0.25) 0%,transparent 70%);"></div>
@@ -659,7 +1856,7 @@
                                 <div class="absolute rounded-full ss-ring-outer" style="width:clamp(220px,55vw,340px);height:clamp(220px,55vw,340px);"></div>
                                 <div class="absolute rounded-full ss-ring-inner" style="width:clamp(168px,42vw,260px);height:clamp(168px,42vw,260px);"></div>
                                 <div class="relative z-10 rounded-full bg-white border border-brand-primary/30 flex items-center justify-center shadow-[0_0_60px_rgba(161,48,197,0.25)]" style="width:clamp(140px,35vw,220px);height:clamp(140px,35vw,220px);">
-                                    <img src="storysnip-logo-mark.png" alt="StorySnip Media" style="width:clamp(108px,27vw,170px);" class="h-auto">
+                                    <img src="storysnip-logo-mark.png" alt="StorySnip Media" style="width:75%;height:auto;object-fit:contain;filter:invert(0);" />
                                 </div>
                             </div>
 
@@ -776,11 +1973,11 @@
             </style>
 
             <!-- ═══ BRANDS WE'VE WORKED WITH ═══ -->
-            <section class="relative py-16 overflow-hidden" style="background:linear-gradient(135deg,#1a0838 0%,#2a0f4a 50%,#1a0838 100%); border-top:1px solid rgba(75,26,106,0.35); border-bottom:1px solid rgba(75,26,106,0.35);">
+            <section class="relative py-16 overflow-hidden" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%); border-top:1px solid rgba(75,26,106,0.35); border-bottom:1px solid rgba(75,26,106,0.35);">
 
                 <!-- Ambient side fades -->
-                <div class="absolute inset-y-0 left-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to right,#1a0838,transparent);"></div>
-                <div class="absolute inset-y-0 right-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to left,#1a0838,transparent);"></div>
+                <div class="absolute inset-y-0 left-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to right,#0d0020,transparent);"></div>
+                <div class="absolute inset-y-0 right-0 w-40 z-10 pointer-events-none" style="background:linear-gradient(to left,#0d0020,transparent);"></div>
 
                 <!-- Eyebrow label -->
                 <div class="relative z-20 text-center mb-6" data-aos="fade-up">
@@ -958,7 +2155,7 @@
                 .exp-modal-overlay {
                     position: fixed;
                     inset: 0;
-                    background: rgba(10,5,15,0.88);
+                    background: rgba(13,0,32,0.88);
                     backdrop-filter: blur(18px);
                     -webkit-backdrop-filter: blur(18px);
                     z-index: 9999;
@@ -1090,7 +2287,7 @@
                 .exp-slide-overlay {
                     position: absolute;
                     inset: 0;
-                    background: linear-gradient(to top, rgba(10,5,15,0.82) 0%, rgba(10,5,15,0.15) 55%, transparent 100%);
+                    background: linear-gradient(to top, rgba(13,0,32,0.82) 0%, rgba(13,0,32,0.15) 55%, transparent 100%);
                 }
                 .exp-slide-info {
                     position: absolute;
@@ -1117,7 +2314,7 @@
                     z-index: 10;
                     width: 38px; height: 38px;
                     border-radius: 50%;
-                    background: rgba(10,5,15,0.65);
+                    background: rgba(26,8,56,0.65);
                     border: 1px solid rgba(161,48,197,0.35);
                     color: #fff;
                     font-size: 17px;
@@ -1202,30 +2399,6 @@
                 }
                 .exp-tool-icon { font-size: 15px; }
 
-                /* Stats */
-                .exp-modal-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
-                .exp-stat {
-                    text-align: center;
-                    padding: 22px 16px;
-                    border-radius: 16px;
-                    background: rgba(161,48,197,0.06);
-                    border: 1px solid rgba(161,48,197,0.15);
-                    transition: background 0.25s ease, transform 0.25s ease;
-                }
-                .exp-stat:hover { background: rgba(161,48,197,0.12); transform: translateY(-3px); }
-                .exp-stat-num {
-                    font-family: 'Fraunces', serif;
-                    font-size: 30px; font-weight: 700;
-                    color: #A130C5;
-                    text-shadow: 0 0 20px rgba(161,48,197,0.4);
-                    margin-bottom: 4px;
-                }
-                .exp-stat-label {
-                    font-family: 'Syne', sans-serif;
-                    font-size: 11px; color: #6b7280;
-                    text-transform: uppercase; letter-spacing: 0.5px;
-                }
-
                 /* CTA inside modal */
                 .exp-modal-cta-bar {
                     display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
@@ -1261,7 +2434,6 @@
                     .exp-modal-body { padding: 24px 22px 36px; }
                     .exp-modal-title { font-size: 24px; }
                     .exp-modal-subtitle { font-size: 14px; }
-                    .exp-modal-imgs { grid-template-columns: 1fr 1fr; gap: 10px; }
                     .exp-modal-features { grid-template-columns: 1fr; }
                     .exp-modal-stats { grid-template-columns: 1fr 1fr; }
                     .exp-modal-cta-bar { padding: 20px 22px; flex-direction: column; align-items: flex-start; gap: 14px; }
@@ -1274,7 +2446,7 @@
                 <div class="exp-modal" id="expModal"></div>
             </div>
 
-            <section class="py-12 md:py-16 px-5 md:px-8 lg:px-12 bg-brand-black border-b border-brand-light">
+            <section class="py-12 md:py-16 px-5 md:px-8 lg:px-12 border-b border-brand-light" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);">
                 <div class="max-w-7xl mx-auto">
                     <div class="text-center mb-8 md:mb-10" data-aos="fade-up">
                         <span class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-2 md:mb-3 block">Our Expertise</span>
@@ -1294,7 +2466,7 @@
                     position: relative;
                     padding: 64px 24px;
                     overflow: hidden;
-                    background: linear-gradient(160deg, #0d0020 0%, #1a0838 30%, #2a0f4a 60%, #0d0020 100%);
+                    background: linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);
                 }
                 .am-section::before {
                     content: '';
@@ -1851,7 +3023,7 @@
             <!-- Skills JS removed — now using static pill layout -->
 
             <!-- Process Timeline -->
-            <section id="how-we-work-home" class="py-14 px-6 lg:px-12 bg-brand-black border-b border-brand-light relative overflow-hidden">
+            <section id="how-we-work-home" class="py-14 px-6 lg:px-12 border-b border-brand-light relative overflow-hidden" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);">
                 <div class="max-w-4xl mx-auto relative z-10">
                     <div class="text-center mb-12" data-aos="fade-up"><span class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-2 block">The Workflow</span><h2 class="font-playfair text-4xl lg:text-5xl text-white">How We Work</h2></div>
                     <div class="relative pb-10">
@@ -1860,25 +3032,25 @@
                         <div class="space-y-16 pt-4">
                             <div class="relative flex items-center justify-between md:justify-normal w-full" data-aos="fade-up">
                                 <div class="md:w-5/12 text-right pr-8 hidden md:block"><h4 class="font-playfair text-3xl text-white mb-2">Discover</h4><p class="text-gray-400 text-sm">Understand the brand, audience and objective.</p></div>
-                                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-black rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0"></div>
+                                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-dark rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0"></div>
                                 <div class="md:w-5/12 pl-12 md:hidden"><h4 class="font-playfair text-2xl text-white mb-2">01. Discover</h4><p class="text-gray-400 text-sm">Understand the brand and objective.</p></div>
                             </div>
                             <div class="relative flex items-center justify-between md:justify-end w-full" data-aos="fade-up">
-                                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-black rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0"></div>
+                                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-dark rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0"></div>
                                 <div class="md:w-5/12 pl-12 md:pl-8"><h4 class="font-playfair text-2xl md:text-3xl text-white mb-2"><span class="md:hidden">02. </span>Strategize</h4><p class="text-gray-400 text-sm">Develop the content and creative direction.</p></div>
                             </div>
                             <div class="relative flex items-center justify-between md:justify-normal w-full" data-aos="fade-up">
                                 <div class="md:w-5/12 text-right pr-8 hidden md:block"><h4 class="font-playfair text-3xl text-white mb-2">Create</h4><p class="text-gray-400 text-sm">Edit, design and produce the high-end content.</p></div>
-                                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-black rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0"></div>
+                                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-dark rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0"></div>
                                 <div class="md:w-5/12 pl-12 md:hidden"><h4 class="font-playfair text-2xl text-white mb-2">03. Create</h4><p class="text-gray-400 text-sm">Edit, design and produce the content.</p></div>
                             </div>
                             <div class="relative flex items-center justify-between md:justify-end w-full" data-aos="fade-up">
-                                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-black rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0"></div>
+                                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-dark rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0"></div>
                                 <div class="md:w-5/12 pl-12 md:pl-8"><h4 class="font-playfair text-2xl md:text-3xl text-white mb-2"><span class="md:hidden">04. </span>Refine</h4><p class="text-gray-400 text-sm">Review feedback and improve the final result.</p></div>
                             </div>
                             <div class="relative flex items-center justify-between md:justify-normal w-full" data-aos="fade-up">
                                 <div class="md:w-5/12 text-right pr-8 hidden md:block"><h4 class="font-playfair text-3xl text-white mb-2">Deliver</h4><p class="text-gray-400 text-sm">Deliver polished, platform-ready content.</p></div>
-                                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-black rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0"></div>
+                                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-brand-dark rounded-full transform md:-translate-x-1/2 border-2 border-brand-primary z-10 ml-[12px] md:ml-0"></div>
                                 <div class="md:w-5/12 pl-12 md:hidden"><h4 class="font-playfair text-2xl text-white mb-2">05. Deliver</h4><p class="text-gray-400 text-sm">Deliver platform-ready content.</p></div>
                             </div>
                         </div>
@@ -1889,7 +3061,7 @@
 
 
             <!-- ═══ PROJECTS ═══ -->
-            <section id="projects-home" class="py-14 px-6 lg:px-12 bg-brand-black border-t border-brand-light relative overflow-hidden">
+            <section id="projects-home" class="py-14 px-6 lg:px-12 border-t border-brand-light relative overflow-hidden" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);">
 
                 <!-- Ambient glow -->
                 <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] pointer-events-none" style="background:radial-gradient(ellipse,rgba(161,48,197,0.09) 0%,transparent 70%);"></div>
@@ -2030,7 +3202,7 @@
                 .rw-section {
                     position: relative;
                     padding: 56px 24px;
-                    background: linear-gradient(160deg, #0d0020 0%, #3b1560 40%, #4B1A6A 65%, #1a0838 100%);
+                    background: linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);
                     overflow: hidden;
                 }
                 .rw-section::before {
@@ -2119,8 +3291,6 @@
                 }
 
                 /* ── Right: text + Result grid ── */
-                .rw-content-area { }
-
                 .rw-work-tag {
                     font-family: 'Syne', sans-serif;
                     font-size: 11px; font-weight: 700;
@@ -2356,7 +3526,7 @@
             </section>
 
             <!-- ═══ CONTACT SECTION (inline on home page) ═══ -->
-            <section id="contact-home" class="relative py-16 px-6 lg:px-12 overflow-hidden" style="background:linear-gradient(160deg,#1a0838 0%,#2a0f4a 40%,#4B1A6A 70%,#1a0838 100%);">
+            <section id="contact-home" class="relative py-16 px-6 lg:px-12 overflow-hidden" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);">
                 <!-- Ambient glows -->
                 <div class="absolute top-0 left-0 w-[600px] h-[600px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(75,26,106,0.18) 0%,transparent 65%);"></div>
                 <div class="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(161,48,197,0.12) 0%,transparent 65%);"></div>
@@ -2416,7 +3586,7 @@
                                     <label class="block font-dm text-[10px] font-bold tracking-[3px] uppercase text-gray-400 mb-2">Service Interested In</label>
                                     <select id="cf-service" required
                                         class="w-full bg-transparent border rounded-lg px-5 py-4 text-gray-400 text-sm focus:outline-none transition-all duration-200 appearance-none cursor-pointer"
-                                        style="border-color:rgba(255,255,255,0.12); background:rgba(10,5,15,0.8);"
+                                        style="border-color:rgba(255,255,255,0.12); background:rgba(26,8,56,0.8);"
                                         onfocus="this.style.borderColor='#A130C5'; this.style.boxShadow='0 0 0 1px rgba(161,48,197,0.3)';"
                                         onblur="this.style.borderColor='rgba(255,255,255,0.12)'; this.style.boxShadow='none';">
                                         <option value="" disabled selected>Select a service</option>
@@ -2486,12 +3656,7 @@ ${message}
             </section>
         </main>
         <!-- Footer -->
-        <footer style="
-            background: linear-gradient(180deg, #1a0838 0%, #2a0f4a 30%, #4B1A6A 60%, #0d0020 100%);
-            border-top: 1px solid rgba(75,26,106,0.50);
-            position: relative;
-            overflow: hidden;
-        " class="text-white pt-16 pb-0 px-6 lg:px-12">
+        <footer style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);" class="text-white pt-16 pb-0 px-6 lg:px-12">
 
             <!-- Ambient background glows -->
             <div style="position:absolute;top:-100px;left:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(161,48,197,0.14) 0%,transparent 70%);pointer-events:none;"></div>
@@ -2509,30 +3674,24 @@ ${message}
                     <!-- Brand col — wider -->
                     <div class="md:col-span-4 flex flex-col gap-6">
 
-                        <!-- Logo — white version, no background -->
+                        <!-- Logo — snipwhite.png, large & glowing -->
                         <a href="#" onclick="showPage('home'); return false;" style="
                             display: inline-block;
                             text-decoration: none;
                             width: fit-content;
-                            transition: opacity 0.25s ease, transform 0.25s ease;
-                        " onmouseover="this.style.opacity='0.82';this.style.transform='scale(1.03)'" onmouseout="this.style.opacity='1';this.style.transform='scale(1)'">
-                            <img src="snipwhite.png" alt="StorySnip Media"
-                                 style="height:110px;width:auto;display:block;">
+                            transition: transform 0.32s cubic-bezier(0.25,1,0.5,1), filter 0.32s ease;
+                        " onmouseover="this.style.transform='scale(1.05)';this.style.filter='brightness(1.15) drop-shadow(0 0 40px rgba(211,142,234,0.85))'" onmouseout="this.style.transform='scale(1)';this.style.filter='brightness(1.05) drop-shadow(0 0 28px rgba(161,48,197,0.60))'">
+                            <img
+                                src="snipwhite.png"
+                                alt="StorySnip Media"
+                                style="
+                                    height: 130px;
+                                    width: auto;
+                                    display: block;
+                                    filter: brightness(1.05) contrast(1.1) drop-shadow(0 0 28px rgba(161,48,197,0.60));
+                                "
+                            />
                         </a>
-
-                        <!-- Caption — aligned flush with logo -->
-                        <p style="
-                            font-family:'Fraunces',serif;
-                            font-size:15.5px;
-                            font-style:italic;
-                            font-weight:500;
-                            background:linear-gradient(135deg,#e0aaff 0%,#A130C5 55%,#7b18b8 100%);
-                            -webkit-background-clip:text;
-                            -webkit-text-fill-color:transparent;
-                            letter-spacing:0.015em;
-                            margin:0;
-                            line-height:1.5;
-                        ">"Snip the Content. Tell the Story. Grow the Brand."</p>
 
                         <!-- Short tagline / descriptor -->
                         <p style="font-family:'Switzer',sans-serif;font-size:13px;color:rgba(255,255,255,0.42);line-height:1.7;margin:0;max-width:280px;">A brand & content studio crafting stories that scale — through video, visuals, and strategy.</p>
@@ -2657,44 +3816,6 @@ ${message}
     </div>
 
     <!-- ============================================================ -->
-    <!-- ABOUT PAGE -->
-    <!-- ============================================================ -->
-    <div id="page-about" class="page-section">
-        <main class="pt-36 pb-20">
-            <section class="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                    <span class="font-dm text-xs font-bold tracking-widest text-brand-primary uppercase mb-4 block">Our Story</span>
-                    <h1 class="font-playfair text-5xl lg:text-6xl text-white mb-6">We Don't Just Execute. <br><span class="text-brand-primary italic">We Strategize.</span></h1>
-                    <p class="font-manrope text-lg text-gray-400">StorySnip Media was built on a simple premise: content shouldn't just fill your feed; it should strengthen your brand and drive genuine growth.</p>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
-                    <div data-aos="fade-right"><img src="116440.jpg" alt="Founder" class="w-full rounded-2xl border border-brand-light shadow-2xl object-cover h-[500px]"></div>
-                    <div data-aos="fade-left">
-                        <h2 class="font-playfair text-3xl text-white mb-6">Meet the Creative Mind Behind StorySnip</h2>
-                        <p class="font-manrope text-gray-400 mb-6 leading-relaxed">With a deep understanding of visual storytelling and digital strategy, we've built a studio that bridges the gap between creative artistry and algorithmic performance.</p>
-                        <p class="font-manrope text-gray-400 mb-8 leading-relaxed">Whether you are an established corporate entity, a growing personal brand, or a creative entrepreneur, we handle the heavy lifting of production so you can focus on your vision.</p>
-                        <button onclick="showPage('contact')" class="inline-block px-6 py-3 bg-brand-primary text-white font-dm text-sm rounded-full hover:bg-brand-deep transition-colors">Work With Us</button>
-                    </div>
-                </div>
-                <div class="border-t border-brand-light pt-16">
-                    <h2 class="font-playfair text-4xl text-center text-white mb-12" data-aos="fade-up">Our Core Values</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="bg-brand-dark p-8 rounded-2xl border border-brand-light" data-aos="fade-up"><h3 class="font-playfair text-xl text-brand-primary mb-3">Attention to Detail</h3><p class="font-manrope text-gray-400 text-sm">Every cut, transition, and pixel is deliberately placed to maximize viewer retention.</p></div>
-                        <div class="bg-brand-dark p-8 rounded-2xl border border-brand-light" data-aos="fade-up" data-aos-delay="100"><h3 class="font-playfair text-xl text-brand-primary mb-3">Brand-First Thinking</h3><p class="font-manrope text-gray-400 text-sm">We create content that builds authority, trust, and long-term brand equity.</p></div>
-                        <div class="bg-brand-dark p-8 rounded-2xl border border-brand-light" data-aos="fade-up" data-aos-delay="200"><h3 class="font-playfair text-xl text-brand-primary mb-3">Seamless Collaboration</h3><p class="font-manrope text-gray-400 text-sm">We act as an extension of your internal team, providing transparent communication.</p></div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer class="bg-[#1a0838] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-[#4B1A6A]">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                <p>© 2026 StorySnip Media. All Rights Reserved.</p>
-                <div class="flex gap-4 mt-4 md:mt-0"><button onclick="showPage('privacy')" class="hover:text-brand-primary transition-colors">Privacy Policy</button><button onclick="showPage('terms')" class="hover:text-brand-primary transition-colors">Terms & Conditions</button></div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- ============================================================ -->
     <!-- SERVICES PAGE -->
     <!-- ============================================================ -->
     <div id="page-services" class="page-section">
@@ -2709,10 +3830,15 @@ ${message}
                 </div>
             </section>
         </main>
-        <footer class="bg-[#1a0838] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-[#4B1A6A]">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                <p>© 2026 StorySnip Media. All Rights Reserved.</p>
-                <div class="flex gap-4 mt-4 md:mt-0"><button onclick="showPage('privacy')" class="hover:text-brand-primary transition-colors">Privacy Policy</button><button onclick="showPage('terms')" class="hover:text-brand-primary transition-colors">Terms & Conditions</button></div>
+        <footer class="text-white pt-16 pb-12 px-6 lg:px-12 border-t border-[#4B1A6A] text-center" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);">
+            <div class="max-w-7xl mx-auto flex flex-col items-center gap-20px" style="gap:20px;">
+                <img src="snipwhite.png" alt="StorySnip Media" style="height:110px;width:auto;filter:brightness(1.5) contrast(1.15) drop-shadow(0 0 28px rgba(211,142,234,0.70));" />
+                <p style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.35em;color:rgba(211,142,234,0.80);text-transform:uppercase;">We Snip Stories That Sell.</p>
+                <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(161,48,197,0.6),transparent);margin:0 auto;"></div>
+                <div class="flex flex-col md:flex-row justify-center items-center w-full text-sm text-gray-500 gap-4 mt-2">
+                    <p>© 2026 StorySnip Media. All Rights Reserved.</p>
+                    <div class="flex gap-4"><button onclick="showPage('privacy')" class="hover:text-brand-primary transition-colors">Privacy Policy</button><button onclick="showPage('terms')" class="hover:text-brand-primary transition-colors">Terms & Conditions</button></div>
+                </div>
             </div>
         </footer>
     </div>
@@ -2744,7 +3870,7 @@ ${message}
                         <ul id="sd-includes" class="space-y-4 font-manrope text-gray-300"></ul>
                     </div>
                 </div>
-                <div class="bg-brand-black p-10 rounded-3xl border border-brand-primary/30 mb-24 text-center" data-aos="fade-up">
+                <div class="p-10 rounded-3xl border border-brand-primary/30 mb-24 text-center" style="background:linear-gradient(135deg,#2a0f4a 0%,#1a0838 100%);" data-aos="fade-up">
                     <div class="text-brand-primary text-4xl mb-4">★★★★★</div>
                     <p id="sd-review" class="font-playfair text-2xl text-white italic mb-6"></p>
                     <p id="sd-reviewer" class="font-dm text-sm tracking-widest text-gray-400 uppercase"></p>
@@ -2764,7 +3890,14 @@ ${message}
                 </div>
             </article>
         </main>
-        <footer class="bg-[#1a0838] text-white pt-12 pb-10 px-6 border-t border-[#4B1A6A] text-center"><p class="font-manrope text-xs text-gray-500">© 2026 StorySnip Media. All Rights Reserved.</p></footer>
+        <footer class="text-white pt-16 pb-12 px-6 border-t border-[#4B1A6A] text-center" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:20px;">
+                <img src="snipwhite.png" alt="StorySnip Media" style="height:110px;width:auto;filter:brightness(1.5) contrast(1.15) drop-shadow(0 0 28px rgba(211,142,234,0.70));" />
+                <p style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.35em;color:rgba(211,142,234,0.80);text-transform:uppercase;">We Snip Stories That Sell.</p>
+                <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(161,48,197,0.6),transparent);"></div>
+                <p class="font-manrope text-xs text-gray-500">© 2026 StorySnip Media. All Rights Reserved.</p>
+            </div>
+        </footer>
     </div>
 
 
@@ -2821,7 +3954,14 @@ ${message}
                 </div>
             </article>
         </main>
-        <footer class="bg-[#1a0838] text-white pt-12 pb-10 px-6 border-t border-[#4B1A6A] text-center"><p class="font-manrope text-xs text-gray-500">© 2026 StorySnip Media. All Rights Reserved.</p></footer>
+        <footer class="text-white pt-16 pb-12 px-6 border-t border-[#4B1A6A] text-center" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:20px;">
+                <img src="snipwhite.png" alt="StorySnip Media" style="height:110px;width:auto;filter:brightness(1.5) contrast(1.15) drop-shadow(0 0 28px rgba(211,142,234,0.70));" />
+                <p style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.35em;color:rgba(211,142,234,0.80);text-transform:uppercase;">We Snip Stories That Sell.</p>
+                <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(161,48,197,0.6),transparent);"></div>
+                <p class="font-manrope text-xs text-gray-500">© 2026 StorySnip Media. All Rights Reserved.</p>
+            </div>
+        </footer>
     </div>
 
     <!-- ============================================================ -->
@@ -2844,38 +3984,43 @@ ${message}
                 <div class="lg:col-span-3 bg-brand-dark p-8 md:p-12 rounded-3xl border border-brand-light shadow-2xl" data-aos="fade-left">
                     <form onsubmit="event.preventDefault(); alert('Thanks! Your project inquiry has been received. We will get back to you shortly.');">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <input type="text" required placeholder="Full Name *" class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
-                            <input type="email" required placeholder="Email *" class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                            <input type="text" required placeholder="Full Name *" class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                            <input type="email" required placeholder="Email *" class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <input type="tel" placeholder="Phone Number" class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
-                            <input type="text" placeholder="Company / Brand" class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                            <input type="tel" placeholder="Phone Number" class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                            <input type="text" placeholder="Company / Brand" class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <input type="url" placeholder="Website URL" class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
-                            <input type="text" placeholder="Instagram Handle" class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                            <input type="url" placeholder="Website URL" class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
+                            <input type="text" placeholder="Instagram Handle" class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white focus:border-brand-primary focus:outline-none">
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <select required class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none"><option value="" disabled selected>Project Type *</option><option>One-off Project</option><option>Ongoing Monthly Retainer</option></select>
-                            <select required class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none"><option value="" disabled selected>Services Required *</option><option>Video Editing & Production</option><option>Social Media Management</option><option>Full Brand Strategy</option><option>Creative Content</option></select>
+                            <select required class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none"><option value="" disabled selected>Project Type *</option><option>One-off Project</option><option>Ongoing Monthly Retainer</option></select>
+                            <select required class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none"><option value="" disabled selected>Services Required *</option><option>Video Editing & Production</option><option>Social Media Management</option><option>Full Brand Strategy</option><option>Creative Content</option></select>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <select required class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none"><option value="" disabled selected>Budget Range *</option><option>$500 - $1,000</option><option>$1,000 - $3,000</option><option>$3,000 - $5,000+</option></select>
-                            <select required class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none"><option value="" disabled selected>Project Timeline *</option><option>ASAP</option><option>Within 2 Weeks</option><option>Within 1 Month</option></select>
+                            <select required class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none"><option value="" disabled selected>Budget Range *</option><option>$500 - $1,000</option><option>$1,000 - $3,000</option><option>$3,000 - $5,000+</option></select>
+                            <select required class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-gray-300 focus:border-brand-primary focus:outline-none"><option value="" disabled selected>Project Timeline *</option><option>ASAP</option><option>Within 2 Weeks</option><option>Within 1 Month</option></select>
                         </div>
-                        <textarea rows="3" required placeholder="Project Description *" class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-white mb-4 focus:border-brand-primary focus:outline-none"></textarea>
-                        <input type="url" placeholder="Reference Links (Drive, YouTube)" class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-white mb-4 focus:border-brand-primary focus:outline-none">
+                        <textarea rows="3" required placeholder="Project Description *" class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white mb-4 focus:border-brand-primary focus:outline-none"></textarea>
+                        <input type="url" placeholder="Reference Links (Drive, YouTube)" class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-white mb-4 focus:border-brand-primary focus:outline-none">
                         <div class="mb-4"><label class="block text-gray-400 font-dm text-xs mb-2 uppercase tracking-widest">Upload Brief / Files (Optional)</label><input type="file" class="w-full text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-brand-primary/10 file:text-brand-primary cursor-pointer"></div>
-                        <select class="w-full bg-brand-black border border-brand-light rounded-lg px-4 py-3 text-gray-300 mb-6 focus:border-brand-primary focus:outline-none"><option value="" disabled selected>How Did You Find Us?</option><option>Instagram</option><option>YouTube</option><option>Google Search</option><option>Referral</option></select>
+                        <select class="w-full bg-brand-dark border border-brand-light rounded-lg px-4 py-3 text-gray-300 mb-6 focus:border-brand-primary focus:outline-none"><option value="" disabled selected>How Did You Find Us?</option><option>Instagram</option><option>YouTube</option><option>Google Search</option><option>Referral</option></select>
                         <div class="magnetic-wrap"><button type="submit" class="magnetic-btn w-full py-4 bg-brand-primary text-white font-dm font-bold rounded-xl transition-colors hover:bg-brand-deep shadow-[0_0_15px_rgba(161,48,197,0.4)]">Submit Project Inquiry</button></div>
                     </form>
                 </div>
             </section>
         </main>
-        <footer class="bg-[#1a0838] text-white pt-20 pb-10 px-6 lg:px-12 border-t border-[#4B1A6A]">
-            <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
-                <p>© 2026 StorySnip Media. All Rights Reserved.</p>
-                <div class="flex gap-4 mt-4 md:mt-0"><button onclick="showPage('privacy')" class="hover:text-brand-primary transition-colors">Privacy Policy</button><button onclick="showPage('terms')" class="hover:text-brand-primary transition-colors">Terms & Conditions</button></div>
+        <footer class="text-white pt-16 pb-12 px-6 lg:px-12 border-t border-[#4B1A6A] text-center" style="background:linear-gradient(160deg, #0d0020 0%, #1a0838 40%, #2a0f4a 70%, #0d0020 100%);">
+            <div class="max-w-7xl mx-auto flex flex-col items-center gap-20px" style="gap:20px;">
+                <img src="snipwhite.png" alt="StorySnip Media" style="height:110px;width:auto;filter:brightness(1.5) contrast(1.15) drop-shadow(0 0 28px rgba(211,142,234,0.70));" />
+                <p style="font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.35em;color:rgba(211,142,234,0.80);text-transform:uppercase;">We Snip Stories That Sell.</p>
+                <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,rgba(161,48,197,0.6),transparent);margin:0 auto;"></div>
+                <div class="flex flex-col md:flex-row justify-center items-center w-full text-sm text-gray-500 gap-4 mt-2">
+                    <p>© 2026 StorySnip Media. All Rights Reserved.</p>
+                    <div class="flex gap-4"><button onclick="showPage('privacy')" class="hover:text-brand-primary transition-colors">Privacy Policy</button><button onclick="showPage('terms')" class="hover:text-brand-primary transition-colors">Terms & Conditions</button></div>
+                </div>
             </div>
         </footer>
     </div>
@@ -3051,7 +4196,9 @@ ${message}
     <div id="engageBar">
         <!-- Avatar -->
         <div class="eb-avatar">
-            <img src="sniplogotrans.png" alt="StorySnip" onerror="this.style.display='none'; this.parentElement.textContent='✂️';">
+            <div style="font-family:'Fraunces',serif;font-size:20px;font-weight:800;display:flex;align-items:baseline;">
+                            <span style="background:linear-gradient(135deg,#d38eea 0%,#A130C5 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;font-size:24px;">S</span><span style="color:#fff;">torySnip</span>
+                        </div>
         </div>
 
         <!-- Title + sub -->
@@ -3155,142 +4302,6 @@ ${message}
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
-    // ── Service Data ──────────────────────────────────────────────────
-    const serviceData = {
-        video: {
-            number: 'Service 01',
-            title: 'Premium Video Editing',
-            subtitle: 'Engineered for maximum retention. From short-form TikToks to cinematic corporate documentaries.',
-            heroImg: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200',
-            heroAlt: 'Video Editing',
-            headline: "We don't just edit.<br><span class='text-brand-primary italic'>We build retention.</span>",
-            desc: "In a world of infinite scrolling, generic templates don't cut it. We specialize in dynamic pacing, strategic sound design, and narrative structuring that captures attention in the first 3 seconds and holds it until the end.",
-            includes: [
-                ['Dynamic Pacing', 'Cutting dead air and optimizing flow for the algorithm.'],
-                ['Color Grading', 'Cinematic LUTs tailored to your brand identity.'],
-                ['Sound Design', 'Synchronized SFX, risers, swooshes, and licensed music.'],
-                ['Motion Graphics', 'Engaging titles, subtitles, and B-roll integration.']
-            ],
-            review: '"StorySnip completely transformed our YouTube presence. The pacing and retention strategies they implemented in their editing doubled our subscriber count in just three months."',
-            reviewer: '— Leading Tech Educator',
-            slides: [
-                'https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=1000',
-                'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000',
-                'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000'
-            ],
-            cta: 'Need Premium Edits?'
-        },
-        social: {
-            number: 'Service 02',
-            title: 'Social Media Management',
-            subtitle: 'We take over the daily grind of social media so you don\'t have to. Strategic posting, growth tactics, and community building.',
-            heroImg: 'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?q=80&w=1200',
-            heroAlt: 'Social Media',
-            headline: "Stop guessing.<br><span class='text-brand-primary italic'>Start growing.</span>",
-            desc: 'Social media requires consistency, strategy, and constant adaptation. We manage your Instagram, TikTok, LinkedIn, and Facebook with data-driven content calendars designed to expand your reach and engage your community.',
-            includes: [
-                ['Content Calendars', '30-day scheduled out strategies.'],
-                ['Copywriting', 'Engaging captions that drive comments and saves.'],
-                ['Hashtag Research', 'Optimized tags to maximize organic algorithm reach.'],
-                ['Analytics Reporting', 'Monthly breakdown of growth, views, and ROI.']
-            ],
-            review: '"We handed over our entire social media management to them. Not only did they save us 15 hours a week, but our engagement skyrocketed by 300% across Instagram and LinkedIn."',
-            reviewer: '— CEO, Growth SaaS',
-            slides: [
-                'https://images.unsplash.com/photo-1616469829581-73993eb86b02?q=80&w=1000',
-                'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000'
-            ],
-            cta: 'Ready to Outsource Your Socials?'
-        },
-        creative: {
-            number: 'Service 03',
-            title: 'Creative Content Generation',
-            subtitle: 'High-value, scroll-stopping assets that communicate your brand\'s unique narrative across every platform.',
-            heroImg: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=1200',
-            heroAlt: 'Creative Content',
-            headline: "Content that<br><span class='text-brand-primary italic'>commands attention.</span>",
-            desc: 'An algorithm can only push your content if the audience cares about it. We ideate, design, and script creative assets—from high-value carousels to viral Hooks for Reels—ensuring your brand speaks directly to the desires of your market.',
-            includes: [
-                ['Reels & TikTok Concepts', 'Scripting and hook generation to maximize views.'],
-                ['Educational Carousels', 'Highly shareable, multi-slide graphics for Instagram/LinkedIn.'],
-                ['Campaign Storytelling', 'End-to-end creative direction for product launches.'],
-                ['Copywriting', 'Voice-matched captions that drive action and saves.']
-            ],
-            review: '"The carousel designs and short-form concepts they provided completely changed our content strategy. Our content saves and shares are higher than ever."',
-            reviewer: '— Marketing Director, E-Commerce Brand',
-            slides: [
-                'https://images.unsplash.com/photo-1542744094-3a31f272c490?q=80&w=1000',
-                'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000'
-            ],
-            cta: 'Need Scroll-Stopping Content?'
-        },
-        branding: {
-            number: 'Service 04',
-            title: 'Brand Identity & Design',
-            subtitle: 'A brand is more than a logo. We build cohesive visual identities and messaging strategies that resonate deeply with your target audience.',
-            heroImg: 'https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=1200',
-            heroAlt: 'Branding',
-            headline: "Design that<br><span class='text-brand-primary italic'>communicates.</span>",
-            desc: 'We define how your brand looks, feels, and speaks across the digital landscape. Consistency builds trust, and trust drives conversions. Let\'s create an identity that stands out.',
-            includes: [
-                ['Visual Systems', 'Logos, typography, and primary color palettes.'],
-                ['Brand Guidelines', 'Comprehensive rules for applying your brand assets.'],
-                ['Social Mockups', 'Profile styling, banner graphics, and feed templates.'],
-                ['Creative Direction', 'Moodboards mapping out your photography and video style.']
-            ],
-            review: '"They don\'t just design; they actually understand storytelling. The visual identity they created for our brand launch was nothing short of cinematic perfection."',
-            reviewer: '— Emma B., Lifestyle Influencer',
-            slides: [
-                'https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=1000',
-                'https://images.unsplash.com/photo-1533750516457-a7f992034fec?q=80&w=1000'
-            ],
-            cta: 'Ready for a Redesign?'
-        },
-        personal: {
-            number: 'Service 05',
-            title: 'Personal Branding',
-            subtitle: 'Tailored creative support built exclusively for entrepreneurs, influencers, coaches, and thought leaders.',
-            heroImg: 'https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1200',
-            heroAlt: 'Personal Branding',
-            headline: "You are the <br><span class='text-brand-primary italic'>product.</span>",
-            desc: 'People buy from people. We help you package your expertise, your personality, and your story into a polished, high-authority digital presence that attracts high-ticket clients, sponsorships, and loyal audiences.',
-            includes: [
-                ['Authority Positioning', 'Content strategies that highlight your expertise.'],
-                ['Vlog & Podcast Editing', 'Turning raw recordings into polished episodes.'],
-                ['Visual Consistency', 'Unified aesthetics across YouTube, Instagram, and LinkedIn.'],
-                ['Repurposing', 'Turning 1 long-form video into 10+ short-form assets.']
-            ],
-            review: '"StorySnip took my scattered ideas and built a cohesive, premium personal brand. Their editing on my talking-head videos elevated my authority overnight."',
-            reviewer: '— Independent Consultant',
-            slides: [
-                'https://images.unsplash.com/photo-1556761175-5973dc0f32d7?q=80&w=1000',
-                'https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1000'
-            ],
-            cta: 'Ready to Scale Your Influence?'
-        },
-        digital: {
-            number: 'Service 06',
-            title: 'Digital Marketing Creative',
-            subtitle: 'High-converting ad creatives, social campaigns, and promotional visuals designed strictly for ROI.',
-            heroImg: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200',
-            heroAlt: 'Digital Marketing',
-            headline: "Creatives that<br><span class='text-brand-primary italic'>drive clicks.</span>",
-            desc: 'An advertising budget is wasted if the creative doesn\'t convert. We engineer direct-response video ads, UGC styling, and aesthetic campaign visuals that lower your CPA and maximize your return on ad spend.',
-            includes: [
-                ['Direct Response Video', 'High-energy ads designed specifically for Meta and TikTok.'],
-                ['A/B Testing Variants', 'Multiple hook and CTA variations to test what converts best.'],
-                ['UGC-Style Edits', 'Authentic, relatable content that bypasses ad blindness.'],
-                ['Landing Page Visuals', 'Cohesive imagery to ensure a seamless funnel experience.']
-            ],
-            review: '"Their ad creatives lowered our CPA by 40% in the first month. The perfect blend of aesthetic storytelling and hard-hitting direct-response marketing."',
-            reviewer: '— Head of Growth, E-Commerce Startup',
-            slides: [
-                'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000',
-                'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000'
-            ],
-            cta: 'Need Higher Conversions?'
-        }
-    };
 
     // ── Page System ───────────────────────────────────────────────────
     let serviceDetailSwiper = null;
@@ -3432,38 +4443,8 @@ ${message}
     const drag = (e) => { if (!isDragging) return; const rect = container.getBoundingClientRect(); let x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left; x = Math.max(0, Math.min(x, rect.width)); const percent = (x / rect.width) * 100; afterLayer.style.width = `${percent}%`; handle.style.left = `${percent}%`; };
     if (container) { container.addEventListener('mousedown', () => isDragging = true); window.addEventListener('mouseup', () => isDragging = false); window.addEventListener('mousemove', drag); container.addEventListener('touchstart', () => isDragging = true, { passive: true }); window.addEventListener('touchend', () => isDragging = false); window.addEventListener('touchmove', drag, { passive: true }); const ro = new ResizeObserver(() => { afterImg.style.width = `${container.offsetWidth}px`; }); ro.observe(container); }
 
-    // Audio toggle
-    function toggleAudio(type) {
-        const rawBtn = document.getElementById('audio-raw'); const proBtn = document.getElementById('audio-pro'); const visualizer = document.getElementById('audio-visualizer'); const proLabel = proBtn.querySelector('.toggle-label'); const rawLabel = rawBtn.querySelector('span:last-child');
-        if (type === 'pro') { proBtn.classList.replace('bg-brand-dark', 'bg-brand-primary'); proBtn.classList.replace('text-gray-400', 'text-white'); rawBtn.classList.replace('bg-brand-primary', 'bg-brand-dark'); rawBtn.classList.replace('text-white', 'text-gray-400'); visualizer.classList.add('playing', 'text-brand-primary'); visualizer.classList.remove('text-gray-500'); proLabel.classList.remove('hidden'); rawLabel.classList.add('hidden'); }
-        else { rawBtn.classList.replace('bg-brand-dark', 'bg-brand-primary'); rawBtn.classList.replace('text-gray-400', 'text-white'); proBtn.classList.replace('bg-brand-primary', 'bg-brand-dark'); proBtn.classList.replace('text-white', 'text-gray-400'); visualizer.classList.remove('playing', 'text-brand-primary'); visualizer.classList.add('text-gray-500'); rawLabel.classList.remove('hidden'); proLabel.classList.add('hidden'); }
-    }
 
-    // Home portfolio filter
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => { b.classList.remove('bg-brand-primary', 'text-white'); b.classList.add('border', 'border-brand-light', 'text-gray-400'); });
-            btn.classList.add('bg-brand-primary', 'text-white'); btn.classList.remove('border', 'border-brand-light', 'text-gray-400');
-            const f = btn.getAttribute('data-filter');
-            portfolioItems.forEach(item => { if (f === 'all' || item.getAttribute('data-category') === f) { item.classList.remove('filter-hidden'); item.style.opacity = '1'; } else { item.classList.add('filter-hidden'); item.style.opacity = '0'; } });
-        });
-    });
-
-    // Works page portfolio filter
-    const worksFilterBtns = document.querySelectorAll('.works-filter-btn');
-    const worksPortfolioItems = document.querySelectorAll('.works-portfolio-item');
-    worksFilterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            worksFilterBtns.forEach(b => { b.classList.remove('bg-brand-primary', 'text-white'); b.classList.add('border', 'border-brand-light', 'text-gray-400'); });
-            btn.classList.add('bg-brand-primary', 'text-white'); btn.classList.remove('border', 'border-brand-light', 'text-gray-400');
-            const f = btn.getAttribute('data-filter');
-            worksPortfolioItems.forEach(item => { if (f === 'all' || item.getAttribute('data-category') === f) { item.classList.remove('filter-hidden'); item.style.opacity = '1'; } else { item.classList.add('filter-hidden'); item.style.opacity = '0'; } });
-        });
-    });
-
-    // Mobile menu
+        // Mobile menu
     document.getElementById('mobile-menu-btn').addEventListener('click', () => {
         document.getElementById('mobile-menu').classList.add('mob-open');
         document.body.style.overflow = 'hidden';
