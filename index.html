@@ -2,12 +2,13 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
     <title>StorySnip Media | Creative Content, Video Editing & Social Media</title>
     <meta name="description" content="StorySnip Media creates premium video content, social media creatives, branding and digital storytelling for businesses, creators and personal brands.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -162,10 +163,10 @@
 
         /* Timeline */
         .timeline-line { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: rgba(161, 48, 197, 0.2); transform: translateX(-50%); }
-        @media (max-width: 768px) { .timeline-line { left: 20px; } }
+        
         @keyframes movingDot { 0% { top: 0; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
         .moving-violet-dot { position: absolute; left: 50%; width: 14px; height: 14px; background-color: var(--primary); border-radius: 50%; transform: translateX(-50%); box-shadow: 0 0 20px 8px rgba(161, 48, 197, 0.8); animation: movingDot 5s ease-in-out infinite; z-index: 20; }
-        @media (max-width: 768px) { .moving-violet-dot { left: 20px; } }
+        
 
         /* Audio bars */
         .bar { width: 4px; border-radius: 2px; transition: height 0.2s ease, background-color 0.3s ease; }
@@ -307,79 +308,39 @@
            ═══════════════════════════════════════════════════ */
 
         /* Fluid section padding */
-        @media (max-width: 767px) {
-            section { padding-left: 18px !important; padding-right: 18px !important; }
-        }
+        
 
         /* Expertise cards — 1 col mobile, 2 col tablet, 3 col desktop */
-        @media (max-width: 639px) {
-            #expertiseGrid { grid-template-columns: 1fr !important; }
-            .exp-card { padding: 24px 20px 22px; border-radius: 18px; }
-            .exp-card-num { font-size: 36px; margin-bottom: 12px; }
-            .exp-card-title { font-size: 19px; }
-            .exp-card-desc { font-size: 13px; }
-        }
-        @media (min-width: 640px) and (max-width: 1023px) {
-            #expertiseGrid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
+        
+        
 
         /* About Me photo frame — full width on mobile */
-        @media (max-width: 767px) {
-            .am-section { padding: 72px 18px !important; }
-            .am-photo-frame { width: 100% !important; max-width: 320px; border-radius: 20px; }
-            .am-photo-ring, .am-photo-ring-2 { display: none; }
-            .am-badge { font-size: 11px !important; padding: 6px 12px !important; }
-        }
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .am-photo-frame { width: 300px !important; }
-        }
+        
+        
 
         /* Timeline — always left-aligned on mobile */
-        @media (max-width: 767px) {
-            .timeline-step { padding-left: 48px !important; }
-        }
+        
 
         /* Projects grid — 1 col on small mobile */
-        @media (max-width: 479px) {
-            .proj-card { border-radius: 14px; }
-            .proj-info { padding: 14px 14px 16px; }
-            .proj-title { font-size: 15px; }
-        }
+        
 
         /* Contact form — full width inputs on mobile */
-        @media (max-width: 767px) {
-            #contact-home input,
-            #contact-home textarea,
-            #contact-home select { font-size: 16px !important; } /* prevent iOS zoom */
-        }
+        
 
         /* Works / Portfolio filter bar — horizontal scroll on mobile */
-        @media (max-width: 767px) {
-            .filter-bar-scroll { display: flex; overflow-x: auto; gap: 8px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-            .filter-bar-scroll::-webkit-scrollbar { display: none; }
-        }
+        
 
         /* Marquee brands — smaller font on mobile */
-        @media (max-width: 639px) {
-            .brands-item { font-size: 12px !important; padding: 0 16px !important; letter-spacing: 0.14em !important; }
-        }
+        
 
         /* Swiper controls — larger touch targets */
-        @media (max-width: 767px) {
-            .swiper-button-next, .swiper-button-prev { width: 36px !important; height: 36px !important; }
-            .swiper-button-next::after, .swiper-button-prev::after { font-size: 16px !important; }
-        }
+        
 
         /* Footer — stack on mobile */
-        @media (max-width: 767px) {
-            footer .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-        }
+        
 
         /* Expertise Modal — full screen on mobile */
-        @media (max-width: 639px) {
-            .exp-modal-overlay { padding: 0 !important; align-items: flex-end !important; }
-            .exp-modal { border-radius: 24px 24px 0 0 !important; max-height: 92vh !important; }
-        }
+        
 
         /* Text size clamp utilities for fluid typography */
         .hero-h1 { font-size: clamp(32px, 8vw, 72px); }
@@ -387,10 +348,6 @@
         .section-h2 { font-size: clamp(28px, 5vw, 52px); }
 
         /* Safe-area padding for notched phones */
-        @supports (padding-bottom: env(safe-area-inset-bottom)) {
-            #mobile-menu { padding-bottom: env(safe-area-inset-bottom); }
-            footer { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
-        }
         .proj-tag {
             display: inline-block; font-family: 'Manrope', sans-serif;
             font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase;
@@ -582,8 +539,6 @@ a { color: inherit; text-decoration: none; }
   transform: translateY(-2px);
   box-shadow: 0 16px 35px rgba(161, 48, 197, .45);
 }
-
-.menu-toggle { display: none; }
 
 /* ================= HERO ================= */
 
@@ -1161,149 +1116,15 @@ footer {
 
 .footer-inner a { color: #d5c9dc; font-weight: 700; }
 
-/* cursor */
 
-.cursor-glow {
-  width: 300px;
-  height: 300px;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(161, 48, 197, .10), transparent 65%);
-  transform: translate(-50%, -50%);
-  mix-blend-mode: screen;
-}
 
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 1200px) {
-  .brand { min-width: 230px; }
-  .nav-links { gap: 22px; }
-  .nav-cta { padding: 14px 17px; }
-  .service-layout {
-    grid-template-columns: 1fr;
-    max-width: 700px;
-  }
-  .service-column {
-    grid-template-columns: 1fr 1fr;
-  }
-  .service-column .service-card { margin: 0 !important; width: 100%; }
-  .service-card::after { display: none; }
-  .brand-stage { order: -1; }
-  .expertise-grid, .process-grid { grid-template-columns: repeat(2, 1fr); }
-}
 
-@media (max-width: 900px) {
-  .container { width: 100%; padding-left: 30px; padding-right: 30px; }
-  .navbar { height: 92px; }
-  .brand { min-width: 0; flex: 1; }
-  .brand-copy em { display: none; }
 
-  .menu-toggle {
-    display: flex;
-    width: 45px;
-    height: 45px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: rgba(20, 10, 30, .8);
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    cursor: pointer;
-  }
 
-  .menu-toggle span {
-    width: 20px;
-    height: 2px;
-    background: white;
-    transition: transform .2s ease;
-  }
 
-  .nav-links {
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    top: 82px;
-    display: none;
-    flex-direction: column;
-    padding: 20px;
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    background: rgba(13, 0, 32, .96);
-    backdrop-filter: blur(20px);
-  }
 
-  .nav-links.open { display: flex; }
-
-  .nav-cta { display: none; }
-
-  .hero { padding-top: 125px; }
-  .hero h1 { font-size: clamp(48px, 10vw, 72px); }
-  .hero h1 b { display: block; margin-top: 10px; }
-  .hero-subtitle { font-size: 17px; }
-
-  .brand-stage-inner { min-height: 240px; }
-  .stage-logo strong { font-size: 43px; }
-  .stage-symbol { font-size: 70px; }
-  .stage-logo small { font-size: 13px; letter-spacing: 9px; }
-  .contact-card { grid-template-columns: 1fr; padding: 35px; gap: 40px; }
-}
-
-@media (max-width: 600px) {
-  .container { width: 100%; padding-left: 20px; padding-right: 20px; }
-
-  .brand-name { font-size: 22px; }
-  .brand-mark { width: 42px; height: 42px; font-size: 30px; }
-  .brand-copy small { font-size: 8px; letter-spacing: 5px; }
-
-  .hero {
-    padding-top: 120px;
-    padding-bottom: 45px;
-  }
-
-  .hero h1 {
-    font-size: 48px;
-    letter-spacing: -2px;
-  }
-
-  .hero-description { font-size: 15px; }
-  .service-column { grid-template-columns: 1fr; }
-  .service-layout { margin-top: 30px; gap: 22px; }
-
-  .brand-stage-inner { min-height: 210px; }
-  .stage-logo strong { font-size: 34px; letter-spacing: -2px; }
-  .stage-symbol { font-size: 57px; }
-  .stage-logo small { font-size: 10px; letter-spacing: 7px; }
-  .brand-stage-inner > p { font-size: 13px; margin-top: 22px; }
-
-  .hero-bottom-cta {
-    flex-direction: column;
-    gap: 14px;
-    padding: 14px;
-  }
-
-  .cta-message { width: 100%; }
-  .primary-button { width: 100%; }
-  .hero-bottom-cta .primary-button { width: 100%; }
-
-  .content-section,
-  .contact-section { padding: 90px 0; }
-
-  .expertise-grid,
-  .process-grid,
-  .project-grid { grid-template-columns: 1fr; }
-
-  .content-section h2,
-  .contact-section h2 {
-    font-size: 43px;
-  }
-
-  .contact-card { padding: 25px; }
-  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
-  .cursor-glow { display: none; }
-}
 
 </style>
 
@@ -1424,7 +1245,6 @@ footer {
       .ambient-right{background:var(--s-magenta)!important;}
       .moving-violet-dot{background:var(--s-magenta)!important;box-shadow:0 0 24px 10px rgba(199,59,231,.65)!important;}
       .timeline-line{background:linear-gradient(180deg,rgba(42,7,80,.15),var(--s-glow),rgba(42,7,80,.15))!important;}
-      .cursor-glow{background:radial-gradient(circle,rgba(199,59,231,.18),transparent 68%)!important;}
 
       /* Scrollbar */
       ::-webkit-scrollbar-track{background:var(--s-black)!important;}
@@ -1647,7 +1467,7 @@ footer{
 .swiper-pagination-bullet-active{background:#a31cce !important;}
 .timeline-line{background:rgba(163,28,206,.30) !important;}
 .moving-violet-dot{background:#a31cce !important;box-shadow:0 0 20px 8px rgba(163,28,206,.72) !important;}
-.cursor-glow{background:radial-gradient(circle,rgba(163,28,206,.16),transparent 65%) !important;}
+
 
 /* Remove old bluish/grey appearance from secondary surfaces */
 .bg-gray-900,.bg-gray-800,.bg-slate-900,.bg-slate-800{
@@ -2010,64 +1830,1382 @@ footer a{color:#f0d8ff!important;}
 footer a:hover{color:#ffffff!important;}
 </style>
 
+
+<!-- ═══════════════════════════════════════════════════════════
+     SMART ANIMATION ENHANCEMENT LAYER
+     ═══════════════════════════════════════════════════════════ -->
+<style id="smart-anim-css">
+
+/* ── Scroll progress bar ── */
+#scroll-progress {
+    position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+    background: linear-gradient(90deg, #6A139B, #8D19C8, #C73BE7, #8D19C8, #6A139B);
+    background-size: 300% 100%;
+    animation: progressShift 2.5s linear infinite;
+    z-index: 99998; border-radius: 0 2px 2px 0;
+    box-shadow: 0 0 12px rgba(199,59,231,0.75), 0 0 4px rgba(199,59,231,0.5);
+    transition: width 0.08s linear;
+}
+@keyframes progressShift { 0%{background-position:0% 50%} 100%{background-position:300% 50%} }
+
+
+
+/* ── Page flash transition ── */
+#page-transition {
+    position: fixed; inset: 0; z-index: 99989;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(58,10,102,0), rgba(141,25,200,0.18), rgba(58,10,102,0));
+    opacity: 0;
+}
+#page-transition.ptf { animation: ptFlash 0.28s ease; }
+@keyframes ptFlash {
+    0%   { opacity: 0; }
+    35%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* ── Particle canvas ── */
+#hero-particles {
+    position: absolute; inset: 0;
+    pointer-events: none; z-index: 1;
+    opacity: 0.7;
+}
+
+/* ── Orbit rings rotate ── */
+@keyframes orbitSpinCW  { to { transform: translateX(-50%) rotate(360deg);  } }
+@keyframes orbitSpinCCW { to { transform: translateX(-50%) rotate(-360deg); } }
+.hero-orbit.orbit-one { animation: orbitSpinCW  32s linear infinite; }
+.hero-orbit.orbit-two { animation: orbitSpinCCW 50s linear infinite; }
+
+
+/* ── Ambient blobs drift ── */
+@keyframes blobDrift {
+    0%,100% { transform: translate(0,0) scale(1);    opacity: 0.18; }
+    33%     { transform: translate(28px,-18px) scale(1.07); opacity: 0.26; }
+    66%     { transform: translate(-18px,14px) scale(0.93); opacity: 0.13; }
+}
+.ambient          { animation: blobDrift 14s ease-in-out infinite; }
+.ambient-right    { animation-delay: -7s; }
+
+/* ── Hero stagger entrance ── */
+@keyframes enterUp {
+    from { opacity: 0; transform: translateY(36px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+.hero-anim-0 { animation: enterUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.05s both; }
+.hero-anim-1 { animation: enterUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.17s both; }
+.hero-anim-2 { animation: enterUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.29s both; }
+.hero-anim-3 { animation: enterUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.41s both; }
+.hero-anim-4 { animation: enterUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.53s both; }
+.hero-anim-5 { animation: enterUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.65s both; }
+.hero-anim-6 { animation: enterUp 0.65s cubic-bezier(0.22,1,0.36,1) 0.77s both; }
+
+/* ── Glowing CTA pulse ── */
+@keyframes ctaGlow {
+    0%,100% { box-shadow: 0 0 18px rgba(161,48,197,0.38), 0 4px 14px rgba(0,0,0,0.22); }
+    50%     { box-shadow: 0 0 38px rgba(199,59,231,0.72), 0 6px 22px rgba(0,0,0,0.28); }
+}
+.primary-button { animation: ctaGlow 2.8s ease-in-out infinite; }
+.nav-cta-btn    { animation: ctaGlow 3.2s ease-in-out infinite 0.4s; }
+
+/* ── Ripple click ── */
+.ripple-host { position: relative; overflow: hidden; }
+.ripple-wave {
+    position: absolute; border-radius: 50%;
+    background: rgba(255,255,255,0.22);
+    transform: scale(0);
+    animation: rippleOut 0.58s ease-out forwards;
+    pointer-events: none;
+}
+@keyframes rippleOut { to { transform: scale(4.5); opacity: 0; } }
+
+/* ── Shine sweep on hover ── */
+.shine-wrap { position: relative; overflow: hidden; }
+.shine-wrap::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.10) 50%, transparent 70%);
+    transform: translateX(-120%) skewX(-15deg);
+    transition: none;
+    pointer-events: none; z-index: 2;
+}
+.shine-wrap:hover::before {
+    transform: translateX(120%) skewX(-15deg);
+    transition: transform 0.55s ease;
+}
+
+/* ── Brand stage pulse ── */
+@keyframes stagePulse {
+    0%,100% { box-shadow: 0 0 42px rgba(161,48,197,0.18); }
+    50%     { box-shadow: 0 0 88px rgba(199,59,231,0.40), 0 0 130px rgba(141,25,200,0.16); }
+}
+.brand-stage { animation: stagePulse 3.6s ease-in-out infinite; }
+
+/* ── Service card reveal ── */
+.service-card {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.42s ease, transform 0.42s cubic-bezier(0.22,1,0.36,1),
+                border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card.svc-visible { opacity: 1; transform: translateY(0); }
+
+/* ── Card tilt (desktop only) ── */
+.tilt-host {
+    transform-style: preserve-3d;
+    will-change: transform;
+    transition: transform 0.18s ease;
+}
+
+/* ── Counter pop ── */
+@keyframes numPop {
+    0%  { transform: scale(1); }
+    50% { transform: scale(1.18); }
+    100%{ transform: scale(1); }
+}
+.count-pop { animation: numPop 0.32s cubic-bezier(0.34,1.56,0.64,1); }
+
+/* ── Section glow divider ── */
+.glow-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 5%, rgba(141,25,200,0.45) 30%, rgba(199,59,231,0.65) 50%, rgba(141,25,200,0.45) 70%, transparent 95%);
+    box-shadow: 0 0 10px rgba(199,59,231,0.3);
+    animation: divGlow 3s ease-in-out infinite;
+}
+@keyframes divGlow { 0%,100%{opacity:0.55} 50%{opacity:1} }
+
+/* ── Marquee hover-pause ── */
+.animate-marquee { animation-play-state: running; }
+.animate-marquee:hover { animation-play-state: paused; }
+
+/* ── Floating hero tags ── */
+@keyframes tagFloatA { 0%,100%{transform:translateY(0) rotate(-1.5deg)} 50%{transform:translateY(-10px) rotate(1deg)} }
+@keyframes tagFloatB { 0%,100%{transform:translateY(0) rotate(1.5deg)}  50%{transform:translateY(-8px) rotate(-1deg)} }
+.hero-tag            { animation: tagFloatA 6.5s ease-in-out infinite; }
+.hero-tag:nth-child(2) { animation: tagFloatB 7.2s ease-in-out infinite; }
+.hero-tag:nth-child(3) { animation: tagFloatA 5.8s ease-in-out infinite; animation-delay: -2.5s; }
+.hero-tag:nth-child(4) { animation: tagFloatB 6.8s ease-in-out infinite; animation-delay: -4s; }
+
+/* ── Hello pill bounce in ── */
+@keyframes pillBounce {
+    0%   { opacity:0; transform: scale(0.7) translateY(-12px); }
+    65%  { transform: scale(1.06) translateY(2px); }
+    100% { opacity:1; transform: scale(1) translateY(0); }
+}
+.hello-pill { animation: pillBounce 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.1s both; }
+
+/* ── Gradient hero h1 background-size animation ── */
+.hero h1 span {
+    background-size: 200% 200% !important;
+    animation: gradShift 5s ease-in-out infinite;
+}
+@keyframes gradShift {
+    0%  { background-position: 0%   50%; }
+    50% { background-position: 100% 50%; }
+    100%{ background-position: 0%   50%; }
+}
+
+/* ════════════════════════════════════════════════
+   MOBILE FIXES
+   ════════════════════════════════════════════════ */
+
+/* Hero service layout — 3-col breaks on mobile */
+
+
+
+/* Hero text, padding ― mobile */
+
+
+/* Nav CTA — smaller on mobile */
+
+
+/* Expertise grid mobile */
+
+
+/* Project grid — never 3 col on small screens */
+
+
+/* About-me stats row — wrap gracefully */
+
+
+/* Footer mobile stack */
+
+
+/* Recent works mobile — always single col */
+
+
+/* Mobile contact form — no iOS zoom */
+
+
+/* Engage bar — compact on mobile */
+
+
+/* Prefers-reduced-motion safety */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+</style>
+
+
+<style id="storysnip-responsive-mobile">
+/* ════════════════════════════════════════════════════════════
+   STORYSNIP MEDIA — COMPLETE MOBILE & TABLET RESPONSIVE CSS
+   ════════════════════════════════════════════════════════════ */
+
+/* ─── Base Viewport Fix ─────────────────────────────────── */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ─── Mobile Hamburger Menu ─────────────────────────────── */
+#mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px; height: 44px;
+  border: 1px solid rgba(161,48,197,0.35);
+  border-radius: 12px;
+  background: rgba(42,15,74,0.60);
+  cursor: pointer;
+  z-index: 10;
+  flex-shrink: 0;
+  backdrop-filter: blur(8px);
+}
+#mobile-menu-btn span {
+  display: block;
+  width: 22px; height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+#mobile-menu-btn span::before,
+#mobile-menu-btn span::after {
+  content: '';
+  position: absolute;
+  width: 22px; height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  left: 0;
+}
+#mobile-menu-btn span::before { top: -7px; }
+#mobile-menu-btn span::after  { top: 7px; }
+
+#mobile-menu-btn.open span { background: transparent; }
+#mobile-menu-btn.open span::before { top: 0; transform: rotate(45deg); }
+#mobile-menu-btn.open span::after  { top: 0; transform: rotate(-45deg); }
+
+/* ── MOBILE SIDEBAR OVERLAY ── */
+#mobile-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background: rgba(6,0,16,0.72);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.38s ease;
+}
+#mobile-sidebar-overlay.open {
+  display: block;
+  opacity: 1;
+}
+
+/* ── MOBILE SIDEBAR PANEL ── */
+#mobile-nav-drawer {
+  display: flex;
+  position: fixed;
+  top: 0; right: 0; bottom: 0;
+  width: min(320px, 85vw);
+  z-index: 999;
+  background: linear-gradient(170deg, #0d0123 0%, #1a0430 40%, #2a0750 80%, #0d0123 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-left: 1px solid rgba(141,25,200,0.30);
+  box-shadow: -12px 0 60px rgba(0,0,0,0.80), -4px 0 20px rgba(141,25,200,0.15);
+  flex-direction: column;
+  padding: 0;
+  transform: translateX(100%);
+  transition: transform 0.40s cubic-bezier(0.22,1,0.36,1);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#mobile-nav-drawer.open {
+  transform: translateX(0);
+}
+
+/* Sidebar header bar */
+#mobile-nav-drawer .mob-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 18px;
+  border-bottom: 1px solid rgba(141,25,200,0.18);
+  flex-shrink: 0;
+}
+#mobile-nav-drawer .mob-sidebar-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; font-weight: 800; font-style: italic;
+  background: linear-gradient(135deg, #E0A0FF 0%, #C73BE7 60%, #8D19C8 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+#mobile-nav-drawer .mob-sidebar-close {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 10px;
+  background: rgba(141,25,200,0.12);
+  border: 1px solid rgba(141,25,200,0.28);
+  cursor: pointer; color: rgba(220,180,255,0.80);
+  transition: all 0.22s ease;
+  font-size: 18px; line-height: 1;
+}
+#mobile-nav-drawer .mob-sidebar-close:hover {
+  background: rgba(141,25,200,0.30); color: #fff;
+  border-color: rgba(199,59,231,0.60);
+}
+
+/* Nav links in sidebar */
+#mobile-nav-drawer .mob-nav-links {
+  display: flex; flex-direction: column;
+  padding: 16px 0;
+  flex: 1;
+}
+#mobile-nav-drawer a, #mobile-nav-drawer .mob-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 24px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px; font-weight: 700;
+  color: rgba(220,190,255,0.75) !important;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  border-radius: 0;
+  border-bottom: none !important;
+  text-align: left;
+}
+#mobile-nav-drawer a::before, #mobile-nav-drawer .mob-nav-item::before {
+  content: '';
+  display: block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: rgba(141,25,200,0.55);
+  flex-shrink: 0;
+  transition: all 0.22s ease;
+}
+#mobile-nav-drawer a:hover, #mobile-nav-drawer .mob-nav-item:hover {
+  color: #fff !important;
+  background: rgba(141,25,200,0.10);
+  padding-left: 28px;
+}
+#mobile-nav-drawer a:hover::before, #mobile-nav-drawer .mob-nav-item:hover::before {
+  background: #C73BE7;
+  box-shadow: 0 0 8px rgba(199,59,231,0.70);
+}
+
+/* Sidebar footer block */
+#mobile-nav-drawer .mob-sidebar-footer {
+  padding: 16px 20px 28px;
+  border-top: 1px solid rgba(141,25,200,0.15);
+  display: flex; flex-direction: column; gap: 10px;
+  flex-shrink: 0;
+}
+#mobile-nav-drawer .mob-cta {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 28px;
+  background: linear-gradient(135deg, #8D19C8 0%, #3A0A66 100%);
+  border-radius: 14px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px; font-weight: 800;
+  border: none;
+  color: #fff !important;
+  box-shadow: 0 6px 28px rgba(141,25,200,0.50);
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+#mobile-nav-drawer .mob-cta:hover {
+  background: linear-gradient(135deg, #C73BE7 0%, #8D19C8 100%);
+  box-shadow: 0 10px 36px rgba(141,25,200,0.70);
+  transform: translateY(-2px);
+}
+/* Override: remove any leftover ::before dots on mob-cta */
+#mobile-nav-drawer .mob-cta::before { display: none !important; }
+
+/* Sidebar contact strip */
+#mobile-nav-drawer .mob-contact-strip {
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 0 4px;
+}
+#mobile-nav-drawer .mob-contact-item {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px; color: rgba(211,142,234,0.70);
+  padding: 0;
+  border: none;
+  background: none;
+  border-bottom: none !important;
+}
+#mobile-nav-drawer .mob-contact-item::before { display: none; }
+
+/* Sidebar decorative glow */
+#mobile-nav-drawer::before {
+  content: '';
+  position: absolute; top: -60px; right: -60px;
+  width: 220px; height: 220px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(141,25,200,0.18), transparent 70%);
+  pointer-events: none;
+}
+#mobile-nav-drawer::after {
+  content: '';
+  position: absolute; bottom: -40px; left: -40px;
+  width: 180px; height: 180px; border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(90,10,160,0.15), transparent 70%);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ═══════════════════════════════════════════════════════ */
+
+/* ── TABLET (max 1024px) ─────────────────────────────── */
+@media (max-width: 1024px) {
+  /* Navbar */
+  .nav-inner-fixed { padding: 0 20px 0 16px !important; height: 80px !important; }
+  .glass-nav { min-height: 80px !important; }
+  .nav-logo-col img.nav-logo { height: 68px !important; width: 180px !important; max-width: 180px !important; }
+  .nav-logo-col { flex: 0 0 200px !important; }
+  .nav-links-col { display: none !important; }
+  .nav-cta-col { display: none !important; }
+  #mobile-menu-btn { display: flex !important; }
+
+  /* Container padding */
+  .container { padding-left: 28px !important; padding-right: 28px !important; }
+  .max-w-7xl, .max-w-6xl, .max-w-5xl { padding-left: 28px !important; padding-right: 28px !important; }
+
+  /* Hero */
+  .hero-new { padding: 100px 28px 48px !important; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .svc-col-left, .svc-col-right { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 10px !important; }
+  .svc-col-left .svc-card-wrap::after,
+  .svc-col-right .svc-card-wrap::before { display: none !important; }
+  .logo-card { width: 100% !important; max-width: 420px !important; margin: 0 auto; }
+  .svc-col-center { padding: 0 !important; }
+
+  /* Hero section (old hero) */
+  .hero { padding-top: 100px !important; }
+  .service-layout {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin: 20px 0 !important;
+  }
+  .service-column.left, .service-column.right {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+  .service-column.left .service-card { margin-right: 0 !important; }
+  .service-column.right .service-card { margin-left: 0 !important; }
+  .service-card::after { display: none !important; }
+  .brand-stage { order: -1 !important; }
+  .brand-stage-inner { min-height: 200px !important; }
+
+  /* About brand */
+  #about-brand [class*="grid-cols-1 lg:grid-cols-2"] { gap: 32px !important; }
+
+  /* Expertise grid */
+  #expertiseGrid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* About Me */
+  .am-section { padding: 48px 28px !important; }
+  .am-photo-frame { width: 300px !important; }
+
+  /* Projects */
+  #projects-home .grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Recent Works */
+  .rw-work-item { grid-template-columns: 1fr !important; gap: 32px !important; direction: ltr !important; padding: 32px 0 !important; }
+  .rw-work-item.reverse { direction: ltr !important; }
+  .rw-mockup-area { min-height: 320px !important; }
+  .rw-stat-grid { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+  .footer-inner, footer > div, footer .container { padding-left: 28px !important; padding-right: 28px !important; }
+
+  /* Floating bar */
+  #engageBar { bottom: 16px; padding: 8px 12px; gap: 10px; }
+
+  /* Page padding for sections with px- classes */
+  [class*="px-5"], [class*="px-6"], [class*="px-8"], [class*="px-12"] {
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+  }
+
+  /* Hero h1 */
+  .hero h1 { font-size: clamp(40px, 7vw, 64px) !important; }
+
+  /* Skill cards grid */
+  .am-skills-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Stat boxes */
+  .rw-stat-grid { gap: 10px !important; }
+}
+
+/* ── MOBILE (max 768px) ──────────────────────────────── */
+@media (max-width: 768px) {
+  /* Navbar compact */
+  .nav-inner-fixed { padding: 0 16px 0 14px !important; height: 68px !important; }
+  .glass-nav { min-height: 68px !important; }
+  .nav-logo-col img.nav-logo { height: 54px !important; width: 140px !important; max-width: 140px !important; }
+  .nav-logo-col { flex: 0 0 155px !important; }
+
+  /* Mobile sidebar — no top padding override needed (has its own header) */
+  #mobile-nav-drawer { padding-top: 0 !important; }
+
+  /* All containers */
+  .container { padding-left: 16px !important; padding-right: 16px !important; }
+  .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl {
+    padding-left: 16px !important; padding-right: 16px !important;
+  }
+  [class*="px-5"], [class*="px-6"], [class*="px-8"], [class*="px-12"] {
+    padding-left: 16px !important; padding-right: 16px !important;
+  }
+
+  /* Hero */
+  .hero { padding-top: 88px !important; }
+  .hero h1 { font-size: clamp(32px, 9vw, 52px) !important; letter-spacing: -1.5px !important; }
+  .hero-subtitle { font-size: 14px !important; }
+  .hero-description { font-size: 15px !important; }
+  .hero-divider i { width: 40px !important; }
+  .hello-pill { font-size: 13px !important; padding: 8px 16px !important; }
+
+  /* Service layout on old hero → single column stack */
+  .service-layout { grid-template-columns: 1fr !important; gap: 16px !important; margin: 16px 0 !important; }
+  .service-column.left, .service-column.right {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+  .service-card { width: 100% !important; min-height: 64px !important; padding: 10px 14px !important; gap: 12px !important; }
+  .service-card h3 { font-size: 13px !important; }
+  .service-card p { font-size: 10px !important; }
+  .service-icon { width: 34px !important; height: 34px !important; flex: 0 0 34px !important; font-size: 18px !important; }
+  .brand-stage { order: -1 !important; }
+  .brand-stage-inner { min-height: 160px !important; }
+  .stage-symbol { font-size: 56px !important; }
+  .stage-logo strong { font-size: 36px !important; letter-spacing: -1px !important; }
+  .stage-logo small { font-size: 12px !important; letter-spacing: 6px !important; }
+
+  /* Hero CTA bar */
+  .hero-bottom-cta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 14px 16px !important;
+    gap: 12px !important;
+    min-height: auto !important;
+  }
+  .primary-button {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px 20px !important;
+    font-size: 14px !important;
+    gap: 12px !important;
+  }
+
+  /* New hero grid */
+  .hero-new { padding: 88px 16px 40px !important; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  .svc-col-left, .svc-col-right {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+  .svc-col-left .svc-card-wrap::after,
+  .svc-col-right .svc-card-wrap::before { display: none !important; }
+  .svc-card { padding: 10px 12px !important; gap: 10px !important; }
+  .svc-card-title { font-size: 12px !important; }
+  .svc-card-sub { font-size: 10px !important; }
+  .svc-icon-circle { width: 36px !important; height: 36px !important; }
+  .logo-card { max-width: 100% !important; padding: 18px 14px 16px !important; }
+  .svc-col-center { padding: 0 !important; }
+  .namaste-pill { font-size: 12px !important; padding: 7px 16px !important; }
+
+  /* Content sections */
+  .content-section, .contact-section { padding: 64px 0 !important; }
+  .content-section h2, .contact-section h2 { font-size: clamp(28px, 7vw, 42px) !important; letter-spacing: -1px !important; }
+  .content-section > .container > p, .narrow > p { font-size: 15px !important; }
+  .eyebrow { font-size: 10px !important; letter-spacing: 3px !important; }
+
+  /* Expertise grid → 1 col on very small, 2 col mobile */
+  #expertiseGrid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  #expertiseGrid .exp-card { padding: 20px !important; }
+
+  /* About brand section */
+  #about-brand { padding-top: 48px !important; padding-bottom: 48px !important; }
+  .ss-ring-outer { width: clamp(180px, 70vw, 260px) !important; height: clamp(180px, 70vw, 260px) !important; }
+  .ss-ring-inner { width: clamp(140px, 54vw, 200px) !important; height: clamp(140px, 54vw, 200px) !important; }
+
+  /* About Me */
+  .am-section { padding: 48px 16px !important; }
+  .am-section > * > * { flex-direction: column !important; }
+  .am-photo-frame { width: 260px !important; border-radius: 20px !important; }
+  .am-photo-ring { display: none !important; }
+  .am-badge { display: none !important; }
+  .am-name { font-size: clamp(28px, 8vw, 40px) !important; }
+  .am-stats { flex-direction: row !important; flex-wrap: wrap !important; gap: 16px !important; padding: 16px 18px !important; }
+  .am-stat-item { flex: 1 1 45% !important; }
+  .am-stat-num { font-size: 22px !important; }
+  .am-skills-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  .am-skill-card { padding: 16px !important; border-radius: 16px !important; }
+
+  /* Projects */
+  #projects-home { padding: 48px 0 !important; }
+  #projects-home .grid { grid-template-columns: 1fr !important; gap: 20px !important; }
+  #projects-home .max-w-7xl { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Recent works */
+  .rw-section { padding: 48px 16px !important; }
+  .rw-work-item { grid-template-columns: 1fr !important; gap: 24px !important; padding: 28px 0 !important; direction: ltr !important; }
+  .rw-work-item.reverse { direction: ltr !important; }
+  .rw-mockup-area { min-height: 260px !important; }
+  .rw-device-1 { width: 130px !important; height: 230px !important; left: 0 !important; top: 20px !important; }
+  .rw-device-2 { width: 150px !important; height: 260px !important; left: 80px !important; top: 0 !important; }
+  .rw-device-3 { width: 180px !important; height: 110px !important; left: 10px !important; bottom: 0 !important; }
+  .rw-work-title { font-size: clamp(22px, 6vw, 32px) !important; }
+  .rw-work-desc { font-size: 14px !important; margin-bottom: 24px !important; }
+  .rw-result-heading { font-size: 20px !important; margin-bottom: 14px !important; }
+  .rw-stat-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .rw-stat-box { padding: 16px 12px 14px !important; border-radius: 14px !important; }
+  .rw-stat-num { font-size: clamp(18px, 4vw, 26px) !important; }
+
+  /* Contact section */
+  #contact-home { padding: 48px 0 !important; }
+  #contact-home .grid { grid-template-columns: 1fr !important; gap: 32px !important; }
+  #contact-home .lg\:col-span-2, #contact-home .lg\:col-span-3 { grid-column: span 1 / span 1 !important; }
+  #contact-home form .grid { grid-template-columns: 1fr !important; }
+  #contact-home form input, #contact-home form select, #contact-home form textarea {
+    font-size: 16px !important; /* Prevents iOS zoom */
+  }
+  #contact-home .max-w-7xl { padding-left: 16px !important; padding-right: 16px !important; }
+  #contact-home form { padding: 20px !important; border-radius: 20px !important; }
+
+  /* How we work section */
+  #how-we-work-home { padding: 48px 0 !important; }
+  #how-we-work-home .max-w-7xl { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Process/Timeline */
+  .timeline-line { left: 16px !important; }
+  .moving-violet-dot { left: 16px !important; }
+
+  /* Footer */
+  footer { padding: 48px 0 32px !important; }
+  .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; text-align: center !important; }
+  .footer-inner, footer > div, footer .container { padding-left: 16px !important; padding-right: 16px !important; }
+
+  /* Floating engagement bar — mobile perfect fit */
+  #engageBar {
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100vw - 24px) !important;
+    max-width: 360px !important;
+    gap: 7px !important;
+    padding: 7px 10px 7px 9px !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+  }
+  #engageBar .eb-avatar { width: 30px !important; height: 30px !important; flex-shrink: 0 !important; }
+  #engageBar .eb-text { min-width: 0; flex: 1 1 auto; overflow: hidden; }
+  #engageBar .eb-text .eb-title { font-size: 10.5px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #engageBar .eb-text .eb-sub { font-size: 9px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #engageBar .eb-divider { flex-shrink: 0 !important; }
+  #engageBar .eb-follow { padding: 6px 11px !important; font-size: 11px !important; flex-shrink: 0 !important; white-space: nowrap; }
+  #engageBar .eb-like { padding: 6px 9px !important; font-size: 11px !important; flex-shrink: 0 !important; white-space: nowrap; }
+
+  /* Marquee slower and smaller */
+  .animate-marquee { animation-duration: 20s !important; }
+  .animate-marquee span { font-size: 11px !important; margin-left: 16px !important; margin-right: 16px !important; }
+
+  /* Hero h1 font */
+  .hero h1 b { font-size: 0.7em !important; margin-left: 6px !important; }
+
+  /* Scroll progress bar */
+  #scroll-progress { height: 2px !important; }
+
+  /* Value cards 1 col */
+  #about-brand .grid.grid-cols-1.sm\:grid-cols-3 { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+  /* Privacy/Terms pages */
+  #page-privacy main, #page-terms main { padding-left: 16px !important; padding-right: 16px !important; padding-top: 96px !important; }
+
+  /* Section headers center */
+  .am-eyebrow { font-size: 10px !important; }
+  .am-skills-title { font-size: 20px !important; }
+}
+
+/* ── SMALL MOBILE (max 480px) ────────────────────────── */
+@media (max-width: 480px) {
+  /* Nav */
+  .nav-logo-col img.nav-logo { height: 44px !important; width: 115px !important; max-width: 115px !important; }
+  .nav-logo-col { flex: 0 0 130px !important; }
+
+  /* Service columns → single column */
+  .service-column.left, .service-column.right { grid-template-columns: 1fr !important; }
+  .svc-col-left, .svc-col-right { grid-template-columns: 1fr !important; }
+
+  /* Hero H1 */
+  .hero h1 { font-size: 30px !important; letter-spacing: -1px !important; }
+  .hero-subtitle { font-size: 13px !important; }
+
+  /* Stat grid 2 col */
+  .rw-stat-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* Mockup devices scaled down more */
+  .rw-device-1 { width: 100px !important; height: 180px !important; left: 0 !important; top: 20px !important; }
+  .rw-device-2 { width: 120px !important; height: 200px !important; left: 60px !important; top: 0 !important; }
+  .rw-device-3 { width: 150px !important; height: 90px !important; left: 5px !important; }
+  .rw-mockup-area { min-height: 220px !important; }
+
+  /* About me stats — 2 per row */
+  .am-stat-item { flex: 1 1 40% !important; }
+
+  /* Footer social icons center */
+  footer [style*="display:flex;gap:12px"] { justify-content: center !important; }
+
+  /* Value cards tagline card */
+  .ss-tagline-card p { font-size: 18px !important; }
+}
+
+/* ── EXTRA: Section padding fixes for AOS viewport on mobile ── */
+@media (max-width: 768px) {
+  [data-aos] { opacity: 1 !important; transform: none !important; }
+}
+
+/* ── Fix: Glass nav overflow on mobile ─────────────────── */
+@media (max-width: 1024px) {
+  .glass-nav { overflow: hidden !important; }
+  .glass-nav::after { display: none !important; }
+}
+
+/* ── Fix: Expertise modal on mobile ─────────────────────── */
+@media (max-width: 768px) {
+  .exp-modal-overlay { align-items: flex-end !important; }
+  .exp-modal { border-radius: 20px 20px 0 0 !important; max-height: 90vh !important; }
+  .exp-modal-header { padding: 20px 20px 16px !important; }
+  .exp-modal-body { padding: 0 20px 24px !important; }
+  .exp-modal-cta-text { font-size: 16px !important; }
+}
+
+/* ── Process / How We Work section ─────────────────────── */
+@media (max-width: 768px) {
+  .process-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .expertise-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .project-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .expertise-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+/* ── Safe Area for notch phones ───────────────────────── */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  #engageBar { bottom: max(12px, env(safe-area-inset-bottom)); }
+  #mobile-nav-drawer .mob-sidebar-footer { padding-bottom: max(28px, env(safe-area-inset-bottom)); }
+}
+
+</style>
+
+<style id="ss-mobile-center-fix">
+/* ═══════════════════════════════════════════════════════════════
+   STORYSNIP — MOBILE CENTERING & FULL-FIT PERFECT FIX
+   Every section, every element — perfectly centered on mobile
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. Kill the forced 48px left push on mobile ── */
+@media (max-width: 1024px) {
+  .container,
+  .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl,
+  [class*="px-5"], [class*="px-6"], [class*="px-8"], [class*="px-12"],
+  .hero-new, .footer-inner, footer > div, footer .container {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container,
+  .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .max-w-3xl,
+  [class*="px-5"], [class*="px-6"], [class*="px-8"], [class*="px-12"],
+  .hero-new, .footer-inner, footer > div, footer .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* ── 2. Hero: center everything ── */
+@media (max-width: 768px) {
+  /* The hero section itself */
+  .hero {
+    padding: 78px 0 40px !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Container inside hero — center all children */
+  .hero .container.hero-content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding: 0 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Hello pill — centered */
+  .hello-pill {
+    margin: 0 auto 18px !important;
+    text-align: center !important;
+  }
+
+  /* H1 — centered */
+  .hero h1 {
+    text-align: center !important;
+    font-size: clamp(28px, 8.5vw, 44px) !important;
+    letter-spacing: -1.2px !important;
+    width: 100% !important;
+  }
+
+  /* Subtitle — centered */
+  .hero-subtitle {
+    text-align: center !important;
+    font-size: 13px !important;
+    width: 100% !important;
+  }
+
+  /* Hero divider — centered */
+  .hero-divider {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+
+  /* Hero description — centered */
+  .hero-description {
+    text-align: center !important;
+    font-size: 14px !important;
+    width: 100% !important;
+  }
+  .hero-description br { display: none !important; }
+
+  /* ── Service layout on mobile: brand logo top, then 2-col cards below ── */
+  .service-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+    margin: 16px 0 !important;
+  }
+
+  /* Brand stage — full width, on top */
+  .brand-stage {
+    order: -1 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 18px !important;
+  }
+  .brand-stage-inner {
+    min-height: 140px !important;
+    border-radius: 16px !important;
+  }
+
+  /* Left and right service columns — side by side 2-col grid */
+  .service-column.left,
+  .service-column.right {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  /* Service card — fit full width of its grid cell */
+  .service-card {
+    width: 100% !important;
+    min-height: 60px !important;
+    padding: 10px 12px !important;
+    gap: 10px !important;
+    border-radius: 14px !important;
+  }
+
+  .service-card::after { display: none !important; }
+
+  .service-card h3 { font-size: 12px !important; margin-bottom: 2px !important; }
+  .service-card p  { font-size: 10px !important; }
+  .service-icon {
+    width: 32px !important; height: 32px !important;
+    flex: 0 0 32px !important;
+    font-size: 16px !important;
+    border-radius: 8px !important;
+  }
+
+  /* Hero bottom CTA — full width, stacked */
+  .hero-bottom-cta {
+    width: 100% !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    align-items: stretch !important;
+    text-align: left !important;
+    padding: 14px 16px !important;
+    border-radius: 16px !important;
+    min-height: auto !important;
+  }
+  .primary-button {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 14px !important;
+    font-size: 14px !important;
+    gap: 8px !important;
+    border-radius: 12px !important;
+  }
+  .primary-button span { font-size: 16px !important; }
+}
+
+/* ── 3. Trust Marquee — center fix ── */
+@media (max-width: 768px) {
+  .animate-marquee span {
+    font-size: 10px !important;
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+    letter-spacing: 1.5px !important;
+  }
+}
+
+/* ── 4. About Brand section — center fix ── */
+@media (max-width: 768px) {
+  #about-brand {
+    padding: 40px 0 !important;
+  }
+  #about-brand > div.relative.z-10 {
+    padding: 0 16px !important;
+  }
+  /* Logo ring area — center */
+  #about-brand .relative.flex.items-center.justify-center {
+    margin: 0 auto !important;
+  }
+  /* Heading center on mobile */
+  #about-brand h2 { text-align: center !important; }
+  #about-brand p  { text-align: center !important; max-width: 100% !important; }
+  /* Pills left-align content */
+  .ss-pill { text-align: left !important; }
+  /* Value cards — 1 column centered */
+  #about-brand .grid.grid-cols-1.sm\:grid-cols-3 {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
+/* ── 5. Expertise section — center fix ── */
+@media (max-width: 768px) {
+  #expertiseGrid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 0 !important;
+  }
+  #expertiseGrid .exp-card {
+    width: 100% !important;
+    border-radius: 16px !important;
+  }
+  /* Section eyebrow/heading — center */
+  #expertiseGrid + div, 
+  [class*="text-center"] { text-align: center !important; }
+}
+
+/* ── 6. About Me section — center ── */
+@media (max-width: 768px) {
+  .am-section {
+    padding: 40px 16px !important;
+  }
+  /* Stack photo + content */
+  .am-section > .relative.z-10 > .grid,
+  .am-section .grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .am-photo-wrap {
+    margin: 0 auto !important;
+    max-width: 260px !important;
+  }
+  .am-photo-frame {
+    width: 100% !important;
+    border-radius: 20px !important;
+    margin: 0 auto !important;
+  }
+  .am-photo-ring, .am-photo-ring-2 { display: none !important; }
+  .am-badge { display: none !important; }
+  /* Text center */
+  .am-eyebrow { justify-content: center !important; }
+  .am-name    { text-align: center !important; font-size: clamp(26px,8vw,38px) !important; }
+  .am-role    { text-align: center !important; }
+  .am-bio     { text-align: center !important; font-size: 14px !important; }
+  /* Stats — 2 per row */
+  .am-stats {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    padding: 16px !important;
+  }
+  .am-stat-item { flex: 0 0 calc(50% - 14px) !important; text-align: center !important; }
+  .am-stat-num  { font-size: 22px !important; }
+  /* Skills grid — 1 col */
+  .am-skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .am-skill-card { padding: 16px 16px !important; }
+  .am-skills-title { font-size: 20px !important; justify-content: center !important; }
+}
+
+/* ── 7. Projects section — center ── */
+@media (max-width: 768px) {
+  #projects-home {
+    padding: 40px 0 !important;
+  }
+  #projects-home .max-w-7xl {
+    padding: 0 16px !important;
+  }
+  #projects-home .grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .proj-card {
+    border-radius: 16px !important;
+    width: 100% !important;
+  }
+  .proj-info { padding: 14px 16px 16px !important; }
+  .proj-title { font-size: 14px !important; }
+  .proj-desc  { font-size: 11px !important; }
+}
+
+/* ── 8. Recent Works — center ── */
+@media (max-width: 768px) {
+  .rw-section { padding: 40px 16px !important; }
+  .rw-work-item {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+    direction: ltr !important;
+    padding: 28px 0 !important;
+  }
+  .rw-work-item.reverse { direction: ltr !important; }
+  .rw-mockup-area { min-height: 240px !important; }
+  .rw-device-1 { width: 110px !important; height: 195px !important; left: 2px !important; top: 20px !important; }
+  .rw-device-2 { width: 130px !important; height: 225px !important; left: 72px !important; top: 0 !important; }
+  .rw-device-3 { width: 170px !important; height: 100px !important; left: 8px !important; bottom: 0 !important; }
+  .rw-work-title { font-size: clamp(20px,6vw,28px) !important; }
+  .rw-work-desc  { font-size: 13px !important; margin-bottom: 20px !important; max-width: 100% !important; }
+  .rw-result-heading { font-size: 18px !important; }
+  .rw-stat-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .rw-stat-box { padding: 14px 10px 12px !important; border-radius: 12px !important; }
+  .rw-stat-num { font-size: clamp(16px,4vw,22px) !important; }
+}
+
+/* ── 9. Contact section — center ── */
+@media (max-width: 768px) {
+  #contact-home { padding: 40px 0 !important; }
+  #contact-home .max-w-7xl { padding: 0 16px !important; }
+  #contact-home section {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  #contact-home [class*="lg:col-span"] { grid-column: span 1 !important; }
+  #contact-home h2 { font-size: clamp(24px,7vw,34px) !important; }
+  #contact-home form .grid { grid-template-columns: 1fr !important; gap: 10px !important; }
+  /* Prevent iOS zoom on inputs */
+  #contact-home input,
+  #contact-home select,
+  #contact-home textarea { font-size: 16px !important; }
+  /* Form card padding */
+  .bg-brand-dark.p-8, .bg-brand-dark.md\:p-12 { padding: 20px !important; border-radius: 20px !important; }
+}
+
+/* ── 10. How We Work — center ── */
+@media (max-width: 768px) {
+  #how-we-work-home { padding: 40px 0 !important; }
+  #how-we-work-home .max-w-7xl { padding: 0 16px !important; }
+}
+
+/* ── 11. Footer — center ── */
+@media (max-width: 768px) {
+  footer, .site-footer {
+    padding: 40px 0 28px !important;
+  }
+  .footer-inner, footer > div, footer .container {
+    padding: 0 16px !important;
+  }
+  /* Stacked single col */
+  .footer-grid,
+  .grid.grid-cols-1.md\:grid-cols-12 {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    text-align: center !important;
+  }
+  footer [class*="md:col-span"] { grid-column: span 1 !important; }
+  /* Social icons — center */
+  footer [style*="display:flex;gap:12px"],
+  footer [style*="display: flex; gap: 12px"] {
+    justify-content: center !important;
+  }
+  /* Logo — center */
+  footer img, .site-footer img { display: block !important; margin: 0 auto !important; }
+  /* Footer nav links — center */
+  footer ul { text-align: center !important; }
+  footer h4 { text-align: center !important; }
+  footer p  { text-align: center !important; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  footer .footer-grid,
+  footer .grid.grid-cols-1.md\:grid-cols-12 {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+  }
+}
+
+/* ── 12. Floating bar — full width on mobile ── */
+@media (max-width: 768px) {
+  #engageBar {
+    width: calc(100vw - 24px) !important;
+    max-width: 360px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: max(12px, env(safe-area-inset-bottom, 12px)) !important;
+    gap: 7px !important;
+    padding: 7px 10px 7px 9px !important;
+    border-radius: 999px !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+  }
+  #engageBar .eb-avatar  { width: 30px !important; height: 30px !important; flex-shrink: 0 !important; }
+  #engageBar .eb-text    { min-width: 0; flex: 1 1 auto; overflow: hidden; }
+  #engageBar .eb-title   { font-size: 10.5px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #engageBar .eb-sub     { font-size: 9px !important; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #engageBar .eb-divider { flex-shrink: 0 !important; }
+  #engageBar .eb-follow  { padding: 6px 11px !important; font-size: 11px !important; flex-shrink: 0 !important; white-space: nowrap; }
+  #engageBar .eb-like    { padding: 6px 9px !important; font-size: 11px !important; flex-shrink: 0 !important; white-space: nowrap; }
+}
+
+/* Very small screens (< 360px) — hide subtitle to save space */
+@media (max-width: 359px) {
+  #engageBar .eb-sub { display: none !important; }
+  #engageBar { gap: 6px !important; padding: 7px 8px !important; }
+  #engageBar .eb-follow { padding: 6px 9px !important; }
+  #engageBar .eb-like   { padding: 6px 8px !important; }
+}
+
+/* ── 13. Global text center on mobile where needed ── */
+@media (max-width: 768px) {
+  .text-center { text-align: center !important; }
+  /* Section eyebrow labels */
+  .eyebrow      { text-align: center !important; display: block !important; }
+  /* Feature: "Our Expertise" heading above expertiseGrid */
+  #expertiseGrid + div,
+  #expertiseGrid ~ div { text-align: center !important; }
+  /* Section h2 center */
+  .content-section h2,
+  .contact-section h2 {
+    font-size: clamp(26px, 7vw, 40px) !important;
+    text-align: center !important;
+    letter-spacing: -1px !important;
+  }
+}
+
+/* ── 14. Tablet (769–1024): 2-col grids where needed ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Service layout: logo centered + 4 cards each side in 2×2 */
+  .service-layout {
+    grid-template-columns: 1fr 260px 1fr !important;
+    gap: 24px !important;
+  }
+  .service-card { width: 100% !important; }
+  .brand-stage-inner { min-height: 220px !important; }
+
+  /* Expertise: 2 cols */
+  #expertiseGrid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Projects: 2 cols */
+  #projects-home .grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* About Me skills: 2 cols */
+  .am-skills-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Recent works: stack vertically */
+  .rw-work-item {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+    direction: ltr !important;
+  }
+  .rw-work-item.reverse { direction: ltr !important; }
+  .rw-stat-grid { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* Contact: stack */
+  #contact-home section {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  #contact-home [class*="lg:col-span"] { grid-column: span 1 !important; }
+  #contact-home form .grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* About brand values: 3 col still */
+  #about-brand .sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* ── 15. Prevent horizontal overflow everywhere ── */
+* { max-width: 100%; box-sizing: border-box; }
+html, body { overflow-x: hidden !important; width: 100% !important; }
+img { max-width: 100% !important; }
+canvas { max-width: 100% !important; }
+
+/* ── 16. Orbit rings: hide on mobile (they cause overflow) ── */
+@media (max-width: 768px) {
+  .hero-orbit, .ambient, .dot-field { display: none !important; }
+}
+
+/* ── 17. Section inner wrapper padding fix ── */
+@media (max-width: 768px) {
+  section.rw-section > div,
+  .am-section > div {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+
+/* ── 18. Privacy/Terms pages — mobile fix ── */
+@media (max-width: 768px) {
+  #page-privacy main,
+  #page-terms main {
+    padding: 88px 16px 40px !important;
+  }
+}
+
+/* ── 19. Expertise modal full-screen on mobile ── */
+@media (max-width: 768px) {
+  .exp-modal-overlay { align-items: flex-end !important; padding: 0 !important; }
+  .exp-modal {
+    border-radius: 20px 20px 0 0 !important;
+    max-height: 88vh !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-y: auto !important;
+  }
+  .exp-modal-header { padding: 18px 18px 14px !important; }
+  .exp-modal-body   { padding: 0 18px 24px !important; }
+}
+</style>
+
+<style id="ss-nav-mobile-fix">
+/* ── Navbar Mobile: Logo left, Hamburger right, perfectly centered ── */
+@media (max-width: 1024px) {
+  .nav-inner-fixed {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 68px !important;
+    padding: 0 16px !important;
+    width: 100% !important;
+  }
+  .nav-logo-col {
+    flex: 0 0 auto !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+  .nav-logo-col img.nav-logo {
+    height: 52px !important;
+    width: auto !important;
+    max-width: 160px !important;
+    object-fit: contain !important;
+    object-position: left center !important;
+  }
+  .nav-links-col { display: none !important; }
+  .nav-cta-col   { display: none !important; }
+  #mobile-menu-btn {
+    display: flex !important;
+    flex-shrink: 0 !important;
+    margin-left: auto !important;
+  }
+  .glass-nav {
+    min-height: 68px !important;
+    height: 68px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-inner-fixed { padding: 0 12px !important; }
+  .nav-logo-col img.nav-logo {
+    height: 44px !important;
+    max-width: 130px !important;
+  }
+}
+
+/* Mobile sidebar — right-sliding panel, has its own header */
+#mobile-nav-drawer {
+  padding-top: 0 !important;
+}
+@media (max-width: 480px) {
+  #mobile-nav-drawer { padding-top: 0 !important; }
+}
+
+/* Hero padding-top must account for nav height */
+@media (max-width: 1024px) {
+  .hero { padding-top: 78px !important; }
+  .hero-new { padding-top: 78px !important; }
+  #page-home main { padding-top: 0 !important; }
+}
+</style>
 </head>
 <body class="antialiased">
     <div id="site-bg"></div>
+    <!-- Animation helpers -->
+    <div id="scroll-progress"></div>
+
+    <div id="page-transition"></div>
 
     <!-- Loading Screen -->
     <div id="loader">
         <div class="mb-8 text-center" style="line-height:1;">
-            <span style="font-family:'Manrope',sans-serif;font-size:clamp(32px,6vw,58px);font-weight:700;font-style:italic;letter-spacing:-0.01em;background:linear-gradient(135deg,#D875F2 0%,#8D19C8 45%,#C73BE7 75%,#7B16B5 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 28px rgba(161,48,197,0.55));">StorySnip</span><span style="font-family:'Manrope',sans-serif;font-size:clamp(32px,6vw,58px);font-weight:800;letter-spacing:0.04em;color:rgba(255,255,255,0.92);margin-left:10px;">MEDIA</span>
+            <!-- Loader brand: Playfair Display italic for StorySnip + Cormorant for MEDIA -->
+            <div style="display:flex;align-items:baseline;justify-content:center;gap:10px;flex-wrap:wrap;">
+                <span style="font-family:'Playfair Display',serif;font-size:clamp(38px,7vw,68px);font-weight:800;font-style:italic;letter-spacing:-0.02em;background:linear-gradient(135deg,#E8A0FF 0%,#C73BE7 35%,#8D19C8 65%,#D875F2 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 0 32px rgba(199,59,231,0.60));text-shadow:none;">StorySnip</span>
+                <span style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,4vw,36px);font-weight:700;font-style:normal;letter-spacing:0.28em;color:rgba(220,180,255,0.80);text-transform:uppercase;padding-bottom:4px;">Media</span>
+            </div>
+            <p style="font-family:'Manrope',sans-serif;font-size:10px;font-weight:700;letter-spacing:0.42em;color:rgba(161,48,197,0.55);text-transform:uppercase;margin-top:10px;">We Snip Stories That Sell.</p>
         </div>
-        <div class="loader-bar-track"><div class="loader-bar-fill" id="loaderBarFill"></div></div>
+        <div class="loader-bar-track" style="margin-top:28px;"><div class="loader-bar-fill" id="loaderBarFill"></div></div>
         <div id="loaderPercent" style="margin-top:14px;font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.18em;color:rgba(161,48,197,0.80);font-variant-numeric:tabular-nums;">0%</div>
     </div>
 
     <!-- Navigation -->
-    <style>
-        /* ── Mobile-first Navbar heights ── */
-        @media (max-width: 1023px) {
-            #navbar .nav-inner { height: 90px !important; padding: 0 18px !important; }
-            #navbar .nav-logo  { height: 80px !important; width: auto !important; }
-        }
-        /* ── Full-screen Mobile Menu ── */
-        #mobile-menu {
-            position: fixed; inset: 0; z-index: 9000;
-            background: linear-gradient(160deg, #12031F 0%, #2A0750 40%, #3A0A66 70%, #12031F 100%);
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            opacity: 0; visibility: hidden; pointer-events: none;
-            transition: opacity 0.35s ease, visibility 0.35s ease;
-        }
-        #mobile-menu.mob-open { opacity: 1; visibility: visible; pointer-events: all; }
-        .mob-nav-link {
-            font-family: 'Manrope', sans-serif;
-            font-size: clamp(20px, 5.5vw, 30px); font-weight: 600;
-            color: rgba(255,255,255,0.75);
-            padding: 13px 0; width: 100%; text-align: center;
-            border-bottom: 1px solid rgba(161,48,197,0.10);
-            transition: color 0.22s, background 0.22s;
-            text-decoration: none; display: block;
-        }
-        .mob-nav-link:active, .mob-nav-link:hover { color: #8D19C8; background: rgba(161,48,197,0.05); }
-        .mob-nav-cta {
-            margin-top: 28px; display: inline-block;
-            padding: 14px 40px; background: #8D19C8; color: #fff;
-            font-family: 'Manrope',sans-serif; font-size: 15px; font-weight: 700;
-            border-radius: 999px; box-shadow: 0 0 30px rgba(161,48,197,0.5);
-            text-decoration: none; transition: background 0.25s, transform 0.25s;
-        }
-        .mob-nav-cta:hover { background: #3A0A66; transform: scale(1.04); }
-        .mob-close-btn {
-            position: absolute; top: 18px; right: 18px;
-            width: 40px; height: 40px; border-radius: 50%;
-            background: rgba(161,48,197,0.15); border: 1px solid rgba(161,48,197,0.3);
-            color: #fff; font-size: 18px;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; transition: background 0.2s, transform 0.2s;
-        }
-        .mob-close-btn:hover { background: rgba(161,48,197,0.4); transform: rotate(90deg); }
-    </style>
-
     <style>
         /* ── Logo wrap — clean on the gradient navbar ── */
         .nav-logo-wrap {
@@ -2183,20 +3321,7 @@ footer a:hover{color:#ffffff!important;}
         }
 
         /* Mobile — reduce edge padding on small screens */
-        @media (max-width: 767px) {
-            .container,
-            .max-w-7xl,
-            .max-w-6xl,
-            .max-w-5xl,
-            .max-w-4xl,
-            .max-w-3xl,
-            .hero-new,
-            footer .container,
-            .footer-inner {
-                padding-left: 20px !important;
-                padding-right: 20px !important;
-            }
-        }
+        
     </style>
 
     <style>
@@ -2298,17 +3423,84 @@ footer a:hover{color:#ffffff!important;}
                 <a href="#" onclick="setActiveNav('contact'); showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="nav-link" data-navid="contact">Contact</a>
             </nav>
 
-            <!-- RIGHT: CTA + mobile hamburger -->
+            <!-- RIGHT: CTA -->
             <div class="nav-cta-col">
-                <div class="hidden lg:flex items-center">
-                    <div class="magnetic-wrap"><a href="#" onclick="setActiveNav('contact'); showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="magnetic-btn nav-cta-btn font-manrope text-sm rounded-full">Let's Work Together <span class="nav-cta-arrow">↗</span></a></div>
-                </div>
-                <button class="lg:hidden text-white p-2" id="mobile-menu-btn">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                </button>
-            </div>
+                <div class="magnetic-wrap"><a href="#" onclick="setActiveNav('contact'); showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;" class="magnetic-btn nav-cta-btn font-manrope text-sm rounded-full">Let's Work Together <span class="nav-cta-arrow">↗</span></a></div></div>
+            <!-- MOBILE: Hamburger Button -->
+            <button id="mobile-menu-btn" aria-label="Open menu" onclick="toggleMobileNav()">
+                <span></span>
+            </button>
         </div>
     </header>
+
+    <!-- MOBILE SIDEBAR OVERLAY -->
+    <div id="mobile-sidebar-overlay" onclick="closeMobileNav()"></div>
+
+    <!-- MOBILE NAV SIDEBAR -->
+    <div id="mobile-nav-drawer" role="navigation" aria-label="Mobile navigation">
+        <!-- Sidebar Header -->
+        <div class="mob-sidebar-header">
+            <span class="mob-sidebar-logo">StorySnip</span>
+            <button class="mob-sidebar-close" onclick="closeMobileNav()" aria-label="Close menu">✕</button>
+        </div>
+
+        <!-- Nav Links -->
+        <div class="mob-nav-links">
+            <a href="#" onclick="closeMobileNav(); setActiveNav('home'); showPage('home'); window.scrollTo({top:0,behavior:'smooth'}); return false;">Home</a>
+            <a href="#" onclick="closeMobileNav(); setActiveNav('about'); showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300); return false;">About</a>
+            <a href="#" onclick="closeMobileNav(); setActiveNav('expertise'); showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300); return false;">Expertise</a>
+            <a href="#" onclick="closeMobileNav(); setActiveNav('process'); showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300); return false;">Process</a>
+            <a href="#" onclick="closeMobileNav(); setActiveNav('projects'); showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300); return false;">Projects</a>
+            <a href="#" onclick="closeMobileNav(); setActiveNav('work'); showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300); return false;">Work</a>
+            <a href="#" onclick="closeMobileNav(); setActiveNav('contact'); showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;">Contact</a>
+        </div>
+
+        <!-- Sidebar Footer -->
+        <div class="mob-sidebar-footer">
+            <!-- Contact info -->
+            <div class="mob-contact-strip">
+                <div class="mob-contact-item">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(211,142,234,0.70)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>storysnipmedia@gmail.com</span>
+                </div>
+                <div class="mob-contact-item">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(211,142,234,0.70)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>India 🇮🇳 — Available Worldwide</span>
+                </div>
+            </div>
+            <!-- CTA button -->
+            <button class="mob-cta" onclick="closeMobileNav(); setActiveNav('contact'); showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);">Let's Work Together ↗</button>
+        </div>
+    </div>
+    <script>
+    function toggleMobileNav() {
+        const drawer = document.getElementById('mobile-nav-drawer');
+        const overlay = document.getElementById('mobile-sidebar-overlay');
+        const btn = document.getElementById('mobile-menu-btn');
+        const isOpen = drawer.classList.contains('open');
+        if (isOpen) {
+            closeMobileNav();
+        } else {
+            drawer.classList.add('open');
+            overlay.classList.add('open');
+            btn.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+    function closeMobileNav() {
+        const drawer = document.getElementById('mobile-nav-drawer');
+        const overlay = document.getElementById('mobile-sidebar-overlay');
+        const btn = document.getElementById('mobile-menu-btn');
+        drawer.classList.remove('open');
+        overlay.classList.remove('open');
+        btn.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+    // ESC key closes sidebar
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMobileNav();
+    });
+    </script>
 
     <script>
         /* ── Active nav: only highlight the clicked item ── */
@@ -2326,26 +3518,6 @@ footer a:hover{color:#ffffff!important;}
             }
         }
     </script>
-
-    <!-- Mobile Menu — Full-screen Overlay -->
-    <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation">
-        <button class="mob-close-btn" id="mobile-close" aria-label="Close menu">✕</button>
-        <div style="padding:0 32px;width:100%;max-width:400px;text-align:center;">
-            <div style="display:flex;align-items:center;justify-content:center;margin:0 auto 28px;">
-                <img src="snipwhite.png" alt="StorySnip Media" style="height:56px;width:auto;filter:drop-shadow(0 0 18px rgba(161,48,197,0.5));" />
-            </div>
-        </div>
-        <div style="width:100%;max-width:400px;">
-            <a href="#" class="mob-nav-link" onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'}); closeMobile(); return false;">Home</a>
-            <a href="#" class="mob-nav-link" onclick="showPage('home'); closeMobile(); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300); return false;">About</a>
-            <a href="#" class="mob-nav-link" onclick="showPage('home'); closeMobile(); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300); return false;">Expertise</a>
-            <a href="#" class="mob-nav-link" onclick="showPage('home'); closeMobile(); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300); return false;">Process</a>
-            <a href="#" class="mob-nav-link" onclick="showPage('home'); closeMobile(); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300); return false;">Projects</a>
-            <a href="#" class="mob-nav-link" onclick="showPage('home'); closeMobile(); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300); return false;">Work</a>
-            <a href="#" class="mob-nav-link" onclick="showPage('home'); closeMobile(); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;">Contact</a>
-        </div>
-        <a href="#" class="mob-nav-cta" onclick="showPage('home'); closeMobile(); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300); return false;">Let's Work Together</a>
-    </div>
 
     <!-- ============================================================ -->
     <!-- HOME PAGE -->
@@ -2585,42 +3757,8 @@ footer a:hover{color:#ffffff!important;}
                 }
 
                 /* ── Responsive ── */
-                @media (max-width: 1023px) {
-                    .hero-grid {
-                        display: flex;
-                        flex-direction: column;
-                        max-width: 520px;
-                        gap: 16px;
-                    }
-                    /* On mobile: center column comes first via order */
-                    .svc-col-center { order: -1; padding: 0; }
-                    .svc-col-left { order: 0; }
-                    .svc-col-right { order: 1; }
-                    /* Both left and right columns become 2×2 grids */
-                    .svc-col-left, .svc-col-right {
-                        display: grid;
-                        grid-template-columns: 1fr 1fr;
-                        gap: 10px;
-                    }
-                    /* Hide all connector lines and dots on mobile */
-                    .svc-connector-line,
-                    .connector-dot-left,
-                    .connector-dot-right { display: none !important; }
-                    /* CTA bar stacks vertically */
-                    .hero-cta-bar { flex-direction: column; align-items: stretch; gap: 12px; margin-top: 12px; }
-                    .hero-cta-text { justify-content: center; }
-                    .hero-cta-btn { text-align: center; justify-content: center; }
-                }
-                @media (max-width: 540px) {
-                    .hero-new { padding: 90px 16px 40px; }
-                    .svc-col-left, .svc-col-right { grid-template-columns: 1fr 1fr; gap: 8px; }
-                    .hero-grid { gap: 12px; }
-                    .svc-card { padding: 12px 14px; gap: 10px; }
-                    .svc-icon-circle { width: 38px; height: 38px; }
-                    .svc-icon-circle svg { width: 18px; height: 18px; }
-                    .svc-card-title { font-size: 12px; }
-                    .svc-card-sub { font-size: 10px; }
-                }
+                
+                
 
                 @keyframes wave {
                     0%   { transform: rotate(  0deg) translateX(  0px); }
@@ -2644,6 +3782,7 @@ footer a:hover{color:#ffffff!important;}
             </style>
 
             <section class="hero" id="home"> 
+      <canvas id="hero-particles"></canvas>
       <div class="hero-orbit orbit-one"></div>
       <div class="hero-orbit orbit-two"></div>
       <div class="ambient ambient-left"></div>
@@ -2653,25 +3792,25 @@ footer a:hover{color:#ffffff!important;}
 
       <div class="container hero-content">
 
-        <div class="hello-pill">
+        <div class="hello-pill hero-anim-0">
           <span>👋</span> Namasté!
         </div>
 
-        <h1>I'm <span>Sai Kumar</span>, <b class="wave-hand">👋</b></h1>
+        <h1 class="hero-anim-1">I'm <span>Sai Kumar</span>, <b class="wave-hand">👋</b></h1>
 
-        <p class="hero-subtitle">MBA Marketing &amp; Growth Marketing</p>
+        <p class="hero-subtitle hero-anim-2">MBA Marketing &amp; Growth Marketing</p>
 
-        <div class="hero-divider">
+        <div class="hero-divider hero-anim-3">
           <i></i><span>✦</span><i></i>
         </div>
 
-        <p class="hero-description">
+        <p class="hero-description hero-anim-4">
           Helping brands grow with <strong>strategy-driven marketing</strong><br>
           and <mark>scroll-stopping</mark> content.
         </p>
 
         <!-- Service cards -->
-        <div class="service-layout">
+        <div class="service-layout hero-anim-5">
 
           <div class="service-column left">
             <article class="service-card">
@@ -2752,7 +3891,7 @@ footer a:hover{color:#ffffff!important;}
 
         </div>
 
-        <div class="hero-bottom-cta">
+        <div class="hero-bottom-cta hero-anim-6">
           <div class="cta-message">
             <div class="calendar-icon">▦</div>
             <div>
@@ -2760,7 +3899,7 @@ footer a:hover{color:#ffffff!important;}
               <span>impactful together.</span>
             </div>
           </div>
-          <a href="#contact" class="primary-button">
+          <a href="#contact" class="primary-button ripple-host shine-wrap">
             Book a Free Call <span>→</span>
           </a>
         </div>
@@ -3000,13 +4139,20 @@ footer a:hover{color:#ffffff!important;}
                     background: linear-gradient(145deg, #2A0750 0%, #1C0630 60%, #12031F 100%);
                     border: 1px solid rgba(161,48,197,0.15);
                     border-radius: 24px;
-                    padding: 36px 32px 32px;
-                    padding-top: 40px;
+                    padding: 32px 28px 28px;
                     cursor: pointer;
                     overflow: hidden;
                     transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), border-color 0.35s ease, box-shadow 0.35s ease;
                     opacity: 0;
                     animation: expCardIn 0.6s ease forwards;
+                    display: flex;
+                    flex-direction: column;
+                }
+                @media (max-width: 640px) {
+                    .exp-card {
+                        padding: 28px 24px 24px;
+                        border-radius: 20px;
+                    }
                 }
                 .exp-card:hover {
                     transform: translateY(-10px) scale(1.015);
@@ -3043,16 +4189,28 @@ footer a:hover{color:#ffffff!important;}
                 }
 
                 .exp-card-icon {
-                    font-size: 32px;
-                    margin-bottom: 16px;
-                    display: inline-block;
-                    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+                    font-size: 28px;
+                    margin-bottom: 18px;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 58px;
+                    height: 58px;
+                    border-radius: 16px;
+                    background: linear-gradient(135deg, rgba(141,25,200,0.22) 0%, rgba(58,10,102,0.18) 100%);
+                    border: 1.5px solid rgba(161,48,197,0.28);
+                    box-shadow: 0 0 20px rgba(141,25,200,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
+                    transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease;
                 }
-                .exp-card:hover .exp-card-icon { transform: scale(1.2) rotate(-5deg); }
+                .exp-card:hover .exp-card-icon {
+                    transform: scale(1.12) rotate(-5deg);
+                    box-shadow: 0 0 32px rgba(141,25,200,0.35), inset 0 1px 0 rgba(255,255,255,0.10);
+                    border-color: rgba(199,59,231,0.55);
+                }
 
                 .exp-card-title {
                     font-family: 'Manrope', sans-serif;
-                    font-size: 22px;
+                    font-size: 21px;
                     font-weight: 800;
                     color: #fff;
                     margin-bottom: 10px;
@@ -3060,52 +4218,95 @@ footer a:hover{color:#ffffff!important;}
                 }
                 .exp-card-desc {
                     font-family: 'Manrope', sans-serif;
-                    font-size: 13.5px;
-                    color: #9ca3af;
-                    line-height: 1.7;
-                    margin-bottom: 24px;
+                    font-size: 13px;
+                    color: rgba(170,160,190,0.90);
+                    line-height: 1.75;
+                    margin-bottom: 20px;
+                }
+                @media (max-width: 640px) {
+                    .exp-card-title { font-size: 19px; }
+                    .exp-card-desc { font-size: 13px; }
                 }
                 .exp-card-tags {
                     display: flex;
                     flex-wrap: wrap;
                     gap: 8px;
-                    margin-bottom: 24px;
+                    margin-bottom: 20px;
+                    flex: 1;
+                    align-content: flex-start;
                 }
                 .exp-tag {
                     font-family: 'Manrope', sans-serif;
-                    font-size: 10.5px;
+                    font-size: 10px;
                     font-weight: 800;
-                    letter-spacing: 1.2px;
+                    letter-spacing: 1.4px;
                     text-transform: uppercase;
-                    padding: 6px 14px;
+                    padding: 7px 16px;
                     border-radius: 999px;
-                    border: 1.5px solid rgba(199, 59, 231, 0.75);
-                    color: #e8aaff;
-                    background: rgba(141, 25, 200, 0.22);
-                    box-shadow: 0 0 10px rgba(161, 48, 197, 0.18), inset 0 0 8px rgba(199,59,231,0.08);
-                    transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+                    border: 1.5px solid rgba(199, 59, 231, 0.55);
+                    color: #d8aaff;
+                    background: linear-gradient(135deg, rgba(141,25,200,0.20) 0%, rgba(90,10,160,0.14) 100%);
+                    box-shadow: 0 0 12px rgba(161,48,197,0.15), inset 0 1px 0 rgba(255,255,255,0.06);
+                    backdrop-filter: blur(6px);
+                    transition: all 0.28s ease;
+                    white-space: nowrap;
+                }
+                .exp-tag:nth-child(2n) {
+                    border-color: rgba(211,142,234,0.45);
+                    color: #f0ccff;
+                    background: linear-gradient(135deg, rgba(120,25,200,0.18) 0%, rgba(60,8,120,0.12) 100%);
                 }
                 .exp-card:hover .exp-tag {
-                    background: rgba(141, 25, 200, 0.38);
-                    border-color: rgba(199, 59, 231, 1);
+                    background: linear-gradient(135deg, rgba(141,25,200,0.38) 0%, rgba(90,10,160,0.28) 100%);
+                    border-color: rgba(199, 59, 231, 0.95);
                     color: #ffffff;
-                    box-shadow: 0 0 16px rgba(161, 48, 197, 0.35);
+                    box-shadow: 0 0 18px rgba(161,48,197,0.38), inset 0 1px 0 rgba(255,255,255,0.10);
+                    transform: translateY(-1px);
+                }
+                @media (max-width: 640px) {
+                    .exp-tag {
+                        font-size: 9.5px;
+                        padding: 6px 13px;
+                    }
                 }
                 .exp-card-cta {
                     font-family: 'Manrope', sans-serif;
-                    font-size: 12px;
+                    font-size: 11px;
                     font-weight: 800;
-                    letter-spacing: 1.8px;
+                    letter-spacing: 1.6px;
                     text-transform: uppercase;
-                    color: #b06edb;
-                    display: flex;
+                    color: #c08af0;
+                    display: inline-flex;
                     align-items: center;
-                    gap: 6px;
-                    transition: color 0.25s ease;
+                    gap: 8px;
+                    padding: 10px 20px;
+                    border-radius: 999px;
+                    border: 1.5px solid rgba(161,48,197,0.35);
+                    background: rgba(141,25,200,0.10);
+                    transition: all 0.28s ease;
+                    align-self: flex-start;
+                    margin-top: 4px;
                 }
-                .exp-card:hover .exp-card-cta { color: #e8aaff; }
-                .exp-cta-arrow { display: inline-block; transition: transform 0.25s ease; }
-                .exp-card:hover .exp-cta-arrow { transform: translateX(5px); }
+                .exp-card:hover .exp-card-cta {
+                    color: #fff;
+                    border-color: rgba(199,59,231,0.80);
+                    background: rgba(141,25,200,0.28);
+                    box-shadow: 0 0 20px rgba(141,25,200,0.30);
+                }
+                .exp-cta-arrow {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 18px; height: 18px;
+                    border-radius: 50%;
+                    background: rgba(255,255,255,0.10);
+                    transition: transform 0.28s ease, background 0.28s ease;
+                    flex-shrink: 0;
+                }
+                .exp-card:hover .exp-cta-arrow {
+                    transform: translateX(3px);
+                    background: rgba(255,255,255,0.18);
+                }
 
                 @keyframes expCardIn {
                     from { opacity: 0; transform: translateY(28px) scale(0.97); }
@@ -3390,16 +4591,7 @@ footer a:hover{color:#ffffff!important;}
                     box-shadow: 0 0 30px rgba(161,48,197,0.6);
                 }
 
-                @media (max-width: 640px) {
-                    .exp-modal-header { padding: 36px 22px 24px; }
-                    .exp-modal-body { padding: 24px 22px 36px; }
-                    .exp-modal-title { font-size: 24px; }
-                    .exp-modal-subtitle { font-size: 14px; }
-                    .exp-modal-features { grid-template-columns: 1fr; }
-                    .exp-modal-stats { grid-template-columns: 1fr 1fr; }
-                    .exp-modal-cta-bar { padding: 20px 22px; flex-direction: column; align-items: flex-start; gap: 14px; }
-                    .exp-modal-cta-text { font-size: 16px; }
-                }
+                
             </style>
 
             <!-- EXPERTISE MODAL (shared, populated by JS) -->
@@ -3407,18 +4599,278 @@ footer a:hover{color:#ffffff!important;}
                 <div class="exp-modal" id="expModal"></div>
             </div>
 
-            <section class="py-12 md:py-16 px-5 md:px-8 lg:px-12 border-b border-brand-light" style="background:linear-gradient(160deg, #12031F 0%, #1C0630 40%, #2A0750 70%, #12031F 100%);">
+            <!-- ═══ EXPERTISE CAROUSEL SECTION ═══ -->
+            <style>
+                /* ── Expertise Carousel ── */
+                #expertise-section { position: relative; overflow: hidden; }
+
+                .exp-carousel-wrap {
+                    position: relative;
+                    overflow: hidden;
+                    width: 100%;
+                }
+
+                /* The sliding track */
+                #expertiseGrid {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    gap: 24px;
+                    transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+                    will-change: transform;
+                    padding: 8px 4px 16px;
+                }
+
+                /* Each card: fixed width so they show side-by-side */
+                #expertiseGrid .exp-card {
+                    flex: 0 0 calc(33.333% - 16px);
+                    min-width: calc(33.333% - 16px);
+                    max-width: calc(33.333% - 16px);
+                }
+
+                @media (min-width: 641px) and (max-width: 1024px) {
+                    #expertiseGrid .exp-card {
+                        flex: 0 0 calc(50% - 12px);
+                        min-width: calc(50% - 12px);
+                        max-width: calc(50% - 12px);
+                        word-break: break-word;
+                    }
+                    #expertiseGrid .exp-card .exp-card-title {
+                        font-size: 19px !important;
+                        white-space: normal !important;
+                        overflow: visible !important;
+                    }
+                }
+                @media (max-width: 640px) {
+                    #expertiseGrid {
+                        gap: 16px !important;
+                        padding: 8px 0px 20px !important;
+                    }
+                    #expertiseGrid .exp-card {
+                        flex: 0 0 calc(100vw - 40px);
+                        min-width: calc(100vw - 40px);
+                        max-width: calc(100vw - 40px);
+                        /* Ensure title never clips */
+                        word-break: break-word;
+                    }
+                    /* Prevent title text truncation on mobile */
+                    #expertiseGrid .exp-card .exp-card-title {
+                        font-size: 18px !important;
+                        white-space: normal !important;
+                        overflow: visible !important;
+                        text-overflow: unset !important;
+                    }
+                }
+
+                /* ── Arrow buttons ── */
+                .exp-nav-row {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 16px;
+                    margin-top: 28px;
+                }
+
+                .exp-nav-arrow {
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 50%;
+                    border: 2px solid rgba(141, 25, 200, 0.55);
+                    background: rgba(26, 8, 56, 0.75);
+                    color: #fff;
+                    font-size: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: all 0.28s ease;
+                    backdrop-filter: blur(10px);
+                    position: relative;
+                    overflow: hidden;
+                    flex-shrink: 0;
+                }
+                .exp-nav-arrow:hover {
+                    background: rgba(141, 25, 200, 0.65);
+                    border-color: rgba(199, 59, 231, 0.90);
+                    box-shadow: 0 0 28px rgba(141, 25, 200, 0.55), 0 0 60px rgba(141, 25, 200, 0.20);
+                    transform: scale(1.10);
+                }
+                .exp-nav-arrow:disabled {
+                    opacity: 0.30;
+                    cursor: default;
+                    transform: none;
+                }
+                .exp-nav-arrow svg {
+                    width: 20px;
+                    height: 20px;
+                    stroke: currentColor;
+                    fill: none;
+                    stroke-width: 2.2;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    flex-shrink: 0;
+                }
+
+                /* Blinking animation on arrows */
+                @keyframes arrowBlink {
+                    0%, 100% { box-shadow: 0 0 14px rgba(141,25,200,0.35), 0 0 0px rgba(141,25,200,0); border-color: rgba(141,25,200,0.55); }
+                    50%       { box-shadow: 0 0 34px rgba(199,59,231,0.80), 0 0 60px rgba(141,25,200,0.30); border-color: rgba(199,59,231,0.90); }
+                }
+                .exp-nav-arrow:not(:disabled) {
+                    animation: arrowBlink 1.8s ease-in-out infinite;
+                }
+                .exp-nav-arrow:not(:disabled):hover {
+                    animation: none;
+                }
+
+                /* Dot indicators */
+                .exp-dots-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+                .exp-nav-dot {
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    background: rgba(255,255,255,0.18);
+                    border: none;
+                    padding: 0;
+                    cursor: pointer;
+                    transition: all 0.28s ease;
+                    flex-shrink: 0;
+                }
+                .exp-nav-dot.active {
+                    background: #8D19C8;
+                    box-shadow: 0 0 12px rgba(141,25,200,0.80);
+                    transform: scale(1.4);
+                    width: 22px;
+                    border-radius: 4px;
+                }
+            </style>
+
+            <section id="expertise-section" class="py-12 md:py-16 px-5 md:px-8 lg:px-12 border-b border-brand-light" style="background:linear-gradient(160deg, #12031F 0%, #1C0630 40%, #2A0750 70%, #12031F 100%); overflow: hidden;">
                 <div class="max-w-7xl mx-auto">
                     <div class="text-center mb-8 md:mb-10" data-aos="fade-up">
                         <span class="font-manrope text-xs font-bold tracking-widest text-brand-primary uppercase mb-2 md:mb-3 block">Our Expertise</span>
                         <h2 class="font-manrope text-3xl md:text-4xl lg:text-5xl font-extrabold text-white mb-2 md:mb-3">What We Create</h2>
-                        
+                        <p class="font-manrope text-sm text-gray-400 max-w-xl mx-auto">Browse our full range of services — each one crafted to grow your brand.</p>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6" id="expertiseGrid">
-                        <!-- Cards injected by JS -->
+
+                    <!-- Carousel wrapper -->
+                    <div class="exp-carousel-wrap">
+                        <div id="expertiseGrid">
+                            <!-- Cards injected by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Navigation row: arrows + dots -->
+                    <div class="exp-nav-row">
+                        <button class="exp-nav-arrow" id="expPrev" aria-label="Previous">
+                            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                        </button>
+
+                        <div class="exp-dots-row" id="expDots"></div>
+
+                        <button class="exp-nav-arrow" id="expNext" aria-label="Next">
+                            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                        </button>
                     </div>
                 </div>
             </section>
+
+            <script>
+            /* ── Expertise Carousel Logic ── */
+            (function initExpertiseCarousel() {
+                let currentIndex = 0;
+                let cardsPerPage = 3;
+                let totalCards = 0;
+                let totalPages = 0;
+                const track = document.getElementById('expertiseGrid');
+                const prevBtn = document.getElementById('expPrev');
+                const nextBtn = document.getElementById('expNext');
+                const dotsWrap = document.getElementById('expDots');
+
+                function getCardsPerPage() {
+                    const w = window.innerWidth;
+                    if (w <= 640) return 1;   // mobile: 1 card full-width
+                    if (w <= 1024) return 2;  // tablet: 2 cards side-by-side
+                    return 3;                 // desktop: 3 cards
+                }
+
+                function buildDots() {
+                    dotsWrap.innerHTML = '';
+                    for (let i = 0; i < totalPages; i++) {
+                        const dot = document.createElement('button');
+                        dot.className = 'exp-nav-dot' + (i === currentIndex ? ' active' : '');
+                        dot.setAttribute('aria-label', 'Go to page ' + (i+1));
+                        dot.addEventListener('click', () => goTo(i));
+                        dotsWrap.appendChild(dot);
+                    }
+                }
+
+                function updateDots() {
+                    dotsWrap.querySelectorAll('.exp-nav-dot').forEach((d, i) => {
+                        d.classList.toggle('active', i === currentIndex);
+                    });
+                }
+
+                function updateArrows() {
+                    prevBtn.disabled = currentIndex === 0;
+                    nextBtn.disabled = currentIndex >= totalPages - 1;
+                }
+
+                function goTo(index) {
+                    currentIndex = Math.max(0, Math.min(index, totalPages - 1));
+                    const cards = track.children;
+                    if (cards.length === 0) return;
+                    // Use the full stride: card width + gap, computed live
+                    const cardWidth = cards[0].offsetWidth;
+                    const gapStr = getComputedStyle(track).gap || getComputedStyle(track).columnGap || '0';
+                    const gap = parseFloat(gapStr) || 0;
+                    // Offset = page index * cards-per-page * (card + gap)
+                    const stride = cardWidth + gap;
+                    const offset = currentIndex * cardsPerPage * stride;
+                    track.style.transform = 'translateX(-' + offset + 'px)';
+                    updateDots();
+                    updateArrows();
+                }
+
+                function recalculate() {
+                    cardsPerPage = getCardsPerPage();
+                    totalCards = track.children.length;
+                    totalPages = Math.ceil(totalCards / cardsPerPage);
+                    currentIndex = 0;
+                    track.style.transform = 'translateX(0)';
+                    buildDots();
+                    updateArrows();
+                }
+
+                prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+                nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+
+                window.addEventListener('resize', recalculate);
+
+                // Wait for JS to inject cards, then init
+                const observer = new MutationObserver(() => {
+                    if (track.children.length > 0) {
+                        observer.disconnect();
+                        setTimeout(recalculate, 80);
+                    }
+                });
+                observer.observe(track, { childList: true });
+
+                // Touch swipe support
+                let touchStartX = 0;
+                track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
+                track.addEventListener('touchend', e => {
+                    const diff = touchStartX - e.changedTouches[0].clientX;
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) goTo(currentIndex + 1);
+                        else goTo(currentIndex - 1);
+                    }
+                }, { passive: true });
+            })();
+            </script>
 
             <!-- ═══ ABOUT ME ═══ -->
             <style>
@@ -3640,9 +5092,7 @@ footer a:hover{color:#ffffff!important;}
                     grid-template-columns: repeat(3, 1fr);
                     gap: 14px;
                 }
-                @media (max-width: 640px) {
-                    .am-skills-grid { grid-template-columns: repeat(2, 1fr); }
-                }
+                
 
                 .am-skill-card {
                     position: relative;
@@ -3753,7 +5203,7 @@ footer a:hover{color:#ffffff!important;}
                 }
                 .am-skill-card.wide .am-skill-icon-wrap { margin-bottom: 0; flex-shrink: 0; }
                 .am-skill-card.wide .am-skill-body { display: flex; flex-direction: column; }
-                @media (max-width: 640px) { .am-skill-card.wide { grid-column: span 2; } }
+                
 
                 /* Dot accent */
                 .am-skill-dot {
@@ -3774,16 +5224,156 @@ footer a:hover{color:#ffffff!important;}
                     opacity: 0.35;
                 }
 
-                @media (max-width: 768px) {
-                    .am-section { padding: 80px 20px; }
-                    .am-photo-frame { width: 300px; }
-                    .am-photo-ring { display: none; }
-                    .am-badge { display: none; }
-                    .am-stats { gap: 18px; padding: 18px 20px; }
-                }
+                
             </style>
 
             <section class="am-section border-b border-brand-light" id="about-me-home">
+                <style>
+                /* ── About Me section: improved layout ── */
+                .am-photo-card {
+                    position: relative;
+                    border-radius: 28px;
+                    overflow: hidden;
+                    background: linear-gradient(145deg, rgba(42,15,74,0.88) 0%, rgba(22,6,34,0.96) 100%);
+                    border: 1px solid rgba(161,48,197,0.30);
+                    box-shadow: 0 32px 90px rgba(0,0,0,0.55), 0 0 0 1px rgba(161,48,197,0.12), 0 0 60px rgba(161,48,197,0.12);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: stretch;
+                    min-height: 440px;
+                }
+                .am-photo-card::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(135deg, rgba(161,48,197,0.08) 0%, transparent 55%);
+                    pointer-events: none;
+                    z-index: 1;
+                }
+                .am-photo-card img {
+                    width: 100%;
+                    height: 100%;
+                    min-height: 400px;
+                    object-fit: cover;
+                    object-position: top center;
+                    display: block;
+                    position: relative;
+                    z-index: 2;
+                    filter: contrast(1.05) brightness(1.02);
+                }
+                .am-photo-bottom-bar {
+                    position: absolute;
+                    bottom: 0; left: 0; right: 0;
+                    z-index: 5;
+                    background: linear-gradient(to top, rgba(13,3,26,0.96) 0%, rgba(13,3,26,0.70) 60%, transparent 100%);
+                    padding: 28px 24px 20px;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                    gap: 12px;
+                }
+                .am-photo-name-tag {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    background: rgba(141,25,200,0.22);
+                    border: 1px solid rgba(161,48,197,0.45);
+                    border-radius: 999px;
+                    padding: 8px 16px 8px 10px;
+                    backdrop-filter: blur(12px);
+                }
+                .am-photo-name-tag-dot {
+                    width: 9px; height: 9px;
+                    border-radius: 50%;
+                    background: #8D19C8;
+                    box-shadow: 0 0 10px rgba(141,25,200,0.9);
+                    animation: nameDotPulse 2s ease-in-out infinite;
+                    flex-shrink: 0;
+                }
+                @keyframes nameDotPulse {
+                    0%,100% { box-shadow: 0 0 8px rgba(141,25,200,0.7); }
+                    50%     { box-shadow: 0 0 18px rgba(199,59,231,1.0); }
+                }
+                .am-photo-name-text {
+                    font-family: 'Manrope', sans-serif;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #fff;
+                    white-space: nowrap;
+                }
+                .am-photo-role-pill {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    background: rgba(26,8,56,0.75);
+                    border: 1px solid rgba(161,48,197,0.28);
+                    border-radius: 999px;
+                    padding: 6px 14px;
+                    font-family: 'Manrope', sans-serif;
+                    font-size: 11px;
+                    font-weight: 700;
+                    color: rgba(211,142,234,0.95);
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                    backdrop-filter: blur(10px);
+                    white-space: nowrap;
+                }
+                /* Stat pills below photo */
+                .am-stat-pills {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 10px;
+                    margin-top: 14px;
+                }
+                .am-stat-pill-item {
+                    background: linear-gradient(135deg, rgba(42,15,74,0.75) 0%, rgba(22,6,34,0.90) 100%);
+                    border: 1px solid rgba(161,48,197,0.22);
+                    border-radius: 16px;
+                    padding: 14px 10px;
+                    text-align: center;
+                    transition: transform 0.3s ease, border-color 0.3s ease;
+                }
+                .am-stat-pill-item:hover {
+                    transform: translateY(-3px);
+                    border-color: rgba(161,48,197,0.55);
+                }
+                .am-stat-pill-num {
+                    font-family: 'Manrope', sans-serif;
+                    font-size: 22px;
+                    font-weight: 800;
+                    color: #8D19C8;
+                    display: block;
+                    text-shadow: 0 0 16px rgba(141,25,200,0.5);
+                }
+                .am-stat-pill-lbl {
+                    font-family: 'Manrope', sans-serif;
+                    font-size: 10px;
+                    font-weight: 600;
+                    color: rgba(255,255,255,0.50);
+                    text-transform: uppercase;
+                    letter-spacing: 0.8px;
+                    display: block;
+                    margin-top: 2px;
+                }
+                /* Content side improvements */
+                .am-content-card {
+                    background: linear-gradient(145deg, rgba(42,15,74,0.50) 0%, rgba(18,3,31,0.60) 100%);
+                    border: 1px solid rgba(161,48,197,0.18);
+                    border-radius: 20px;
+                    padding: 24px;
+                    margin-bottom: 16px;
+                }
+                .am-highlight-bar {
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    padding: 14px 18px;
+                    background: rgba(141,25,200,0.08);
+                    border-left: 3px solid #8D19C8;
+                    border-radius: 0 12px 12px 0;
+                    margin-bottom: 20px;
+                }
+                </style>
 
                 <!-- Decorative grid dots -->
                 <div class="absolute inset-0 -z-0 opacity-[0.03]" style="background-image:radial-gradient(#fff 1px,transparent 1px);background-size:28px 28px; pointer-events:none;"></div>
@@ -3802,14 +5392,38 @@ footer a:hover{color:#ffffff!important;}
                     </div>
 
                     <!-- Main grid -->
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
 
-                        <!-- LEFT — Photo -->
-                        <div class="am-photo-wrap" data-aos="fade-right" data-aos-duration="900" style="min-height:560px;">
+                        <!-- LEFT — Photo Card -->
+                        <div data-aos="fade-right" data-aos-duration="900">
+                            <div class="am-photo-card">
+                                <!-- Photo -->
+                                <img src="pic.png" alt="Sai Kumar — StorySnip Media" style="min-height:420px;max-height:520px;">
+                                <!-- Bottom overlay with name tag -->
+                                <div class="am-photo-bottom-bar">
+                                    <div class="am-photo-name-tag">
+                                        <div class="am-photo-name-dot"></div>
+                                        <span class="am-photo-name-text">Sai Kumar</span>
+                                    </div>
+                                    <div class="am-photo-role-pill">✦ Brand Strategist</div>
+                                </div>
+                            </div>
 
-                            <!-- Photo — large, no box, transparent background -->
-                            <img src="pic.png" alt="Sai Kumar — StorySnip Media"
-                                 style="position:relative;z-index:3;width:100%;max-width:520px;height:auto;display:block;margin:0 auto;object-fit:contain;filter:drop-shadow(0 24px 70px rgba(161,48,197,0.40)) drop-shadow(0 6px 28px rgba(0,0,0,0.55));">
+                            <!-- Stats below photo -->
+                            <div class="am-stat-pills">
+                                <div class="am-stat-pill-item">
+                                    <span class="am-stat-pill-num">3+</span>
+                                    <span class="am-stat-pill-lbl">Years Exp.</span>
+                                </div>
+                                <div class="am-stat-pill-item">
+                                    <span class="am-stat-pill-num">50+</span>
+                                    <span class="am-stat-pill-lbl">Brands</span>
+                                </div>
+                                <div class="am-stat-pill-item">
+                                    <span class="am-stat-pill-num">MBA</span>
+                                    <span class="am-stat-pill-lbl">Marketing</span>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- RIGHT — Content -->
@@ -3818,19 +5432,46 @@ footer a:hover{color:#ffffff!important;}
                             <h2 class="am-name">I'm <span>Sai Kumar</span></h2>
                             <p class="am-role">Brand & Marketing Specialist</p>
 
+                            <!-- Highlight bar -->
+                            <div class="am-highlight-bar">
+                                <span style="font-size:18px;">🚀</span>
+                                <span style="font-family:'Manrope',sans-serif;font-size:13px;color:rgba(255,255,255,0.82);font-weight:600;">"I don't just create content — I <strong style="color:#e8aaff;">engineer experiences</strong> that grow brands."</span>
+                            </div>
+
                             <p class="am-bio">
-                                I'm a <strong>creative strategist and brand builder</strong> with a passion for turning raw ideas into powerful digital stories. With an MBA in Marketing and hands-on experience across  social media, brand strategy and video editing — I don't just create content, I <strong>engineer experiences</strong> that make audiences stop, watch, and remember.
+                                I'm a <strong>creative strategist and brand builder</strong> with a passion for turning raw ideas into powerful digital stories. With an MBA in Marketing and hands-on experience across social media, brand strategy and video editing — I make audiences stop, watch, and remember.
                             </p>
                             <p class="am-bio" style="margin-top:-16px;">
                                 Through <strong>StorySnip Media</strong>, I work with founders, businesses, and creators to build digital presences that are not just beautiful — but <strong>strategically built to grow</strong>.
                             </p>
 
-
+                            <!-- What I do cards -->
+                            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;">
+                                <div class="am-content-card" style="padding:16px 18px;">
+                                    <div style="font-size:20px;margin-bottom:6px;">🎬</div>
+                                    <div style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Video Editing</div>
+                                    <div style="font-family:'Manrope',sans-serif;font-size:11px;color:rgba(255,255,255,0.50);">Cinematic storytelling</div>
+                                </div>
+                                <div class="am-content-card" style="padding:16px 18px;">
+                                    <div style="font-size:20px;margin-bottom:6px;">📱</div>
+                                    <div style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Social Media</div>
+                                    <div style="font-family:'Manrope',sans-serif;font-size:11px;color:rgba(255,255,255,0.50);">Growth & strategy</div>
+                                </div>
+                                <div class="am-content-card" style="padding:16px 18px;">
+                                    <div style="font-size:20px;margin-bottom:6px;">✨</div>
+                                    <div style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Branding</div>
+                                    <div style="font-family:'Manrope',sans-serif;font-size:11px;color:rgba(255,255,255,0.50);">Identity & presence</div>
+                                </div>
+                                <div class="am-content-card" style="padding:16px 18px;">
+                                    <div style="font-size:20px;margin-bottom:6px;">📊</div>
+                                    <div style="font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;">Strategy</div>
+                                    <div style="font-family:'Manrope',sans-serif;font-size:11px;color:rgba(255,255,255,0.50);">Data-driven growth</div>
+                                </div>
+                            </div>
 
                             <!-- CTA buttons -->
                             <div class="flex flex-wrap gap-4">
                                 <button onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);" class="px-7 py-3 bg-brand-primary text-white font-manrope font-bold text-sm rounded-full hover:bg-brand-deep transition-all shadow-[0_0_20px_rgba(161,48,197,0.4)] hover:shadow-[0_0_30px_rgba(161,48,197,0.6)] hover:-translate-y-0.5">Work With Me →</button>
-                                
                             </div>
                         </div>
                     </div>
@@ -4163,10 +5804,7 @@ footer a:hover{color:#ffffff!important;}
                 .rw-work-item.reverse { direction: rtl; }
                 .rw-work-item.reverse > * { direction: ltr; }
 
-                @media (max-width: 900px) {
-                    .rw-work-item { grid-template-columns: 1fr; gap: 40px; }
-                    .rw-work-item.reverse { direction: ltr; }
-                }
+                
 
                 /* ── Left: Stacked phone / device mockups ── */
                 .rw-mockup-area {
@@ -4264,9 +5902,7 @@ footer a:hover{color:#ffffff!important;}
                     grid-template-columns: repeat(3, 1fr);
                     gap: 14px;
                 }
-                @media (max-width: 600px) {
-                    .rw-stat-grid { grid-template-columns: repeat(2, 1fr); }
-                }
+                
 
                 .rw-stat-box {
                     background: linear-gradient(145deg, #2A0750, #1C0630);
@@ -4329,9 +5965,7 @@ footer a:hover{color:#ffffff!important;}
                     opacity: 0.6;
                 }
 
-                @media (max-width: 640px) {
-                    .rw-section { padding: 48px 20px; }
-                }
+                
             </style>
 
             <section class="rw-section" id="recent-works-home">
@@ -4547,8 +6181,8 @@ footer a:hover{color:#ffffff!important;}
                             <!-- Submit -->
                             <div>
                                 <button type="submit"
-                                    class="inline-flex items-center gap-3 px-9 py-4 font-manrope font-bold text-white rounded-full transition-all duration-300 text-sm tracking-wide"
-                                    style="background:#8D19C8; box-shadow:0 0 28px rgba(161,48,197,0.45);"
+                                    class="inline-flex items-center justify-center gap-3 w-full sm:w-auto px-9 py-4 font-manrope font-bold text-white rounded-full transition-all duration-300 text-sm tracking-wide"
+                                    style="background:#8D19C8; box-shadow:0 0 28px rgba(161,48,197,0.45); max-width:100%;"
                                     onmouseover="this.style.background='#3A0A66'; this.style.boxShadow='0 0 36px rgba(161,48,197,0.6)';"
                                     onmouseout="this.style.background='#8D19C8'; this.style.boxShadow='0 0 28px rgba(161,48,197,0.45)';">
                                     Send on WhatsApp
@@ -4591,162 +6225,389 @@ ${message}
             </section>
         </main>
         <!-- Footer -->
-        <footer style="background:linear-gradient(160deg, #12031F 0%, #1C0630 40%, #2A0750 70%, #12031F 100%);" class="text-white pt-16 pb-0 px-6 lg:px-12">
+        <!-- ══ READY TO GROW — standalone full-width section above footer ══ -->
+        <style>
+        .ss-pre-footer-cta {
+            position: relative;
+            overflow: hidden;
+            padding: 0 48px 0;
+            background: linear-gradient(170deg,#0b0312 0%,#100220 20%,#1a0430 50%,#0f0220 80%,#080115 100%);
+        }
+        @media (max-width: 768px) { .ss-pre-footer-cta { padding: 0 16px 0; } }
+        </style>
+        <div class="ss-pre-footer-cta">
+            <!-- CTA band lives here — outside footer box, standalone -->
+            <div class="ss-footer-cta-band" style="margin:0 0 0; border-radius:28px;">
+                <div class="ss-footer-cta-glow-l"></div>
+                <div class="ss-footer-cta-glow-r"></div>
+                <div style="position:relative;z-index:2;">
+                    <p class="ss-footer-cta-eyebrow">Ready to grow?</p>
+                    <h3 class="ss-footer-cta-heading">Let's build something <em>remarkable</em> together.</h3>
+                </div>
+                <div class="ss-footer-cta-btns">
+                    <button class="ss-btn-primary" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);">
+                        Start a Project
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                    <a href="https://wa.me/919014932751" target="_blank" class="ss-btn-ghost">
+                        💬 WhatsApp Chat
+                    </a>
+                </div>
+            </div>
+        </div>
 
-            <!-- Ambient background glows -->
-            <div style="position:absolute;top:-100px;left:-80px;width:500px;height:500px;border-radius:50%;background:radial-gradient(ellipse,rgba(161,48,197,0.14) 0%,transparent 70%);pointer-events:none;"></div>
-            <div style="position:absolute;bottom:-80px;right:-60px;width:420px;height:420px;border-radius:50%;background:radial-gradient(ellipse,rgba(75,26,106,0.18) 0%,transparent 70%);pointer-events:none;"></div>
-            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;border-radius:50%;background:radial-gradient(ellipse,rgba(120,20,180,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+        <footer class="text-white relative overflow-hidden" style="background:linear-gradient(170deg,#0b0312 0%,#100220 20%,#1a0430 50%,#0f0220 80%,#080115 100%);">
 
-            <!-- Thin top accent line -->
-            <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(161,48,197,0.6) 30%,rgba(211,142,234,0.8) 50%,rgba(161,48,197,0.6) 70%,transparent 100%);"></div>
+            <style>
+            /* ═══ BEAUTIFUL FOOTER ═══ */
+            .ss-footer { position: relative; overflow: hidden; }
 
-            <div class="max-w-7xl mx-auto relative z-10">
+            /* Layered atmospheric glows */
+            .ss-footer-glow-1 { position:absolute; top:-180px; left:-120px; width:680px; height:680px; border-radius:50%; background:radial-gradient(ellipse,rgba(141,25,200,0.18) 0%,transparent 65%); pointer-events:none; }
+            .ss-footer-glow-2 { position:absolute; bottom:-150px; right:-100px; width:580px; height:580px; border-radius:50%; background:radial-gradient(ellipse,rgba(90,10,160,0.22) 0%,transparent 65%); pointer-events:none; }
+            .ss-footer-glow-3 { position:absolute; top:40%; left:50%; transform:translate(-50%,-50%); width:900px; height:400px; border-radius:50%; background:radial-gradient(ellipse,rgba(120,20,180,0.07) 0%,transparent 70%); pointer-events:none; }
 
-                <!-- Top grid: Brand | Nav | Services | Social -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12 footer-grid">
+            /* Dot grid */
+            .ss-footer-dots { position:absolute; inset:0; opacity:0.022; pointer-events:none; background-image:radial-gradient(#fff 1px,transparent 1px); background-size:24px 24px; }
 
-                    <!-- Brand col — wider -->
-                    <div class="md:col-span-4 flex flex-col gap-6">
+            /* Top shimmer line */
+            .ss-footer-top-line { position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent 0%,rgba(141,25,200,0.55) 20%,rgba(211,142,234,1) 50%,rgba(141,25,200,0.55) 80%,transparent 100%); box-shadow:0 0 30px rgba(211,142,234,0.45); }
 
-                        <!-- Logo — snipwhite.png, large & glowing -->
-                        <a href="#" onclick="showPage('home'); return false;" style="
-                            display: inline-block;
-                            text-decoration: none;
-                            width: fit-content;
-                            transition: transform 0.32s cubic-bezier(0.25,1,0.5,1), filter 0.32s ease;
-                        " onmouseover="this.style.transform='scale(1.05)';this.style.filter='brightness(1.15) drop-shadow(0 0 40px rgba(211,142,234,0.85))'" onmouseout="this.style.transform='scale(1)';this.style.filter='brightness(1.05) drop-shadow(0 0 28px rgba(161,48,197,0.60))'">
-                            <img
-                                src="snipwhite.png"
-                                alt="StorySnip Media"
-                                style="
-                                    height: 130px;
-                                    width: auto;
-                                    display: block;
-                                    filter: brightness(1.05) contrast(1.1) drop-shadow(0 0 28px rgba(161,48,197,0.60));
-                                "
-                            />
+            /* ── CTA Band ── */
+            .ss-footer-cta-band {
+                position: relative;
+                margin: 56px auto 56px;
+                max-width: 1400px;
+                border-radius: 28px;
+                padding: 52px 52px;
+                background: linear-gradient(135deg,rgba(58,10,102,0.82) 0%,rgba(141,25,200,0.28) 40%,rgba(26,8,56,0.90) 100%);
+                border: 1px solid rgba(141,25,200,0.42);
+                box-shadow: 0 0 80px rgba(141,25,200,0.14), 0 0 0 1px rgba(255,255,255,0.03) inset;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 32px;
+                flex-wrap: wrap;
+            }
+            @media (max-width: 768px) {
+                .ss-footer-cta-band {
+                    margin: 32px 12px 32px;
+                    padding: 32px 20px;
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 24px;
+                    border-radius: 22px;
+                }
+                .ss-footer-cta-eyebrow { justify-content: center; }
+                .ss-footer-cta-heading { font-size: clamp(22px, 6vw, 30px) !important; }
+                .ss-footer-cta-btns {
+                    flex-direction: column !important;
+                    align-items: stretch !important;
+                    width: 100% !important;
+                    gap: 10px !important;
+                }
+                .ss-btn-primary,
+                .ss-btn-ghost {
+                    width: 100% !important;
+                    justify-content: center !important;
+                    padding: 15px 20px !important;
+                    font-size: 14px !important;
+                    border-radius: 14px !important;
+                    white-space: nowrap !important;
+                }
+            }
+            @media (min-width: 769px) and (max-width: 1024px) {
+                .ss-footer-cta-band {
+                    margin: 40px 20px 40px;
+                    padding: 40px 36px;
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 28px;
+                }
+                .ss-footer-cta-eyebrow { justify-content: center; }
+                .ss-footer-cta-btns { justify-content: center; }
+            }
+            .ss-footer-cta-band::before {
+                content:'';
+                position:absolute; inset:0;
+                background:linear-gradient(135deg, rgba(255,255,255,0.025) 0%, transparent 60%);
+                border-radius:inherit;
+                pointer-events:none;
+            }
+            .ss-footer-cta-glow-l { position:absolute; left:-100px; top:50%; transform:translateY(-50%); width:320px; height:320px; border-radius:50%; background:radial-gradient(ellipse,rgba(141,25,200,0.28),transparent 70%); pointer-events:none; }
+            .ss-footer-cta-glow-r { position:absolute; right:-80px; top:50%; transform:translateY(-50%); width:280px; height:280px; border-radius:50%; background:radial-gradient(ellipse,rgba(90,10,160,0.20),transparent 70%); pointer-events:none; }
+
+            .ss-footer-cta-eyebrow { font-family:'Manrope',sans-serif; font-size:10px; font-weight:800; letter-spacing:5px; text-transform:uppercase; color:rgba(211,142,234,0.75); margin:0 0 12px; display:flex; align-items:center; gap:10px; }
+            .ss-footer-cta-eyebrow::before { content:'✦'; color:rgba(211,142,234,0.5); font-size:8px; }
+            .ss-footer-cta-heading { font-family:'Manrope',sans-serif; font-size:clamp(22px,3.2vw,40px); font-weight:900; color:#fff; margin:0; line-height:1.12; letter-spacing:-0.02em; }
+            .ss-footer-cta-heading em { font-style:normal; background:linear-gradient(100deg,#E070FF,#8D19C8,#C73BE7); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+            .ss-footer-cta-btns { display:flex; gap:14px; flex-wrap:wrap; position:relative; z-index:2; }
+            @media (max-width: 768px) { .ss-footer-cta-btns { justify-content:center; } }
+
+            .ss-btn-primary {
+                display:inline-flex; align-items:center; gap:10px;
+                padding:15px 32px;
+                background:linear-gradient(135deg,#9D22D8 0%,#6A139B 100%);
+                color:#fff; border:none; border-radius:999px;
+                font-family:'Manrope',sans-serif; font-size:14px; font-weight:800;
+                cursor:pointer; letter-spacing:0.02em;
+                box-shadow:0 6px 32px rgba(141,25,200,0.55), 0 0 0 1px rgba(255,255,255,0.08) inset;
+                transition:all 0.28s ease;
+                white-space:nowrap;
+            }
+            .ss-btn-primary:hover { background:linear-gradient(135deg,#C73BE7 0%,#8D19C8 100%); transform:translateY(-3px); box-shadow:0 12px 40px rgba(141,25,200,0.70); }
+
+            .ss-btn-ghost {
+                display:inline-flex; align-items:center; gap:10px;
+                padding:15px 26px;
+                background:rgba(255,255,255,0.05);
+                color:rgba(255,255,255,0.85); border:1.5px solid rgba(255,255,255,0.16);
+                border-radius:999px;
+                font-family:'Manrope',sans-serif; font-size:14px; font-weight:600;
+                text-decoration:none; cursor:pointer;
+                transition:all 0.28s ease;
+                white-space:nowrap;
+            }
+            .ss-btn-ghost:hover { background:rgba(255,255,255,0.12); border-color:rgba(255,255,255,0.30); transform:translateY(-3px); }
+
+            /* ── Footer main body ── */
+            .ss-footer-body { padding:56px 48px 0; }
+            @media (max-width: 768px) { .ss-footer-body { padding:40px 20px 0; } }
+
+            .ss-footer-grid {
+                display:grid;
+                grid-template-columns: 2fr 1fr 1fr 1.4fr;
+                gap:48px;
+                padding-bottom:48px;
+                max-width:1400px;
+                margin:0 auto;
+            }
+            @media (max-width: 1024px) { .ss-footer-grid { grid-template-columns:1fr 1fr; gap:36px; } }
+            @media (max-width: 640px)  { .ss-footer-grid { grid-template-columns:1fr; gap:32px; } }
+
+            /* Brand col */
+            .ss-footer-logo-img { height:100px; width:auto; display:block; filter:brightness(1.08) contrast(1.05) drop-shadow(0 0 24px rgba(161,48,197,0.55)); transition:all 0.3s ease; }
+            .ss-footer-logo-img:hover { filter:brightness(1.3) drop-shadow(0 0 44px rgba(211,142,234,0.90)); transform:scale(1.04); }
+            .ss-footer-tagline { font-family:'Manrope',sans-serif; font-size:13.5px; color:rgba(255,255,255,0.58); line-height:1.85; margin:18px 0 0; max-width:280px; }
+
+            /* Contact info strip */
+            .ss-footer-contact-strip { display:flex; flex-direction:column; gap:10px; margin-top:22px; }
+            .ss-footer-contact-item { display:flex; align-items:center; gap:10px; }
+            .ss-footer-contact-icon { width:32px; height:32px; border-radius:9px; background:rgba(141,25,200,0.14); border:1px solid rgba(141,25,200,0.25); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+            .ss-footer-contact-text { font-family:'Manrope',sans-serif; font-size:12.5px; color:rgba(211,142,234,0.80); }
+
+            /* Social icons */
+            .ss-footer-socials { display:flex; gap:10px; margin-top:24px; flex-wrap:wrap; }
+            .ss-social-icon {
+                display:inline-flex; align-items:center; justify-content:center;
+                width:44px; height:44px; border-radius:13px;
+                background:rgba(141,25,200,0.10);
+                border:1px solid rgba(141,25,200,0.25);
+                color:rgba(255,255,255,0.60);
+                text-decoration:none;
+                transition:all 0.25s ease;
+            }
+            .ss-social-icon:hover { background:rgba(141,25,200,0.30); border-color:rgba(199,59,231,0.70); color:#fff; transform:translateY(-4px); box-shadow:0 8px 24px rgba(141,25,200,0.40); }
+
+            /* Nav columns */
+            .ss-footer-col-heading {
+                font-family:'Manrope',sans-serif; font-size:11px; font-weight:800;
+                letter-spacing:0.14em; text-transform:uppercase; margin:0 0 22px;
+                background:linear-gradient(135deg,#D06EF5 0%,#8D19C8 100%);
+                -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+                background-clip:text;
+                position:relative; padding-bottom:14px;
+            }
+            .ss-footer-col-heading::after {
+                content:'';
+                position:absolute; bottom:0; left:0;
+                width:28px; height:2px;
+                background:linear-gradient(90deg,#C73BE7,transparent);
+                border-radius:1px;
+            }
+            .ss-footer-nav-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px; }
+            .ss-footer-nav-list li { display:flex; }
+            .ss-footer-nav-btn {
+                background:none; border:none; padding:0;
+                font-family:'Manrope',sans-serif; font-size:14px; color:rgba(255,255,255,0.55);
+                cursor:pointer; display:flex; align-items:center; gap:9px;
+                transition:all 0.22s ease; text-decoration:none;
+            }
+            .ss-footer-nav-btn::before {
+                content:'';
+                width:5px; height:5px; border-radius:50%;
+                background:rgba(141,25,200,0.6);
+                flex-shrink:0;
+                transition:all 0.22s ease;
+            }
+            .ss-footer-nav-btn:hover { color:#E0A0FF; padding-left:4px; }
+            .ss-footer-nav-btn:hover::before { background:#C73BE7; box-shadow:0 0 8px rgba(199,59,231,0.7); }
+
+            /* CTA mini column */
+            .ss-footer-cta-mini { display:flex; flex-direction:column; gap:0; }
+            .ss-footer-cta-mini-text { font-family:'Manrope',sans-serif; font-size:13px; color:rgba(255,255,255,0.45); line-height:1.75; margin:0 0 20px; }
+            .ss-footer-mini-cta-btn {
+                display:inline-flex; align-items:center; gap:9px;
+                padding:13px 24px;
+                background:linear-gradient(135deg,#8D19C8 0%,#5A0D8F 100%);
+                color:#fff; border:none; border-radius:999px;
+                font-family:'Manrope',sans-serif; font-size:13px; font-weight:800;
+                cursor:pointer; letter-spacing:0.02em;
+                box-shadow:0 4px 22px rgba(141,25,200,0.42);
+                transition:all 0.25s ease;
+                width:fit-content;
+                margin-bottom:14px;
+            }
+            .ss-footer-mini-cta-btn:hover { background:linear-gradient(135deg,#C73BE7 0%,#8D19C8 100%); transform:translateY(-2px); box-shadow:0 8px 28px rgba(141,25,200,0.60); }
+
+            .ss-footer-wa-link {
+                display:inline-flex; align-items:center; gap:9px;
+                padding:11px 20px;
+                background:rgba(37,211,102,0.10);
+                color:rgba(155,240,180,0.85);
+                border:1.5px solid rgba(37,211,102,0.28);
+                border-radius:999px;
+                font-family:'Manrope',sans-serif; font-size:12.5px; font-weight:700;
+                text-decoration:none;
+                transition:all 0.25s ease;
+                width:fit-content;
+            }
+            .ss-footer-wa-link:hover { background:rgba(37,211,102,0.20); border-color:rgba(37,211,102,0.55); color:#7df5a5; transform:translateY(-2px); }
+
+            /* Divider */
+            .ss-footer-divider { position:relative; border-top:1px solid rgba(141,25,200,0.16); margin:0; }
+            .ss-footer-divider::after { content:''; position:absolute; top:-1px; left:50%; transform:translateX(-50%); width:120px; height:2px; background:linear-gradient(90deg,transparent,rgba(211,142,234,0.90),transparent); border-radius:1px; }
+
+            /* Bottom bar */
+            .ss-footer-bottom {
+                display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;
+                padding:20px 48px 32px;
+                max-width:1400px; margin:0 auto;
+            }
+            @media (max-width: 768px) { .ss-footer-bottom { padding:18px 20px 28px; flex-direction:column; align-items:center; text-align:center; } }
+
+            .ss-footer-copyright { display:flex; align-items:center; gap:10px; }
+            .ss-footer-copyright-dot { width:6px; height:6px; border-radius:50%; background:#8D19C8; box-shadow:0 0 10px rgba(141,25,200,0.90); flex-shrink:0; }
+            .ss-footer-copyright-text { font-family:'Manrope',sans-serif; font-size:12px; color:rgba(255,255,255,0.32); letter-spacing:0.02em; margin:0; }
+
+            .ss-footer-legal { display:flex; gap:6px; align-items:center; }
+            .ss-footer-legal-btn { background:none; border:none; font-family:'Manrope',sans-serif; font-size:12px; color:rgba(255,255,255,0.30); cursor:pointer; padding:4px 8px; border-radius:6px; transition:all 0.2s; letter-spacing:0.02em; }
+            .ss-footer-legal-btn:hover { color:#D080F8; background:rgba(141,25,200,0.10); }
+            .ss-footer-legal-sep { width:1px; height:12px; background:rgba(141,25,200,0.28); }
+            </style>
+
+            <!-- Atmospheric layers -->
+            <div class="ss-footer-glow-1"></div>
+            <div class="ss-footer-glow-2"></div>
+            <div class="ss-footer-glow-3"></div>
+            <div class="ss-footer-dots"></div>
+            <div class="ss-footer-top-line"></div>
+
+            <!-- ── FOOTER BODY ── -->
+            <div class="ss-footer-body">
+                <div class="ss-footer-grid">
+
+                    <!-- Brand Column -->
+                    <div>
+                        <a href="#" onclick="showPage('home'); return false;" style="display:inline-block;text-decoration:none;">
+                            <img src="snipwhite.png" alt="StorySnip Media" class="ss-footer-logo-img" />
                         </a>
+                        <p class="ss-footer-tagline">A brand &amp; content studio crafting stories that scale — through video, visuals, and strategy that converts.</p>
 
-                        <!-- Short tagline / descriptor -->
-                        <p style="font-family:'Manrope',sans-serif;font-size:13px;color:rgba(255,255,255,0.42);line-height:1.7;margin:0;max-width:280px;">A brand & content studio crafting stories that scale — through video, visuals, and strategy.</p>
+                        <div class="ss-footer-contact-strip">
+                            <div class="ss-footer-contact-item">
+                                <div class="ss-footer-contact-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(211,142,234,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                                <span class="ss-footer-contact-text">storysnipmedia@gmail.com</span>
+                            </div>
+                            <div class="ss-footer-contact-item">
+                                <div class="ss-footer-contact-icon">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(211,142,234,0.85)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <span class="ss-footer-contact-text">India 🇮🇳 — Available Worldwide</span>
+                            </div>
+                        </div>
 
-                        <!-- Social icons row -->
-                        <div style="display:flex;gap:12px;align-items:center;margin-top:2px;">
-
-                            <!-- Instagram -->
-                            <a href="#" aria-label="Instagram" style="
-                                display:inline-flex;align-items:center;justify-content:center;
-                                width:42px;height:42px;border-radius:12px;
-                                background:rgba(161,48,197,0.10);
-                                border:1px solid rgba(161,48,197,0.28);
-                                color:rgba(255,255,255,0.65);
-                                text-decoration:none;
-                                transition:all 0.25s ease;
-                            " onmouseover="this.style.background='rgba(161,48,197,0.28)';this.style.borderColor='rgba(161,48,197,0.70)';this.style.color='#fff';this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 20px rgba(161,48,197,0.35)'" onmouseout="this.style.background='rgba(161,48,197,0.10)';this.style.borderColor='rgba(161,48,197,0.28)';this.style.color='rgba(255,255,255,0.65)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                                </svg>
+                        <div class="ss-footer-socials">
+                            <a href="#" aria-label="Instagram" class="ss-social-icon">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                             </a>
-
-                            <!-- YouTube -->
-                            <a href="#" aria-label="YouTube" style="
-                                display:inline-flex;align-items:center;justify-content:center;
-                                width:42px;height:42px;border-radius:12px;
-                                background:rgba(161,48,197,0.10);
-                                border:1px solid rgba(161,48,197,0.28);
-                                color:rgba(255,255,255,0.65);
-                                text-decoration:none;
-                                transition:all 0.25s ease;
-                            " onmouseover="this.style.background='rgba(161,48,197,0.28)';this.style.borderColor='rgba(161,48,197,0.70)';this.style.color='#fff';this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 20px rgba(161,48,197,0.35)'" onmouseout="this.style.background='rgba(161,48,197,0.10)';this.style.borderColor='rgba(161,48,197,0.28)';this.style.color='rgba(255,255,255,0.65)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/>
-                                </svg>
+                            <a href="#" aria-label="YouTube" class="ss-social-icon">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor" stroke="none"/></svg>
                             </a>
-
-                            <!-- LinkedIn -->
-                            <a href="#" aria-label="LinkedIn" style="
-                                display:inline-flex;align-items:center;justify-content:center;
-                                width:42px;height:42px;border-radius:12px;
-                                background:rgba(161,48,197,0.10);
-                                border:1px solid rgba(161,48,197,0.28);
-                                color:rgba(255,255,255,0.65);
-                                text-decoration:none;
-                                transition:all 0.25s ease;
-                            " onmouseover="this.style.background='rgba(161,48,197,0.28)';this.style.borderColor='rgba(161,48,197,0.70)';this.style.color='#fff';this.style.transform='translateY(-3px)';this.style.boxShadow='0 6px 20px rgba(161,48,197,0.35)'" onmouseout="this.style.background='rgba(161,48,197,0.10)';this.style.borderColor='rgba(161,48,197,0.28)';this.style.color='rgba(255,255,255,0.65)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
-                                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-                                </svg>
+                            <a href="#" aria-label="LinkedIn" class="ss-social-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
                             </a>
-
+                            <a href="https://wa.me/919014932751" target="_blank" aria-label="WhatsApp" class="ss-social-icon" style="border-color:rgba(37,211,102,0.25);color:rgba(155,240,180,0.70);">
+                                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Navigation -->
-                    <div class="md:col-span-2 md:col-start-6">
-                        <h4 style="font-family:'Manrope',sans-serif;font-size:16px;font-weight:600;margin-bottom:22px;letter-spacing:0.03em;background:linear-gradient(135deg,#C73BE7 0%,#8D19C8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;font-size:11px;letter-spacing:0.12em;">Navigation</h4>
-                        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-family:'Manrope',sans-serif;font-size:14px;">
-                            <li><button onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'});" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>Home</button></li>
-                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>About</button></li>
-                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>Expertise</button></li>
-                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>Process</button></li>
-                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>Projects</button></li>
-                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>Work</button></li>
-                            <li><button onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>Contact</button></li>
+                    <!-- Navigation Column -->
+                    <div>
+                        <h4 class="ss-footer-col-heading">Navigate</h4>
+                        <ul class="ss-footer-nav-list">
+                            <li><button class="ss-footer-nav-btn" onclick="showPage('home'); window.scrollTo({top:0,behavior:'smooth'});">Home</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showPage('home'); setTimeout(()=>document.getElementById('about-brand').scrollIntoView({behavior:'smooth'}),300);">About</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showPage('home'); setTimeout(()=>document.getElementById('expertiseGrid').closest('section').scrollIntoView({behavior:'smooth'}),300);">Expertise</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showPage('home'); setTimeout(()=>document.getElementById('how-we-work-home').scrollIntoView({behavior:'smooth'}),300);">Process</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showPage('home'); setTimeout(()=>document.getElementById('projects-home').scrollIntoView({behavior:'smooth'}),300);">Projects</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showPage('home'); setTimeout(()=>document.getElementById('recent-works-home').scrollIntoView({behavior:'smooth'}),300);">Work</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);">Contact</button></li>
                         </ul>
                     </div>
 
-                    <!-- Services -->
-                    <div class="md:col-span-2">
-                        <h4 style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:600;margin-bottom:22px;letter-spacing:0.12em;background:linear-gradient(135deg,#C73BE7 0%,#8D19C8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;">Services</h4>
-                        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-family:'Manrope',sans-serif;font-size:14px;">
-                            <li><button onclick="showServiceDetail('video')" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>Video Editing</button></li>
-                            <li><button onclick="showServiceDetail('social')" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>Social Media</button></li>
-                            <li><button onclick="showServiceDetail('creative')" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>Content Creation</button></li>
-                            <li><button onclick="showServiceDetail('branding')" style="background:none;border:none;color:rgba(255,255,255,0.60);cursor:pointer;padding:0;font-family:inherit;font-size:inherit;transition:all 0.2s;display:flex;align-items:center;gap:7px;" onmouseover="this.style.color='#C73BE7';this.style.paddingLeft='5px'" onmouseout="this.style.color='rgba(255,255,255,0.60)';this.style.paddingLeft='0'"><span style="width:5px;height:5px;border-radius:50%;background:#8D19C8;opacity:0.5;flex-shrink:0;"></span>Branding</button></li>
+                    <!-- Services Column -->
+                    <div>
+                        <h4 class="ss-footer-col-heading">Services</h4>
+                        <ul class="ss-footer-nav-list">
+                            <li><button class="ss-footer-nav-btn" onclick="showServiceDetail('social');">Social Media Mgmt</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showServiceDetail('video');">Video Editing</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showServiceDetail('creative');">Content Creation</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showServiceDetail('branding');">Branding</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showServiceDetail('marketing');">Marketing Consult</button></li>
+                            <li><button class="ss-footer-nav-btn" onclick="showServiceDetail('brandstrategy');">Brand Strategy</button></li>
                         </ul>
                     </div>
 
-                    <!-- CTA / Contact column -->
-                    <div class="md:col-span-2">
-                        <h4 style="font-family:'Manrope',sans-serif;font-size:11px;font-weight:600;margin-bottom:22px;letter-spacing:0.12em;background:linear-gradient(135deg,#C73BE7 0%,#8D19C8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;">Get In Touch</h4>
-                        <p style="font-family:'Manrope',sans-serif;font-size:13px;color:rgba(255,255,255,0.45);line-height:1.7;margin:0 0 18px;">Ready to grow your brand? Let's create something remarkable together.</p>
-                        <button onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);" style="
-                            display:inline-flex;align-items:center;gap:8px;
-                            padding:11px 22px;
-                            background:linear-gradient(135deg,#8D19C8 0%,#7B16B5 100%);
-                            color:#fff;
-                            border:none;
-                            border-radius:999px;
-                            font-family:'Manrope',sans-serif;font-size:13px;font-weight:700;
-                            cursor:pointer;
-                            box-shadow:0 4px 20px rgba(161,48,197,0.40);
-                            transition:all 0.25s ease;
-                            letter-spacing:0.02em;
-                        " onmouseover="this.style.background='linear-gradient(135deg,#b840d8 0%,#8e22cc 100%)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(161,48,197,0.55)'" onmouseout="this.style.background='linear-gradient(135deg,#8D19C8 0%,#7B16B5 100%)';this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(161,48,197,0.40)'">
+                    <!-- Contact / CTA mini column -->
+                    <div class="ss-footer-cta-mini">
+                        <h4 class="ss-footer-col-heading">Get In Touch</h4>
+                        <p class="ss-footer-cta-mini-text">Ready to grow your brand? Let's create something remarkable together — book a free call today.</p>
+                        <button class="ss-footer-mini-cta-btn" onclick="showPage('home'); setTimeout(()=>document.getElementById('contact-home').scrollIntoView({behavior:'smooth'}),300);">
                             Start a Project
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </button>
+                        <a href="https://wa.me/919014932751" target="_blank" class="ss-footer-wa-link">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            Chat on WhatsApp
+                        </a>
                     </div>
 
                 </div>
-
-                <!-- Divider with glow dot -->
-                <div style="position:relative;border-top:1px solid rgba(161,48,197,0.18);margin-bottom:0;">
-                    <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:60px;height:2px;background:linear-gradient(90deg,transparent,rgba(211,142,234,0.9),transparent);border-radius:1px;"></div>
-                </div>
-
-                <!-- Bottom bar -->
-                <div style="padding:18px 0 24px;display:flex;flex-direction:row;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-                    <p style="font-family:'Manrope',sans-serif;font-size:12px;color:rgba(255,255,255,0.28);margin:0;letter-spacing:0.02em;">© 2026 StorySnip Media. All Rights Reserved.</p>
-                    <div style="display:flex;gap:20px;align-items:center;">
-                        <button onclick="showPage('privacy')" style="background:none;border:none;font-family:'Manrope',sans-serif;font-size:12px;color:rgba(255,255,255,0.28);cursor:pointer;padding:0;transition:color 0.2s;letter-spacing:0.02em;" onmouseover="this.style.color='#8D19C8'" onmouseout="this.style.color='rgba(255,255,255,0.28)'">Privacy Policy</button>
-                        <span style="width:1px;height:12px;background:rgba(161,48,197,0.25);display:inline-block;"></span>
-                        <button onclick="showPage('terms')" style="background:none;border:none;font-family:'Manrope',sans-serif;font-size:12px;color:rgba(255,255,255,0.28);cursor:pointer;padding:0;transition:color 0.2s;letter-spacing:0.02em;" onmouseover="this.style.color='#8D19C8'" onmouseout="this.style.color='rgba(255,255,255,0.28)'">Terms & Conditions</button>
-                    </div>
-                </div>
-
             </div>
+
+            <!-- Divider -->
+            <div class="ss-footer-divider" style="margin:0 48px;"></div>
+            <div style="margin:0 48px;" class="footer-mobile-divider-margin"></div>
+
+            <!-- Bottom bar -->
+            <div class="ss-footer-bottom">
+                <div class="ss-footer-copyright">
+                    <span class="ss-footer-copyright-dot"></span>
+                    <p class="ss-footer-copyright-text">© 2026 StorySnip Media. All rights reserved. Made with ❤️ in India.</p>
+                </div>
+                <div class="ss-footer-legal">
+                    <button class="ss-footer-legal-btn" onclick="showPage('privacy')">Privacy Policy</button>
+                    <span class="ss-footer-legal-sep"></span>
+                    <button class="ss-footer-legal-btn" onclick="showPage('terms')">Terms & Conditions</button>
+                </div>
+            </div>
+
         </footer>
     </div>
 
@@ -5027,16 +6888,17 @@ ${message}
 
         /* Avatar */
         #engageBar .eb-avatar {
-            width: 38px; height: 38px;
+            width: 42px; height: 42px;
             border-radius: 50%;
             background: #ffffff;
             border: 2px solid rgba(161,48,197,0.5);
             display: flex; align-items: center; justify-content: center;
-            font-size: 15px;
             flex-shrink: 0;
             overflow: hidden;
+            padding: 3px;
+            box-sizing: border-box;
         }
-        #engageBar .eb-avatar img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+        #engageBar .eb-avatar img { width:100%; height:100%; object-fit:contain; border-radius:50%; display:block; }
 
         /* Text block */
         #engageBar .eb-text { display:flex; flex-direction:column; gap:1px; }
@@ -5129,11 +6991,10 @@ ${message}
     </style>
 
     <div id="engageBar">
-        <!-- Avatar -->
-        <div class="eb-avatar">
-            <div style="font-family:'Manrope',sans-serif;font-size:20px;font-weight:800;display:flex;align-items:baseline;">
-                            <span style="background:linear-gradient(135deg,#C73BE7 0%,#8D19C8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:italic;font-size:24px;">S</span><span style="color:#fff;">torySnip</span>
-                        </div>
+        <!-- Avatar: StorySnip logo mark inside white circle -->
+        <div class="eb-avatar" style="background:#ffffff;padding:3px;">
+            <img src="storysnip-logo-mark.png" alt="StorySnip Media"
+                 style="width:100%;height:100%;object-fit:contain;border-radius:50%;display:block;" />
         </div>
 
         <!-- Title + sub -->
@@ -5298,13 +7159,7 @@ ${message}
             serviceDetailSwiper = new Swiper(".serviceDetailSwiper", { spaceBetween: 0, effect: "slide", loop: true, autoplay: { delay: 3000 }, pagination: { el: ".serviceDetailSwiper .swiper-pagination", clickable: true }, navigation: { nextEl: ".serviceDetailSwiper .swiper-button-next", prevEl: ".serviceDetailSwiper .swiper-button-prev" } });
         }, 150);
     }
-
-    function closeMobile() {
-        document.getElementById('mobile-menu').classList.remove('mob-open');
-        document.body.style.overflow = '';
-    }
-
-    // ── Init: loading screen — perfectly linear 0→100 in 2s ─────────────
+// ── Init: loading screen — perfectly linear 0→100 in 2s ─────────────
     (function () {
         const loaderEl  = document.getElementById('loader');
         const percentEl = document.getElementById('loaderPercent');
@@ -5377,14 +7232,6 @@ ${message}
     const container = document.getElementById('ba-container'); const afterLayer = document.getElementById('ba-after'); const handle = document.getElementById('ba-handle'); const afterImg = document.getElementById('ba-after-img'); let isDragging = false;
     const drag = (e) => { if (!isDragging) return; const rect = container.getBoundingClientRect(); let x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left; x = Math.max(0, Math.min(x, rect.width)); const percent = (x / rect.width) * 100; afterLayer.style.width = `${percent}%`; handle.style.left = `${percent}%`; };
     if (container) { container.addEventListener('mousedown', () => isDragging = true); window.addEventListener('mouseup', () => isDragging = false); window.addEventListener('mousemove', drag); container.addEventListener('touchstart', () => isDragging = true, { passive: true }); window.addEventListener('touchend', () => isDragging = false); window.addEventListener('touchmove', drag, { passive: true }); const ro = new ResizeObserver(() => { afterImg.style.width = `${container.offsetWidth}px`; }); ro.observe(container); }
-
-
-        // Mobile menu
-    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-        document.getElementById('mobile-menu').classList.add('mob-open');
-        document.body.style.overflow = 'hidden';
-    });
-    document.getElementById('mobile-close').addEventListener('click', closeMobile);
 
     // ══════════════════════════════════════════════════════════════════
     // OUR EXPERTISE — Animated Cards + Beautiful Popup Modal
@@ -5758,5 +7605,717 @@ ${message}
         updateNav();
     })();
     </script>
+
+<!-- ═══════════════════════════════════════════════════════
+     SMART ANIMATION ENGINE
+     ═══════════════════════════════════════════════════════ -->
+<script>
+(function() {
+    'use strict';
+
+    /* ── 1. Scroll progress bar ── */
+    const progressBar = document.getElementById('scroll-progress');
+    if (progressBar) {
+        const updateProgress = () => {
+            const s = document.documentElement;
+            const pct = (s.scrollTop / (s.scrollHeight - s.clientHeight)) * 100;
+            progressBar.style.width = Math.min(pct, 100) + '%';
+        };
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress, { passive: true });
+    }
+
+
+
+    /* ── 3. Particle canvas in hero ── */
+    function initHeroParticles() {
+        const canvas = document.getElementById('hero-particles');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const hero = canvas.parentElement;
+
+        function resize() {
+            canvas.width  = hero.offsetWidth;
+            canvas.height = hero.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize, { passive: true });
+
+        const N = window.innerWidth < 600 ? 28 : 55;
+        const particles = Array.from({ length: N }, () => ({
+            x:     Math.random() * canvas.width,
+            y:     Math.random() * canvas.height,
+            r:     0.7 + Math.random() * 1.8,
+            vx:    (Math.random() - 0.5) * 0.28,
+            vy:    (Math.random() - 0.5) * 0.28,
+            alpha: 0.12 + Math.random() * 0.38,
+            hue:   260 + (Math.random() - 0.5) * 55
+        }));
+
+        // Connections
+        function drawConnections() {
+            const max = 100;
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const d  = Math.sqrt(dx*dx + dy*dy);
+                    if (d < max) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(141,25,200,${0.07 * (1 - d/max)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        let animRunning = true;
+        function draw() {
+            if (!animRunning) return;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawConnections();
+            particles.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0) p.x = canvas.width;
+                if (p.x > canvas.width) p.x = 0;
+                if (p.y < 0) p.y = canvas.height;
+                if (p.y > canvas.height) p.y = 0;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `hsla(${p.hue}, 75%, 72%, ${p.alpha})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+
+        // Stop when hero leaves viewport (perf)
+        const io = new IntersectionObserver(e => {
+            animRunning = e[0].isIntersecting;
+            if (animRunning) draw();
+        });
+        io.observe(hero);
+    }
+    initHeroParticles();
+
+    /* ── 4. Ripple click effect ── */
+    function addRipple(el) {
+        if (!el || el._rippled) return;
+        el._rippled = true;
+        el.classList.add('ripple-host');
+        el.addEventListener('click', function(e) {
+            const rect = el.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height) * 2;
+            const rip  = document.createElement('span');
+            rip.className = 'ripple-wave';
+            rip.style.cssText = `width:${size}px;height:${size}px;top:${e.clientY-rect.top-size/2}px;left:${e.clientX-rect.left-size/2}px`;
+            el.appendChild(rip);
+            setTimeout(() => rip.remove(), 620);
+        });
+    }
+    document.querySelectorAll(
+        '.primary-button,.nav-cta-btn,.nav-cta,.eb-follow,.exp-modal-cta-btn,button[type="submit"]'
+    ).forEach(addRipple);
+
+    /* ── 5. Shine sweep ── */
+    document.querySelectorAll('.proj-card,.exp-card,.brand-stage,.service-card,.am-skill-card').forEach(el => {
+        el.classList.add('shine-wrap');
+    });
+
+    /* ── 6. Service card stagger reveal (IntersectionObserver) ── */
+    const svcObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const cards = entry.target.querySelectorAll('.service-card');
+            cards.forEach((c, i) => setTimeout(() => c.classList.add('svc-visible'), i * 70));
+            svcObs.unobserve(entry.target);
+        });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('.service-layout,.service-column').forEach(el => svcObs.observe(el));
+
+    /* ── 7. Animated counter ── */
+    function animCount(el, target, duration) {
+        const suffix = el.dataset.suffix || '';
+        const isFloat = String(target).includes('.');
+        const start = performance.now();
+        function step(now) {
+            const p = Math.min((now - start) / duration, 1);
+            const e = 1 - Math.pow(1 - p, 3);
+            const v = e * target;
+            el.textContent = (isFloat ? v.toFixed(1) : Math.floor(v)) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+            else {
+                el.textContent = target + suffix;
+                el.classList.add('count-pop');
+                setTimeout(() => el.classList.remove('count-pop'), 350);
+            }
+        }
+        requestAnimationFrame(step);
+    }
+    const cntObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting || entry.target._counted) return;
+            entry.target._counted = true;
+            const raw = entry.target.dataset.target;
+            if (!raw) return;
+            animCount(entry.target, parseFloat(raw), 1100);
+        });
+    }, { threshold: 0.6 });
+    document.querySelectorAll('[data-target]').forEach(el => cntObs.observe(el));
+
+    /* ── 8. Card tilt on mouse (desktop) ── */
+    if (window.innerWidth > 900 && !window.matchMedia('(pointer: coarse)').matches) {
+        function addTilt(el, deg) {
+            el.classList.add('tilt-host');
+            el.addEventListener('mousemove', e => {
+                const r  = el.getBoundingClientRect();
+                const dx = (e.clientX - r.left - r.width / 2)  / (r.width / 2);
+                const dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+                el.style.transform = `perspective(560px) rotateY(${dx*deg}deg) rotateX(${-dy*deg}deg) translateY(-5px) scale(1.012)`;
+            });
+            el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+        }
+        document.querySelectorAll('.proj-card').forEach(el => addTilt(el, 6));
+        document.querySelectorAll('.exp-card').forEach(el  => addTilt(el, 5));
+        document.querySelectorAll('.am-skill-card').forEach(el => addTilt(el, 4));
+    }
+
+    /* ── 9. Magnetic buttons (desktop) ── */
+    if (window.innerWidth > 900) {
+        function addMagnetic(el, str) {
+            str = str || 0.32;
+            el.addEventListener('mousemove', e => {
+                const r  = el.getBoundingClientRect();
+                const x  = (e.clientX - r.left - r.width / 2)  * str;
+                const y  = (e.clientY - r.top  - r.height / 2) * str;
+                el.style.transform = `translate(${x}px, ${y}px)`;
+            });
+            el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+        }
+        document.querySelectorAll('.nav-cta-btn,.primary-button,.eb-follow').forEach(el => addMagnetic(el, 0.26));
+    }
+
+    /* ── 10. Page transition flash ── */
+    const ptEl = document.getElementById('page-transition');
+    const _origShowPage = window.showPage;
+    if (ptEl && typeof _origShowPage === 'function') {
+        window.showPage = function(page) {
+            ptEl.classList.add('ptf');
+            setTimeout(() => { ptEl.classList.remove('ptf'); }, 290);
+            _origShowPage(page);
+        };
+    }
+
+    /* ── 11. Fast AOS init ── */
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 480,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+            once: true,
+            offset: 36,
+            delay: 0
+        });
+    }
+
+    /* ── 12. Scroll-triggered section reveals (generic) ── */
+    const revealObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity    = '1';
+                entry.target.style.transform  = 'translateY(0)';
+                revealObs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll(
+        '.am-skill-card:not(.hero-anim-0), .rw-work-item, .timeline-card, .contact-card'
+    ).forEach(el => {
+        if (getComputedStyle(el).opacity !== '0') return; // skip if already animated
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)';
+        el.style.transform  = 'translateY(24px)';
+        el.style.opacity    = '0';
+        revealObs.observe(el);
+    });
+
+    /* ── 13. Mobile touch: service card reveal on scroll ── */
+    if (window.innerWidth <= 860) {
+        const allSvc = document.querySelectorAll('.service-card');
+        const svcTouch = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('svc-visible');
+                    svcTouch.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        allSvc.forEach(c => svcTouch.observe(c));
+    }
+
+    /* ── 14. Nav link shimmer on hover ── */
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            this.style.transition = 'color 0.2s ease';
+        });
+    });
+
+    /* ── 15. Expertise card entrance (faster stagger) ── */
+    const expObs = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const cards = entry.target.querySelectorAll('.exp-card');
+            cards.forEach((c, i) => {
+                c.style.animationDelay = (i * 0.07) + 's';
+            });
+            expObs.unobserve(entry.target);
+        });
+    }, { threshold: 0.05 });
+    document.querySelectorAll('#expertiseGrid, #expertiseGridServices').forEach(g => expObs.observe(g));
+
+
+
+})();
+</script>
+
+<script>
+/* ════════════════════════════════════════════════════════
+   STORYSNIP MOBILE UX ENHANCEMENTS
+   ════════════════════════════════════════════════════════ */
+(function() {
+
+    /* ── 1. Touch-friendly: add 'touch' class on touch devices ── */
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        document.documentElement.classList.add('is-touch');
+    }
+
+    /* ── 2. Prevent double-tap zoom on buttons/links ── */
+    document.querySelectorAll('button, a, .service-card, .exp-card, .proj-card').forEach(function(el) {
+        el.addEventListener('touchend', function(e) {
+            // Only prevent default if not a link that needs navigation
+            if (!el.href && !el.onclick) e.preventDefault();
+        }, { passive: false });
+    });
+
+    /* ── 3. Smooth scroll offset for fixed navbar ── */
+    var navHeight = document.getElementById('navbar') ? document.getElementById('navbar').offsetHeight : 80;
+    function scrollToEl(el) {
+        if (!el) return;
+        var top = el.getBoundingClientRect().top + window.pageYOffset - navHeight - 12;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+
+    /* ── 4. Engagement bar: hide when mobile nav is open ── */
+    var engageBar = document.getElementById('engageBar');
+    var mobileDrawer = document.getElementById('mobile-nav-drawer');
+    if (engageBar && mobileDrawer) {
+        var obs = new MutationObserver(function() {
+            engageBar.style.opacity = mobileDrawer.classList.contains('open') ? '0' : '1';
+            engageBar.style.pointerEvents = mobileDrawer.classList.contains('open') ? 'none' : '';
+        });
+        obs.observe(mobileDrawer, { attributes: true, attributeFilter: ['class'] });
+    }
+
+    /* ── 5. Navbar height adjustment for mobile ── */
+    function updateNavHeight() {
+        var nav = document.getElementById('navbar');
+        if (!nav) return;
+        var h = nav.offsetHeight;
+        document.documentElement.style.setProperty('--nav-height', h + 'px');
+    }
+    updateNavHeight();
+    window.addEventListener('resize', updateNavHeight, { passive: true });
+
+    /* ── 6. Add touch ripple effect on cards ── */
+    function addRipple(el) {
+        el.style.position = 'relative';
+        el.style.overflow = 'hidden';
+        el.addEventListener('touchstart', function(e) {
+            var rect = el.getBoundingClientRect();
+            var touch = e.touches[0];
+            var x = touch.clientX - rect.left;
+            var y = touch.clientY - rect.top;
+            var ripple = document.createElement('span');
+            ripple.style.cssText = [
+                'position:absolute',
+                'border-radius:50%',
+                'background:rgba(161,48,197,0.18)',
+                'width:2px', 'height:2px',
+                'left:' + x + 'px',
+                'top:' + y + 'px',
+                'transform:scale(0)',
+                'animation:mobileRipple 0.55s ease-out forwards',
+                'pointer-events:none',
+                'z-index:100'
+            ].join(';');
+            el.appendChild(ripple);
+            setTimeout(function() { ripple.remove(); }, 600);
+        }, { passive: true });
+    }
+
+    /* ── 7. Fix: prevent body scroll when mobile nav is open ── */
+    document.addEventListener('touchmove', function(e) {
+        var drawer = document.getElementById('mobile-nav-drawer');
+        if (drawer && drawer.classList.contains('open') && !drawer.contains(e.target)) {
+            e.preventDefault();
+        }
+    }, { passive: false });
+
+})();
+</script>
+
+<style>
+/* ── Mobile Ripple Animation ── */
+@keyframes mobileRipple {
+    to { transform: scale(120); opacity: 0; }
+}
+
+/* ── Touch device hover-free experience ── */
+.is-touch .proj-card:hover,
+.is-touch .service-card:hover,
+.is-touch .exp-card:hover,
+.is-touch .rw-stat-box:hover {
+    transform: none !important;
+}
+
+/* ── Smooth scrolling for anchor links ── */
+html { scroll-padding-top: var(--nav-height, 80px); }
+
+/* ── Mobile nav active state ── */
+#mobile-nav-drawer a.active-page {
+    color: #D875F2 !important;
+}
+
+/* ── Ensure marquee doesn't cause horizontal scroll ── */
+.overflow-hidden { overflow: hidden !important; }
+body { overflow-x: hidden !important; max-width: 100vw; }
+
+/* ── Better tap targets on mobile ── */
+@media (max-width: 768px) {
+    .nav-link, #mobile-nav-drawer a, #mobile-nav-drawer button { min-height: 44px; }
+    input, select, textarea, button { min-height: 44px; }
+    .eb-follow, .eb-like { min-height: 34px; }
+    .ss-footer-divider { margin: 0 20px !important; }
+    .footer-mobile-divider-margin { margin: 0 20px !important; }
+}
+
+/* ── Typography refinements for small screens ── */
+@media (max-width: 768px) {
+    .hero-description br { display: none; }
+    .rw-work-desc { max-width: 100% !important; }
+    .proj-info { padding: 14px 16px 16px !important; }
+    .proj-title { font-size: 15px !important; }
+    .proj-desc { font-size: 11px !important; }
+    .section-h2 { font-size: clamp(24px, 6.5vw, 38px); }
+}
+
+/* ── Grid improvements for tablet ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .am-skills-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    #projects-home .grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .footer-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .rw-stat-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    #about-brand .grid.grid-cols-1.sm\:grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* ── Logo card mobile: compact view ── */
+@media (max-width: 768px) {
+    .logo-card { padding: 20px 16px 18px !important; }
+    .stage-symbol { font-size: 48px !important; line-height: 0.7 !important; }
+    .stage-logo strong { font-size: 30px !important; }
+    .stage-logo small { font-size: 10px !important; letter-spacing: 4px !important; }
+    .brand-stage-inner > p { font-size: 12px !important; margin-top: 16px !important; }
+    .stage-arrow { font-size: 22px !important; }
+}
+
+/* ── Recent works: mobile content area ── */
+@media (max-width: 768px) {
+    .rw-content-area { padding: 0 !important; }
+    .rw-work-tag { font-size: 9px !important; letter-spacing: 2px !important; }
+}
+
+/* ── Skills / Expertise cards tablet refinement ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .exp-card { min-height: 160px !important; }
+}
+
+/* ── Contact form mobile improvements ── */
+@media (max-width: 768px) {
+    #contact-home .bg-brand-dark { padding: 24px 16px !important; }
+    #contact-home form .grid.grid-cols-1.md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+    #contact-home .space-y-6 { margin-bottom: 24px !important; }
+}
+</style>
+
+
+<style id="ss-mobile-tablet-fixes">
+/* ═══════════════════════════════════════════════════════════
+   COMPREHENSIVE MOBILE & TABLET LAYOUT FIXES
+   Targets issues seen in screenshots:
+   - Truncated "Social Media Managem" card title
+   - Cards overflowing viewport on mobile
+   - CTA section (Send on WhatsApp / Start a Project) layout
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── GLOBAL: Prevent any horizontal overflow ── */
+#expertise-section,
+.exp-carousel-wrap,
+.exp-carousel-wrap > * {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+}
+
+/* ── Card title: never truncate, always wrap ── */
+.exp-card-title {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+}
+
+/* ═══════════════════
+   MOBILE  (≤ 640px)
+   ═══════════════════ */
+@media (max-width: 640px) {
+
+    /* --- Expertise section padding tight so card gets full width --- */
+    #expertise-section {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+        overflow: hidden !important;
+    }
+
+    /* --- carousel container flush --- */
+    .exp-carousel-wrap {
+        overflow: hidden !important;
+        width: 100% !important;
+    }
+
+    /* --- single card fills available width --- */
+    #expertiseGrid {
+        gap: 0 !important;
+        padding: 8px 0 20px !important;
+    }
+    #expertiseGrid .exp-card {
+        flex: 0 0 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        padding: 24px 20px 22px !important;
+        border-radius: 20px !important;
+    }
+
+    /* --- card internals on mobile --- */
+    .exp-card-icon {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 24px !important;
+        border-radius: 14px !important;
+        margin-bottom: 14px !important;
+    }
+    .exp-card-title {
+        font-size: 18px !important;
+        margin-bottom: 8px !important;
+    }
+    .exp-card-desc {
+        font-size: 13px !important;
+        line-height: 1.65 !important;
+        margin-bottom: 16px !important;
+    }
+    .exp-card-tags {
+        gap: 6px !important;
+        margin-bottom: 16px !important;
+    }
+    .exp-tag {
+        font-size: 9px !important;
+        padding: 5px 11px !important;
+        letter-spacing: 1px !important;
+    }
+    .exp-card-cta {
+        font-size: 10px !important;
+        padding: 9px 16px !important;
+    }
+
+    /* --- nav row arrows + dots tighter on mobile --- */
+    .exp-nav-row {
+        margin-top: 20px !important;
+        gap: 12px !important;
+    }
+    .exp-nav-arrow {
+        width: 44px !important;
+        height: 44px !important;
+    }
+
+    /* --- "What We Create" heading section --- */
+    #expertise-section .text-center h2 {
+        font-size: clamp(26px, 7vw, 36px) !important;
+    }
+    #expertise-section .text-center p {
+        font-size: 13px !important;
+        padding: 0 8px !important;
+    }
+
+    /* --- CTA / WhatsApp section on mobile (second screenshot) --- */
+    /* "Send on WhatsApp" button full width + centered */
+    a[href*="wa.me"],
+    a[href*="whatsapp"],
+    button[onclick*="whatsapp"],
+    .whatsapp-btn {
+        width: 100% !important;
+        max-width: 320px !important;
+        display: flex !important;
+        justify-content: center !important;
+        margin: 0 auto 12px !important;
+        font-size: 15px !important;
+        padding: 14px 20px !important;
+    }
+
+    /* "READY TO GROW?" CTA card on mobile */
+    .contact-section,
+    [id*="cta"],
+    [class*="cta-section"] {
+        padding: 48px 16px !important;
+    }
+
+    /* Start a Project + WhatsApp Chat buttons stacked, full-width */
+    .hero-cta-bar {
+        flex-direction: column !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+        padding: 14px !important;
+        border-radius: 16px !important;
+    }
+    .hero-cta-bar a,
+    .hero-cta-bar button {
+        width: 100% !important;
+        justify-content: center !important;
+        text-align: center !important;
+        border-radius: 12px !important;
+        padding: 14px 20px !important;
+        font-size: 14px !important;
+    }
+}
+
+/* ═══════════════════
+   TABLET (641–1024px)
+   ═══════════════════ */
+@media (min-width: 641px) and (max-width: 1024px) {
+
+    /* --- Expertise section comfortable tablet padding --- */
+    #expertise-section {
+        padding-left: 28px !important;
+        padding-right: 28px !important;
+        overflow: hidden !important;
+    }
+
+    /* --- carousel: 2 cards per view, no overflow --- */
+    .exp-carousel-wrap {
+        overflow: hidden !important;
+    }
+
+    #expertiseGrid {
+        gap: 20px !important;
+        padding: 8px 2px 20px !important;
+    }
+    #expertiseGrid .exp-card {
+        flex: 0 0 calc(50% - 10px) !important;
+        min-width: calc(50% - 10px) !important;
+        max-width: calc(50% - 10px) !important;
+        padding: 28px 24px 24px !important;
+        border-radius: 22px !important;
+    }
+
+    /* --- card text size on tablet --- */
+    .exp-card-title {
+        font-size: 19px !important;
+    }
+    .exp-card-desc {
+        font-size: 13px !important;
+    }
+    .exp-tag {
+        font-size: 9.5px !important;
+        padding: 6px 13px !important;
+    }
+
+    /* --- nav arrows on tablet --- */
+    .exp-nav-arrow {
+        width: 48px !important;
+        height: 48px !important;
+    }
+    .exp-nav-row {
+        margin-top: 24px !important;
+    }
+
+    /* --- "What We Create" heading on tablet --- */
+    #expertise-section .text-center h2 {
+        font-size: clamp(30px, 5vw, 44px) !important;
+    }
+
+    /* --- CTA / contact section tablet --- */
+    .contact-card {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+        padding: 40px 32px !important;
+    }
+    .hero-cta-bar {
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+    .hero-cta-bar a,
+    .hero-cta-bar button {
+        flex: 1 !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+}
+</style>
+
+<style id="ss-body-final">
+/* Force all sections to be full-width with no orphaned left padding */
+@media (max-width: 768px) {
+  /* The main hero (old-style) */
+  .hero .container.hero-content {
+    width: 100% !important;
+    padding: 0 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* All Tailwind auto-margin containers must stay centered */
+  .mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
+  /* Kill any negative margins or overflows from orbit elements */
+  .hero-orbit, .orbit-one, .orbit-two { display: none !important; }
+
+  /* Center the "Who We Are" eyebrow row */
+  .flex.items-center.justify-center.gap-4 { width: 100% !important; }
+
+  /* Center how-we-work section headings */
+  #how-we-work-home h2,
+  #how-we-work-home .eyebrow,
+  #how-we-work-home p.text-gray-400,
+  #recent-works-home h2,
+  #recent-works-home .eyebrow,
+  #projects-home h2,
+  #projects-home .eyebrow {
+    text-align: center !important;
+  }
+
+  /* Service tag pill inside eyebrow row — center */
+  .flex.items-center.justify-center.gap-4.mb-3,
+  .flex.items-center.justify-center.gap-4.mb-6,
+  .flex.items-center.justify-center.gap-4.mb-8 {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+}
+</style>
+
 </body>
 </html>
